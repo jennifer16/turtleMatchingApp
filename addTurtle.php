@@ -130,12 +130,12 @@ header("location:login.php");
                         
                         <?php
                             if ($_SESSION['user_role']==1)
-                            { echo "<li><a href='#'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>" };
+                            { echo "<li><a href='#'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>"; }
                         ?>
                         
                         <?php
                             if ($_SESSION['user_role']==1)
-                            { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>" };
+                            { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
                         
                         <li><a href="#"><i class="zmdi zmdi-email"></i> ติดต่อเรา</a></li>
@@ -330,7 +330,7 @@ header("location:login.php");
       var $alert = $('.alertLeft');
       var $modal = $('#modalLeft');
       var cropper;
-      var newFilename;
+      var newFilenameLeft;
       $('[data-toggle="tooltip"]').tooltip();
 
       input.addEventListener('change', function (e) {
@@ -345,20 +345,19 @@ header("location:login.php");
         var file;
         var url;
         var filename;
-        var newFilenameLeft;
 
         if (files && files.length > 0) {
           file = files[0];
           filename = file.name;
-          $fileext = filename.split('.').pop();
+          var fileext = filename.split('.').pop();
           var text = "";
           var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
           for (var i = 0; i < 10; i++)
              text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-          $newFilename = text+'.'+$fileext;
-          document.getElementById("filenameLeft").value = $newFilenameLeft;
+          newFilenameLeft = text+'.'+$ileext;
+          document.getElementById("filenameLeft").value = newFilenameLeft;
 
           if (URL) {
             done(URL.createObjectURL(file));
@@ -450,135 +449,7 @@ header("location:login.php");
       });
     });
   </script>       
-        
-  <script>
-    window.addEventListener('DOMContentLoaded', function () {
-      var avatar = document.getElementById('avatarRight');
-      var image = document.getElementById('imageRight');
-      var input = document.getElementById('inputRight');
-      var $alert = $('.alertRight');
-      var $modal = $('#modalRight');
-      var cropper;
-      var newFilename;
-      $('[data-toggle="tooltip"]').tooltip();
-
-      input.addEventListener('change', function (e) {
-        var files = e.target.files;
-        var done = function (url) {
-          input.value = '';
-          image.src = url;
-          $alert.hide();
-          $modal.modal('show');
-        };
-        var reader;
-        var file;
-        var url;
-        var filename;
-        var newFilenameRight;
-
-        if (files && files.length > 0) {
-          file = files[0];
-          filename = file.name;
-          $fileext = filename.split('.').pop();
-          var text = "";
-          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-          for (var i = 0; i < 10; i++)
-             text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-          $newFilename = text+'.'+$fileext;
-          document.getElementById("filenameRight").value = $newFilenameLeft;
-
-          if (URL) {
-            done(URL.createObjectURL(file));
-          } else if (FileReader) {
-            reader = new FileReader();
-            reader.onload = function (e) {
-              done(reader.result);
-            };
-            reader.readAsDataURL(file);
-          }
-        }
-      });
-
-      $modal.on('shown.bs.modal', function () {
-        cropper = new Cropper(image, {
-          viewMode: 3,
-        });
-      }).on('hidden.bs.modal', function () {
-        cropper.destroy();
-        cropper = null;
-      });
-
-      document.getElementById('cropRight').addEventListener('click', function () {
-        var initialAvatarURL;
-        var canvas;
-
-        $modal.modal('hide');
-
-        if (cropper) {
-          canvas = cropper.getCroppedCanvas({
-          });
-
-          initialAvatarURL = avatar.src;
-          avatar.src = canvas.toDataURL();
-          //$progress.show();
-          $alert.removeClass('alert-success alert-warning');
-          canvas.toBlob(function (blob) {
-            var formData = new FormData();
-	
-            
-            formData.append('avatar', blob);
-            formData.append('filename', $newFilenameRight);
-
-            $.ajax('./saveImageForAdd.php', {
-              method: 'POST',
-              data: formData,
-              processData: false,
-              contentType: false,
-
-              xhr: function () {
-                var xhr = new XMLHttpRequest();
-
-                xhr.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        console.log(this.responseText);
-                    }
-                };
-              xhr.upload.onprogress = function (e) {
-                  var percent = '0';
-                  var percentage = '0%';
-
-                  if (e.lengthComputable) {
-                    percent = Math.round((e.loaded / e.total) * 100);
-                    percentage = percent + '%';
-                   // $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
-                  }
-                };
-
-                return xhr;
-              },
-
-              success: function () {
-               // $alert.show().addClass('alert-success').text('Upload success');
-                  console.log('success');
-              },
-
-              error: function () {
-                avatar.src = initialAvatarURL;
-                //$alert.show().addClass('alert-warning').text('Upload error');
-                  console.log('error');
-              },
-
-              complete: function () {
-               // $progress.hide();
-              },
-            });
-          });
-        }
-      });
-    });
-  </script>       
+              
     <script>
 var x = document.getElementById("latitude");
 var y = document.getElementById("longtitude");
