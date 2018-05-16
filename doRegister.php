@@ -11,7 +11,7 @@
     $role = 0;
 
     $sql = "INSERT INTO users (user_id, user_firstname, user_lastname, user_nickname, user_email, user_phone, user_role)
-VALUES ('".$id."', '".$firstname."', '".$lastname."' , '".$nickname.", '".$email."', '".$phone."', '".$role."')";
+VALUES ('".$id."', '".$firstname."', '".$lastname."' , '".$nickname."', '".$email."', '".$phone."', '".$role."')";
 
     if ($conn->query($sql) === TRUE) {
         $_SESSION['user_email'] = $email;
