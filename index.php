@@ -120,7 +120,7 @@ header("location:login.php");
                                 echo "<li class='navigation__sub'>";
                                 echo "<a href=''><i class='zmdi zmdi-collection-text'></i> จัดการข้อมูลเต่า</a>";
                                 echo "<ul>";
-                                echo "<li><a href=\"addTurtle.php\">เพิ่มข้อมูลเต่า</a></li>";
+                                echo "<li><a href='addTurtle.php'>เพิ่มข้อมูลเต่า</a></li>";
                                 echo "<li><a href=''>แก้ไขข้อมูลเต่า</a></li>";
                                 echo "<li><a href=''>ลบข้อมูลเต่า</a></li>";
                                 echo "</ul>";
@@ -129,12 +129,12 @@ header("location:login.php");
                         ?>
                         
                         <?php
-                            if ($_SESSION['user_role']=='1')
+                            if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>" };
                         ?>
                         
                         <?php
-                            if ($_SESSION['user_role']=='1')
+                            if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>" };
                         ?>
                         
