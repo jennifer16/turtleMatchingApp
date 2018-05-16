@@ -3,7 +3,7 @@
 require 'connect.php';
 session_start();
 if( !isset($_SESSION["user_id"]) ){
-header("location:login.php");
+    header("location:login.php");
 }
 ?>
 <html lang="en">
@@ -130,12 +130,12 @@ header("location:login.php");
                         
                         <?php
                             if ($_SESSION['user_role']==1)
-                            { echo "<li><a href='#'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>" };
+                            { echo "<li><a href='#'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>"; }
                         ?>
                         
                         <?php
                             if ($_SESSION['user_role']==1)
-                            { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>" };
+                            { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
                         
                         <li><a href="#"><i class="zmdi zmdi-email"></i> ติดต่อเรา</a></li>
