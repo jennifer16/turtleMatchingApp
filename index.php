@@ -46,6 +46,9 @@ header("location:login.php");
                 </div>
 
                 <ul class="top-nav">
+                    <li class="top=nav">
+                    <a href=''><i class="zmdi zmdi-camera-add"></i> </a>
+                    </li>
                     <li class="dropdown top-nav__notifications">
                         <a href="" data-toggle="dropdown" class="top-nav__notify">
                             <i class="zmdi zmdi-notifications"></i>
@@ -111,20 +114,27 @@ header("location:login.php");
                         <li><a href="#"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
                         
                         <li><a href="#"><i class="zmdi zmdi-camera-add"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
-
-                        <li class="navigation__sub">
-                            <a href=""><i class="zmdi zmdi-collection-text"></i> จัดการข้อมูลเต่า</a>
-
-                            <ul>
-                                <li><a href="#">เพิ่มข้อมูลเต่า</a></li>
-                                <li><a href="#">แก้ไขข้อมูลเต่า</a></li>
-                                <li><a href="#">ลบข้อมูลเต่า</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="#"><i class="zmdi zmdi-layers"></i> เต่าที่พบในธรรมชาติ</a></li>
+                        <?php
+                            if ($_SESSION['user_role']==1)
+                            {
+                                echo "<li class='navigation__sub'>";
+                                echo "<a href=''><i class='zmdi zmdi-collection-text'></i> จัดการข้อมูลเต่า</a>";
+                                echo "<ul>";
+                                echo "<li><a href=''>เพิ่มข้อมูลเต่า</a></li>";
+                                echo "<li><a href=''>แก้ไขข้อมูลเต่า</a></li>";
+                                echo "<li><a href=''>ลบข้อมูลเต่า</a></li>";
+                                echo "</ul>";
+                                echo "</li>";
+                            }
+                        ?>
                         
-                        <li><a href="#"><i class="zmdi zmdi-repeat"></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>
+                        <?php
+                            echo "<li><a href='#'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>";
+                        ?>
+                        
+                        <?php
+                            echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>";
+                        ?>
                         
                         <li><a href="#"><i class="zmdi zmdi-email"></i> ติดต่อเรา</a></li>
 
