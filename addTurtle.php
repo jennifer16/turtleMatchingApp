@@ -332,7 +332,7 @@ if( !isset($_SESSION["user_id"]) ){
   <script>
     window.addEventListener('DOMContentLoaded', function () {
       var avatar = document.getElementById('avatarLeft');
-      var image = document.getElementById('');
+      var image = document.getElementById('imageLeft');
       var input = document.getElementById('inputLeft');
       var $alert = $('.alertLeft');
       var $modal = $('#modalLeft');
