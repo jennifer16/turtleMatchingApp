@@ -194,7 +194,7 @@ if( !isset($_SESSION["user_id"]) ){
           </div>
           <div class="modal-body">
             <div class="img-container">
-              <img id="image" src="https://avatars0.githubusercontent.com/u/3456749">
+              <img id="imageLeft" src="https://avatars0.githubusercontent.com/u/3456749">
             </div>
           </div>
           <div class="modal-footer">
@@ -332,7 +332,7 @@ if( !isset($_SESSION["user_id"]) ){
   <script>
     window.addEventListener('DOMContentLoaded', function () {
       var avatar = document.getElementById('avatarLeft');
-      var image = document.getElementById('imageLeft');
+      var image = document.getElementById('');
       var input = document.getElementById('inputLeft');
       var $alert = $('.alertLeft');
       var $modal = $('#modalLeft');
