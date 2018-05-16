@@ -2,6 +2,8 @@
 $host = "localhost";
 $username = "root";
 $password = "Tu2tlem@tching";
-$conn = mysql_connect($host,$username,$password);
-echo $conn;
+$dbname = "turtle";
+$conn = new mysqli($host, $username, $password, $dbname );
+
 ?>
+

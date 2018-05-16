@@ -2,7 +2,10 @@
 
 <?php
 session_start();
+echo "stsrt";
+print_r($_SESSION);
 require_once __DIR__ . '/Facebook/autoload.php'; // change path as needed
+require 'connect.php';
 
 $fb = new \Facebook\Facebook([
   'app_id' => '161713021336907',
@@ -32,14 +35,15 @@ $loginUrl = $helper->getLoginUrl('https://studioxpert.com/turtleMatchingApp/fb-c
     </head>
 
     <body data-ma-theme="green">
+
         <div class="login">
 
             <!-- Login -->
             <div class="login__block active" id="l-login">
                 
                 <div class="login__block__header">
-                    <img src="<?php echo $_SESSION[user_picture]; ?>"/>
-                    ลงทะเบียนระบบคู่มือเต่าทะล
+                     <h1>ลงทะเบียนระบบคู่มือเต่าทะล</h1>
+                     <?php echo"test".$_SESSION['user_id']." ". $_SESSION['user_picture'];?>
                 </div>
                 <br>
                 <button onclick="window.location.href='<?php echo htmlspecialchars($loginUrl);?>'" id="login" type="button" class="btn btn-primary btn-outline btn-lg">เข้าสู่ระบบด้วย Facebook ></button>
