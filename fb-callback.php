@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/Facebook/autoload.php';
+require 'connect.php';
 
 $fb = new Facebook\Facebook([
   'app_id' => '161713021336907',
@@ -37,16 +38,16 @@ if (! isset($accessToken)) {
 }
 
 // Logged in
-echo '<h3>Access Token</h3>';
-var_dump($accessToken->getValue());
+//echo '<h3>Access Token</h3>';
+//var_dump($accessToken->getValue());
 
 // The OAuth 2.0 client handler helps us manage access tokens
 $oAuth2Client = $fb->getOAuth2Client();
 
 // Get the access token metadata from /debug_token
 $tokenMetadata = $oAuth2Client->debugToken($accessToken);
-echo '<h3>Metadata</h3>';
-var_dump($tokenMetadata);
+//echo '<h3>Metadata</h3>';
+//var_dump($tokenMetadata);
 
 // Validation (these will throw FacebookSDKException's when they fail)
 $tokenMetadata->validateAppId('161713021336907'); // Replace {app-id} with your app id
@@ -63,8 +64,8 @@ if (! $accessToken->isLongLived()) {
     exit;
   }
 
-  echo '<h3>Long-lived</h3>';
-  var_dump($accessToken->getValue());
+  //echo '<h3>Long-lived</h3>';
+  //var_dump($accessToken->getValue());
 }
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
@@ -72,8 +73,31 @@ $_SESSION['fb_access_token'] = (string) $accessToken;
 
 $json = file_get_contents("https://graph.facebook.com/me?fields=id,first_name,last_name,picture,email&access_token=".$accessToken->getValue());
 $obj = json_decode($json);
-echo "<br>".$obj->id;
-echo "<br>".$obj->email;
+
+$_SESSION['user_id'] = $obj->id;
+$_SESSION['user_email'] = $obj->email;
+$_SESSION['user_picture'] = $obj->picture;
+$_SESSION['user_firstname'] = $obj->first_name;
+$_SESSION['user_lastname']  = $obj->last_name;
+
+if (!$conn){
+    echo "<h1>Cannot coneect to database</h1>"
+}else{
+    $objDB = mysql_select_db("turtle");
+
+    $strSQL = "SELECT * FROM users WHERE user_id =='".$obj->id."'";
+    $objQuery = mysql_query($strSQL) or die (mysql_error());
+    
+    mysql_close($conn);
+    
+    if ( mysql_num_rows($objQuery) > 0 )
+        header('Location: index.php');
+    else
+        header('Location: register.php')
+    
+    
+}
+
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
 //header('Location: https://example.com/members.php');
