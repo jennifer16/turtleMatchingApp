@@ -171,12 +171,10 @@ if( !isset($_SESSION["user_id"]) ){
         <div class="row">
           <!-- left column -->
           <div class="col-md-12">
-            <!-- general form elements -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">เพิ่มข้อมูลเต่าทะเล</h3>
-                  <div id="container_image"></div> 
-              </div>
+             <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">เพิ่มข้อมูลเต่าทะเล</h4>
+                </div>
               <!-- /.card-header -->
               <!-- form start --> <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านซ้าย<br>
@@ -336,8 +334,8 @@ if( !isset($_SESSION["user_id"]) ){
       var avatar = document.getElementById('avatarLeft');
       var image = document.getElementById('imageLeft');
       var input = document.getElementById('inputLeft');
-      var $alert = $('.alert');
-      var $modal = $('#modal');
+      var $alert = $('.alertLeft');
+      var $modal = $('#modalLeft');
       var cropper;
       var newFilenameLeft;
       $('[data-toggle="tooltip"]').tooltip();

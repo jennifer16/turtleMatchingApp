@@ -107,7 +107,7 @@ if( !isset($_SESSION["user_id"]) ){
                     </div>
 
                     <ul class="navigation">
-                        <li class="navigation__active"><a href="index.html"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
+                        <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
                         
                         <li><a href="#"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
                         
