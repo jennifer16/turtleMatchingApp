@@ -43,12 +43,12 @@ $fb = new \Facebook\Facebook([
                 <br>
                 <form action="doRegister.php" method="post">
                 <div class="form-group form-group--float form-group--centered">
-                        <input type="text" name="firstname" class="form-control">
+                        <input type="text" name="firstname" class="form-control" value="<?php echo $_SESSION['user_firstname'];?>">
                         <label>ชื่อ</label>
                         <i class="form-group__bar"></i>
                 </div>
                 <div class="form-group form-group--float form-group--centered">
-                        <input type="text" name="lastname" class="form-control">
+                        <input type="text" name="lastname" class="form-control" value="<?php echo $_SESSION['user_lastname'];?>"> 
                         <label>นามสกุล</label>
                         <i class="form-group__bar"></i>
                 </div>
@@ -58,7 +58,7 @@ $fb = new \Facebook\Facebook([
                         <i class="form-group__bar"></i>
                 </div>
                 <div class="form-group form-group--float form-group--centered">
-                        <input type="text" name="email" class="form-control">
+                        <input type="text" name="email" class="form-control" value="<?php echo $_SESSION['user_email'];?>">
                         <label>Email</label>
                         <i class="form-group__bar"></i>
                 </div>

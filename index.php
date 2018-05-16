@@ -91,9 +91,9 @@ header("location:login.php");
                 <div class="scrollbar-inner">
                     <div class="user">
                         <div class="user__info" data-toggle="dropdown">
-                            <img class="user__img" src="demo/img/profile-pics/8.jpg" alt="">
+                            <img class="user__img" src="https://graph.facebook.com/<?php echo $_SESSION['user_id']; ?>/picture?type=normal">
                             <div>
-                                <div class="user__name">มานี มีทุ่งนา</div>
+                                <div class="user__name"><?php echo $_SESSION['user_firstname']." ".$_SESSION['user_lastname'];?></div>
                             </div>
                         </div>
 
