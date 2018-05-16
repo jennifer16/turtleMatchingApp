@@ -2,8 +2,6 @@
 
 <?php
 session_start();
-echo "stsrt";
-print_r($_SESSION);
 require_once __DIR__ . '/Facebook/autoload.php'; // change path as needed
 require 'connect.php';
 
@@ -13,10 +11,7 @@ $fb = new \Facebook\Facebook([
   'default_graph_version' => 'v2.10',
   //'default_access_token' => '{access-token}', // optional
 ]);
-$helper = $fb->getRedirectLoginHelper();
 
-$permissions = ['email']; // Optional permissions
-$loginUrl = $helper->getLoginUrl('https://studioxpert.com/turtleMatchingApp/fb-callback.php', $permissions);
 ?>
 
 <html lang="en">
@@ -35,19 +30,45 @@ $loginUrl = $helper->getLoginUrl('https://studioxpert.com/turtleMatchingApp/fb-c
     </head>
 
     <body data-ma-theme="green">
-
+        
         <div class="login">
 
             <!-- Login -->
             <div class="login__block active" id="l-login">
                 
                 <div class="login__block__header">
-                     <h1>ลงทะเบียนระบบคู่มือเต่าทะล</h1>
-                     <?php echo"test".$_SESSION['user_id']." ". $_SESSION['user_picture'];?>
+                    <img src="https://graph.facebook.com/<?php echo $_SESSION['user_id']; ?>/picture?type=normal">
+                     ลงทะเบียนระบบคู่มือเต่าทะล
                 </div>
                 <br>
-                <button onclick="window.location.href='<?php echo htmlspecialchars($loginUrl);?>'" id="login" type="button" class="btn btn-primary btn-outline btn-lg">เข้าสู่ระบบด้วย Facebook ></button>
-
+                <form action="doRegister.php" method="post">
+                <div class="form-group form-group--float form-group--centered">
+                        <input type="text" name="firstname" class="form-control">
+                        <label>ชื่อ</label>
+                        <i class="form-group__bar"></i>
+                </div>
+                <div class="form-group form-group--float form-group--centered">
+                        <input type="text" name="lastname" class="form-control">
+                        <label>นามสกุล</label>
+                        <i class="form-group__bar"></i>
+                </div>
+                <div class="form-group form-group--float form-group--centered">
+                        <input type="text" name="nickname" class="form-control">
+                        <label>ชื่อเล่น</label>
+                        <i class="form-group__bar"></i>
+                </div>
+                <div class="form-group form-group--float form-group--centered">
+                        <input type="text" name="email" class="form-control">
+                        <label>Email</label>
+                        <i class="form-group__bar"></i>
+                </div>
+                <div class="form-group form-group--float form-group--centered">
+                        <input type="text" name="phone" class="form-control">
+                        <label>หมายเลขโทรศัพท์</label>
+                        <i class="form-group__bar"></i>
+                </div>
+                <button id="login" type="submit" class="btn btn-primary btn-outline btn-lg"> ลงทะเบียนและเข้าสู่ระบบ </button>
+                </form>
             </div>
         </div>
 

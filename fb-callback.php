@@ -88,6 +88,16 @@ if($conn->connect_error){
 	$result = mysqli_query($conn, $sql);
 	if( mysqli_num_rows($result) > 0)
 	{
+        $row = $result->fetch_assoc();
+        $_SESSION['user_email'] = $row['user_email'];
+        $_SESSION['user_firstname'] = $row['user_firstname'];
+        $_SESSION['user_lastname'] = $row['user_lastname'];
+        $_SESSION['user_nickname'] = $row['user_nickname'];
+        $_SESSION['user_email'] = $row['user_email'];
+        $_SESSION['user_phone'] =$row['user_phone'];
+        $_SESSION['user_role'] = $row['user_role'];
+        
+    
 		header('Location: index.php');
 	}
 	else{
