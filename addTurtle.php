@@ -3,7 +3,7 @@
 require 'connect.php';
 session_start();
 if( !isset($_SESSION["user_id"]) ){
-header("location:login.php");
+    header("location:login.php");
 }
 ?>
 <html lang="en">
@@ -19,6 +19,27 @@ header("location:login.php");
 
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
+        
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/cropper.css">
+  <style>
+    .label {
+      cursor: pointer;
+    }
+
+    .progress {
+      display: none;
+      margin-bottom: 1rem;
+    }
+
+    .alert {
+      display: none;
+    }
+
+    .img-container img {
+      max-width: 100%;
+    }
+  </style>
     </head>
 
     <body data-ma-theme="green">
@@ -41,7 +62,7 @@ header("location:login.php");
                 </div>
 
                 <div class="header__logo hidden-sm-down">
-                    <h1><a href="index.html"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
+                    <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
                     
                 </div>
 
@@ -146,7 +167,6 @@ header("location:login.php");
 
           <section class="content">
 
-
       <div class="container-fluid">
         <div class="row">
           <!-- left column -->
@@ -154,14 +174,13 @@ header("location:login.php");
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">เพิ่มข้อมูลเต่า</h3>
+                <h3 class="card-title">เพิ่มข้อมูลเต่าทะเล</h3>
                   <div id="container_image"></div> 
               </div>
               <!-- /.card-header -->
-              <!-- form start --> 
-                <div class="container">
+              <!-- form start --> <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านซ้าย<br>
-      <img class="rounded" id="avatarLeft" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar">
+      <img class="rounded" id="avatarLeft" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputLeft" name="imageLeft" accept="image/*">
     </label>
       <input type="text" name="filenameLeft" id="filenameLeft" hidden>
@@ -177,7 +196,7 @@ header("location:login.php");
           </div>
           <div class="modal-body">
             <div class="img-container">
-              <img id="imageLeft" src="https://avatars0.githubusercontent.com/u/3456749">
+              <img id="image" src="https://avatars0.githubusercontent.com/u/3456749">
             </div>
           </div>
           <div class="modal-footer">
@@ -189,49 +208,18 @@ header("location:login.php");
     </div>
   </div>
 
-                
- <div class="container">
-    <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านขวา<br>
-      <img class="rounded" id="avatarRight" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar">
-      <input type="file" class="sr-only" id="inputRight" name="imageLeft" accept="image/*">
-    </label>
-      <input type="text" name="filenameRight" id="filenameRight" hidden>
-    <div class="alertRight" role="alert"></div>
-    <div class="modal fade" id="modalRight" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">เลือกส่วนเกล็ดบนใบหน้าเต่า</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="img-container">
-              <img id="imageRight" src="https://avatars0.githubusercontent.com/u/3456749">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
-            <button type="button" class="btn btn-primary" id="cropRight">ตกลง</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
               <form role="form" action = "doAddTurtle.php" method = "POST" enctype = "multipart/form-data">
                 <div class="card-body">
 
-                  <label>ด้านของใบหน้าเต่า</label>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="side" value="LEFt" checked>
-                      <label class="form-check-label">หน้าด้านซ้าย</label> <br>
-                       <input class="form-check-input" type="radio" name="side"  value="RIGHT">
-                      <label class="form-check-label">หน้าด้านขวา</label>
-                    </div>
-                    <br>                
+                             
                     <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="latitude">ชื่อเต่า</label>
+                            <input type="text" class="form-control" id="turtleName" name="turtleName" placeholder="ชื่อเต่า">
+                        </div>
+                    </div>
                     <div class="row">
                     <div class="col-md-6">
                     <label for="latitude">ละติจูด</label>
@@ -258,9 +246,8 @@ header("location:login.php");
     <!-- /.content -->
   </div>
               </div>
-            <footer class="footer hidden-xs-down">
-            </footer>
-            
+                <footer class="footer hidden-xs-down">
+                </footer>
             </section>
         </main>
 
@@ -321,14 +308,36 @@ header("location:login.php");
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
         
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+
+        <script src="vendors/bower_components/popper.js/dist/umd/popper.min.js"></script>
+        <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="vendors/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+
+        <script src="vendors/bower_components/flot/jquery.flot.js"></script>
+        <script src="vendors/bower_components/flot/jquery.flot.resize.js"></script>
+        <script src="vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+        <script src="vendors/bower_components/jqvmap/dist/jquery.vmap.min.js"></script>
+        <script src="vendors/bower_components/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+        <script src="vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+        <script src="vendors/bower_components/salvattore/dist/salvattore.min.js"></script>
+        <script src="vendors/jquery.sparkline/jquery.sparkline.min.js"></script>
+        <script src="vendors/bower_components/moment/min/moment.min.js"></script>
+        <script src="vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+
+        <!-- App functions and actions -->
+        <script src="js/app.min.js"></script>   
+ 
   <script src="js/cropper.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', function () {
       var avatar = document.getElementById('avatarLeft');
       var image = document.getElementById('imageLeft');
       var input = document.getElementById('inputLeft');
-      var $alert = $('.alertLeft');
-      var $modal = $('#modalLeft');
+      var $alert = $('.alert');
+      var $modal = $('#modal');
       var cropper;
       var newFilenameLeft;
       $('[data-toggle="tooltip"]').tooltip();
@@ -356,7 +365,7 @@ header("location:login.php");
           for (var i = 0; i < 10; i++)
              text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-          newFilenameLeft = text+'.'+$ileext;
+          newFilenameLeft = text+'.'+fileext;
           document.getElementById("filenameLeft").value = newFilenameLeft;
 
           if (URL) {
@@ -399,7 +408,7 @@ header("location:login.php");
 	
             
             formData.append('avatar', blob);
-            formData.append('filename', $newFilenameLeft);
+            formData.append('filename', newFilenameLeft);
 
             $.ajax('./saveImageForAdd.php', {
               method: 'POST',
@@ -449,7 +458,7 @@ header("location:login.php");
       });
     });
   </script>       
-              
+        
     <script>
 var x = document.getElementById("latitude");
 var y = document.getElementById("longtitude");
@@ -476,5 +485,6 @@ $.getJSON("https://api.ipdata.co/", function (data, status) {
 
 
 </script>
+        
     </body>
 </html>

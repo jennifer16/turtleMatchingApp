@@ -41,7 +41,7 @@ if( !isset($_SESSION["user_id"]) ){
                 </div>
 
                 <div class="header__logo hidden-sm-down">
-                    <h1><a href="index.html"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
+                    <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
                     
                 </div>
 
