@@ -365,6 +365,8 @@ if( !isset($_SESSION["user_id"]) ){
 
           newFilenameLeft = text+'.'+fileext;
           document.getElementById("filenameLeft").value = newFilenameLeft;
+         console.log(document.getElementById("filenameLeft").value);
+            
 
           if (URL) {
             done(URL.createObjectURL(file));
@@ -407,7 +409,7 @@ if( !isset($_SESSION["user_id"]) ){
             
             formData.append('avatar', blob);
             formData.append('filename', newFilenameLeft);
-
+            console.log(newFilenameLeft);
             $.ajax('./saveImageForAdd.php', {
               method: 'POST',
               data: formData,
