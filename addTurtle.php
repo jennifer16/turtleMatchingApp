@@ -180,7 +180,7 @@ if( !isset($_SESSION["user_id"]) ){
       <img class="rounded" id="avatarLeft" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputLeft" name="imageLeft" accept="image/*">
     </label>
-      <input type="text" name="filenameLeft" id="filenameLeft" hidden>
+
     <div class="alertLeft" role="alert"></div>
     <div class="modal fade" id="modalLeft" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -211,7 +211,7 @@ if( !isset($_SESSION["user_id"]) ){
       <img class="rounded" id="avatarRight" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputRight" name="imageRight" accept="image/*">
     </label>
-      <input type="text" name="filenameRight" id="filenameRight" hidden>
+     
     <div class="alertRight" role="alert"></div>
     <div class="modal fade" id="modalRight" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -242,7 +242,7 @@ if( !isset($_SESSION["user_id"]) ){
       <img class="rounded" id="avatarProfile" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
-      <input type="text" name="filenameProfile" id="filenameProfile" hidden>
+     
     <div class="alertProfile" role="alert"></div>
     <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -268,6 +268,9 @@ if( !isset($_SESSION["user_id"]) ){
   </div>
 <hr>
               <form role="form" action = "doAddTurtle.php" method = "POST" enctype = "multipart/form-data">
+                        <input type="text" name="filenameLeft" id="filenameLeft" hidden>
+                   <input type="text" name="filenameRight" id="filenameRight" hidden>
+                   <input type="text" name="filenameProfile" id="filenameProfile" hidden>
                 <div class="card-body">
                         <h5 class="card-title">ข้อมูลประจำตัวเต่าทะเล</h5>
                            
@@ -702,7 +705,135 @@ if( !isset($_SESSION["user_id"]) ){
       });
     });
   </script>         
-        
+         <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var avatar = document.getElementById('avatarProfile');
+      var image = document.getElementById('imageProfile');
+      var input = document.getElementById('inputProfile');
+      var $alert = $('.alertProfile');
+      var $modal = $('#modalProfile');
+      var cropper;
+      var newFilenameProfile;
+      $('[data-toggle="tooltip"]').tooltip();
+
+      input.addEventListener('change', function (e) {
+        var files = e.target.files;
+        var done = function (url) {
+          input.value = '';
+          image.src = url;
+          $alert.hide();
+          $modal.modal('show');
+        };
+        var reader;
+        var file;
+        var url;
+        var filename;
+
+        if (files && files.length > 0) {
+          file = files[0];
+          filename = file.name;
+          var fileext = filename.split('.').pop();
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+          for (var i = 0; i < 10; i++)
+             text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+          newFilenameRight = text+'.'+fileext;
+          document.getElementById("filenameProfile").value = newFilenameProfile;
+            
+
+          if (URL) {
+            done(URL.createObjectURL(file));
+          } else if (FileReader) {
+            reader = new FileReader();
+            reader.onload = function (e) {
+              done(reader.result);
+            };
+            reader.readAsDataURL(file);
+          }
+        }
+      });
+
+      $modal.on('shown.bs.modal', function () {
+        cropper = new Cropper(image, {
+          viewMode: 3,
+        });
+      }).on('hidden.bs.modal', function () {
+        cropper.destroy();
+        cropper = null;
+      });
+
+      document.getElementById('cropProfile').addEventListener('click', function () {
+        var initialAvatarURL;
+        var canvas;
+
+        $modal.modal('hide');
+
+        if (cropper) {
+          canvas = cropper.getCroppedCanvas({
+          });
+
+          initialAvatarURL = avatar.src;
+          avatar.src = canvas.toDataURL();
+          //$progress.show();
+          $alert.removeClass('alert-success alert-warning');
+          canvas.toBlob(function (blob) {
+            var formData = new FormData();
+	
+            formData.append('avatarProfile', blob);
+            formData.append('filenameProfile', newFilenameRight);
+         for (var pair of formData.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]); 
+}
+            $.ajax('./saveImageForAdd.php', {
+              method: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+
+              xhr: function () {
+                var xhr = new XMLHttpRequest();
+
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.responseText);
+                    }
+                };
+              xhr.upload.onprogress = function (e) {
+                  var percent = '0';
+                  var percentage = '0%';
+
+                  if (e.lengthComputable) {
+                    percent = Math.round((e.loaded / e.total) * 100);
+                    percentage = percent + '%';
+                   // $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                  }
+                };
+
+                return xhr;
+              },
+
+              success: function () {
+               // $alert.show().addClass('alert-success').text('Upload success');
+                  console.log('success');
+              },
+
+              error: function () {
+                avatar.src = initialAvatarURL;
+                //$alert.show().addClass('alert-warning').text('Upload error');
+                  console.log('error');
+              },
+
+              complete: function () {
+               // $progress.hide();
+              },
+            });
+          });
+        }
+      });
+    });
+  </script>         
     <script>
 var x = document.getElementById("latitude");
 var y = document.getElementById("longtitude");
