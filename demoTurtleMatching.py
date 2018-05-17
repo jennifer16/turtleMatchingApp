@@ -80,6 +80,8 @@ side = sys.argv[2]
 fileExt = inputName.rpartition(".")[-1]
 fileName = inputName.rpartition(".")[-2]
 
+print fileExt, fileName
+
 fileInputName = ''
 
 #	if file is jpg or JPG
