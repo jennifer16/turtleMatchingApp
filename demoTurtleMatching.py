@@ -78,7 +78,7 @@ inputName = sys.argv[1]
 side = sys.argv[2]
 
 fileExt = inputName.rpartition(".")[-1]
-fileName = inputName.rpartition(".")[-2]
+fileName = inputName.rpartition(".")[-3]
 
 print fileExt, fileName
 
@@ -168,7 +168,7 @@ for key in templateFileNameDict.keys():
 	fullname = templateFileNameDict[key]
 
 	fileExt = fullname.rpartition(".")[-1]
-	fileName = fullname.rpartition(".")[-2]
+	fileName = fullname.rpartition(".")[-3]
 
 	#	if file is jpg or JPG
 	if ( fileExt == 'jpg'):
