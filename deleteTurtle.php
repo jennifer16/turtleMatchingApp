@@ -13,7 +13,7 @@ echo mysqli_num_rows($data);
 ?>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Vendor styles -->
@@ -153,11 +153,10 @@ echo mysqli_num_rows($data);
      <div class="row">
         <div class="col-12">
           <div class="card">
-              <div class="card-title">
-              <h5>ลบข้อมูลเต่า</h5>
-              </div>
+             
             <!-- /.card-header -->
             <div class="card-body">
+            <label>ลบข้อมูลเต่า</label>
               <table id="listTurtle" class="display">
                 <thead>
                 <tr>
