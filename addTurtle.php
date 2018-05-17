@@ -176,7 +176,8 @@ if( !isset($_SESSION["user_id"]) ){
                     <h4 class="card-title">เพิ่มข้อมูลเต่าทะเล</h4>
                 </div>
               <!-- /.card-header -->
-              <!-- form start --> <div class="container">
+              <!-- form start --> 
+                 <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านซ้าย<br>
       <img class="rounded" id="avatarLeft" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputLeft" name="imageLeft" accept="image/*">
@@ -205,8 +206,37 @@ if( !isset($_SESSION["user_id"]) ){
       </div>
     </div>
   </div>
-
-
+                 <hr>
+                  <div class="container">
+    <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านขวา<br>
+      <img class="rounded" id="avatarLeft" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-left">
+      <input type="file" class="sr-only" id="inputRight" name="imageRight" accept="image/*">
+    </label>
+      <input type="text" name="filenameRight" id="filenameRight" hidden>
+    <div class="alertRight" role="alert"></div>
+    <div class="modal fade" id="modalRight" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">เลือกส่วนเกล็ดบนใบหน้าเต่า</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="img-container">
+              <img id="imageRight" src="https://avatars0.githubusercontent.com/u/3456749">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+            <button type="button" class="btn btn-primary" id="cropRight">ตกลง</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<hr>
               <form role="form" action = "doAddTurtle.php" method = "POST" enctype = "multipart/form-data">
                 <div class="card-body">
 
@@ -405,7 +435,6 @@ if( !isset($_SESSION["user_id"]) ){
           canvas.toBlob(function (blob) {
             var formData = new FormData();
 	
-            formData.append('test1','testtest');
             formData.append('avatarLeft', blob);
             formData.append('filenameLeft', newFilenameLeft);
          for (var pair of formData.entries()) {
@@ -459,6 +488,136 @@ if( !isset($_SESSION["user_id"]) ){
       });
     });
   </script>       
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var avatar = document.getElementById('avatarRight');
+      var image = document.getElementById('imageRight');
+      var input = document.getElementById('inputRight');
+      var $alert = $('.alertRight');
+      var $modal = $('#modalRight');
+      var cropper;
+      var newFilenameRight;
+      $('[data-toggle="tooltip"]').tooltip();
+
+      input.addEventListener('change', function (e) {
+        var files = e.target.files;
+        var done = function (url) {
+          input.value = '';
+          image.src = url;
+          $alert.hide();
+          $modal.modal('show');
+        };
+        var reader;
+        var file;
+        var url;
+        var filename;
+
+        if (files && files.length > 0) {
+          file = files[0];
+          filename = file.name;
+          var fileext = filename.split('.').pop();
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+          for (var i = 0; i < 10; i++)
+             text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+          newFilenameRight = text+'.'+fileext;
+          document.getElementById("filenameRight").value = newFilenameRight;
+            
+
+          if (URL) {
+            done(URL.createObjectURL(file));
+          } else if (FileReader) {
+            reader = new FileReader();
+            reader.onload = function (e) {
+              done(reader.result);
+            };
+            reader.readAsDataURL(file);
+          }
+        }
+      });
+
+      $modal.on('shown.bs.modal', function () {
+        cropper = new Cropper(image, {
+          viewMode: 3,
+        });
+      }).on('hidden.bs.modal', function () {
+        cropper.destroy();
+        cropper = null;
+      });
+
+      document.getElementById('cropRight').addEventListener('click', function () {
+        var initialAvatarURL;
+        var canvas;
+
+        $modal.modal('hide');
+
+        if (cropper) {
+          canvas = cropper.getCroppedCanvas({
+          });
+
+          initialAvatarURL = avatar.src;
+          avatar.src = canvas.toDataURL();
+          //$progress.show();
+          $alert.removeClass('alert-success alert-warning');
+          canvas.toBlob(function (blob) {
+            var formData = new FormData();
+	
+            formData.append('avatarRight', blob);
+            formData.append('filenameRight', newFilenameRight);
+         for (var pair of formData.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]); 
+}
+            $.ajax('./saveImageForAdd.php', {
+              method: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+
+              xhr: function () {
+                var xhr = new XMLHttpRequest();
+
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.responseText);
+                    }
+                };
+              xhr.upload.onprogress = function (e) {
+                  var percent = '0';
+                  var percentage = '0%';
+
+                  if (e.lengthComputable) {
+                    percent = Math.round((e.loaded / e.total) * 100);
+                    percentage = percent + '%';
+                   // $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                  }
+                };
+
+                return xhr;
+              },
+
+              success: function () {
+               // $alert.show().addClass('alert-success').text('Upload success');
+                  console.log('success');
+              },
+
+              error: function () {
+                avatar.src = initialAvatarURL;
+                //$alert.show().addClass('alert-warning').text('Upload error');
+                  console.log('error');
+              },
+
+              complete: function () {
+               // $progress.hide();
+              },
+            });
+          });
+        }
+      });
+    });
+  </script>         
         
     <script>
 var x = document.getElementById("latitude");
@@ -486,21 +645,6 @@ $.getJSON("https://api.ipdata.co/", function (data, status) {
 
 
 </script>
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-    function initialize() {
-        var loc = {};
-        var geocoder = new google.maps.Geocoder();
-        if(google.loader.ClientLocation) {
-            loc.lat = google.loader.ClientLocation.latitude;
-            loc.lng = google.loader.ClientLocation.longitude;
-            console.log(loc.lat);
-            console.log(loc.lng);
-            
-        }
-    }
 
-
-    </script>
     </body>
 </html>
