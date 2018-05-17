@@ -97,8 +97,8 @@ if($conn->connect_error){
         $_SESSION['user_phone'] =$row['user_phone'];
         $_SESSION['user_role'] = $row['user_role'];
         
-        echo $_SESSION['user_firstname'];
-		//header('Location: index.php');
+    
+		header('Location: index.php');
 	}
 	else{
 		header('Location: register.php');
