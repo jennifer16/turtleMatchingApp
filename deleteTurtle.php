@@ -178,15 +178,6 @@ echo mysqli_num_rows($data);
 }
                     
 ?>
-                    
-                    <button class="btn btn-large btn-primary" data-toggle="confirmation"
-        data-btn-ok-label="Continue" data-btn-ok-class="btn-success"
-        data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check"
-        data-btn-cancel-label="Stoooop!" data-btn-cancel-class="btn-danger"
-        data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
-        data-title="Is it ok?" data-content="This might be dangerous">
-  Confirmation
-</button>
 
                 </tbody>
                 <tfoot>

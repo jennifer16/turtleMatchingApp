@@ -175,19 +175,12 @@ echo mysqli_num_rows($data);
                     echo "<td align='center'>".$row['turtle_microchip_code']."</td>";
                     echo "<td align='center'>".$row['turtle_tag_code']."</td>";
                    echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doEditTurtle(".$row['turtle_id'].");'>แก้ไขข้อมูลเต่า</button></td>";
-                      echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doEditFound(".$row['turtle_id'].");'>แก้ไขข้อมูลการพบเต่า</button></td>";
+                      echo "<td align='center'><button type='button' class='btn btn-info' onclick='doEditFound(".$row['turtle_id'].");'>แก้ไขข้อมูลการพบเต่า</button></td>";
                     echo "</tr>";
 }
                     
 ?>
-                    
-                    <button class="btn btn-large btn-primary" data-toggle="confirmation"
-        data-btn-ok-label="Continue" data-btn-ok-class="btn-success"
-        data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check"
-        data-btn-cancel-label="Stoooop!" data-btn-cancel-class="btn-danger"
-        data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
-        data-title="Is it ok?" data-content="This might be dangerous">
-  Confirmation
+                
 </button>
 
                 </tbody>
@@ -197,6 +190,7 @@ echo mysqli_num_rows($data);
                   <th align='center'>รหัสไมโครชิพ</th>
                   <th align='center'>TAG</th>
                   <th>&nbsp;</th>
+                      <th>&nbsp;</th>
                 </tr>
                 </tfoot>
               </table>
