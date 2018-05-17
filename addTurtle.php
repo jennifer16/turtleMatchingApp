@@ -741,7 +741,7 @@ if( !isset($_SESSION["user_id"]) ){
 
           newFilenameProfile = text+'.'+fileext;
           document.getElementById("filenameProfile").value = newFilenameProfile;
-            
+        console.log( document.getElementById("filenameProfile").value);
 
           if (URL) {
             done(URL.createObjectURL(file));
@@ -782,7 +782,7 @@ if( !isset($_SESSION["user_id"]) ){
             var formData = new FormData();
 	
             formData.append('avatarProfile', blob);
-            formData.append('filenameProfile', newFilenameRight);
+            formData.append('filenameProfile', newFilenameProfile);
          for (var pair of formData.entries()) {
     console.log(pair[0]+ ', ' + pair[1]); 
 }
