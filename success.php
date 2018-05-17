@@ -145,7 +145,7 @@ if( !isset($_SESSION["user_id"]) ){
 
                 <div class="row" align="center">
                     <div class="col-md-12">
-                        <img src="img/green.jpg" style="width:30%; height:auto;"><br>
+                        <img src="img/green.jpg" style="width:30%; height:auto;"><br><br>
                         <div class="card-title">
                         <h3>ดำเนินการเสร็จสิ้น</h3>
                         </div><br>

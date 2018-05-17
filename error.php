@@ -144,16 +144,19 @@ if( !isset($_SESSION["user_id"]) ){
           <section class="content">
 
               <div class="row" align="center">
+                  <div card="card">
                     <div class="col-md-12">
-                        <img src="img/red.jpg" style="width:30%; height:auto;"><br>
+                        
+                        <img src="img/red.jpg" style="width:30%; height:auto;"><br><br>
                         <div class="card-title">
-                        <h3>มีข้อผิดพลาด ไม่สามารถดำเนินการได้</h3>
-                        </div><br>
+                        <h4>มีข้อผิดพลาด ไม่สามารถดำเนินการได้</h4>
+                        </div>
                     <form action="index.php">
                      <button type="submit" class="btn btn-danger">กลับสู่หน้าหลัก</button>
                     </form>
                     </div>
               </div>
+                  </div>
                 <footer class="footer hidden-xs-down">
                 </footer>
             </section>
