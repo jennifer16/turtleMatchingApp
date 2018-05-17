@@ -29,7 +29,7 @@ if (mysqli_query($conn, $sql1)) {
     $last_id = mysqli_insert_id($conn);
     echo "New record created successfully. Last inserted ID is: " . $last_id;
     
-    $sql2 = "INSERT INTO found (turtle_id, user_id, found_weight, found_width, found_length, found_lat, found_lng ) VALUES ('".$last_id."', '".$userid."', '".$weight."', '".length."'".$latitude."'".$longitude."'") ";
+    $sql2 = "INSERT INTO found (turtle_id, user_id, found_weight, found_width, found_length, found_lat, found_lng ) VALUES ('".$last_id."', '".$userid."', '".$weight."', '".length."'".$latitude."'".$longitude."') ";
     
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
