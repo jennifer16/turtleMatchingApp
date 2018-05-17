@@ -181,7 +181,7 @@ echo mysqli_num_rows($data);
                     
 ?>
                 
-</button>
+
 
                 </tbody>
                 <tfoot>
@@ -285,7 +285,7 @@ echo mysqli_num_rows($data);
     }
     
     function doEditFound(id){
-        window.location='editFoundDetail.php?id='+id;
+        window.location='listFoundDetail.php?id='+id;
     }
 </script>
     </body>
