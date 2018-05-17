@@ -235,7 +235,7 @@ if( !isset($_SESSION["user_id"]) ){
             <div class="row" align="center">
                     <div class="col-md-12">
                
-                  <button type="submit" class="btn btn-primary">บันทึกข้อมูลเต่า</button>
+                  <button type="submit" class="btn btn-primary">ค้นหาข้อมูลเต่า</button>
                
      </div>
                 </div>
