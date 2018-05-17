@@ -268,7 +268,7 @@ echo mysqli_num_rows($data);
 } );
         </script>
         <script>
-    function doDelete(var id){
+    function doDelete(id){
         console.log(id);
         console.log('doDelete.php?id='+id);
         window.location='doDelete.php?id='+id;
