@@ -60,6 +60,9 @@
                 </div>
 
                 <ul class="top-nav">
+                    <li class="top=nav">
+                    <a href=''><i class="zmdi zmdi-camera-add"></i> </a>
+                    </li>
                     <li class="dropdown top-nav__notifications">
                         <a href="" data-toggle="dropdown" class="top-nav__notify">
                             <i class="zmdi zmdi-notifications"></i>
@@ -105,42 +108,48 @@
                 <div class="scrollbar-inner">
                     <div class="user">
                         <div class="user__info" data-toggle="dropdown">
-                            <img class="user__img" src="demo/img/profile-pics/8.jpg" alt="">
+                            <img class="user__img" src="https://graph.facebook.com/<?php echo $_SESSION['user_id']; ?>/picture?type=normal">
                             <div>
-                                <div class="user__name">มานี มีทุ่งนา</div>
+                                <div class="user__name"><?php echo $_SESSION['user_firstname']." ".$_SESSION['user_lastname'];?></div>
                             </div>
                         </div>
 
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">ดูรายละเอียด</a>
-                            <a class="dropdown-item" href="">ออกจากระบบ</a>
+                            <a class="dropdown-item" href="userProfile.php">ดูรายละเอียด</a>
+                            <a class="dropdown-item" href="signout.php">ออกจากระบบ</a>
                         </div>
                     </div>
 
                     <ul class="navigation">
-                        <li class="navigation__active"><a href="index.html"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
+                        <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
                         
-                        <li><a href="#"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
+                        <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
                         
-                        <li><a href="#"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
+                        <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
                         
-                        <li><a href="#"><i class="zmdi zmdi-camera-add"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
+                        <li><a href="matching.php"><i class="zmdi zmdi-camera-add"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
+                        <?php
+                            if ($_SESSION['user_role']==1)
+                            {
+                                echo "<li><a href='addTurtle.php'><i class='zmdi zmdi-collection-plus'></i> เพิ่มข้อมูลเต่า</a></li>";
+                                echo "<li><a href='editTurtle.php'><i class='zmdi zmdi-collection-text'></i> แก้ไขข้อมูลเต่า</a></li>";
+                                echo "<li><a href='deleteTurtle.php'><i class='zmdi zmdi-delete'></i> ลบข้อมูลเต่า</a></li>";
 
-                        <li class="navigation__sub">
-                            <a href=""><i class="zmdi zmdi-collection-text"></i> จัดการข้อมูลเต่า</a>
 
-                            <ul>
-                                <li><a href="#">เพิ่มข้อมูลเต่า</a></li>
-                                <li><a href="#">แก้ไขข้อมูลเต่า</a></li>
-                                <li><a href="#">ลบข้อมูลเต่า</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="#"><i class="zmdi zmdi-layers"></i> เต่าที่พบในธรรมชาติ</a></li>
+                            }
+                        ?>
                         
-                        <li><a href="#"><i class="zmdi zmdi-repeat"></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>
+                        <?php
+                            if ($_SESSION['user_role']==1)
+                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>"; }
+                        ?>
                         
-                        <li><a href="#"><i class="zmdi zmdi-email"></i> ติดต่อเรา</a></li>
+                        <?php
+                            if ($_SESSION['user_role']==1)
+                            { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
+                        ?>
+                        
+                        <li><a href="contact.php"><i class="zmdi zmdi-email"></i> ติดต่อเรา</a></li>
 
                     </ul>
                 </div>
@@ -163,7 +172,7 @@
       <img class="rounded" id="avatar" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar">
       <input type="file" class="sr-only" id="input" name="image" accept="image/*">
     </label>
-      <input type="text" name="filename" id="filename" hidden>
+     
     <div class="alert" role="alert"></div>
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -189,12 +198,13 @@
   </div>
 
 
-              <form role="form" action = "cropImage.php" method = "POST" enctype = "multipart/form-data">
+              <form role="form" action = "doMatching.php" method = "POST" enctype = "multipart/form-data">
+                   <input type="text" name="filename" id="filename" hidden>
                 <div class="card-body">
 
                   <label>ด้านของใบหน้าเต่า</label>
                     <div class="form-check">
-                      <input class="form-check-input" type="radio" name="side" value="LEFt" checked>
+                      <input class="form-check-input" type="radio" name="side" value="LEFT" checked>
                       <label class="form-check-label">หน้าด้านซ้าย</label> <br>
                        <input class="form-check-input" type="radio" name="side"  value="RIGHT">
                       <label class="form-check-label">หน้าด้านขวา</label>
@@ -215,9 +225,11 @@
                 </div>
                 <!-- /.card-body -->
 
-                <div class="card-footer">
+                 <div class="row" align="center">
+                    <div class="col-md-6">
                   <button type="submit" class="btn btn-primary">ค้นหา</button>
                 </div>
+                  </div>
               </form>
             </div>
             <!-- /.card -->

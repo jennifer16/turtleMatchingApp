@@ -266,6 +266,7 @@ $data = mysqli_query($conn, $sql);
     $('#listTurtle').DataTable({
          scrollY:        '50vh',
         scrollCollapse: true,
+        paging:         false,
        "columnDefs": [
             { "orderable": false, "targets": 3 }
         ] 

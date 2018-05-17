@@ -269,7 +269,7 @@ echo mysqli_num_rows($data);
     $('#listTurtle').DataTable({
          scrollY:        '50vh',
         scrollCollapse: true,
-
+        paging:         false,
        "columnDefs": [
             { "orderable": false, "targets": 3 }
         ] 
