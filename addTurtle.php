@@ -272,15 +272,15 @@ if( !isset($_SESSION["user_id"]) ){
 <hr>
               <form role="form" action = "doAddTurtle.php" method = "POST" enctype = "multipart/form-data">
                 <div class="card-body">
- <h5 class="card-title">ข้อมูลประจำตัวเต่าทะเล</h5>
-                             
+                        <h5 class="card-title">ข้อมูลประจำตัวเต่าทะเล</h5>
+                           
                     <div class="form-group">
                     <div class="row">
                         <div class="col-md-12">
                             <label for="latitude">ชื่อเต่า</label>
                             <input type="text" class="form-control" id="turtleName" name="turtleName" placeholder="ชื่อเต่า">
                         </div>
-                    </div>
+                    </div><br>
                                     <div class="row">
                     <div class="col-md-12">
                     <label for="latitude">ชนิดเต่า</label>
@@ -320,18 +320,17 @@ if( !isset($_SESSION["user_id"]) ){
                 <div class="row">
                     <div class="col-md-4">
                     <label for="latitude">น้ำหนัก (กก.)</label>
-                    <input type="text" class="form-control" id="ageMoth" placeholder="น้ำหนักของเต่า">
-                    </div>
-                     <div class="col-md-6">
+                    <input type="text" class="form-control" id=piv>
+                     <div class="col-md-4">
                     <label for="latitude">ความกว้าง (ซม.)</label>
                     <input type="text" class="form-control" id="ageMoth" placeholder="ความกว้างของกระดองเต่า">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                     <label for="latitude">ความยาว (ซม.)</label>
                     <input type="text" class="form-control" id="ageMoth" placeholder="ความยาวของกระดองเต่า">
                     </div>
-                </div> <br>
-                    <div class="row">
+                    </div> </div><br>
+                <div class="row">
                     <div class="col-md-6">
                     <label for="latitude">ละติจูด</label>
                     <input type="text" class="form-control" id="latitude" name="latitude" placeholder="0.00">
@@ -340,16 +339,20 @@ if( !isset($_SESSION["user_id"]) ){
                     <label for="latitude">ลองจิจูด</label>
                     <input type="text" class="form-control" id="longtitude" name="longtitude" placeholder="0.00">
                         </div>
-                  </div>
-                        </div>
-                </div>
+                </div><br>
+                 
                 <!-- /.card-body -->
-
+                    <div class="row">
+                    <div class="col-md-12">
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">บันทึกข้อมูลเต่า</button>
+                        </div>
+     </div>
                 </div>
+                           </div>
+                  </div>
               </form>
-            </div>
+            
             <!-- /.card -->
 
         </div>
@@ -359,6 +362,7 @@ if( !isset($_SESSION["user_id"]) ){
               </div>
                 <footer class="footer hidden-xs-down">
                 </footer>
+              </div>
             </section>
         </main>
 
