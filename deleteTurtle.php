@@ -156,7 +156,7 @@ $data = mysqli_query($conn, $sql);
             <!-- /.card-header -->
             <div class="card-body">
             <h5>ลบข้อมูลเต่า</h5>
-              <table id="listTurtle" class="display">
+              <table id="listTurtle" class="display" style="width:100%">
                 <thead>
                 <tr>
                   <th style='text-align: center;'>ชื่อเต่า</th>

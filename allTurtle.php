@@ -157,7 +157,7 @@ echo mysqli_num_rows($data);
             <!-- /.card-header -->
             <div class="card-body">
             <h5>ข้อมูลเต่าทะเล</h5>
-              <table id="listTurtle" class="display">
+              <table id="listTurtle" class="display" style="width:100%">
                 <thead>
                 <tr>
                   <th style='text-align: center;'>ชื่อเต่า</th>
@@ -173,11 +173,13 @@ echo mysqli_num_rows($data);
                     echo "<td align='center'><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row['turtle_name']."</a></td>";
                     echo "<td align='center'>".$row['turtle_microchip_code']."</td>";
                     echo "<td align='center'>".$row['turtle_tag_code']."</td>";
-                   echo "<td align='center'><button type='button' class='btn btn-danger' onclick='doDelete(".$row['turtle_id'].");'>ลบ</button></td>";
+                   echo "<td align='center'><button type='button' class='btn btn-info' onclick='goToDetail(".$row['turtle_id'].");'>ดู</button></td>";
                     echo "</tr>";
 }
                     
 ?>
+                
+
 
                 </tbody>
                 <tfoot>
