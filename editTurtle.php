@@ -174,8 +174,7 @@ echo mysqli_num_rows($data);
                     echo "<td align='center'><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row['turtle_name']."</a></td>";
                     echo "<td align='center'>".$row['turtle_microchip_code']."</td>";
                     echo "<td align='center'>".$row['turtle_tag_code']."</td>";
-                   echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doEditTurtle(".$row['turtle_id'].");'>แก้ไขข้อมูลเต่า</button></td>";
-                      echo "<td align='center'><button type='button' class='btn btn-info' onclick='doEditFound(".$row['turtle_id'].");'>แก้ไขข้อมูลการพบเต่า</button></td>";
+                   echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doEditTurtle(".$row['turtle_id'].");'>แก้ไข</button></td>";
                     echo "</tr>";
 }
                     
@@ -284,9 +283,7 @@ echo mysqli_num_rows($data);
         window.location='editTurtleDetail.php?id='+id;
     }
     
-    function doEditFound(id){
-        window.location='listFoundDetail.php?id='+id;
-    }
+
 </script>
     </body>
 </html>
