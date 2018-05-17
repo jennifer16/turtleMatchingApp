@@ -174,10 +174,28 @@ echo mysqli_num_rows($data);
                     echo "<td align='center'>".$row['turtle_microchip_code']."</td>";
                     echo "<td align='center'>".$row['turtle_tag_code']."</td>";
                     echo "<td align='center'><button type='button' class='btn btn-danger' onclick='doDelete(".$row['turtle_id'].");'>ลบ</button></td>";
+                    echo  "<td align='center><button class='btn btn-danger' data-toggle='confirmation'
+                            data-btn-ok-label='ตกลง' data-btn-ok-class='btn-success'
+                            data-btn-ok-icon-class='material-icons' data-btn-ok-icon-content='check'
+                            data-btn-cancel-label='ยกเลิก' data-btn-cancel-class='btn-danger'
+                            data-btn-cancel-icon-class='material-icons' data-btn-cancel-icon-content='ปิด'
+        data-title='ยืนยันลบข้อมูล' data-content='หากลบข้อมูลแล้วจะไม่สามารถแก้ไขได้อีก' onclick='doDelete(".$row['turtle_id'].">
+  ลบ
+</button>";
+
                     echo "</tr>";
 }
                     
 ?>
+                    
+                    <button class="btn btn-large btn-primary" data-toggle="confirmation"
+        data-btn-ok-label="Continue" data-btn-ok-class="btn-success"
+        data-btn-ok-icon-class="material-icons" data-btn-ok-icon-content="check"
+        data-btn-cancel-label="Stoooop!" data-btn-cancel-class="btn-danger"
+        data-btn-cancel-icon-class="material-icons" data-btn-cancel-icon-content="close"
+        data-title="Is it ok?" data-content="This might be dangerous">
+  Confirmation
+</button>
 
                 </tbody>
                 <tfoot>
