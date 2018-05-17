@@ -160,9 +160,9 @@ echo mysqli_num_rows($data);
               <table id="listTurtle" class="display">
                 <thead>
                 <tr>
-                  <th align='center'>ชื่อเต่า</th>
-                  <th align='center'>รหัสไมโครชิพ</th>
-                  <th align='center'>TAG</th>
+                  <th style='text-align: center;'>ชื่อเต่า</th>
+                  <th style='text-align: center;'>รหัสไมโครชิพ</th>
+                  <th style='text-align: center;'>TAG</th>
                   <th>&nbsp;</th>
                   <th>&nbsp;</th>
                 </tr>
@@ -186,9 +186,9 @@ echo mysqli_num_rows($data);
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th align='center'>ชื่อเต่า</th>
-                  <th align='center'>รหัสไมโครชิพ</th>
-                  <th align='center'>TAG</th>
+                  <th style='text-align: center;'>ชื่อเต่า</th>
+                  <th style='text-align: center;'>รหัสไมโครชิพ</th>
+                  <th style='text-align: center;'>TAG</th>
                   <th>&nbsp;</th>
                       <th>&nbsp;</th>
                 </tr>
@@ -269,8 +269,15 @@ echo mysqli_num_rows($data);
         
         <script>
             $(document).ready( function () {
-    $('#listTurtle').DataTable();
+    $('#listTurtle').DataTable({
+       "columnDefs": [
+            { "orderable": false, "targets": 3 },
+            { "orderable": false, "targets": 4 },
+        ] 
+        
+    });
 } );
+            
         </script>
         <script>
     function doEditTurtle(id){
