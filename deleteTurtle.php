@@ -153,14 +153,17 @@ echo mysqli_num_rows($data);
      <div class="row">
         <div class="col-12">
           <div class="card">
+              <div class="card-title">
+              <h5>ลบข้อมูลเต่า</h5>
+              </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="listTurtle" class="display">
                 <thead>
                 <tr>
-                  <th>ชื่อเต่า</th>
-                  <th>รหัสไมโครชิพ</th>
-                  <th>TAG</th>
+                  <th align='center'>ชื่อเต่า</th>
+                  <th align='center'>รหัสไมโครชิพ</th>
+                  <th align='center'>TAG</th>
                   <th>&nbsp;</th>
                 </tr>
                 </thead>
@@ -168,10 +171,10 @@ echo mysqli_num_rows($data);
 <?php
                  while ($row = $data->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row['turtle_name']."</a></td>";
-                    echo "<td>".$row['turtle_microchip_code']."</td>";
-                    echo "<td>".$row['turtle_tag_code']."</td>";
-                    echo "<td><button type='button' class='btn btn-danger' onclick='doDelete(".$row['turtle_id'].");'>ลบ</button></td>";
+                    echo "<td align='center'><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row['turtle_name']."</a></td>";
+                    echo "<td align='center'>".$row['turtle_microchip_code']."</td>";
+                    echo "<td align='center'>".$row['turtle_tag_code']."</td>";
+                    echo "<td align='center'><button type='button' class='btn btn-danger' onclick='doDelete(".$row['turtle_id'].");'>ลบ</button></td>";
                     echo "</tr>";
 }
                     
@@ -180,9 +183,9 @@ echo mysqli_num_rows($data);
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>ชื่อเต่า</th>
-                  <th>รหัสไมโครชิพ</th>
-                  <th>TAG</th>
+                  <th align='center'>ชื่อเต่า</th>
+                  <th align='center'>รหัสไมโครชิพ</th>
+                  <th align='center'>TAG</th>
                   <th>&nbsp;</th>
                 </tr>
                 </tfoot>
