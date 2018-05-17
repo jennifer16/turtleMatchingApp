@@ -408,7 +408,7 @@ if( !isset($_SESSION["user_id"]) ){
             
             formData.append('avatarLeft', blob);
             formData.append('filenameLeft', newFilenameLeft);
-              
+              console.log(formData);
             $.ajax('./saveImageForAdd.php', {
               method: 'POST',
               data: formData,
