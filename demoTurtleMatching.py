@@ -80,8 +80,6 @@ side = sys.argv[2]
 fileExt = inputName.rpartition(".")[-1]
 fileName = inputName.rpartition(".")[-3]
 
-print fileExt, fileName
-
 fileInputName = ''
 
 #	if file is jpg or JPG
@@ -113,7 +111,7 @@ else:
 
 print 'Doing auto contrast...'
 
-img = cv2.imread('Input/'+inputName+'.PNG', cv2.IMREAD_GRAYSCALE)
+img = cv2.imread(fileInputName, cv2.IMREAD_GRAYSCALE)
 
 height = img.shape[0]
 width = img.shape[1]
