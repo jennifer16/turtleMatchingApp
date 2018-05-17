@@ -8,7 +8,8 @@ if( !isset($_SESSION["user_id"]) ){
 
 $sql =  "SELECT * FROM turtle";
 $data = mysqli_query($conn, $sql);
-echo mysql_num_rows($data);
+
+echo mysqli_num_rows($data);
 ?>
 <html lang="en">
     <head>
@@ -165,7 +166,7 @@ echo mysql_num_rows($data);
                 </thead>
                 <tbody>
 <?php
-                while($row = mysql_fetch_array($data)) {
+                 while ($row = $data->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row[turtle_name]."</a></td>";
                     echo "<td>".$row['turtle_microchip_code']."</td>";
