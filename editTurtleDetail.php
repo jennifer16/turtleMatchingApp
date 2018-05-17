@@ -184,7 +184,7 @@ $row = $data->fetch_assoc();
                 <!-- left side image -->
                  <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านซ้าย<br>
-      <img class="rounded" id="avatarLeft" src='Turtle/<?php if ($row['turtle_left']==''){echo 'img/camera.png'}else{ echo $row['turtle_left'];}?>' style="max-width:100%; height:auto;" alt="avatar-left">
+      <img class="rounded" id="avatarLeft" src='Turtle/<?php if ($row['turtle_left']==''){echo 'img/camera.png';}else{ echo $row['turtle_left'];}?>' style="max-width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputLeft" name="imageLeft" accept="image/*">
     </label>
 
@@ -215,7 +215,7 @@ $row = $data->fetch_assoc();
                  <!-- right side image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านขวา<br>
-      <img class="rounded" id="avatarRight" src='Turtle/<?php if ($row['turtle_right']==''){echo 'img/camera.png'}else{ echo $row['turtle_right'];}?>' style="max-width:100%; height:auto;" alt="avatar-left">
+      <img class="rounded" id="avatarRight" src='Turtle/<?php if ($row['turtle_right']==''){echo 'img/camera.png';}else{ echo $row['turtle_right'];}?>' style="max-width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputRight" name="imageRight" accept="image/*">
     </label>
      
@@ -246,7 +246,7 @@ $row = $data->fetch_assoc();
                                   <!-- turtle profile image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
-      <img class="rounded" id="avatarProfile" src='Turtle/<?php if ($row['turtle_profile']==''){echo 'img/camera.png'}else{ echo $row['turtle_profile'];}?>' style="max-width:100%; height:auto;" alt="avatar-Profile">
+      <img class="rounded" id="avatarProfile" src='Turtle/<?php if ($row['turtle_profile']==''){echo 'img/camera.png';}else{ echo $row['turtle_profile'];}?>' style="max-width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
      
