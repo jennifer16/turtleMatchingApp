@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require 'connect.php'
+  require 'connect.php';
 
   $turtleName = $_POST['turtleName'];
   $turtleType =  $_POST['turtleType'];
