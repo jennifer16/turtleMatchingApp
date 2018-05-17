@@ -143,9 +143,9 @@ if( !isset($_SESSION["user_id"]) ){
 
           <section class="content">
 
-                <div class="row">
+                <div class="row" align="center">
                     <div class="col-md-12">
-                        <img src="img/greenCheckMark.png" style="width:30%; height:auto;">
+                        <img src="img/green.jpg" style="width:50%; height:auto;">
                     <form action="index.php">
                      <button type="submit" class="btn btn-success">กลับสู่หน้าหลัก</button>
                     </form>
