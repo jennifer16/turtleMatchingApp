@@ -145,11 +145,11 @@ if( !isset($_SESSION["user_id"]) ){
 
                 <div class="row">
                     <div class="col-md-12">
-                        <img src="img/greenCheckMark.png" style="width:100%; height:auto;">
-                    </div>
+                        <img src="img/greenCheckMark.png" style="width:30%; height:auto;">
                     <form action="index.php">
                      <button type="submit" class="btn btn-success">กลับสู่หน้าหลัก</button>
-                        </form>
+                    </form>
+                    </div>
               </div>
    
                 <footer class="footer hidden-xs-down">

@@ -145,7 +145,7 @@ if( !isset($_SESSION["user_id"]) ){
 
                 <div class="row">
                     <div class="col-md-12">
-                        <img src="img/redCross.jpg" style="width:100%; height:auto;">
+                        <img src="img/redCross.jpg" style="width:30%; height:auto;">
                     </div>
                     <form action="index.php">
                      <button type="submit" class="btn btn-danger">กลับสู่หน้าหลัก</button>
