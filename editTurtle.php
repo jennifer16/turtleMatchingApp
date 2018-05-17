@@ -164,7 +164,6 @@ echo mysqli_num_rows($data);
                   <th style='text-align: center;'>รหัสไมโครชิพ</th>
                   <th style='text-align: center;'>TAG</th>
                   <th>&nbsp;</th>
-                  <th>&nbsp;</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -189,7 +188,6 @@ echo mysqli_num_rows($data);
                   <th style='text-align: center;'>รหัสไมโครชิพ</th>
                   <th style='text-align: center;'>TAG</th>
                   <th>&nbsp;</th>
-                      <th>&nbsp;</th>
                 </tr>
                 </tfoot>
               </table>
