@@ -89,7 +89,7 @@ if( !isset($_SESSION["user_id"]) ){
                     </li>
                 </ul>
             </header>
-
+            <!-- Left Menu -->
             <aside class="sidebar">
                 <div class="scrollbar-inner">
                     <div class="user">
@@ -101,19 +101,19 @@ if( !isset($_SESSION["user_id"]) ){
                         </div>
 
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">ดูรายละเอียด</a>
-                            <a class="dropdown-item" href="">ออกจากระบบ</a>
+                            <a class="dropdown-item" href="userProfile.php">ดูรายละเอียด</a>
+                            <a class="dropdown-item" href="signout.php">ออกจากระบบ</a>
                         </div>
                     </div>
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
                         
-                        <li><a href="#"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
+                        <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
                         
-                        <li><a href="#"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
+                        <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
                         
-                        <li><a href="#"><i class="zmdi zmdi-camera-add"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
+                        <li><a href="matching.php"><i class="zmdi zmdi-camera-add"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
                             {
@@ -121,8 +121,8 @@ if( !isset($_SESSION["user_id"]) ){
                                 echo "<a href=''><i class='zmdi zmdi-collection-text'></i> จัดการข้อมูลเต่า</a>";
                                 echo "<ul>";
                                 echo "<li><a href='addTurtle.php'>เพิ่มข้อมูลเต่า</a></li>";
-                                echo "<li><a href=''>แก้ไขข้อมูลเต่า</a></li>";
-                                echo "<li><a href=''>ลบข้อมูลเต่า</a></li>";
+                                echo "<li><a href='editTurtle.php'>แก้ไขข้อมูลเต่า</a></li>";
+                                echo "<li><a href='deleteTurtle.php'>ลบข้อมูลเต่า</a></li>";
                                 echo "</ul>";
                                 echo "</li>";
                             }
@@ -130,7 +130,7 @@ if( !isset($_SESSION["user_id"]) ){
                         
                         <?php
                             if ($_SESSION['user_role']==1)
-                            { echo "<li><a href='#'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>"; }
+                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>"; }
                         ?>
                         
                         <?php
@@ -138,7 +138,7 @@ if( !isset($_SESSION["user_id"]) ){
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
                         
-                        <li><a href="#"><i class="zmdi zmdi-email"></i> ติดต่อเรา</a></li>
+                        <li><a href="contact.php"><i class="zmdi zmdi-email"></i> ติดต่อเรา</a></li>
 
                     </ul>
                 </div>

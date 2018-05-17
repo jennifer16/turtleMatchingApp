@@ -110,7 +110,7 @@ if( !isset($_SESSION["user_id"]) ){
                     </li>
                 </ul>
             </header>
-
+            <!-- Left Menu -->
             <aside class="sidebar">
                 <div class="scrollbar-inner">
                     <div class="user">
@@ -122,19 +122,19 @@ if( !isset($_SESSION["user_id"]) ){
                         </div>
 
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="">ดูรายละเอียด</a>
-                            <a class="dropdown-item" href="">ออกจากระบบ</a>
+                            <a class="dropdown-item" href="userProfile.php">ดูรายละเอียด</a>
+                            <a class="dropdown-item" href="signout.php">ออกจากระบบ</a>
                         </div>
                     </div>
 
                     <ul class="navigation">
-                        <li class="navigation__active"><a href="index.html"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
+                        <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
                         
-                        <li><a href="#"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
+                        <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
                         
-                        <li><a href="#"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
+                        <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
                         
-                        <li><a href="#"><i class="zmdi zmdi-camera-add"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
+                        <li><a href="matching.php"><i class="zmdi zmdi-camera-add"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
                             {
@@ -142,8 +142,8 @@ if( !isset($_SESSION["user_id"]) ){
                                 echo "<a href=''><i class='zmdi zmdi-collection-text'></i> จัดการข้อมูลเต่า</a>";
                                 echo "<ul>";
                                 echo "<li><a href='addTurtle.php'>เพิ่มข้อมูลเต่า</a></li>";
-                                echo "<li><a href=''>แก้ไขข้อมูลเต่า</a></li>";
-                                echo "<li><a href=''>ลบข้อมูลเต่า</a></li>";
+                                echo "<li><a href='editTurtle.php'>แก้ไขข้อมูลเต่า</a></li>";
+                                echo "<li><a href='deleteTurtle.php'>ลบข้อมูลเต่า</a></li>";
                                 echo "</ul>";
                                 echo "</li>";
                             }
@@ -151,7 +151,7 @@ if( !isset($_SESSION["user_id"]) ){
                         
                         <?php
                             if ($_SESSION['user_role']==1)
-                            { echo "<li><a href='#'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>"; }
+                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>"; }
                         ?>
                         
                         <?php
@@ -159,7 +159,7 @@ if( !isset($_SESSION["user_id"]) ){
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
                         
-                        <li><a href="#"><i class="zmdi zmdi-email"></i> ติดต่อเรา</a></li>
+                        <li><a href="contact.php"><i class="zmdi zmdi-email"></i> ติดต่อเรา</a></li>
 
                     </ul>
                 </div>
@@ -239,9 +239,40 @@ if( !isset($_SESSION["user_id"]) ){
     </div>
   </div>
 <hr>
+                                  <!-- turtle profile image -->
+                  <div class="container">
+    <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
+      <img class="rounded" id="avatarProfile" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-Profile">
+      <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
+    </label>
+      <input type="text" name="filenameProfile" id="filenameProfile" hidden>
+    <div class="alertProfile" role="alert"></div>
+    <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLabel">เลือกส่วนของภาพที่ต้องการ</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="img-container">
+              <img id="imageProfile" src="https://avatars0.githubusercontent.com/u/3456749">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+            <button type="button" class="btn btn-primary" id="cropProfile">ตกลง</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<hr>
               <form role="form" action = "doAddTurtle.php" method = "POST" enctype = "multipart/form-data">
                 <div class="card-body">
-
+ <h5 class="card-title">ข้อมูลประจำตัวเต่าทะเล</h5>
                              
                     <div class="form-group">
                     <div class="row">
@@ -250,6 +281,56 @@ if( !isset($_SESSION["user_id"]) ){
                             <input type="text" class="form-control" id="turtleName" name="turtleName" placeholder="ชื่อเต่า">
                         </div>
                     </div>
+                                    <div class="row">
+                    <div class="col-md-12">
+                    <label for="latitude">ชนิดเต่า</label>
+                    <input type="text" class="form-control" id="ageMoth" placeholder="ชนิดของเต่า">
+                    </div>
+                </div> <br>
+                <div class="row">
+                    <div class="col-md-6">
+                    <label for="latitude">อายุ ณ วันที่บันทึกข้อมูล (เดือน)</label>
+                    <input type="text" class="form-control" id="ageMoth" placeholder="0">
+                        </div>
+                        <div class="col-md-6">
+                    <label for="latitude">อายุ ณ วันที่บันทึกข้อมูล (ปี)</label>
+                                     <input type="text" class="form-control" id="ageYear" placeholder="0">
+                        </div>
+                  </div> <br>
+                <div class="row">
+                    <div class="col-md-8">
+                    <label for="latitude">รหัสไมโครชิพ</label>
+                    <input type="text" class="form-control" id="ageMoth" placeholder="รหัสอุปกรณ์ไมโครชิพ">
+                    </div>
+                     <div class="col-md-4">
+                    <label for="latitude">ตำแหน่งไมโครชิพ</label>
+                    <input type="text" class="form-control" id="ageMoth" placeholder="ตำแหน่งติดตั้งไมโครชิพ">
+                    </div>
+                </div> <br>
+                <div class="row">
+                    <div class="col-md-6">
+                    <label for="latitude">รหัสแท็กสแตนเลส</label>
+                    <input type="text" class="form-control" id="ageMoth" placeholder="รหัสอุปกรณ์แทกสแตนเลส">
+                    </div>
+                     <div class="col-md-6">
+                    <label for="latitude">ตำแหน่งแทกสแตนเลส</label>
+                    <input type="text" class="form-control" id="ageMoth" placeholder="ตำแหน่งติดตั้งแทกสแตนเลส">
+                    </div>
+                </div> <br>
+                <div class="row">
+                    <div class="col-md-4">
+                    <label for="latitude">น้ำหนัก (กก.)</label>
+                    <input type="text" class="form-control" id="ageMoth" placeholder="น้ำหนักของเต่า">
+                    </div>
+                     <div class="col-md-6">
+                    <label for="latitude">ความกว้าง (ซม.)</label>
+                    <input type="text" class="form-control" id="ageMoth" placeholder="ความกว้างของกระดองเต่า">
+                    </div>
+                    <div class="col-md-6">
+                    <label for="latitude">ความยาว (ซม.)</label>
+                    <input type="text" class="form-control" id="ageMoth" placeholder="ความยาวของกระดองเต่า">
+                    </div>
+                </div> <br>
                     <div class="row">
                     <div class="col-md-6">
                     <label for="latitude">ละติจูด</label>
@@ -265,7 +346,7 @@ if( !isset($_SESSION["user_id"]) ){
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">ค้นหา</button>
+                  <button type="submit" class="btn btn-primary">บันทึกข้อมูลเต่า</button>
                 </div>
               </form>
             </div>
