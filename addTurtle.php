@@ -283,38 +283,38 @@ if( !isset($_SESSION["user_id"]) ){
                     </div><br>
                                     <div class="row">
                     <div class="col-md-12">
-                    <label for="latitude">ชนิดเต่า</label>
-                    <input type="text" class="form-control" id="ageMoth" placeholder="ชนิดของเต่า">
+                    <label for="turtleType">ชนิดเต่า</label>
+                    <input type="text" class="form-control" id="turleType" name="turtleType" placeholder="ชนิดของเต่า">
                     </div>
                 </div> <br>
                 <div class="row">
                     <div class="col-md-6">
-                    <label for="latitude">อายุ ณ วันที่บันทึกข้อมูล (เดือน)</label>
-                    <input type="text" class="form-control" id="ageMoth" placeholder="0">
+                    <label for="ageMonth">อายุ ณ วันที่บันทึกข้อมูล (เดือน)</label>
+                    <input type="text" class="form-control" id="ageMonth" name="ageMonth" placeholder="0">
                         </div>
                         <div class="col-md-6">
-                    <label for="latitude">อายุ ณ วันที่บันทึกข้อมูล (ปี)</label>
-                                     <input type="text" class="form-control" id="ageYear" placeholder="0">
+                    <label for="ageYear">อายุ ณ วันที่บันทึกข้อมูล (ปี)</label>
+                                     <input type="text" class="form-control" id="ageYear" name="ageYear" placeholder="0">
                         </div>
                   </div> <br>
                 <div class="row">
                     <div class="col-md-8">
                     <label for="latitude">รหัสไมโครชิพ</label>
-                    <input type="text" class="form-control" id="ageMoth" placeholder="รหัสอุปกรณ์ไมโครชิพ">
+                    <input type="text" class="form-control" id="microchipCode" name="microchipCode" placeholder="รหัสอุปกรณ์ไมโครชิพ">
                     </div>
                      <div class="col-md-4">
                     <label for="latitude">ตำแหน่งไมโครชิพ</label>
-                    <input type="text" class="form-control" id="ageMoth" placeholder="ตำแหน่งติดตั้งไมโครชิพ">
+                    <input type="text" class="form-control" id="microchipPos" name="microchipPos" placeholder="ตำแหน่งติดตั้งไมโครชิพ">
                     </div>
                 </div> <br>
                 <div class="row">
                     <div class="col-md-6">
                     <label for="latitude">รหัสแท็กสแตนเลส</label>
-                    <input type="text" class="form-control" id="ageMoth" placeholder="รหัสอุปกรณ์แทกสแตนเลส">
+                    <input type="text" class="form-control" id="tagCode" name="tagCode" placeholder="รหัสอุปกรณ์แทกสแตนเลส">
                     </div>
                      <div class="col-md-6">
                     <label for="latitude">ตำแหน่งแทกสแตนเลส</label>
-                    <input type="text" class="form-control" id="ageMoth" placeholder="ตำแหน่งติดตั้งแทกสแตนเลส">
+                    <input type="text" class="form-control" id="tagPos"  name="tagPos" placeholder="ตำแหน่งติดตั้งแทกสแตนเลส">
                     </div>
                 </div> <br>
                 <div class="row">
@@ -327,7 +327,7 @@ if( !isset($_SESSION["user_id"]) ){
                     </div>
                     <div class="col-md-4">
                     <label for="latitude">ความยาว (ซม.)</label>
-                    <input type="text" class="form-control" id="ageMoth" placeholder="ความยาวของกระดองเต่า">
+                    <input type="text" class="form-control" id="length" name="length" placeholder="ความยาวของกระดองเต่า">
                     </div>
                     </div> <br>
                 <div class="row">
@@ -337,7 +337,7 @@ if( !isset($_SESSION["user_id"]) ){
                         </div>
                         <div class="col-md-6">
                     <label for="latitude">ลองจิจูด</label>
-                    <input type="text" class="form-control" id="longtitude" name="longtitude" placeholder="0.00">
+                    <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
                         </div>
                 </div><br>
                  
@@ -739,7 +739,7 @@ if( !isset($_SESSION["user_id"]) ){
           for (var i = 0; i < 10; i++)
              text += possible.charAt(Math.floor(Math.random() * possible.length));
 
-          newFilenameRight = text+'.'+fileext;
+          newFilenameProfile = text+'.'+fileext;
           document.getElementById("filenameProfile").value = newFilenameProfile;
             
 
