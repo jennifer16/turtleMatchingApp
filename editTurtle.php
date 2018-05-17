@@ -270,8 +270,7 @@ echo mysqli_num_rows($data);
             $(document).ready( function () {
     $('#listTurtle').DataTable({
        "columnDefs": [
-            { "orderable": false, "targets": 3 },
-            { "orderable": false, "targets": 4 },
+            { "orderable": false, "targets": 3 }
         ] 
         
     });
