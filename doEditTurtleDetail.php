@@ -22,13 +22,13 @@ $sql = "UPDATE turtle SET turtle_name='".$turtleName."', turtle_left='".$leftFil
 echo $sql;
 
 
-//if (mysqli_query($conn, $sql1)) {
+if (mysqli_query($conn, $sql1)) {
 
-    
-//} else {
-//    echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
+    echo "seu";
+} else {
+    echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
     //header('Location: error.php');
-//}
+}
 
 
 
