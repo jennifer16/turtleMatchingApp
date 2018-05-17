@@ -486,6 +486,21 @@ $.getJSON("https://api.ipdata.co/", function (data, status) {
 
 
 </script>
-        
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    function initialize() {
+        var loc = {};
+        var geocoder = new google.maps.Geocoder();
+        if(google.loader.ClientLocation) {
+            loc.lat = google.loader.ClientLocation.latitude;
+            loc.lng = google.loader.ClientLocation.longitude;
+            console.log(loc.lat);
+            console.log(loc.lng);
+            
+        }
+    }
+
+
+    </script>
     </body>
 </html>
