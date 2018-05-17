@@ -69,7 +69,7 @@ def histogram_match( image, refImage ):
 		b = new_values[a]
 		img.itemset((i,j), b)
 
-	cv2.imwrite('Input/hist_matched.PNG', img)
+	#cv2.imwrite('Input/hist_matched.PNG', img)
 
 #	name of input file
 inputName = sys.argv[1]
@@ -83,23 +83,7 @@ fileName = inputName.rpartition(".")[-3]
 fileInputName = ''
 
 #	if file is jpg or JPG
-if ( fileExt == 'jpg'):
-	#convert to PNG
-	im = Image.open('Input/'+inputName)
-	im.save('Input/'+fileName+'.PNG')
-
-elif ( fileExt == 'JPG'):
-	#convert to PNG
-	im = Image.open('Input/'+inputName)
-	im.save('Input/'+fileName+'.PNG')
-
-elif ( fileExt == 'jpeg'):
-	#convert to PNG
-	im = Image.open('Input/'+inputName)
-	im.save('Input/'+fileName+'.PNG')
-
-elif ( fileExt == 'png'):
-	#rename to PNG
+if not os.path.isfile('Turtle/'+fileName+'.PNG'):
 	im = Image.open('Input/'+inputName)
 	im.save('Input/'+fileName+'.PNG')
 	
@@ -168,24 +152,8 @@ for key in templateFileNameDict.keys():
 	fileExt = fullname.rpartition(".")[-1]
 	fileName = fullname.rpartition(".")[-3]
 
-	#	if file is jpg or JPG
-	if ( fileExt == 'jpg'):
+	if not os.path.isfile('Turtle/'+fileName+'.PNG'):
 		#convert to PNG
-		im = Image.open('Turtle/'+fullname)
-		im.save('Turtle/'+fileName+'.PNG')
-
-	elif ( fileExt == 'JPG'):
-		#convert to PNG
-		im = Image.open('Turtle/'+fullname)
-		im.save('Turtle/'+fileName+'.PNG')
-
-	elif ( fileExt == 'jpeg'):
-		#convert to PNG
-		im = Image.open('Turtle/'+fullname)
-		im.save('Turtle/'+fileName+'.PNG')
-
-	elif ( fileExt == 'png'):
-		#rename to PNG
 		im = Image.open('Turtle/'+fullname)
 		im.save('Turtle/'+fileName+'.PNG')
 
