@@ -23,7 +23,8 @@ VALUES ('".$id."', '".$firstname."', '".$lastname."' , '".$nickname."', '".$emai
         $_SESSION['user_role'] = $role;
         header('Location: index.php');
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        header('Location: error.php');
+        //echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
     $conn->close();

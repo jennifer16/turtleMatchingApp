@@ -156,7 +156,7 @@ echo mysqli_num_rows($data);
              
             <!-- /.card-header -->
             <div class="card-body">
-            <label>ลบข้อมูลเต่า</label>
+            <h5>ลบข้อมูลเต่า</h5>
               <table id="listTurtle" class="display">
                 <thead>
                 <tr>
