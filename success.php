@@ -145,7 +145,10 @@ if( !isset($_SESSION["user_id"]) ){
 
                 <div class="row" align="center">
                     <div class="col-md-12">
-                        <img src="img/green.jpg" style="width:50%; height:auto;">
+                        <img src="img/green.jpg" style="width:30%; height:auto;"><br>
+                        <div class="card-title">
+                        <h3>ดำเนินการเสร็จสิ้น</h3>
+                        </div><br>
                     <form action="index.php">
                      <button type="submit" class="btn btn-success">กลับสู่หน้าหลัก</button>
                     </form>
