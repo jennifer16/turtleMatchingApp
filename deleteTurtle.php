@@ -8,7 +8,7 @@ if( !isset($_SESSION["user_id"]) ){
 
 $sql =  "SELECT * FROM turtle";
 $data = mysqli_query($conn, $sql);
-
+echo mysql_num_rows($data);
 ?>
 <html lang="en">
     <head>
