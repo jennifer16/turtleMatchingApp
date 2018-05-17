@@ -177,6 +177,7 @@ if( !isset($_SESSION["user_id"]) ){
                 </div>
               <!-- /.card-header -->
               <!-- form start --> 
+                <!-- left side image -->
                  <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านซ้าย<br>
       <img class="rounded" id="avatarLeft" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-left">
@@ -207,9 +208,10 @@ if( !isset($_SESSION["user_id"]) ){
     </div>
   </div>
                  <hr>
+                 <!-- right side image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านขวา<br>
-      <img class="rounded" id="avatarLeft" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-left">
+      <img class="rounded" id="avatarRight" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputRight" name="imageRight" accept="image/*">
     </label>
       <input type="text" name="filenameRight" id="filenameRight" hidden>
