@@ -405,7 +405,7 @@ if( !isset($_SESSION["user_id"]) ){
           canvas.toBlob(function (blob) {
             var formData = new FormData();
 	
-            
+            formData.append('test1','testtest');
             formData.append('avatarLeft', blob);
             formData.append('filenameLeft', newFilenameLeft);
               console.log(formData);
