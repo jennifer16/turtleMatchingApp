@@ -173,7 +173,7 @@ echo mysqli_num_rows($data);
                     echo "<td align='center'><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row['turtle_name']."</a></td>";
                     echo "<td align='center'>".$row['turtle_microchip_code']."</td>";
                     echo "<td align='center'>".$row['turtle_tag_code']."</td>";
-                   echo "<td align='center'><button type='button' class='btn btn-info' onclick='goToDetail(".$row['turtle_id'].");'>ดู</button></td>";
+                   echo "<td align='center'><button type='button' class='btn btn-info' onclick='goToDetail(".$row['turtle_id'].");'>ดูข้อมูล</button></td>";
                     echo "</tr>";
 }
                     
@@ -267,6 +267,9 @@ echo mysqli_num_rows($data);
         <script>
             $(document).ready( function () {
     $('#listTurtle').DataTable({
+         scrollY:        '50vh',
+        scrollCollapse: true,
+
        "columnDefs": [
             { "orderable": false, "targets": 3 }
         ] 

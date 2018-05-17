@@ -264,6 +264,8 @@ $data = mysqli_query($conn, $sql);
         <script>
             $(document).ready( function () {
     $('#listTurtle').DataTable({
+         scrollY:        '50vh',
+        scrollCollapse: true,
        "columnDefs": [
             { "orderable": false, "targets": 3 }
         ] 
