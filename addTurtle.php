@@ -342,11 +342,11 @@ if( !isset($_SESSION["user_id"]) ){
                 </div><br>
                  
                 <!-- /.card-body -->
-                    <div class="row">
+                    <div class="row" align="center">
                     <div class="col-md-12">
-                <div class="card-footer">
+               
                   <button type="submit" class="btn btn-primary">บันทึกข้อมูลเต่า</button>
-                        </div>
+               
      </div>
                 </div>
                            </div>

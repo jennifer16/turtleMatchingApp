@@ -38,13 +38,13 @@ if (mysqli_query($conn, $sql1)) {
         
     }else{
         
-        //echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
-        header('Location: error.php');
+        echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
+        //header('Location: error.php');
     }
     
 } else {
-    //echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
-    header('Location: error.php');
+    echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
+    //header('Location: error.php');
 }
 
 
