@@ -13,11 +13,10 @@
        		return(count($ProcessState) >= 2);
    	}
 	
-	$filename = $_POST['filename'];
+	$fullname = $_POST['filename'];
 	$side = $_POST['side'];
-	
-    $filename = '4xcPFvvJYt.JPG';
-    $side = 'LEFT';
+    
+    $filename = pathinfo($fullname)['filename'];
 
 	if ($filename == "")
 	{
@@ -25,7 +24,7 @@
 	}else{
 		
 		echo "Mathcing with ".$side." side.<br>";
-		$PID = shell_exec("nohup python demoTurtleMatching.py ".$filename." ".$side." 2>&1 | tee Output/".$filename.".txt 2>/dev/null >/dev/null & echo $!");
+		$PID = shell_exec("nohup python demoTurtleMatching.py ".fullname." ".$side." 2>&1 | tee Output/".$filename.".txt 2>/dev/null >/dev/null & echo $!");
 		  		
 		echo "running";
 		$count = 0;
@@ -57,9 +56,9 @@
 			$side = $data[0][0];
 			
 			if ($side == 'R')
-				echo $filname." is matched with ".$fname." with score of ".$score." % (Right side). <a href='Output/".$filename."-".$fname."V_RIGHT.PNG'>Click to see matching image</a><br>";
+				echo $filename." is matched with ".$fname." with score of ".$score." % (Right side). <a href='Output/".$filename."-".$fname."V_RIGHT.PNG'>Click to see matching image</a><br>";
 			else
-				echo $filname." is matched with ".$fname." with score of ".$score." % (Left side). <a href='Output/".$filename."-".$fname."V_LEFT.PNG'>Click to see matching image</a><br>";
+				echo $filename." is matched with ".$fname." with score of ".$score." % (Left side). <a href='Output/".$filename."-".$fname."V_LEFT.PNG'>Click to see matching image</a><br>";
 		}
 		fclose($myfile);
 

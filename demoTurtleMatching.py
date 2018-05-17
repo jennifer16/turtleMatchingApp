@@ -69,7 +69,7 @@ def histogram_match( image, refImage ):
 		b = new_values[a]
 		img.itemset((i,j), b)
 
-	#cv2.imwrite('Input/hist_matched.PNG', img)
+	cv2.imwrite('Input/hist_matched.PNG', img)
 
 #	name of input file
 inputName = sys.argv[1]
