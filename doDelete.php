@@ -5,11 +5,11 @@
     $turtleId = $_GET['id'];
 
     $sql = "DELETE FROM turtle WHERE turtle_id='".$turtle_id."'";
-
+echo $sql;
     if ($conn->query($sql) === TRUE) {
        $sql = "DELETE FROM found WHERE turtle_id='".$turtle_id."'";
        if ($conn->query($sql) === TRUE) {
-         header('Location: success.php');
+         //header('Location: success.php');
            
        }else{
         header('Location: error.php');
