@@ -253,7 +253,7 @@ for name in templateFileList:
 			break
 
 #	list score and print
-for index in range(len(turtleNameList)):
+for index in range(len(templateFileNameDict.keys())):
 	if side == 'LEFT':
 		leftPercent = leftScore[index]
 		print "$"+ templateFileNameDict[templateFileNameDict.keys()[index]]+","+ str(leftPercent) + ",LEFT"	
