@@ -171,7 +171,7 @@ $data = mysqli_query($conn, $sql);
                     echo "<td>".$row['turtle_microchip_code']."</td>";
                     echo "<td>".$row['turtle_tag_code']."</td>";
                     echo "<td><button type='button' class='btn btn-danger' onclick='doDelete(".$row['turtle_id'].");'>ลบ</button></td>";
-                    echo "</tr>"
+                    echo "</tr>";
 }
                     
 ?>
