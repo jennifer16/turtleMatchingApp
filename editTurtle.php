@@ -156,13 +156,14 @@ echo mysqli_num_rows($data);
              
             <!-- /.card-header -->
             <div class="card-body">
-            <h5>ลบข้อมูลเต่า</h5>
+            <h5>แก้ไขข้อมูลเต่า</h5>
               <table id="listTurtle" class="display">
                 <thead>
                 <tr>
                   <th align='center'>ชื่อเต่า</th>
                   <th align='center'>รหัสไมโครชิพ</th>
                   <th align='center'>TAG</th>
+                  <th>&nbsp;</th>
                   <th>&nbsp;</th>
                 </tr>
                 </thead>
@@ -173,7 +174,8 @@ echo mysqli_num_rows($data);
                     echo "<td align='center'><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row['turtle_name']."</a></td>";
                     echo "<td align='center'>".$row['turtle_microchip_code']."</td>";
                     echo "<td align='center'>".$row['turtle_tag_code']."</td>";
-                   echo "<td align='center'><button type='button' class='btn btn-danger' onclick='doDelete(".$row['turtle_id'].");'>ลบ</button></td>";
+                   echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doEditTurtle(".$row['turtle_id'].");'>แก้ไขข้อมูลเต่า</button></td>";
+                      echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doEditFound(".$row['turtle_id'].");'>แก้ไขข้อมูลการพบเต่า</button></td>";
                     echo "</tr>";
 }
                     
@@ -277,9 +279,12 @@ echo mysqli_num_rows($data);
 } );
         </script>
         <script>
-    function doDelete(id){
-        confirm("ยืนยันการลบข้อมูล");
-        window.location='doDelete.php?id='+id;
+    function doEditTurtle(id){
+        window.location='editTurtleDetail.php?id='+id;
+    }
+    
+    function doEditFound(id){
+        window.location='editFoundDetail.php?id='+id;
     }
 </script>
     </body>
