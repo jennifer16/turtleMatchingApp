@@ -177,7 +177,7 @@ $row = $data->fetch_assoc();
           <div class="col-md-12">
              <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">เพิ่มข้อมูลเต่าทะเล</h4>
+                    <h4 class="card-title">แก้ไขข้อมูลประจำตัวเต่าทะเล</h4>
                 </div>
               <!-- /.card-header -->
               <!-- form start --> 
@@ -278,6 +278,7 @@ $row = $data->fetch_assoc();
                         <input type="text" name="filenameLeft" id="filenameLeft" value='<?php echo $row['turtle_left']; ?>' hidden>
                    <input type="text" name="filenameRight" id="filenameRight"  value='<?php echo $row['turtle_right']; ?>'  hidden>
                    <input type="text" name="filenameProfile" id="filenameProfile"  value='<?php echo $row['turtle_profile']; ?>'  hidden>
+                    <input type="text" name="turtleID" id="turtleID"  value='<?php echo $turtleID; ?>'  hidden>
                 <div class="card-body">
                         <h5 class="card-title">ข้อมูลประจำตัวเต่าทะเล</h5>
                            
