@@ -138,9 +138,9 @@ if( !isset($_SESSION["user_id"]) ){
                         <?php
                               if ($_SESSION['user_role']==1)
                             {
-                                echo "<l1><a href='addTurtle.php'><i class='zmdi zmdi-collection-plus'></i> เพิ่มข้อมูลเต่า</a></li>";
-                                echo "<l1><a href='editTurtle.php'><i class='zmdi zmdi-collection-text'></i> แก้ไขข้อมูลเต่า</a></li>";
-                                echo "<l1><a href='deleteTurtle.php'><i class='zmdi zmdi-delete'></i> ลบข้อมูลเต่า</a></li>";
+                                echo "<li><a href='addTurtle.php'><i class='zmdi zmdi-collection-plus'></i> เพิ่มข้อมูลเต่า</a></li>";
+                                echo "<li><a href='editTurtle.php'><i class='zmdi zmdi-collection-text'></i> แก้ไขข้อมูลเต่า</a></li>";
+                                echo "<li><a href='deleteTurtle.php'><i class='zmdi zmdi-delete'></i> ลบข้อมูลเต่า</a></li>";
 
 
                             }
@@ -317,10 +317,10 @@ if( !isset($_SESSION["user_id"]) ){
                 <div class="row">
                     <div class="col-md-4">
                     <label for="latitude">น้ำหนัก (กก.)</label>
-                        <input type="text" class="form-control" id=piv></div>
+                        <input type="text" class="form-control" placeholder="น้ำหนักเต่า" id="weight" name="weight"></div>
                      <div class="col-md-4">
                     <label for="latitude">ความกว้าง (ซม.)</label>
-                    <input type="text" class="form-control" id="ageMoth" placeholder="ความกว้างของกระดองเต่า">
+                    <input type="text" class="form-control" id="width" name="width" placeholder="ความกว้างของกระดองเต่า">
                     </div>
                     <div class="col-md-4">
                     <label for="latitude">ความยาว (ซม.)</label>
