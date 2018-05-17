@@ -189,11 +189,11 @@ for key in templateFileNameDict.keys():
 		im = Image.open('Turtle/'+fullname)
 		im.save('Turtle/'+fileName+'.PNG')
 
-	if not os.path.isfile('Input/'+fullname+'.PNG'):
+	if not os.path.isfile('Input/'+fileName+'.PNG'):
 		print 'Cannot find name with '+fileName+'.PNG'
 		sys.exit()
 	else:
-		templateFileList.append('Turtle/'+fullname+'.PNG')
+		templateFileList.append('Turtle/'+fileName+'.PNG')
 	
 
 #	calculate matching score for left and right template
