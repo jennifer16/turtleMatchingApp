@@ -170,7 +170,7 @@ if( !isset($_SESSION["user_id"]) ){
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">ข้อมูลภาพเต่า</h3>
+                <h3 class="card-title">ค้นหาด้วยข้อมูลภาพเต่า</h3>
                   <div id="container_image"></div> 
               </div>
               <!-- /.card-header -->
@@ -232,11 +232,13 @@ if( !isset($_SESSION["user_id"]) ){
                 </div>
                 <!-- /.card-body -->
 
-                 <div class="row" align="center">
-                    <div class="col-md-6">
-                  <button type="submit" class="btn btn-primary">ค้นหา</button>
+            <div class="row" align="center">
+                    <div class="col-md-12">
+               
+                  <button type="submit" class="btn btn-primary">บันทึกข้อมูลเต่า</button>
+               
+     </div>
                 </div>
-                  </div>
               </form>
             </div>
             <!-- /.card -->
