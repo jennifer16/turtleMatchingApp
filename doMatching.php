@@ -16,6 +16,9 @@
 	$filename = $_POST['filename'];
 	$side = $_POST['side'];
 	
+    $filename = '4xcPFvvJYt.JPG';
+    $side = 'LEFT';
+
 	if ($filename == "")
 	{
 		echo "Cannot run! Missing filename....";	
