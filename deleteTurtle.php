@@ -155,7 +155,7 @@ echo mysqli_num_rows($data);
           <div class="card">
             <!-- /.card-header -->
             <div class="card-body">
-              <table id="listTurtle" class="table table-bordered table-striped">
+              <table id="listTurtle" class="display">
                 <thead>
                 <tr>
                   <th>ชื่อเต่า</th>
@@ -168,7 +168,7 @@ echo mysqli_num_rows($data);
 <?php
                  while ($row = $data->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row[turtle_name]."</a></td>";
+                    echo "<td><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row['turtle_name']."</a></td>";
                     echo "<td>".$row['turtle_microchip_code']."</td>";
                     echo "<td>".$row['turtle_tag_code']."</td>";
                     echo "<td><button type='button' class='btn btn-danger' onclick='doDelete(".$row['turtle_id'].");'>ลบ</button></td>";
