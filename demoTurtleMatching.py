@@ -91,8 +91,7 @@ for index in range(len(templateFileList)):
 		for line in scoreFile:
 			score = line.strip()
 			score = float(score)
-			leftScore.append(s
-			core)
+			leftScore.append(score)
 			break
 	
 	if side == 'RIGHT':
