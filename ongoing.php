@@ -232,7 +232,7 @@ if( !isset($_SESSION["user_id"]) ){
                     }
                 };
  });
-}
+});
 
 $(document).ready(function(){
  setInterval(fetchdata,10000);
