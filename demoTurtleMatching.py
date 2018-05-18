@@ -82,8 +82,7 @@ for index in range(len(templateFileList)):
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 
 		command_line = "./demo_ASIFT"+" "+leftFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
-        	
-		print command_line
+
         	args = shlex.split(command_line)
 		p = subprocess.Popen(args)
 		p.wait()
@@ -95,20 +94,17 @@ for index in range(len(templateFileList)):
 			break
 	
 	if side == 'RIGHT':
-		realNameInput = fileInputName.rpartition(".")[-2]
-		realNameTemplate = name.rpartition(".")[-2]
+		realInputName = fileName
+		realNameTemplate = fileName1
 		#	compare with left face
-		rightFaceName = "Template/Right/"+name+".PNG"
-		outputVName = "Output/"+realNameInput+"-"+realNameTemplate+"V_RIGHT.PNG"
-		outputHName = "Output/"+realNameInput+"-"+realNameTemplate+"H_RIGHT.PNG"
-		outputMatchingName = "Output/"+realNameInput+"-"+name+"Mathcing_RIGHT.txt"
-		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_RIGHT.txt"
-		outputKeys2Name = "./RawFile/"+realNameInput+"HistMatchWith"+realNameTemplate+"Keys.txt"
+		rightFaceName = templateFileList[index]
+		outputVName = "./Output/"+realInputName+"-"+realNameTemplate+"V_RIGHT.PNG"
+		outputHName = "./Output/"+realInputName+"-"+realNameTemplate+"H_RIGHT.PNG"
+		outputMatchingName = "./Output/"+realInputName+"-"+realNameTemplate+"Mathcing_RIGHT.txt"
+		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
+		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 		
-		print 'Doing histogram matching'
-		histogram_match( inputFileName, rightFaceName )
-
-		command_line = "./demo_ASIFT"+" "+rightFaceName+" ./Input/hist_matched.PNG "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
+		command_line = "./demo_ASIFT"+" "+rightFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
 		args = shlex.split(command_line)
 		p = subprocess.Popen(args)
