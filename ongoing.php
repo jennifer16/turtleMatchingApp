@@ -219,18 +219,16 @@ if( !isset($_SESSION["user_id"]) ){
         <script src="js/app.min.js"></script>
         
         <script>
-        function fetchdata(){
+function fetchdata(){
  $.ajax({
-  type: 'POST',
   url: 'fetchFinishMatching.php',
-  dataType: 'json',
-  async: false, //This is deprecated in the latest version of jquery must use now callbacks
-  success: function(d){
-   alert(d.responseText); //will alert ok
+  type: 'post',
+  success: function(response){
+   // Perform operation on the return value
+   alert(response.responseText);
   }
-});
-            
-        }
+ });
+}
 
 $(document).ready(function(){
  setInterval(fetchdata,10000);
