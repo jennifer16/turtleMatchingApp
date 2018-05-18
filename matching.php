@@ -193,7 +193,7 @@ if( !isset($_SESSION["user_id"]) ){
           </div>
           <div class="modal-body">
             <div class="img-container">
-              <img id="imageLeft" src="https://avatars0.githubusercontent.com/u/3456749">
+              <img id="image" src="https://avatars0.githubusercontent.com/u/3456749">
             </div>
           </div>
           <div class="modal-footer">
