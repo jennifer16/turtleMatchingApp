@@ -46,8 +46,11 @@ if( !isset($_SESSION["user_id"]) ){
                 </div>
 
                 <ul class="top-nav">
-                    <li class="top=nav">
+                    <li class="top-nav">
                     <a href='matching.php'><i class="zmdi zmdi-camera-add"></i> </a>
+                    </li>
+                    <li class="top-nav">
+                     <a href='matchingResult.php'><i class="zmdi zmdi-notifications"></i></a>
                     </li>
                     <li id="bell" class="dropdown top-nav" >
                         <a href="" data-toggle="dropdown" class="top-nav__notify">
@@ -230,12 +233,8 @@ function fetchdata(){
    // Perform operation on the return value
    if( response.trim() == '1'){
        
-        $('#bell').removeClass('dropdown top-nav');
-        $('#bell').addClass('dropdown top-nav__notifications');
-
    }else{
-        $('#bell').addClass('dropdown top-nav');
-        $('#bell').removeClass('dropdown top-nav__notifications');
+       
    }
   }
  });
