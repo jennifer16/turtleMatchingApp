@@ -17,7 +17,7 @@ inputName = sys.argv[1]
 #	side to matching
 side = sys.argv[2]
 #	user 
-user_id =sys.argv[3]
+match_id =sys.argv[3]
 
 fileExt = inputName.rpartition(".")[-1]
 fileName = inputName.rpartition(".")[-3]
@@ -76,15 +76,13 @@ for index in range(len(templateFileList)):
 		realNameTemplate = templateNameList[index];
 		#	compare with left face
 		leftFaceName = templateFileList[index]
-		outputVName = "./Output/"+user_id+"-"+realNameTemplate+"V_LEFT.PNG"
-		outputHName = "./Output/"+user_id+"-"+realNameTemplate+"H_LEFT.PNG"
-		outputMatchingName = "./Output/"+user_id+"-"+realNameTemplate+"Mathcing_LEFT.txt"
+		outputVName = "./Output/"+match_id+"-"+realNameTemplate+"V_LEFT.PNG"
+		outputHName = "./Output/"+match_id+"-"+realNameTemplate+"H_LEFT.PNG"
+		outputMatchingName = "./Output/"+match_id+"-"+realNameTemplate+"Mathcing_LEFT.txt"
 		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
-		outputKeys2Name = "./RawFile/"+"Keys.txt"
+		outputKeys2Name = "./RawFile/"+fileInputName+"Keys.txt"
 
 		command_line = "./demo_ASIFT"+" "+leftFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
-        
-       		print command_line
         
         	args = shlex.split(command_line)
 		p = subprocess.Popen(args)
