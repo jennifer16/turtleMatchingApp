@@ -15,25 +15,23 @@
     $sql = "select * from matching WHERE users_id='".$_SESSION['user_id']."' and turtle_id=''";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0){
-    $count = 0;
-    $data = array();
-    while ($row = $result->fetch_assoc()) {
+        $count = 0;
+        $data = array();
+        while ($row = $result->fetch_assoc()) {
         
-        $PID = $row['match_pid'];
+                $PID = $row['match_pid'];
         
-        if(!is_process_running($PID))
-        {
-            $data[count] = $PID;
+                if(!is_process_running($PID))
+                {
+                    $data[count] = $PID;
+                }
+                $count++;
         }
-        $count++;
-    }
 
-    if ($count > 0)
-    {
         echo $data;
         $out = array_values($data);
         $json = json_encode($out, JSON_FORCE_OBJECT);
         //echo ($json);
-    }
+    
     }
 ?>   
