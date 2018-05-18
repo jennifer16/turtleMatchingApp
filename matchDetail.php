@@ -164,11 +164,7 @@ $data = mysqli_query($conn, $sql);
                     echo "</tr>";
 }
          
-                    		while(!feof($myfile)) {
-  			
-            else
-                echo $line;
-		}
+
 		fclose($myfile);
                     
 ?>
