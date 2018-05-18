@@ -13,11 +13,11 @@
         
 
     $sql = "select * from matching WHERE user_id='".$_SESSION['user_id']."' and turtle_id=''";
-    $data = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($data) > 0){
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0){
     $count = 0;
     $data = array();
-    while ($row = $data->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         
         $PID = $row['match_pid'];
         
