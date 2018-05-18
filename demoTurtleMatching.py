@@ -75,7 +75,7 @@ for index in range(len(templateFileList)):
 	if side == 'LEFT':
 		realNameTemplate = templateNameList[index];
 		#	compare with left face
-		leftFaceName = name
+		leftFaceName = templateFileList[index]
 		outputVName = "./Output/"+user_id+"-"+realNameTemplate+"V_LEFT.PNG"
 		outputHName = "./Output/"+user_id+"-"+realNameTemplate+"H_LEFT.PNG"
 		outputMatchingName = "./Output/"+user_id+"-"+realNameTemplate+"Mathcing_LEFT.txt"
