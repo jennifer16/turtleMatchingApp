@@ -383,7 +383,7 @@ if( !isset($_SESSION["user_id"]) ){
             var formData = new FormData();
 	
             formData.append('avatar', blob);
-            formData.append('filename', newFilenameLeft);
+            formData.append('filename', newFilename);
          for (var pair of formData.entries()) {
     console.log(pair[0]+ ', ' + pair[1]); 
 }
