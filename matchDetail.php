@@ -135,13 +135,14 @@ $data = mysqli_query($conn, $sql);
             <!-- /.card-header -->
             <div class="card-body">
             <h5>ผลการเปรียบเทียบ</h5>
-            
+             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                     
-                        <img src='./Input/<?php echo $row['match_input']; ?>' stype="width:30% height:auto">
+                        <img class="round" src='./Input/<?php echo $row['match_input']; ?>' stype="width:10% height:auto">
                         
                     </div>
+                </div>
                 </div>
               <table id="listTurtle" class="display" style="width:100%">
                 <thead>
