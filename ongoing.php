@@ -221,18 +221,16 @@ if( !isset($_SESSION["user_id"]) ){
         <script>
         function fetchdata(){
  $.ajax({
+  type: 'POST',
   url: 'fetchFinishMatching.php',
-  type: 'post',
-  xhr: function () {
-                var xhr = new XMLHttpRequest();
-
-                xhr.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        console.log(this.responseText);
-                    }
-                };
- });
+  dataType: 'json',
+  async: false, //This is deprecated in the latest version of jquery must use now callbacks
+  success: function(d){
+   alert(d.status); //will alert ok
+  }
 });
+            
+        }
 
 $(document).ready(function(){
  setInterval(fetchdata,10000);
