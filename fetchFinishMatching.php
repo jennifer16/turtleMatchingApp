@@ -1,13 +1,17 @@
 <?php
+    function is_process_running($PID)
+    {
+       		exec("ps ".$PID, $ProcessState);
+       		return(count($ProcessState) >= 2);
+     }
+?>
+
+<?php
     
     session_start();
     require 'connect.php'   
         
-            function is_process_running($PID)
-  	     {
-       		exec("ps ".$PID, $ProcessState);
-       		return(count($ProcessState) >= 2);
-   	     }
+
     $sql = "select * from matching WHERE user_id='".$_SESSION['user_id']."' and turtle_id=''";
     $data = mysqli_query($conn, $sql);
 

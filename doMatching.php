@@ -22,7 +22,7 @@
         echo "Running";
         
         
-        $sql = "INSERT INTO matching (user_id, match_file, match_input, match_pid) VALUES ('".$_SESSION['user_id']."','".$outputFile."','".$filename."','".$PID."')";
+        $sql = "INSERT INTO matching (users_id, match_file, match_input, match_pid) VALUES ('".$_SESSION['user_id']."','".$outputFile."','".$filename."','".$PID."')";
         
         if (mysqli_query($conn, $sql)) {
             
