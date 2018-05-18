@@ -54,7 +54,7 @@ echo mysqli_num_rows($data);
 
                 <ul class="top-nav">
                     <li class="top=nav">
-                    <a href=''><i class="zmdi zmdi-camera-add"></i> </a>
+                    <a href='matching.php'><i class="zmdi zmdi-camera-add"></i> </a>
                     </li>
                     <li class="dropdown top-nav__notifications">
                         <a href="" data-toggle="dropdown" class="top-nav__notify">

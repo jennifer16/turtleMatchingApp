@@ -5,7 +5,7 @@
 	$filename = $_GET['filename'];
 	$side = $_GET['side'];
 
-    $path_parts = pathinfo($filename;
+    $path_parts = pathinfo($filename);
     $exactName = $path_parts['filename'];
                            
     $outputFile = "Output/".$exactName.".txt";
