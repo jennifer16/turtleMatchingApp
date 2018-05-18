@@ -9,7 +9,7 @@ echo $sql;
     $result = mysqli_query($conn,$sql);
     $row = $result->fetch_assoc();
 
-    $outputFile = $row['match_file']''
+    $outputFile = $row['match_file'];
     
     $myfile = fopen($outputFile, "r") or die("Unable to open file!");
 
