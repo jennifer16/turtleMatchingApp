@@ -250,7 +250,7 @@ $result = mysqli_query($conn, $sql);
         
         <script>
             $(document).ready( function () {
-    $('#').DataTable({
+    $('#listTurtle').DataTable({
          scrollY:        '50vh',
         scrollCollapse: true,
         paging:         false,
