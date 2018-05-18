@@ -16,16 +16,9 @@
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0){
         $count = 0;
-        $data = array();
         while ($row = $result->fetch_assoc()) {
-        
-                $PID = $row['match_pid'];
-        
-                if(!is_process_running($PID))
-                {
-                    $data[$count] = $PID;
-                }
-                $count++;
+    
+            $count++;
         }
 
         echo "1";

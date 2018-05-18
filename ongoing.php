@@ -223,13 +223,14 @@ if( !isset($_SESSION["user_id"]) ){
  $.ajax({
   url: 'fetchFinishMatching.php',
   type: 'post',
-  success: function(response){
-   // Perform operation on the return value
-   if(response=="1")
-       console.log("test");
-    else
-        console.log("test1");
-  }
+  xhr: function () {
+                var xhr = new XMLHttpRequest();
+
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.responseText);
+                    }
+                };
  });
 }
 
