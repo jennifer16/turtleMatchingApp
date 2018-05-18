@@ -16,8 +16,6 @@ import MySQLdb
 inputName = sys.argv[1]
 #	side to matching
 side = sys.argv[2]
-#	user 
-match_id =sys.argv[3]
 
 fileExt = inputName.rpartition(".")[-1]
 fileName = inputName.rpartition(".")[-3]
@@ -73,7 +71,8 @@ leftScore=[]
 rightScore=[]
 for index in range(len(templateFileList)):
 	if side == 'LEFT':
-		realNameTemplate = templateNameList[index];
+		realInputName = fileInputName.rpartition(".")[-3]
+		realNameTemplate = templateNameList[index].rpartition(".")[-3];
 		#	compare with left face
 		leftFaceName = templateFileList[index]
 		outputVName = "./Output/"+match_id+"-"+realNameTemplate+"V_LEFT.PNG"
@@ -84,6 +83,7 @@ for index in range(len(templateFileList)):
 
 		command_line = "./demo_ASIFT"+" "+leftFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
         
+		print command_line
         	args = shlex.split(command_line)
 		p = subprocess.Popen(args)
 		p.wait()
@@ -91,7 +91,8 @@ for index in range(len(templateFileList)):
 		for line in scoreFile:
 			score = line.strip()
 			score = float(score)
-			leftScore.append(score)
+			leftScore.append(s
+			core)
 			break
 	
 	if side == 'RIGHT':
