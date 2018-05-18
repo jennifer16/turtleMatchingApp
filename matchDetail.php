@@ -18,16 +18,8 @@ echo $sql;
 
 			if ($line[0] != "$")
 				continue;
-
-			$data = explode(",", $line);
-			$fname = ltrim($data[0],'$');
-			$score = $data[1];
-			$side = $data[0][0];
-			
-			if ($side == 'R')
-				echo $filname." is matched with ".$fname." with score of ".$score." % (Right side). <a href='Output/".$filename."-".$fname."V_RIGHT.PNG'>Click to see matching image</a><br>";
-			else
-				echo $filname." is matched with ".$fname." with score of ".$score." % (Left side). <a href='Output/".$filename."-".$fname."V_LEFT.PNG'>Click to see matching image</a><br>";
+            else:
+                echo $line;
 		}
 		fclose($myfile);
 ?>
