@@ -27,7 +27,7 @@
         if (mysqli_query($conn, $sql)) {
             
             header('Location: ongoing.php');
-        }else
+        }else{
             header('Location: error.php');
         }
         
