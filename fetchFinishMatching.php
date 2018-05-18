@@ -28,7 +28,7 @@
                 $count++;
         }
 
-        echo $data;
+        echo $PID;
         $out = array_values($data);
         $json = json_encode($out, JSON_FORCE_OBJECT);
         //echo ($json);
