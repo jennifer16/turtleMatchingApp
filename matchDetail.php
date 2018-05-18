@@ -1,7 +1,7 @@
 <?php
 
     session_start();
-    require 'connect.php'
+    require 'connect.php';
     
     $id = $_GET['id']
     $sql = "select * from matching where id='".$id."'";
