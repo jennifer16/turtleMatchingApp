@@ -18,7 +18,7 @@ echo $sql;
 
 			if ($line[0] != "$")
 				continue;
-            else:
+            else
                 echo $line;
 		}
 		fclose($myfile);
