@@ -151,6 +151,7 @@ $result = mysqli_query($conn, $sql);
                          echo "<td align='center'>ยังดำเนินการอยู่</td>";
                          echo "<td>&nbsp;</td>";
                      }else{
+                         echo "<td align='center'>ดำเนินการเสร็จสิ้น</td>";
                         echo "<td align='center'><button type='button' class='btn btn-info' onclick='goToDetail(".$row['id'].");'>ดูผล</button></td>";
                      }
                      
