@@ -136,7 +136,7 @@ if( !isset($_SESSION["user_id"]) ){
           <div class="col-md-12">
              <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">à¸„à¹‰à¸™à¸«à¸²à¹€à¸•à¹ˆà¸²à¸—à¸°à¹€à¸¥à¸”à¹‰à¸§à¸¢à¸£à¸¹à¸›à¸ à¸²à¸ž</h4>
+                    <h4 class="card-title">ค้นหาเต่าด้วยรูปภาพ</h4>
                 </div>
               </div>
             </div>
@@ -145,7 +145,7 @@ if( !isset($_SESSION["user_id"]) ){
               <!-- form start --> 
                 <!-- left side image -->
                  <div class="container">
-    <label class="label" data-toggle="tooltip" title="à¸„à¸¥à¸´à¸à¹€à¸žà¸·à¹ˆà¸­à¹€à¸¥à¸·à¸­à¸à¸£à¸¹à¸›à¸ à¸²à¸ž">à¸ à¸²à¸žà¸–à¹ˆà¸²à¸¢à¹€à¸à¸¥à¹‡à¸”à¸šà¸™à¸«à¸™à¹‰à¸²à¹€à¸•à¹ˆà¸²<br>
+    <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">รูปภาพเกล็ดบนใบหน้า<br>
       <img class="rounded" id="avatar" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar">
       <input type="file" class="sr-only" id="input" name="image" accept="image/*">
     </label>
@@ -155,7 +155,7 @@ if( !isset($_SESSION["user_id"]) ){
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">à¹€à¸¥à¸·à¸­à¸à¸ªà¹ˆà¸§à¸™à¹€à¸à¸¥à¹‡à¸”à¸šà¸™à¹ƒà¸šà¸«à¸™à¹‰à¸²à¹€à¸•à¹ˆà¸²</h5>
+            <h5 class="modal-title" id="modalLabel">เลือกส่วนเกล็ดบนใบหน้า</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -166,8 +166,8 @@ if( !isset($_SESSION["user_id"]) ){
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">à¸¢à¸à¹€à¸¥à¸´à¸</button>
-            <button type="button" class="btn btn-primary" id="crop">à¸•à¸à¸¥à¸‡</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+            <button type="button" class="btn btn-primary" id="crop">ตกลง</button>
           </div>
         </div>
       </div>
@@ -181,12 +181,12 @@ if( !isset($_SESSION["user_id"]) ){
                     <div class="col-md-12">
                         <div class="form-check-inline">
   <label class="form-check-label">
-    <input type="radio" class="form-check-input" name="side" value="LEFT" checked>à¸«à¸™à¹‰à¸²à¸”à¹‰à¸²à¸™à¸‹à¹‰à¸²à¸¢
+    <input type="radio" class="form-check-input" name="side" value="LEFT" checked>หน้าด้านซ้าย
   </label>
 </div>
 <div class="form-check-inline">
   <label class="form-check-label">
-    <input type="radio" class="form-check-input" name="side" value="RIGHT">à¸«à¸™à¹‰à¸²à¸”à¹‰à¸²à¸™à¸‚à¸§à¸²
+    <input type="radio" class="form-check-input" name="side" value="RIGHT">หน้าด้านขวา
   </label>
 </div>
                     </div>
@@ -194,11 +194,11 @@ if( !isset($_SESSION["user_id"]) ){
                 <br>
                 <div class="row">
                     <div class="col-md-6">
-                    <label for="latitude">à¸¥à¸°à¸•à¸´à¸ˆà¸¹à¸”</label>
+                    <label for="latitude">ละติจูด</label>
                     <input type="text" class="form-control" id="latitude" name="latitude" placeholder="0.00">
                         </div>
                         <div class="col-md-6">
-                    <label for="latitude">à¸¥à¸­à¸‡à¸ˆà¸´à¸ˆà¸¹à¸”</label>
+                    <label for="latitude">ลองจิจูด</label>
                     <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
                         </div>
                 </div><br>
@@ -207,7 +207,7 @@ if( !isset($_SESSION["user_id"]) ){
                     <div class="row" align="center">
                     <div class="col-md-12">
                
-                  <button type="submit" class="btn btn-primary">à¸„à¹‰à¸™à¸«à¸²à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹€à¸•à¹ˆà¸²</button>
+                  <button type="submit" class="btn btn-primary">ค้นหาเต่า</button>
                
      </div>
                 </div>
