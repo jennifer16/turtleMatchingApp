@@ -28,7 +28,9 @@
             
             header('Location: ongoing.php');
         }else{
-            header('Location: error.php');
+            
+        echo "Error: " . $sql . "<br>" . $conn->error;
+            //header('Location: error.php');
         }
         
 
