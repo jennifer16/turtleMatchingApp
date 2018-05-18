@@ -189,6 +189,13 @@ $data = mysqli_query($conn, $sql);
                 </tr>
                 </tfoot>
               </table>
+                <br>
+                     <div class="row" align="center">
+        <div class="col-12">
+            <h5>-- หรือ --</h5><br>
+            รายงานเป็นการพบเต่าตัวใหม่
+         </div>
+     </div>
             </div>
             <!-- /.card-body -->
           </div>
@@ -197,11 +204,7 @@ $data = mysqli_query($conn, $sql);
         <!-- /.col -->
       </div>
       <!-- /.row -->
-     <div class="row" align="center">
-        <div class="col-12">
-            รายงานเป็นการพบเต่าตัวใหม่
-         </div>
-     </div>
+
                 <footer class="footer hidden-xs-down">
                 </footer>
             </section>
