@@ -17,13 +17,15 @@
     if (mysqli_num_rows($result) > 0){
         $count = 0;
         while ($row = $result->fetch_assoc()) {
-    
-            $count++;
+            
+            if( is_process_running($row['match_pid']) )
+                $count++;
         }
-
-        echo "1";
+        
+        if ($count>0)
+            echo "1";
     
-    }else{
-        echo "0";
+        else
+            echo "0";
     }
 ?>   
