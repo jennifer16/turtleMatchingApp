@@ -196,7 +196,7 @@ $data = mysqli_query($conn, $sql);
                      <div class="row" align="center">
         <div class="col-12">
             <h5>-- หรือ --</h5><br>
-            รายงานเป็นการพบเต่าตัวใหม่
+           <?php echo "<button type='button' class='btn btn-warning' onclick='addTurtle(".$id.");'>รายงานเป็นการพบเต่าตัวใหม่</button>";?>
          </div>
      </div>
             </div>
@@ -289,6 +289,10 @@ $data = mysqli_query($conn, $sql);
         <script>
     function foundTurtle(id){
         window.location='foundTurtle.php?matchId='+id;
+    }
+    
+    function foundTurtle(id){
+        window.location='addTurtle.php?matchId='+id;
     }
     
 

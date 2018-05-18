@@ -5,6 +5,10 @@ session_start();
 if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
+
+$matchID = -1;
+if(isset($_GET['matchId']))
+    $matchID = $_GET['matchId'];
 ?>
 <html lang="en">
     <head>
@@ -238,7 +242,11 @@ if( !isset($_SESSION["user_id"]) ){
                    <input type="text" name="filenameProfile" id="filenameProfile" hidden>
                 <div class="card-body">
                         <h5 class="card-title">ข้อมูลประจำตัวเต่าทะเล</h5>
-                           
+                    <?php
+                    
+                        if ($matchID!=-1)
+                            echo "<input type='text' id='matchId' name='matchId' value='".$matchID."' hidden>";
+                    ?>
                     <div class="form-group">
                     <div class="row">
                         <div class="col-md-12">

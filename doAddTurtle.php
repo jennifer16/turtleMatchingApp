@@ -35,6 +35,12 @@ if (mysqli_query($conn, $sql1)) {
     
     if ( mysqli_query($conn, $sql2) ){
         
+        if( isset($_POST['matchId']))
+        {
+            $sql3 = "UPDATE matching set turtle_id='".$last_id."' WHERE id='".$_POST['matchId']."';";
+            mysqli_query($conn, $sql3)
+        }
+        
         header('Location: success.php');
         
     }else{
