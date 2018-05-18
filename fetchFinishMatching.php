@@ -12,7 +12,7 @@
     require 'connect.php'; 
         
 
-    $sql = "select * from matching WHERE user_id='".$_SESSION['users_id']."' and turtle_id=''";
+    $sql = "select * from matching WHERE user_id='".$_SESSION['user_id']."' and turtle_id=''";
     echo $sql;
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0){
