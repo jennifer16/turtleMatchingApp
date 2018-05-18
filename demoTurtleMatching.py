@@ -71,10 +71,9 @@ for i in range(len(templateFileList)):
 #	calculate matching score for left and right template
 leftScore=[]
 rightScore=[]
-for name in templateFileList:
+for index in range(len(templateFileList)):
 	if side == 'LEFT':
-		realNameInput = fileInputName.rpartition(".")[-3]
-		realNameTemplate = name.rpartition(".")[-3]
+		realNameTemplate = templateFileName[index];
 		#	compare with left face
 		leftFaceName = name
 		outputVName = "./Output/"+user_id+"-"+realNameTemplate+"V_LEFT.PNG"
