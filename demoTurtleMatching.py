@@ -50,20 +50,20 @@ for row in data:
 #	convert template data to PNG
 for i in range(len(templateFileList)):
 
-	fullname = templateFileList[i]
-	fileExt = fullname.rpartition(".")[-1]
-	fileName = fullname.rpartition(".")[-3]
+	fullname1 = templateFileList[i]
+	fileExt1 = fullname.rpartition(".")[-1]
+	fileName1 = fullname.rpartition(".")[-3]
 
-	if not os.path.isfile('Turtle/'+fileName+'.PNG'):
+	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
 		#convert to PNG
-		im = Image.open('Turtle/'+fullname)
-		im.save('Turtle/'+fileName+'.PNG')
+		im = Image.open('Turtle/'+fullname1)
+		im.save('Turtle/'+fileName1+'.PNG')
 
-	if not os.path.isfile('Turtle/'+fileName+'.PNG'):
-		print 'Cannot find name with '+fileName+'.PNG'
+	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
+		print 'Cannot find name with '+fileName1+'.PNG'
 		sys.exit()
 	else:
-		templateFileList[i] = 'Turtle/'+fileName+'.PNG'
+		templateFileList[i] = 'Turtle/'+fileName1+'.PNG'
 	
 
 #	calculate matching score for left and right template
@@ -71,8 +71,8 @@ leftScore=[]
 rightScore=[]
 for index in range(len(templateFileList)):
 	if side == 'LEFT':
-		realInputName = fileInputName.rpartition(".")[-3]
-		realNameTemplate = templateNameList[index].rpartition(".")[-3];
+		realInputName = fileName
+		realNameTemplate = fileName1
 		#	compare with left face
 		leftFaceName = templateFileList[index]
 		outputVName = "./Output/"+realInputName+"-"+realNameTemplate+"V_LEFT.PNG"
@@ -82,7 +82,7 @@ for index in range(len(templateFileList)):
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 
 		command_line = "./demo_ASIFT"+" "+leftFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
-        
+        	
 		print command_line
         	args = shlex.split(command_line)
 		p = subprocess.Popen(args)
