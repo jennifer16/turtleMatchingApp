@@ -33,5 +33,7 @@
         $json = json_encode($out, JSON_FORCE_OBJECT);
         //echo ($json);
     
+    }else{
+        echo "No";
     }
 ?>   
