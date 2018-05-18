@@ -9,7 +9,7 @@
 <?php
     
     session_start();
-    require 'connect.php'   
+    require 'connect.php'; 
         
 
     $sql = "select * from matching WHERE user_id='".$_SESSION['user_id']."' and turtle_id=''";

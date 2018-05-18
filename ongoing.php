@@ -225,7 +225,7 @@ if( !isset($_SESSION["user_id"]) ){
   type: 'post',
   success: function(response){
    // Perform operation on the return value
-   alert(response);
+   console.log(response);
   }
  });
 }
