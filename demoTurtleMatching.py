@@ -68,7 +68,9 @@ for i in range(len(templateFileList)):
 
 #	calculate matching score for left and right template
 leftScore=[]
+leftOutName = []
 rightScore=[]
+rightOutName = []
 for index in range(len(templateFileList)):
 	if side == 'LEFT':
 		realInputName = fileName
@@ -80,7 +82,7 @@ for index in range(len(templateFileList)):
 		outputMatchingName = "./Output/"+realInputName+"-"+realNameTemplate+"Mathcing_LEFT.txt"
 		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
-
+		leftOutName.append(outputVName)
 		command_line = "./demo_ASIFT"+" "+leftFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
         	args = shlex.split(command_line)
@@ -103,7 +105,7 @@ for index in range(len(templateFileList)):
 		outputMatchingName = "./Output/"+realInputName+"-"+realNameTemplate+"Mathcing_RIGHT.txt"
 		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
-		
+		rightOutName.append(outputVName)
 		command_line = "./demo_ASIFT"+" "+rightFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
 		args = shlex.split(command_line)
@@ -122,10 +124,10 @@ rightIndex = sorted(range(len(rightScore)),key=lambda x:rightScore[x])[::-1]
 if side == 'LEFT':
 	for index in leftIndex:
 		leftPercent = leftScore[index]
-		print "$"+ templateNameList[index]+","+ str(leftPercent) + ",LEFT"	
+		print "$"+ templateNameList[index]+","+ str(leftPercent) + ",LEFT,"+leftOutName[index]	
 
 if side == 'RIGHT':
 	for index in rightIndex:
 		rightPercent = rightScore[index]
-		print "$"+ templateNameList[index]+","+ str(rightPercent) + ",RIGHT"	
+		print "$"+ templateNameList[index]+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]
 	

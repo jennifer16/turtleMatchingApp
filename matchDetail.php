@@ -149,6 +149,7 @@ $data = mysqli_query($conn, $sql);
                   <th style='text-align: center;'>ชื่อเต่า</th>
                   <th style='text-align: center;'>ระดับความเหมือน (%)</th>
                   <th style='text-align: center;'>ด้านใบหน้า</th>
+                    <th>&nbsp;</th>
                   <th>&nbsp;</th>
                 </tr>
                 </thead>
@@ -168,7 +169,8 @@ $data = mysqli_query($conn, $sql);
                         echo "<td align='center'>ด้านซ้าย</td>";
                     else
                         echo "<td align='center'>ด้านขวา</td>";
-                   echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$id.");'>รายงานการพบเต่าตัวนี้</button></td>";
+                  echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </td>";
+                    echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$id.");'>รายงานการพบเต่าตัวนี้</button></td>";
                     echo "</tr>";
 }
          
@@ -185,6 +187,7 @@ $data = mysqli_query($conn, $sql);
                   <th style='text-align: center;'>ชื่อเต่า</th>
                   <th style='text-align: center;'>ระดับความเหมือน (%)</th>
                   <th style='text-align: center;'>ด้านใบหน้า</th>
+                    <th>&nbsp;</th>
                   <th>&nbsp;</th>
                 </tr>
                 </tfoot>
