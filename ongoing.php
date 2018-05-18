@@ -219,13 +219,16 @@ if( !isset($_SESSION["user_id"]) ){
         <script src="js/app.min.js"></script>
         
         <script>
+            String.prototype.trim = function() {
+return this.replace(/^\s+|\s+$/g,"");
+};
 function fetchdata(){
  $.ajax({
   url: 'fetchFinishMatching.php',
   type: 'post',
   success: function(response){
    // Perform operation on the return value
-   console.log(response);
+   console.log(response.trim());
   }
  });
 }
