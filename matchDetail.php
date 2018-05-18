@@ -197,7 +197,11 @@ $data = mysqli_query($conn, $sql);
         <!-- /.col -->
       </div>
       <!-- /.row -->
-
+     <div class="row" align="center">
+        <div class="col-12">
+            รายงานเป็นการพบเต่าตัวใหม่
+         </div>
+     </div>
                 <footer class="footer hidden-xs-down">
                 </footer>
             </section>
