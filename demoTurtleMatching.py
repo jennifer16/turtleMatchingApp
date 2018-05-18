@@ -121,13 +121,15 @@ for index in range(len(templateFileList)):
 			break
 
 #	list score and print
-for index in range(len(templateNameList)):
-	if side == 'LEFT':
+leftIndex = sorted(range(len(leftScore)),key=lambda x:leftScore[x])
+rightIndex = sorted(range(len(rightScore)),key=lambda x:rightScore[x])
+if side == 'LEFT':
+	for index in leftIndex:
 		leftPercent = leftScore[index]
 		print "$"+ templateNameList[index]+","+ str(leftPercent) + ",LEFT"	
-	
-	if side == 'RIGHT':			
+
+if side == 'RIGHT':
+	for index in rightIndex:
 		rightPercent = rightScore[index]
-		print "$"+ templateFileNameDict[templateFileNameDict.keys()[index]]+","+ str(rightPercent) + ",RIGHT"
-		
+		print "$"+ templateNameList[index]+","+ str(rightPercent) + ",RIGHT"	
 	
