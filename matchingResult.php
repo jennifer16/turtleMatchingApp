@@ -149,7 +149,7 @@ $result = mysqli_query($conn, $sql);
                     
                      if (is_process_running($row['match_pid'])){
                          echo "<td align='center'>ยังดำเนินการอยู่</td>";
-                         echo "<td>&nbsp;</td>"
+                         echo "<td>&nbsp;</td>";
                      }else{
                         echo "<td align='center'><button type='button' class='btn btn-info' onclick='goToDetail(".$row['id'].");'>ดูผล</button></td>";
                      }
