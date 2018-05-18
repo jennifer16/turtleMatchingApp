@@ -121,10 +121,10 @@ for index in range(len(templateFileList)):
 			break
 
 #	list score and print
-for index in range(len(templateFileList)):
+for index in range(len(templateNameList)):
 	if side == 'LEFT':
 		leftPercent = leftScore[index]
-		print "$"+ templateFileName[index]+","+ str(leftPercent) + ",LEFT"	
+		print "$"+ templateNameList[index]+","+ str(leftPercent) + ",LEFT"	
 	
 	if side == 'RIGHT':			
 		rightPercent = rightScore[index]
