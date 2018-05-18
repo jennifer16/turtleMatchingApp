@@ -226,7 +226,7 @@ if( !isset($_SESSION["user_id"]) ){
   dataType: 'json',
   async: false, //This is deprecated in the latest version of jquery must use now callbacks
   success: function(d){
-   alert(d.status); //will alert ok
+   alert(d.responseText); //will alert ok
   }
 });
             
