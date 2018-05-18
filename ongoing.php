@@ -218,6 +218,22 @@ if( !isset($_SESSION["user_id"]) ){
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
         
+        <script>
+        function fetchdata(){
+ $.ajax({
+  url: 'fetchFinishMatching.php',
+  type: 'post',
+  success: function(response){
+   // Perform operation on the return value
+   alert(response);
+  }
+ });
+}
+
+$(document).ready(function(){
+ setInterval(fetchdata,10000);
+});
+        </script>
 
     </body>
 </html>
