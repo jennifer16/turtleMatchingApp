@@ -225,7 +225,10 @@ if( !isset($_SESSION["user_id"]) ){
   type: 'post',
   success: function(response){
    // Perform operation on the return value
-   console.log(response);
+   if(response=="1")
+       console.log("test");
+    else
+        console.log("test1");
   }
  });
 }
