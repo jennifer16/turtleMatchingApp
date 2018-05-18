@@ -129,7 +129,7 @@ for i in np.arange(height):
         b = math.floor(cum_hist[a] * 255.0 / pixels)
         img.itemset((i,j), b)
 
-cv2.imwrite('Input/'+inputName+'.PNG', img)
+cv2.imwrite(fileInputName, img)
 
 #	get list of turtle name
 connection = MySQLdb.connect( host="127.0.0.1", user="root", passwd="Tu2tlem@tching", db="turtle")

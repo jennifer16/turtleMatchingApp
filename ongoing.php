@@ -145,9 +145,10 @@ if( !isset($_SESSION["user_id"]) ){
 
                 <div class="row" align="center">
                     <div class="col-md-12">
-                        <img src="img/red.jpg" style="width:30%; height:auto;"><br><br>
+                        <img src="img/green.jpg" style="width:30%; height:auto;"><br><br>
                         <div class="card-title">
-                        <h3>เกิดปัญหาขึ้น กรุณาติดต่อผู้ดูแลระบบ</h3>
+                        <h3>กำลังดำเนินการ ท่านสามารถใช้งานฟังก์ชันอื่น ๆ </h3><br>
+                        <h3>เมื่อดำเนินการเสร็จสิ้น จะมีการแจ้งเตือนด้านบน</h3>
                         </div><br>
                     <form action="index.php">
                      <button type="submit" class="btn btn-success">กลับสู่หน้าหลัก</button>
