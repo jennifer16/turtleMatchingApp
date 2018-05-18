@@ -144,7 +144,7 @@ $result = mysqli_query($conn, $sql);
                      
                     echo "<tr>";
                     echo "<td align='center'>".$count."</td>";
-                    $date = \DateTime::createFromFormat('Y-m-d H:i:s', $row['match_time']);
+                    $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['match_time']);
                     echo "<td align='center'>".$date->format('m//y h:i a')."</td>";
                     
                      if (is_process_running($row['match_pid'])){
@@ -157,6 +157,8 @@ $result = mysqli_query($conn, $sql);
                    
 
                     echo "</tr>";
+                     
+                     $count++;
 }
                     
 ?>
@@ -166,9 +168,9 @@ $result = mysqli_query($conn, $sql);
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th style='text-align: center;'>ชื่อเต่า</th>
-                  <th style='text-align: center;'>รหัสไมโครชิพ</th>
-                  <th style='text-align: center;'>TAG</th>
+                  <th style='text-align: center;'>ครั้งที่</th>
+                  <th style='text-align: center;'>วัน-เวลา</th>
+                  <th style='text-align: center;'>สถานะ</th>
                   <th>&nbsp;</th>
                 </tr>
                 </tfoot>
@@ -248,7 +250,7 @@ $result = mysqli_query($conn, $sql);
         
         <script>
             $(document).ready( function () {
-    $('#listTurtle').DataTable({
+    $('#').DataTable({
          scrollY:        '50vh',
         scrollCollapse: true,
         paging:         false,
