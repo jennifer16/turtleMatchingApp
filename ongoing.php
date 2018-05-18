@@ -52,44 +52,6 @@ if( !isset($_SESSION["user_id"]) ){
                     <li class="top-nav">
                      <a href='matchingResult.php' id='bell'><i class="zmdi zmdi-notifications"></i></a>
                     </li>
-                    <li id="bell" class="dropdown top-nav" >
-                        <a href="" data-toggle="dropdown" class="top-nav__notify">
-                            <i class="zmdi zmdi-notifications"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
-                            <div class="listview listview--hover">
-                                <div class="listview__header">
-                                    การพบเจอเต่าในธรรมชาติ
-
-                                    <div class="actions">
-                                        <a href="" class="actions__item zmdi zmdi-check-all" data-ma-action="notifications-clear"></a>
-                                    </div>
-                                </div>
-
-                                <div class="listview__scroll scrollbar-inner">
-                                    <a href="" class="listview__item">
-                                        <img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
-
-                                        <div class="listview__content">
-                                            <div class="listview__heading">สมหญิง รักดี</div>
-                                            <p>พบเจอเต่าในธรรมชาติ</p>
-                                        </div>
-                                    </a>
-
-                                    <a href="" class="listview__item">
-                                        <img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
-
-                                        <div class="listview__content">
-                                            <div class="listview__heading">สมชาย รักเรียน</div>
-                                            <p>พบเจอเต่าในธรรมชาติ</p>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="p-1"></div>
-                            </div>
-                        </div>
-                    </li>
                 </ul>
             </header>
             <!-- Left Menu -->
