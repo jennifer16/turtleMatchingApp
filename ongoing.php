@@ -225,7 +225,7 @@ function fetchdata(){
   type: 'post',
   success: function(response){
    // Perform operation on the return value
-   alert(response.responseText);
+   console.log(response);
   }
  });
 }
