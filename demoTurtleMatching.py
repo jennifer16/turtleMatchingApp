@@ -81,9 +81,10 @@ for name in templateFileList:
 		outputKeys2Name = "./RawFile/"+realNameInput+"HistMatchWith"+realNameTemplate+"Keys.txt"
 
 		command_line = "./demo_ASIFT"+" "+leftFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
+        
         print command_line
         
-		args = shlex.split(command_line)
+        args = shlex.split(command_line)
 		p = subprocess.Popen(args)
 		p.wait()
 		scoreFile = open(outputMatchingName)
