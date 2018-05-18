@@ -3,8 +3,9 @@
     session_start();
     require 'connect.php';
     
-    $id = $_GET['id']
+    $id = $_GET['id'];
     $sql = "select * from matching where id='".$id."'";
+echo $sql;
     $result = mysqli_query($conn,$sql);
     $row = $result->fetch_assoc();
 
