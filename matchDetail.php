@@ -137,7 +137,9 @@ $data = mysqli_query($conn, $sql);
             <h5>ผลการเปรียบเทียบ</h5>
 
                     
-            <img class="round" src='./Input/<?php echo $row['match_input']; ?>' width="20%" height="20%">
+            <figure style="margin-bottom: 5px">
+  <p><img src="img/turtle.jpg"
+    alt="" style="width: 30%; height: auto;">
                         
   
               <table id="listTurtle" class="display" style="width:100%">
