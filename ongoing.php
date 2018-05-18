@@ -50,7 +50,7 @@ if( !isset($_SESSION["user_id"]) ){
                     <a href='matching.php'><i class="zmdi zmdi-camera-add"></i> </a>
                     </li>
                     <li class="top-nav">
-                     <a href='matchingResult.php'><i class="zmdi zmdi-notifications"></i></a>
+                     <a href='matchingResult.php' id='bell'><i class="zmdi zmdi-notifications"></i></a>
                     </li>
                     <li id="bell" class="dropdown top-nav" >
                         <a href="" data-toggle="dropdown" class="top-nav__notify">
@@ -232,9 +232,9 @@ function fetchdata(){
   success: function(response){
    // Perform operation on the return value
    if( response.trim() == '1'){
-       
+     $('#bell').addClass('top-nav__notify');
    }else{
-       
+        $('#bell').removeClass('top-nav__notify');
    }
   }
  });
