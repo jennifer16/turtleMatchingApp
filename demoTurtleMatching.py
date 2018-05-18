@@ -73,7 +73,7 @@ leftScore=[]
 rightScore=[]
 for index in range(len(templateFileList)):
 	if side == 'LEFT':
-		realNameTemplate = templateFileName[index];
+		realNameTemplate = templateNameList[index];
 		#	compare with left face
 		leftFaceName = name
 		outputVName = "./Output/"+user_id+"-"+realNameTemplate+"V_LEFT.PNG"
