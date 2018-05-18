@@ -16,6 +16,8 @@ import MySQLdb
 inputName = sys.argv[1]
 #	side to matching
 side = sys.argv[2]
+#	user 
+user_id =sys.argv[3]
 
 fileExt = inputName.rpartition(".")[-1]
 fileName = inputName.rpartition(".")[-3]
@@ -38,18 +40,19 @@ connection = MySQLdb.connect( host="127.0.0.1", user="root", passwd="Tu2tlem@tch
 cursor = connection.cursor()
 cursor.execute("select * from turtle")
 data = cursor.fetchall()
-templateFileNameDict = {}
+templateNameList = []
 templateFileList = []
 for row in data:
+	templateNameList.append(row[1]);
 	if side == 'LEFT':
-		templateFileNameDict[row[0]]=row[2];
+		templateFileList.append(row[2]);
 	else:
-		templateFileNameDict[row[0]]=row[3];
+		templateFileList.append(row[3]);
 	
 #	convert template data to PNG
-for key in templateFileNameDict.keys():
-	fullname = templateFileNameDict[key]
+for i in range(len(templateFileList)):
 
+	fullname = templateFileList[i]
 	fileExt = fullname.rpartition(".")[-1]
 	fileName = fullname.rpartition(".")[-3]
 
@@ -62,7 +65,7 @@ for key in templateFileNameDict.keys():
 		print 'Cannot find name with '+fileName+'.PNG'
 		sys.exit()
 	else:
-		templateFileList.append('Turtle/'+fileName+'.PNG')
+		templateFileList[i] = 'Turtle/'+fileName+'.PNG'
 	
 
 #	calculate matching score for left and right template
@@ -70,15 +73,15 @@ leftScore=[]
 rightScore=[]
 for name in templateFileList:
 	if side == 'LEFT':
-		realNameInput = fileInputName.rpartition(".")[-2]
-		realNameTemplate = name.rpartition(".")[-2]
+		realNameInput = fileInputName.rpartition(".")[-3]
+		realNameTemplate = name.rpartition(".")[-3]
 		#	compare with left face
 		leftFaceName = name
-		outputVName = "./Output/"+realNameInput+"-"+realNameTemplate+"V_LEFT.PNG"
-		outputHName = "./Output/"+realNameInput+"-"+realNameTemplate+"H_LEFT.PNG"
-		outputMatchingName = "./Output/"+realNameInput+"-"+realNameTemplate+"Mathcing_LEFT.txt"
+		outputVName = "./Output/"+user_id+"-"+realNameTemplate+"V_LEFT.PNG"
+		outputHName = "./Output/"+user_id+"-"+realNameTemplate+"H_LEFT.PNG"
+		outputMatchingName = "./Output/"+user_id+"-"+realNameTemplate+"Mathcing_LEFT.txt"
 		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
-		outputKeys2Name = "./RawFile/"+realNameInput+"HistMatchWith"+realNameTemplate+"Keys.txt"
+		outputKeys2Name = "./RawFile/"+"Keys.txt"
 
 		command_line = "./demo_ASIFT"+" "+leftFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
         
@@ -121,10 +124,10 @@ for name in templateFileList:
 			break
 
 #	list score and print
-for index in range(len(templateFileNameDict.keys())):
+for index in range(len(templateFileList)):
 	if side == 'LEFT':
 		leftPercent = leftScore[index]
-		print "$"+ templateFileNameDict.keys()[index]+","+ str(leftPercent) + ",LEFT"	
+		print "$"+ templateFileName[index]+","+ str(leftPercent) + ",LEFT"	
 	
 	if side == 'RIGHT':			
 		rightPercent = rightScore[index]
