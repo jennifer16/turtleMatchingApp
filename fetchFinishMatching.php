@@ -15,7 +15,7 @@
     $sql = "select * from matching WHERE user_id='".$_SESSION['user_id']."' and turtle_id=''";
     $data = mysqli_query($conn, $sql);
 
-    int count = 0;
+    $count = 0;
     $data = array();
     while ($row = $data->fetch_assoc()) {
         
@@ -25,7 +25,7 @@
         {
             $data[count] = $PID;
         }
-        count++;
+        $count++;
     }
 
     if ($count > 0)
