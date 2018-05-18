@@ -782,6 +782,7 @@ if( !isset($_SESSION["user_id"]) ){
               success: function () {
                // $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
+                    $('#search').removeAttr('disabled');
               },
 
               error: function () {

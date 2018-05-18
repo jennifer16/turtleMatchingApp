@@ -207,7 +207,7 @@ if( !isset($_SESSION["user_id"]) ){
                     <div class="row" align="center">
                     <div class="col-md-12">
                
-                  <button type="submit" class="btn btn-primary">ค้นหาเต่า</button>
+                  <button id="search" type="submit" class="btn btn-primary" disabled>ค้นหาเต่า</button>
                
      </div>
                 </div>
@@ -418,6 +418,8 @@ if( !isset($_SESSION["user_id"]) ){
               success: function () {
                // $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
+                  $('#search').removeAttr('disabled');
+                  
               },
 
               error: function () {
