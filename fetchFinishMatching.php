@@ -23,16 +23,14 @@
         
                 if(!is_process_running($PID))
                 {
-                    $data[count] = $PID;
+                    $data[$count] = $PID;
                 }
                 $count++;
         }
 
-        $out = array_values($data);
-        $json = json_encode($out, JSON_FORCE_OBJECT);
-        echo ($json);
+        echo "1";
     
     }else{
-        echo "No";
+        echo "0";
     }
 ?>   
