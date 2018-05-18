@@ -12,7 +12,7 @@
     require 'connect.php'; 
         
 
-    $sql = "select * from matching WHERE users_id='".$_SESSION['user_id']."' and turtle_id=''";
+    $sql = "select * from matching WHERE users_id='".$_SESSION['user_id']."' and turtle_id is NULL";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0){
         $count = 0;
@@ -28,10 +28,9 @@
                 $count++;
         }
 
-        echo $PID;
         $out = array_values($data);
         $json = json_encode($out, JSON_FORCE_OBJECT);
-        //echo ($json);
+        echo ($json);
     
     }else{
         echo "No";
