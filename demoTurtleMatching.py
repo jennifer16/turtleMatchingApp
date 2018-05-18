@@ -51,8 +51,8 @@ for row in data:
 for i in range(len(templateFileList)):
 
 	fullname1 = templateFileList[i]
-	fileExt1 = fullname.rpartition(".")[-1]
-	fileName1 = fullname.rpartition(".")[-3]
+	fileExt1 = fullname1.rpartition(".")[-1]
+	fileName1 = fullname1.rpartition(".")[-3]
 
 	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
 		#convert to PNG
