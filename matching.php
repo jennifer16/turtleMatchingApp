@@ -1,12 +1,6 @@
 <?php
     session_start();
     require 'connect.php';
-
-	function is_process_running($PID)
-  	{
-       		exec("ps ".$PID, $ProcessState);
-       		return(count($ProcessState) >= 2);
-   	}
 	
 	$filename = $_GET['filename'];
 	$side = $_GET['side'];
