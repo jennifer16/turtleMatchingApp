@@ -121,8 +121,8 @@ for index in range(len(templateFileList)):
 			break
 
 #	list score and print
-leftIndex = sorted(range(len(leftScore)),key=lambda x:leftScore[x])
-rightIndex = sorted(range(len(rightScore)),key=lambda x:rightScore[x])
+leftIndex = sorted(range(len(leftScore)),key=lambda x:leftScore[x])[::-1]
+rightIndex = sorted(range(len(rightScore)),key=lambda x:rightScore[x])[::-1]
 if side == 'LEFT':
 	for index in leftIndex:
 		leftPercent = leftScore[index]
