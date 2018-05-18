@@ -135,11 +135,19 @@ $data = mysqli_query($conn, $sql);
             <!-- /.card-header -->
             <div class="card-body">
             <h5>ผลการเปรียบเทียบ</h5>
+            
+                <div class="row">
+                    <div class="col-md-12">
+                    
+                        <img src='./Input/<?php echo $row['match_input']; ?>' stype="width:30% height:auto">
+                        
+                    </div>
+                </div>
               <table id="listTurtle" class="display" style="width:100%">
                 <thead>
                 <tr>
                   <th style='text-align: center;'>ชื่อเต่า</th>
-                  <th style='text-align: center;'>ระดับความเหมือน</th>
+                  <th style='text-align: center;'>ระดับความเหมือน (%)</th>
                   <th style='text-align: center;'>ด้านใบหน้า</th>
                   <th>&nbsp;</th>
                 </tr>
@@ -175,7 +183,7 @@ $data = mysqli_query($conn, $sql);
                 <tfoot>
                 <tr>
                   <th style='text-align: center;'>ชื่อเต่า</th>
-                  <th style='text-align: center;'>ระดับความเหมือน</th>
+                  <th style='text-align: center;'>ระดับความเหมือน (%)</th>
                   <th style='text-align: center;'>ด้านใบหน้า</th>
                   <th>&nbsp;</th>
                 </tr>
