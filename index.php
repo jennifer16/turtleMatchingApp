@@ -192,22 +192,37 @@ if( !isset($_SESSION["user_id"]) ){
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">เต่าที่พบล่าสุด</h4>
-                                <figure style="margin-bottom: 5px">
-  <p><img src="img/turtle.jpg"
-    alt="" style="width: 100%; height: auto;">
-  <figcaption>พบโดย: ชบา หลานคุณยาย <br> พิกัด: 100.23, 35.35</figcaption>
-</figure>
-                                <figure style="margin-bottom: 5px">
-  <p><img src="img/turtle.jpg"
-    alt="" style="width: 100%; height: auto;">
-  <figcaption>พบโดย: ชบา หลานคุณยาย <br> พิกัด: 100.23, 35.35</figcaption>
-</figure>
-                                <figure style="margin-bottom: 5px">
-  <p><img src="img/turtle.jpg"
-    alt="" style="width: 100%; height: auto;">
-  <figcaption>พบโดย: ชบา หลานคุณยาย <br> พิกัด: 100.23, 35.35</figcaption>
-</figure>
+                        <?php
+                            $sqlLast = "select * from found order by found date desc";
+                            $lastResult = mysqli_query($conn, $sqlLast);
+                            $numFound  = mysqli_num_rows($lastResult);
+                            if($numFound == 0)
+                            {
+                                echo "<label>ยังไม่มีการพบเต่า</label>"   
+                            }
+                            else{
+                            $num=1;
+                            while(num<=numFound && num<=3)
+                            {
+                                $row = $lastResult->fetch_assoc();
                                 
+                                $sqlUser = "select * from users where user_id='".$row['user_id']."'";
+                                $userResult = mysqli_query($conn, $sqlUser);
+                                $rowUser = $userResult->fetch_assoc();
+                                $userName = $rowUser['user_firstname'];
+                                $userLastname = $rowUser['user_lastname'];
+                                
+                                echo "<figure style='margin-bottom: 5px'>";
+                                echo "<p><img src=".$row['found_picure'];
+                                echo "alt='' style='width: 100%; height: auto;'>";
+                                echo "<figcaption>พบโดย:".$userName." ".$userLastname."</figcaption>";
+                                echo "</figure>";
+                                
+                                num++;
+                            }
+                                
+                            }
+                         ?>              
                                 
                             </div>
                             
@@ -286,26 +301,9 @@ function myMap() {
     x.innerHTML = "<p>test</p>";
     console.log(x);
 var mapProp= {
-    <?php
-    if( mysqli_num_rows($mapResult) == 0)
-    {    
-        echo "center:new google.maps.LatLng(13.736717, 100.523186),";
-    }else{
-        
-        $sqlLat ="SELECT AVG(found_lat) FROM found where user_id ='".$_SESSION['user_id']."'";
-        $latResult = mysqli_query($conn, $sqlLat);
-        $row = $latResult->fetch_assoc();
-        $centerLat = $row[0];   
-        
-        $sqlLng ="SELECT AVG(found_lng) FROM found where user_id ='".$_SESSION['user_id']."'";
-        $lngResult = mysqli_query($conn, $sqlLng);
-        $row = $lngResult->fetch_assoc();
-        $centerLng = $row[0];    
-        
-        echo "center:new google.maps.LatLng(".$centerLat.",".$centerLng."),";
-    }
-    ?>
-    zoom:5,
+   
+    center:new google.maps.LatLng(13.736717, 100.523186),
+    zoom:5
 }
 var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
