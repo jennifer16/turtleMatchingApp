@@ -184,13 +184,12 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                     <!-- The timeline -->
                     <ul class="timeline timeline-inverse">
                     <?php
-                      $sql1 = "select * from found where users_id='".$_SESSION['user_id']."'";
-                        echo $sql1;
+                      $sql1 = "select * from found where user_id='".$_SESSION['user_id']."'";
                       $result = mysqli_query($conn, $sql1);
                       if( mysqli_num_rows($result) == 0)
                       {
                         echo "<li class='time-label'>";
-                        echo "<span class='bg-success'>";
+                        echo "<span class='bg-danger'>";
                         echo "ยังไม่เคยพบเต่า";
                         echo "</span>";
                         echo "</li>";
@@ -239,31 +238,6 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                       }
 
                     ?>
-                      <!-- timeline time label -->
-                      <li class="time-label">
-                        <span class="bg-success">
-                          3 Jan. 2014
-                        </span>
-                      </li>
-                      <!-- /.timeline-label -->
-                      <!-- timeline item -->
-                      <li>
-                        <i class="fa fa-camera bg-blue"></i>
-
-                        <div class="timeline-item">
-                          <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
-
-                          <h3 class="timeline-header">พบเต่า</h3>
-
-                          <div class="timeline-body">
-                            <img src="http://placehold.it/150x100" alt="..." class="margin">
-                          </div>
-                             <div class="timeline-footer">
-                            <a href="#" class="btn btn-primary btn-sm">Read more</a>
-                          </div>
-                        </div>
-                      </li>
-                        
                       <!-- END timeline item -->
                     </ul>
                   </div>
