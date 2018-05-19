@@ -198,7 +198,7 @@ if( !isset($_SESSION["user_id"]) ){
                             $numFound  = mysqli_num_rows($lastResult);
                             if($numFound == 0)
                             {
-                                echo "<label>ยังไม่มีการพบเต่า</label>"   
+                                echo "<label>ยังไม่มีการพบเต่า</label>" ;
                             }
                             else{
                             $num=1;
