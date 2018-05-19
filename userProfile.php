@@ -271,10 +271,20 @@ function myMap() {
     x.innerHTML = "<p>test</p>";
     console.log(x);
 var mapProp= {
-    center:new google.maps.LatLng(51.508742,-0.120850),
+    center:new google.maps.LatLng(13.736717, 100.523186),
     zoom:5,
 };
+    
+
 var map=new google.maps.Map(document.getElementById("map"),mapProp);
+    
+var marker = new google.maps.Marker({
+    position:new google.maps.LatLng(13.736717, 100.523186),
+});
+
+// To add the marker to the map, call setMap();
+marker.setMap(map);
+    
 }
 </script>
 
