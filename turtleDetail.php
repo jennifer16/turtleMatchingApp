@@ -222,12 +222,21 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
                             echo "<div class='timeline-item'>";
                             echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
-                            echo "<h3 class='timeline-header'>ถูกพบ</h3>";
+                            echo "<h3 class='timeline-header'>รายละเอียด</h3>";
                             echo "<div class='timeline-body'>";
                             echo "<img src='".$foundPic."' alt='...' class='margin'>";
+                            echo "<p>";
+                            $sqlUsername = "select * from user where user_id='".$row['user_id']."'";
+                            $usernameResult = mysqli_query($conn, $sqlUsername);
+                            $usernameData = $usernameResult->fetch_assoc();
+                            echo "<label>ถูกพบโดย: ".$usernameData['user_firstname']." ".$usernameData['user_lastname']."</label>";
+                            echo "<label>น้ำหนัก: ".$row['found_weight']."</label>";
+                            echo "<label>ความกว้าง: ".$row['found_width']."</label>";
+                            echo "<label>ความยาว: ".$row['found_length']."</label>";
+                            echo "<label>พิกัด: ".$row['found_lat']." ".$row['found_lng']."</label>";
+                            echo "</p>"
                             echo "</div>";
                             echo "<div class='timeline-footer'>";
-                            echo "<a href='foundDetail.php?id='".$row['id']."'class='btn btn-primary btn-sm'>ดูรายละเอียด</a>";
                             echo "</div>";
                             echo "</div>";
                             echo "</li>";
