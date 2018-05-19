@@ -324,7 +324,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 <script>
     
 <?php
-    $sqlMap = "select * from found where user_id='".$user_id."'";
+    $sqlMap = "select * from found where user_id='".$_SESSION['user_id']."'";
     $mapResult = mysqli_query($conn, $sqlMap);
 ?>
 function myMap() {
@@ -338,12 +338,12 @@ var mapProp= {
         echo "center:new google.maps.LatLng(13.736717, 100.523186),";
     }else{
         
-        $sqlLat ="SELECT AVG(found_lat) FROM found where user_id ='".$user_id."'";
+        $sqlLat ="SELECT AVG(found_lat) FROM found where user_id ='".$_SESSION['user_id']."'";
         $latResult = mysqli_query($conn, $sqlLat);
         $row = $latResult->fetch_assoc();
         $centerLat = $row[0];   
         
-        $sqlLng ="SELECT AVG(found_lng) FROM found where user_id ='".$user_id."'";
+        $sqlLng ="SELECT AVG(found_lng) FROM found where user_id ='".$_SESSION['user_id']."'";
         $lngResult = mysqli_query($conn, $sqlLng);
         $row = $lngResult->fetch_assoc();
         $centerLng = $row[0];    
