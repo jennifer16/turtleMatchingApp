@@ -220,7 +220,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<i class='fa fa-camera bg-blue'></i>";
 
                             echo "<div class='timeline-item'>";
-                            echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp)."</span>";
+                            echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
                             echo "<h3 class='timeline-header'>พบเต่า</h3>";
                             echo "<div class='timeline-body'>"
                             echo "<img src='".$foundPic."' alt='...' class='margin'>";
@@ -348,18 +348,38 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
         <script src="js/app.min.js"></script>
         
 <script>
+    
+<?php
+    $sqlMap = "select * from found where users_id ='".$user_id"'";
+    $mapResult = mysqli_query($conn, $sqlMap);
+?>
 function myMap() {
     var x = document.getElementById("map");
     x.innerHTML = "<p>test</p>";
     console.log(x);
 var mapProp= {
-    center:new google.maps.LatLng(13.736717, 100.523186),
+    if( mysqli_num_rows($result) == 0)
+    {    
+        echo "center:new google.maps.LatLng(13.736717, 100.523186),";
+    }else{
+        
+        $resultLat = $db->query("SELECT AVG(found_lat) FROM found where users_id ='".$user_id"'");
+        $row = $result->fetch_row();
+        $centerLat = $row[0];   
+        
+        $resultLng = $db->query("SELECT AVG(found_lng) FROM found where users_id ='".$user_id"'");
+        $row = $result->fetch_row();
+        $centerLng = $row[0];  
+        
+        echo "center:new google.maps.LatLng(".$centerLat.",".$centerLng."),";
+    }
     zoom:5,
-};
+}
+
     
 
 var map=new google.maps.Map(document.getElementById("map"),mapProp);
-    
+   
 var marker = new google.maps.Marker({
     position:new google.maps.LatLng(13.736717, 100.523186),
 });
