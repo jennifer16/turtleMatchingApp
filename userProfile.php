@@ -5,6 +5,35 @@ session_start();
 if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
+
+
+	function DateThai($strDate)
+	{
+		$strYear = date("Y",strtotime($strDate))+543;
+		$strMonth= date("n",strtotime($strDate));
+		$strDay= date("j",strtotime($strDate));
+		$strHour= date("H",strtotime($strDate));
+		$strMinute= date("i",strtotime($strDate));
+		$strSeconds= date("s",strtotime($strDate));
+		$strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
+		$strMonthThai=$strMonthCut[$strMonth];
+		return "$strDay $strMonthThai $strYear";
+	}
+
+function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
+{
+    $datetime1 = date_create($date_1);
+    $datetime2 = date_create($date_2);
+   
+    $interval = date_diff($datetime1, $datetime2);
+   
+    $dateaDiff= $interval->format($differenceFormat);
+   
+    return str_replace("Days","วันที่แล้ว",$dateDiff);
+}
+
+
+
 ?>
 <html lang="en">
     <head>
@@ -144,8 +173,8 @@ if( !isset($_SESSION["user_id"]) ){
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Timeline</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Map</a></li>
+                  <li class="nav-item active"><a class="nav-link" href="#timeline" data-toggle="tab">ประวัติการพบเต่า</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">ตำแหน่งที่พบเต่า</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -154,6 +183,62 @@ if( !isset($_SESSION["user_id"]) ){
                   <div class="tab-pane" id="timeline">
                     <!-- The timeline -->
                     <ul class="timeline timeline-inverse">
+                    <?php
+                      $sql1 = "select * from found where users_id='".$_SESSION['user_id']."'";
+                      $result = mysqli_query($conn, $sql1);
+                      if( mysqli_num_rows($result) == 0)
+                      {
+                        echo "<li class='time-label'>";
+                        echo "<span class='bg-success'>";
+                        echo "ยังไม่เคยพบเต่า";
+                        echo "</span>";
+                        echo "</li>";
+                          
+                      }
+                      else{
+                          
+                          while($row=$result->fetch_assoc())
+                          {
+                              
+                              $foundDate = $row['found_date'];
+                              $foundPic = $row['found_picure'];
+                              $turtle_id = $row['turtle_id'];
+                              $sql2 = "select * from turtle where turtle_id='".$turtle_id."'";
+                              $resultTurtle = mysqli_query($conn, $sql2);
+                              $turtleData = $resultTurtle->fetch_assoc();
+                              $turtle_name = $turtleData['turtle_name'];
+                              
+                              $timestamp = strtotime($turtleData);
+                              
+                              echo "<li class='time-label'>";
+                              echo "<span class='bg-success'>";
+                              echo DateThai($foundDate);
+                              echo "</span>";
+                              echo "</li>";
+                                  
+                            echo "<li>";
+                            echo "<i class='fa fa-camera bg-blue'></i>";
+
+                            echo "<div class='timeline-item'>";
+                            echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp)."</span>";
+                            echo "<h3 class='timeline-header'>พบเต่า</h3>";
+                            echo "<div class='timeline-body'>"
+                            echo "<img src='".$foundPic."' alt='...' class='margin'>";
+                            echo "</div>";
+                            echo "<div class='timeline-footer'>";
+                            echo "<a href='turtleDetail.php?turtleId='".$turtle_id."'class='btn btn-primary btn-sm'>ดูรายละเอียด</a>";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</li>";
+                              
+                          }
+                          
+
+                          
+                          
+                      }
+
+                    ?>
                       <!-- timeline time label -->
                       <li class="time-label">
                         <span class="bg-success">
@@ -180,9 +265,6 @@ if( !isset($_SESSION["user_id"]) ){
                       </li>
                         
                       <!-- END timeline item -->
-                      <li>
-                        <i class="fa fa-clock-o bg-gray"></i>
-                      </li>
                     </ul>
                   </div>
                   <!-- /.tab-pane -->
