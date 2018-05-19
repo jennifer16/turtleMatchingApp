@@ -168,6 +168,13 @@ if( !isset($_SESSION["user_id"]) ){
                     <div class="col-sm-6 col-md-3">
                         <div class="quick-stats__item bg-purple">
                             <div class="quick-stats__info">
+                                <?php
+                                
+                                     $sqlReport = "select count(*), user_id from found group by user_id having count(*) > 1";
+                                    $resultReport = mysqli_query($conn,$sqlReport);
+                                    echo "<h2>".mysqli_num_rows($resultReport)."</h2>";
+        
+                                ?>
                                 <h2>13</h2>
                                 <small>เต่าที่มีการพบมากกว่า 1 ครั้ง</small>
                             </div>
