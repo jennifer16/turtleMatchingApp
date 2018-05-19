@@ -353,17 +353,40 @@ var mapProp= {
     ?>
     zoom:5,
 }
-
-    
-
 var map=new google.maps.Map(document.getElementById("map"),mapProp);
-   
-var marker = new google.maps.Marker({
-    position:new google.maps.LatLng(13.736717, 100.523186),
-});
 
-// To add the marker to the map, call setMap();
-marker.setMap(map);
+<?php 
+    
+    $numLoc = mysqli_num_rows($mapResult);
+    if($numLoc > 0)
+    {
+        
+        echo "var locations = [";
+        $numRow = 1;
+        while($row=$mapResult->fetch_assoc())
+        {
+            if($numRow < $numLoc)
+                echo "[".$row['found_lat'.",".$row['found_lng']."],";
+            else
+               echo "[".$row['found_lat'.",".$row['found_lng']."]"
+            
+        }
+        
+        echo "]";
+        
+        
+        echo "for (var i = 0; i < ".$numLoc."; i++) {";  
+        echo "var marker = new google.maps.Marker({";
+        echo "    position: new google.maps.LatLng(locations[i][1], locations[i][2]),";
+        echo "    map: map";
+        echo "});";
+
+        echo "markers.push(marker);";                    
+                             
+                             
+    }
+
+?>
     
 }
 </script>
