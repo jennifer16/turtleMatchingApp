@@ -17,7 +17,7 @@ if( !isset($_SESSION["user_id"]) ){
         <link rel="stylesheet" href="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.css">
         <link rel="stylesheet" href="vendors/bower_components/fullcalendar/dist/fullcalendar.min.css">
           <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<link rel="stylesheet" href="/css/adminlte.min.css">
+<link rel="stylesheet" href="/css/adminlte.css">
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
     </head>
