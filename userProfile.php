@@ -230,7 +230,6 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "</div>";
                             echo "</div>";
                             echo "</li>";
-                              
                           }
                           
 
@@ -350,7 +349,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 <script>
     
 <?php
-    $sqlMap = "select * from found where users_id ='".$user_id"'";
+    $sqlMap = "select * from found where users_id='".$user_id."'";
     $mapResult = mysqli_query($conn, $sqlMap);
 ?>
 function myMap() {
