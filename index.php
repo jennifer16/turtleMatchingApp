@@ -118,13 +118,13 @@ if( !isset($_SESSION["user_id"]) ){
 
                                 <div class="carousel-inner" role="listbox">
                                     <div class="carousel-item active">
-                                        <img src="demo/img/carousel/c-1.jpg" alt="First slide">
+                                        <img src="/img/slide1.jpg" alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="demo/img/carousel/c-2.jpg" alt="Second slide">
+                                        <img src="/img/slide2.jpg" alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="demo/img/carousel/c-3.jpg" alt="Third slide">
+                                        <img src="/img/slide3.jpg" alt="Third slide">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
