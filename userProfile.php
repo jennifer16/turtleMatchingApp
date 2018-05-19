@@ -180,7 +180,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
               <div class="card-body">
                 <div class="tab-content">
                   <!-- /.tab-pane -->
-                  <div class="tab-pane" id="timeline">
+                  <div class="active tab-pane" id="timeline">
                     <!-- The timeline -->
                     <ul class="timeline timeline-inverse">
                     <?php
