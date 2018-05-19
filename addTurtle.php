@@ -319,6 +319,8 @@ if(isset($_GET['matchId']))
                     <div class="col-md-12">
                
                   <button type="submit" class="btn btn-primary">บันทึกข้อมูลเต่า</button>
+                        
+                        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">แชร์</a></div>
                
      </div>
                 </div>
@@ -808,32 +810,21 @@ if(isset($_GET['matchId']))
       });
     });
   </script>         
-    <script>
+<script>
 var x = document.getElementById("latitude");
-var y = document.getElementById("longtitude");
-var position = {
-    coords: {
-        latitude: '',
-        longitude: ''
+var y = document.getElementById("longitude");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        console.log("cannot get gps");
     }
-};
-
-$.getJSON("https://api.ipdata.co/", function (data, status) {
-    if(status === "success") {
-        if(data.latitude && data.longitude) {
-            //if there's not zip code but we have a latitude and longitude, let's use them
-            x.value = data.latitude;
-            y.value = data.longitude;
-        } else {
-            alert("ไม่สามารถดึงพิกัดได้ \n กรุณากรอกด้วยตนเอง");
-        }
-    }
-       
-    
-});
-
-
-</script>
+}
+function showPosition(position) {
+    x.value = position.coords.latitude;
+    y.value = position.coords.longitude;
+}
+</script> 
         <script>
             String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g,"");
