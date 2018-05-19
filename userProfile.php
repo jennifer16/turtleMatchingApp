@@ -368,7 +368,7 @@ var map=new google.maps.Map(document.getElementById("map"),mapProp);
             if($numRow < $numLoc)
                 echo "[".$row['found_lat'].",".$row['found_lng']."],";
             else
-               echo "[".$row['found_lat'].",".$row['found_lng']."]"
+               echo "[".$row['found_lat'].",".$row['found_lng']."]";
             
         }
         
