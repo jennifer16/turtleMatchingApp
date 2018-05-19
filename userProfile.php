@@ -173,7 +173,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item active"><a class="nav-link" href="#timeline" data-toggle="tab">ประวัติการพบเต่า</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">ประวัติการพบเต่า</a></li>
                   <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">ตำแหน่งที่พบเต่า</a></li>
                 </ul>
               </div><!-- /.card-header -->
