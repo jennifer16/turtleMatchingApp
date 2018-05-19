@@ -441,7 +441,7 @@ if( !isset($_SESSION["user_id"]) ){
   
             <script>
 var x = document.getElementById("latitude");
-var y = document.getElementById("longitude");
+var y = document.getElementById("longtitude");
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -453,6 +453,7 @@ function showPosition(position) {
     x.value = position.coords.latitude;
     y.value = position.coords.longitude;
 }
+                getLocation();
 </script>
         <script>
             String.prototype.trim = function() {

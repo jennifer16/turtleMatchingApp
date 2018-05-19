@@ -47,6 +47,14 @@ if(isset($_GET['matchId']))
     </head>
 
     <body data-ma-theme="green">
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.0&appId=161713021336907&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
         <main class="main">
             <div class="page-loader">
                 <div class="page-loader__spinner">
@@ -316,13 +324,25 @@ if(isset($_GET['matchId']))
                  
                 <!-- /.card-body -->
                     <div class="row" align="center">
-                    <div class="col-md-12">
+                <?php
+                        if ($matchID==-1){
+                            echo "<div class='col-md-12''>";
+                            echo "<button type='submit' class='btn btn-primary'>บันทึกข้อมูลเต่า</button>";
+                            echo " </div>";
+                            
+                        }else{
+                            echo "<div class='col-md-6''>";
+                            echo "<button type='submit' class='btn btn-primary'>บันทึกข้อมูลเต่า</button>";
+                            echo " </div>";
+                             echo "<div class='col-md-6''>";
+                            echo "<div class='fb-share-button' data-href='https://developers.facebook.com/docs/plugins/' data-layout='button' data-size='large' data-mobile-iframe='true''><a target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse' class='fb-xfbml-parse-ignore'>แชร์ไปที่ Facebook</a></div>";
+                             echo "</div>";
+
+                        }
+                    
+                     ?>
                
-                  <button type="submit" class="btn btn-primary">บันทึกข้อมูลเต่า</button>
-                        
-                        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">แชร์</a></div>
-               
-     </div>
+ 
                 </div>
                            </div>
                   </div>
@@ -812,7 +832,7 @@ if(isset($_GET['matchId']))
   </script>         
 <script>
 var x = document.getElementById("latitude");
-var y = document.getElementById("longitude");
+var y = document.getElementById("longtitude");
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -824,6 +844,7 @@ function showPosition(position) {
     x.value = position.coords.latitude;
     y.value = position.coords.longitude;
 }
+    getLocation();
 </script> 
         <script>
             String.prototype.trim = function() {
