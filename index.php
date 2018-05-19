@@ -276,7 +276,7 @@ if( !isset($_SESSION["user_id"]) ){
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
-        
+    <script>
 <?php
     $sqlMap = "select * from found";
     $mapResult = mysqli_query($conn, $sqlMap);
