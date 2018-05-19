@@ -144,7 +144,7 @@ if( !isset($_SESSION["user_id"]) ){
                             <div class="quick-stats__info" >
                                 <?php
                                     $sqlAllturtle = "select * from turtle";
-                                    $resultAllturtle = mysqli_query($sqlAllturtle);
+                                    $resultAllturtle = mysqli_query($conn,$sqlAllturtle);
                                     echo "<h2>".mysqli_num_rows($resultAllturtle)."</h2>";
                                 ?>
                                 <small>เต่าที่่ปล่อยทั้งหมด</small>
@@ -157,7 +157,7 @@ if( !isset($_SESSION["user_id"]) ){
                             <div class="quick-stats__info">
                                 <?php
                                     $sqlTurtleNature = "select DISTINCT turtle_id from found where found_status='0'";
-                                    $resultTurtleNature = mysqli_query($sqlTurtleNature);
+                                    $resultTurtleNature = mysqli_query($conn,$sqlTurtleNature);
                                     echo "<h2>".mysqli_num_rows($resultTurtleNature)."</h2>";
                                 ?>
                                 <small>เต่าที่พบในธรรมชาติ</small>
@@ -179,7 +179,7 @@ if( !isset($_SESSION["user_id"]) ){
                             <div class="quick-stats__info">
                                  <?php
                                     $sqlTurtleNature = "select DISTINCT user_id from found where found_status='0'";
-                                    $resultTurtleNature = mysqli_query($sqlTurtleNature);
+                                    $resultTurtleNature = mysqli_query($conn, $sqlTurtleNature);
                                     echo "<h2>".mysqli_num_rows($resultTurtleNature)."</h2>";
                                 ?>
                                 <small>ผู้ใช้ที่รายงานการพบเต่า</small>
