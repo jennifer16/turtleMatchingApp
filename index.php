@@ -218,7 +218,7 @@ if( !isset($_SESSION["user_id"]) ){
                                 echo "<figcaption>พบโดย:".$userName." ".$userLastname."</figcaption>";
                                 echo "</figure>";
                                 
-                                num++;
+                                $num++;
                             }
                                 
                             }
