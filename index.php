@@ -142,7 +142,11 @@ if( !isset($_SESSION["user_id"]) ){
                     <div class="col-sm-6 col-md-3">
                         <div class="quick-stats__item bg-blue" >
                             <div class="quick-stats__info" >
-                                <h2>150</h2>
+                                <?php
+                                    $sqlAllturtle = "select * from turtle";
+                                    $resultAllturtle = mysqli_query($sqlAllturtle);
+                                    echo "<h2>".mysqli_num_rows($resultAllturtle)."</h2>";
+                                ?>
                                 <small>เต่าที่่ปล่อยทั้งหมด</small>
                             </div>
                         </div>
@@ -151,7 +155,11 @@ if( !isset($_SESSION["user_id"]) ){
                     <div class="col-sm-6 col-md-3"> 
                         <div class="quick-stats__item bg-amber">
                             <div class="quick-stats__info">
-                                <h2>3</h2>
+                                <?php
+                                    $sqlTurtleNature = "select DISTINCT turtle_id from found where found_status='0'";
+                                    $resultTurtleNature = mysqli_query($sqlTurtleNature);
+                                    echo "<h2>".mysqli_num_rows($resultTurtleNature)."</h2>";
+                                ?>
                                 <small>เต่าที่พบในธรรมชาติ</small>
                             </div>
                         </div>
@@ -169,7 +177,11 @@ if( !isset($_SESSION["user_id"]) ){
                     <div class="col-sm-6 col-md-3">
                         <div class="quick-stats__item bg-red">
                             <div class="quick-stats__info">
-                                <h2>18</h2>
+                                 <?php
+                                    $sqlTurtleNature = "select DISTINCT user_id from found where found_status='0'";
+                                    $resultTurtleNature = mysqli_query($sqlTurtleNature);
+                                    echo "<h2>".mysqli_num_rows($resultTurtleNature)."</h2>";
+                                ?>
                                 <small>ผู้ใช้ที่รายงานการพบเต่า</small>
                             </div>
                         </div>
@@ -193,7 +205,7 @@ if( !isset($_SESSION["user_id"]) ){
                             <div class="card-body">
                                 <h4 class="card-title">เต่าที่พบล่าสุด</h4>
                         <?php
-                            $sqlLast = "select * from found order by found date desc";
+                            $sqlLast = "select * from found order by found_date desc";
                             $lastResult = mysqli_query($conn, $sqlLast);
                             $numFound  = mysqli_num_rows($lastResult);
                             if($numFound == 0)
