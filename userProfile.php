@@ -332,6 +332,7 @@ function myMap() {
     x.innerHTML = "<p>test</p>";
     console.log(x);
 var mapProp= {
+    <?php
     if( mysqli_num_rows($result) == 0)
     {    
         echo "center:new google.maps.LatLng(13.736717, 100.523186),";
@@ -347,6 +348,7 @@ var mapProp= {
         
         echo "center:new google.maps.LatLng(".$centerLat.",".$centerLng."),";
     }
+    ?>
     zoom:5,
 }
 
