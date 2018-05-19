@@ -287,7 +287,7 @@ function myMap() {
     console.log(x);
 var mapProp= {
     <?php
-    if( mysqli_num_rows($result) == 0)
+    if( mysqli_num_rows($mapResult) == 0)
     {    
         echo "center:new google.maps.LatLng(13.736717, 100.523186),";
     }else{
