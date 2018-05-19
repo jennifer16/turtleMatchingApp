@@ -5,6 +5,39 @@ session_start();
 if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
+
+$turtle_id = $_GET['id'];
+$sqlTurtle = "select * from turtle where turtle_id='".$turtle_id."'";
+$turtleResult = mysqli_query($conn, $sqlTurtle);
+$turtleData = $turtleResult->fetch_assoc();
+
+	function DateThai($strDate)
+	{
+		$strYear = date("Y",strtotime($strDate))+543;
+		$strMonth= date("n",strtotime($strDate));
+		$strDay= date("j",strtotime($strDate));
+		$strHour= date("H",strtotime($strDate));
+		$strMinute= date("i",strtotime($strDate));
+		$strSeconds= date("s",strtotime($strDate));
+		$strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
+		$strMonthThai=$strMonthCut[$strMonth];
+		return "$strDay $strMonthThai $strYear";
+	}
+
+function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
+{
+    $datetime1 = date_create($date_1);
+    $datetime2 = date_create($date_2);
+   
+    $interval = date_diff($datetime1, $datetime2);
+   
+    $dateaDiff= $interval->format($differenceFormat);
+   
+    return str_replace("Days","วันที่แล้ว",$dateDiff);
+}
+
+
+
 ?>
 <html lang="en">
     <head>
@@ -16,7 +49,8 @@ if( !isset($_SESSION["user_id"]) ){
         <link rel="stylesheet" href="vendors/bower_components/animate.css/animate.min.css">
         <link rel="stylesheet" href="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.css">
         <link rel="stylesheet" href="vendors/bower_components/fullcalendar/dist/fullcalendar.min.css">
-
+          <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="./css/adminlte.min.css">
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
     </head>
@@ -107,114 +141,125 @@ if( !isset($_SESSION["user_id"]) ){
             </aside>
 
           <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3">
 
-
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                </ol>
-
-                                <div class="carousel-inner" role="listbox">
-                                    <div class="carousel-item active">
-                                        <img src="demo/img/carousel/c-1.jpg" alt="First slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="demo/img/carousel/c-2.jpg" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="demo/img/carousel/c-3.jpg" alt="Third slide">
-                                    </div>
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                </a>
-                            </div><hr>
-
-              <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">สรุปข้อมูลเต่า</h4>
-                    <div class="row quick-stats">
-                    <div class="col-sm-6 col-md-3">
-                        <div class="quick-stats__item bg-blue" >
-                            <div class="quick-stats__info" >
-                                <h2>150</h2>
-                                <small>เต่าที่่ปล่อยทั้งหมด</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-3"> 
-                        <div class="quick-stats__item bg-amber">
-                            <div class="quick-stats__info">
-                                <h2>3</h2>
-                                <small>เต่าที่พบในธรรมชาติ</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-3">
-                        <div class="quick-stats__item bg-purple">
-                            <div class="quick-stats__info">
-                                <h2>13</h2>
-                                <small>เต่าที่มีการพบมากกว่า 1 ครั้ง</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-md-3">
-                        <div class="quick-stats__item bg-red">
-                            <div class="quick-stats__info">
-                                <h2>18</h2>
-                                <small>ผู้ใช้ที่รายงานการพบเต่า</small>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+              <div class="card-body box-profile">
+                <div class="text-center">
+                  <img class="user__img" src='<?php echo $turtleData['turtle_profile'];?>'>
                 </div>
+
+                <h3 class="profile-username text-center"><?php echo $turtleData['turtle_name'];?></h3>
+
+                <p class="text-muted text-center"><?php echo $turtleData['turtle_type']; ?></p>
+
+                <ul class="list-group list-group-unbordered mb-3">
+                  <li class="list-group-item">
+                    <b>ไมโครชิพ</b> <a class="float-right"><?php echo $turtleData['turtle_microchip_code'];?></a>
+                  </li>
+                  <li class="list-group-item">
+                    <b>TAG</b> <a class="float-right"><?php echo $turtleData['turtle_tag_code'];?></a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-9">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">ประวัติการถูกพบ</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">ตำแหน่งที่พบเต่า</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <!-- /.tab-pane -->
+                  <div class="active tab-pane" id="timeline">
+                    <!-- The timeline -->
+                    <ul class="timeline timeline-inverse">
+                    <?php
+                      $sql1 = "select * from found where turtle_id='".$turtle_id."'";
+                      $result = mysqli_query($conn, $sql1);
+                      if( mysqli_num_rows($result) == 0)
+                      {
+                        echo "<li class='time-label'>";
+                        echo "<span class='bg-danger'>";
+                        echo "ยังไม่เคยถูกพบ";
+                        echo "</span>";
+                        echo "</li>";
+                          
+                      }
+                      else{
+                          
+                          while($row=$result->fetch_assoc())
+                          {
+                              
+                              $foundDate = $row['found_date'];
+                              $foundPic = $row['found_picure'];
+                              $turtle_id = $row['turtle_id'];
+                              $sql2 = "select * from turtle where turtle_id='".$turtle_id."'";
+                              $resultTurtle = mysqli_query($conn, $sql2);
+                              $turtleData = $resultTurtle->fetch_assoc();
+                              $turtle_name = $turtleData['turtle_name'];
+                              
+                              $timestamp = strtotime($turtleData);
+                              
+                              echo "<li class='time-label'>";
+                              echo "<span class='bg-success'>";
+                              echo DateThai($foundDate);
+                              echo "</span>";
+                              echo "</li>";
+                                  
+                            echo "<li>";
+                            echo "<i class='fa fa-camera bg-blue'></i>";
+
+                            echo "<div class='timeline-item'>";
+                            echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
+                            echo "<h3 class='timeline-header'>ถูกพบ</h3>";
+                            echo "<div class='timeline-body'>";
+                            echo "<img src='".$foundPic."' alt='...' class='margin'>";
+                            echo "</div>";
+                            echo "<div class='timeline-footer'>";
+                            echo "<a href='foundDetail.php?id='".$row['id']."'class='btn btn-primary btn-sm'>ดูรายละเอียด</a>";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</li>";
+                          }
+                          
+
+                          
+                          
+                      }
+
+                    ?>
+                      <!-- END timeline item -->
+                    </ul>
                   </div>
-              </div>
+                  <!-- /.tab-pane -->
 
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="card" style="height: 600px;">
-                            
+                  <div class="tab-pane" id="settings">
+                      <div class="card" style="height: 600px;">
                             <div class="card-body" id = "map">
-                               
-                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">เต่าที่พบล่าสุด</h4>
-                                <figure style="margin-bottom: 5px">
-  <p><img src="img/turtle.jpg"
-    alt="" style="width: 100%; height: auto;">
-  <figcaption>พบโดย: ชบา หลานคุณยาย <br> พิกัด: 100.23, 35.35</figcaption>
-</figure>
-                                <figure style="margin-bottom: 5px">
-  <p><img src="img/turtle.jpg"
-    alt="" style="width: 100%; height: auto;">
-  <figcaption>พบโดย: ชบา หลานคุณยาย <br> พิกัด: 100.23, 35.35</figcaption>
-</figure>
-                                <figure style="margin-bottom: 5px">
-  <p><img src="img/turtle.jpg"
-    alt="" style="width: 100%; height: auto;">
-  <figcaption>พบโดย: ชบา หลานคุณยาย <br> พิกัด: 100.23, 35.35</figcaption>
-</figure>
-                                
-                                
-                            </div>
-                            
-                        </div>
-                    </div>
-
-              </div>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
                 <footer class="footer hidden-xs-down">
                 </footer>
             </section>
@@ -277,8 +322,10 @@ if( !isset($_SESSION["user_id"]) ){
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
         
+<script>
+    
 <?php
-    $sqlMap = "select * from found";
+    $sqlMap = "select * from found where turtle_id='".$turtle_id."'";
     $mapResult = mysqli_query($conn, $sqlMap);
 ?>
 function myMap() {
