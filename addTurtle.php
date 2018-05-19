@@ -843,6 +843,8 @@ function getLocation() {
 function showPosition(position) {
     x.value = position.coords.latitude;
     y.value = position.coords.longitude;
+    console.log(position.coords.latitude);
+    console.log(positio.coords.longitude);
 }
     getLocation();
 </script> 
