@@ -222,7 +222,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<div class='timeline-item'>";
                             echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
                             echo "<h3 class='timeline-header'>พบเต่า</h3>";
-                            echo "<div class='timeline-body'>"
+                            echo "<div class='timeline-body'>";
                             echo "<img src='".$foundPic."' alt='...' class='margin'>";
                             echo "</div>";
                             echo "<div class='timeline-footer'>";
