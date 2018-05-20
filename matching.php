@@ -206,7 +206,7 @@ if( !isset($_SESSION["user_id"]) ){
                     <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
                         </div>
                 </div><br>
-                 
+                 <script type="text/javascript" src="https://form.jotform.co/jsform/81391503984866"></script>
                 <!-- /.card-body -->
                     <div class="row" align="center">
                     <div class="col-md-12">
@@ -374,8 +374,7 @@ if( !isset($_SESSION["user_id"]) ){
         var initialAvatarURL;
         var canvas;
         var label = document.getElementById("modalLabel");
-        label.innerHTML = "Please wait";
-        alert( label.innerHTML+"การตัดส่วนภาพอาจะใช้เวลานาน \n หลังจากปิดข้อความนี้แล้วโปรดรอสักครู่");
+        label.innerHTML = "กรุณารอสักครู่ กำลังตัดแบ่งส่วนภาพ...";
         $modal.modal('hide');
 
         if (cropper) {
