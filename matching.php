@@ -373,6 +373,7 @@ if( !isset($_SESSION["user_id"]) ){
 
         if (cropper) {
          // canvas = cropper.getCroppedCanvas({
+            console.log("ok");
           });
 
           initialAvatarURL = avatar.src;
