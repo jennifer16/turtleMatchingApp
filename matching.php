@@ -368,7 +368,7 @@ if( !isset($_SESSION["user_id"]) ){
       document.getElementById('crop').addEventListener('click', function () {
         var initialAvatarURL;
         var canvas;
-        $('#modalLabel').innerHTML="โปรดรอ..กำลังอัพโหลด";
+   
         $modal.modal('hide');
 
         if (cropper) {
@@ -402,6 +402,7 @@ if( !isset($_SESSION["user_id"]) ){
                     }
                 };
               xhr.upload.onprogress = function (e) {
+                       $('#modalLabel').innerHTML="โปรดรอ..กำลังอัพโหลด";
                   var percent = '0';
                   var percentage = '0%';
 
