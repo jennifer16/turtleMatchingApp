@@ -323,6 +323,20 @@ if(isset($_GET['matchId']))
                     <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
                         </div>
                 </div><br>
+                <div class="row">
+                                <div class="col-md-12" align="center">
+                     <label> -- หรือ คลิกและเลือกตำแหน่งในแผนที่ --</label>
+                    </div>
+                            <div class="col-md-12">
+                       
+                       <div class="card" style="height: 300px;">
+                            
+                            <div class="card-body" id = "map">
+                               
+                            </div>
+                        </div>
+                    </div>      
+                    </div>
                  
                 <!-- /.card-body -->
                     <div class="row" align="center">
@@ -875,5 +889,53 @@ $(document).ready(function(){
 });
         </script>
 
+            <script>
+function myMap() {
+    var x = document.getElementById("map");
+    console.log(x);
+var mapProp= {
+   
+    center:new google.maps.LatLng(13.736717, 100.523186),
+    zoom:5
+}
+var map=new google.maps.Map(document.getElementById("map"),mapProp);
+
+var isClick=false;
+map.addListener('click', function(e) {
+    if(!isClick){
+        placeMarker(e.latLng, map);
+        isClick=true;
+    }
+});
+
+function placeMarker(position, map) {
+    var marker = new google.maps.Marker({
+        position: position,
+        map: map
+    });
+    map.panTo(position);
+    marker.setDraggable(true);
+    
+    var x = document.getElementById("latitude");
+var y = document.getElementById("longtitude");
+    
+google.maps.event.addListener( marker, 'click', function ( event ) {
+    x.value = this.getPosition().lat();
+    y.value = this.getPosition().lng();
+} );  
+google.maps.event.addListener( marker, 'dragend', function ( event ) {
+    x.value = this.getPosition().lat();
+    y.value = this.getPosition().lng();
+} );  
+}
+    
+                      
+                             
+    }
+    
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo6U_Cb7Ywu2_TLPqhv5YJDQH4sbeGcFg&callback=myMap"></script>
     </body>
 </html>
