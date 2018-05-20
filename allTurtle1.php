@@ -114,60 +114,55 @@ $data = mysqli_query($conn, $sql);
 
 
  <section class="content">
-      <!-- /.row -->   
      <div class="row">
         <div class="col-12">
           <div class="card">
              
             <!-- /.card-header -->
             <div class="card-body">
+            <h5>ข้อมูลเต่าทะเล</h5>
+              <table id="listTurtle" class="display" style="width:100%">
+                <thead>
+                <tr>
+                  <th style='text-align: center;'>ชื่อเต่า</th>
+                  <th style='text-align: center;'>รหัสไมโครชิพ</th>
+                  <th style='text-align: center;'>TAG</th>
+                  <th>&nbsp;</th>
+                </tr>
+                </thead>
+                <tbody>
 <?php
-        if(mysqli_num_rows($data)==0)
-        {
-            echo "<h5>ยังไม่มีข้อมูลเต่าในระบบ</h5>";
-        }
-        else{
-            echo "<h5>ข้อมูลเต่าทะเล</h5>";
-            echo "<div class='contacts row'>";
-             while ($row = $data->fetch_assoc()) {
-                 
-              echo "<div class='col-xl-2 col-lg-3 col-sm-4 col-6'>";  
-              echo "<div class='contacts__item'>";
-              echo "<a href='turtleDetail.php?id=".$row['turtle_id']."' class='contacts__img'>";
-              echo "<img src='".$row['turtle_profile']."' alt=''>";
-              echo "</a>";
-              echo " <div class='contacts__info'>";
-              echo "<strong>".$row['turtle_name']"</strong>";
-              echo "<small>รหัสไมโครชิพ:".$row['turtle_microchip_code']."</small>";
-                 
-              $date = new \DateTime();
-              $date->setTimestamp($row['turtle_timestamp']);
-              $interval = $date->diff(new \DateTime('now'));
-              $months = $interval->format(%m);
-              $years = (int)$months/12;
-              $mons = $months-($years*12);
-              echo "<small>อายุ :".$years." ปี ".$mons." เดือน</small>";
-              echo "</div>";
-              echo "</div>";
-            echo "</div>";
-                 
-             }
-      
-            echo "</div>";
-            
-        }
-        
-                
-           
-                      
-
-                     
-                
+                 while ($row = $data->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td align='center'><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row['turtle_name']."</a></td>";
+                    echo "<td align='center'>".$row['turtle_microchip_code']."</td>";
+                    echo "<td align='center'>".$row['turtle_tag_code']."</td>";
+                   echo "<td align='center'><button type='button' class='btn btn-info' onclick='goToDetail(".$row['turtle_id'].");'>ดูข้อมูล</button></td>";
+                    echo "</tr>";
+}
+                    
 ?>
-              </div>
+                
+
+
+                </tbody>
+                <tfoot>
+                <tr>
+                  <th style='text-align: center;'>ชื่อเต่า</th>
+                  <th style='text-align: center;'>รหัสไมโครชิพ</th>
+                  <th style='text-align: center;'>TAG</th>
+                  <th>&nbsp;</th>
+                </tr>
+                </tfoot>
+              </table>
             </div>
-         </div>
-     </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
 
                 <footer class="footer hidden-xs-down">
                 </footer>
