@@ -372,8 +372,8 @@ if( !isset($_SESSION["user_id"]) ){
         $modal.modal('hide');
 
         if (cropper) {
+          alert("please wait");
           canvas = cropper.getCroppedCanvas({
-              alert("please wait");
           });
 
           initialAvatarURL = avatar.src;
