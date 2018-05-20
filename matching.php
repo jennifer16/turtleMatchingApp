@@ -374,6 +374,7 @@ if( !isset($_SESSION["user_id"]) ){
         var initialAvatarURL;
         var canvas;
         var label = document.getElementById("modalLabel");
+        label.innerHTML = "Please wait";
         alert( label.innerHTML+"การตัดส่วนภาพอาจะใช้เวลานาน \n หลังจากปิดข้อความนี้แล้วโปรดรอสักครู่");
         $modal.modal('hide');
 
