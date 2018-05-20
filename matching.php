@@ -373,7 +373,7 @@ if( !isset($_SESSION["user_id"]) ){
       document.getElementById('crop').addEventListener('click', function () {
         var initialAvatarURL;
         var canvas;
-   
+   alert("please wait");
         $modal.modal('hide');
 
         if (cropper) {
