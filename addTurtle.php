@@ -219,7 +219,7 @@ if(isset($_GET['matchId']))
     </div>
   </div>
             </div>
-            <div clas="col-md-4s">
+            <div clas="col-md-4">
                                   <!-- turtle profile image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
