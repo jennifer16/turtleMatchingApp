@@ -144,6 +144,8 @@ if( !isset($_SESSION["user_id"]) ){
               <!-- /.card-header -->
               <!-- form start --> 
                 <!-- left side image -->
+    <div class="row">
+        <div class="col-md-6">
                  <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">รูปภาพเกล็ดบนใบหน้า<br>
       <img class="rounded" id="avatar" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar">
@@ -174,7 +176,8 @@ if( !isset($_SESSION["user_id"]) ){
     </div>
   </div>
                  <hr>
-
+            </div>
+</div>
               <form role="form" action = "doMatching.php" method = "POST" enctype = "multipart/form-data">
                         <input type="text" name="filename" id="filename" hidden>
                 <div class="row">
