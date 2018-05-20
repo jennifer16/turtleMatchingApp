@@ -266,27 +266,15 @@ if(isset($_GET['matchId']))
                     ?>
                     <div class="form-group">
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <label for="latitude">ชื่อเต่า</label>
                             <input type="text" class="form-control" id="turtleName" name="turtleName" placeholder="ชื่อเต่า">
                         </div>
-                    </div><br>
-                                    <div class="row">
-                    <div class="col-md-12">
+                                           <div class="col-md-6">
                     <label for="turtleType">ชนิดเต่า</label>
                     <input type="text" class="form-control" id="turleType" name="turtleType" placeholder="ชนิดของเต่า">
                     </div>
-                </div> <br>
-                <div class="row">
-                    <div class="col-md-6">
-                    <label for="ageMonth">อายุ ณ วันที่บันทึกข้อมูล (เดือน)</label>
-                    <input type="text" class="form-control" id="ageMonth" name="ageMonth" placeholder="0">
-                        </div>
-                        <div class="col-md-6">
-                    <label for="ageYear">อายุ ณ วันที่บันทึกข้อมูล (ปี)</label>
-                                     <input type="text" class="form-control" id="ageYear" name="ageYear" placeholder="0">
-                        </div>
-                  </div> <br>
+                    </div><br>
                 <div class="row">
                     <div class="col-md-8">
                     <label for="latitude">รหัสไมโครชิพ</label>
@@ -298,24 +286,28 @@ if(isset($_GET['matchId']))
                     </div>
                 </div> <br>
                 <div class="row">
-                    <div class="col-md-6">
-                    <label for="latitude">รหัสแท็กสแตนเลส</label>
-                    <input type="text" class="form-control" id="tagCode" name="tagCode" placeholder="รหัสอุปกรณ์แทกสแตนเลส">
+                    <div class="col-md-8">
+                    <label for="latitude">รหัสอุปกรณ์แท็กสแตนเลส</label>
+                    <input type="text" class="form-control" id="tagCode" name="tagCode" placeholder="รหัสอุปกรณ์แท็กสแตนเลส">
                     </div>
-                     <div class="col-md-6">
-                    <label for="latitude">ตำแหน่งแทกสแตนเลส</label>
-                    <input type="text" class="form-control" id="tagPos"  name="tagPos" placeholder="ตำแหน่งติดตั้งแทกสแตนเลส">
+                     <div class="col-md-4">
+                    <label for="latitude">ตำแหน่งติดตั้งแท็กสแตนเลส</label>
+                    <input type="text" class="form-control" id="tagPos"  name="tagPos" placeholder="ตำแหน่งติดตั้งแท็กสแตนเลส">
                     </div>
                 </div> <br>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                                            <div class="col-md-3">
+                    <label for="ageMonth">อายุ ณ วันที่บันทึกข้อมูล (เดือน)</label>
+                    <input type="text" class="form-control" id="ageMonth" name="ageMonth" placeholder="อายุ ณ วันที่บันทึกข้อมูล (เดือน)">
+                        </div>
                     <label for="latitude">น้ำหนัก (กก.)</label>
                         <input type="text" class="form-control" placeholder="น้ำหนักเต่า" id="weight" name="weight"></div>
-                     <div class="col-md-4">
+                     <div class="col-md-3">
                     <label for="latitude">ความกว้าง (ซม.)</label>
                     <input type="text" class="form-control" id="width" name="width" placeholder="ความกว้างของกระดองเต่า">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                     <label for="latitude">ความยาว (ซม.)</label>
                     <input type="text" class="form-control" id="length" name="length" placeholder="ความยาวของกระดองเต่า">
                     </div>
