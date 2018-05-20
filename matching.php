@@ -518,7 +518,7 @@ var marker = new google.maps.Marker({
  map: map
 });
        
-marker.setDragable(true);
+marker.setDraggable(true);
 google.maps.event.addListener( marker, 'click', function ( event ) {
     console.log(this.getPosition().lat());
     console.log(this.getPosition().lng());
