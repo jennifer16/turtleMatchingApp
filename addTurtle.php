@@ -155,7 +155,7 @@ if(isset($_GET['matchId']))
               </div>
               <!-- /.card-header -->
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <!-- left side image -->
                  <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านซ้าย<br>
@@ -187,7 +187,7 @@ if(isset($_GET['matchId']))
     </div>
   </div>
             </div>
-             <div class="col-md-3">
+             <div class="col-md-4">
                  <!-- right side image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านขวา<br>
@@ -219,7 +219,7 @@ if(isset($_GET['matchId']))
     </div>
   </div>
             </div>
-            <div clas="col-md-3">
+            <div clas="col-md-4s">
                                   <!-- turtle profile image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
