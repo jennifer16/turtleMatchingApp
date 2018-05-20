@@ -358,7 +358,7 @@ if( !isset($_SESSION["user_id"]) ){
 
       $modal.on('shown.bs.modal', function () {
         cropper = new Cropper(image, {
-          viewMode: 1,
+          viewMode: 3,
         });
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
@@ -372,11 +372,12 @@ if( !isset($_SESSION["user_id"]) ){
         $modal.modal('hide');
 
         if (cropper) {
-          alert("please wait while cropping");
           canvas = cropper.getCroppedCanvas({
+              alert("please wait");
           });
 
           initialAvatarURL = avatar.src;
+            
           avatar.src = canvas.toDataURL();
           //$progress.show();
           $alert.removeClass('alert-success alert-warning');
