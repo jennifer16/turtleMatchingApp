@@ -4,5 +4,5 @@
 	$strHeader = "From: ".$_POST['email'];
 	$strMessage = "ข้อความจาก ".$_POST['name']."\n หมายเลขโทรศัพท์ ".$_POST['mobile']."\n".$_POST['message'];
 	$flgSend = mail($strTo,$strSubject,$strMessage,$strHeader);  // @ = No Show Error //
-	echo $flgsend;
+	echo $flgSend;
 ?>

@@ -131,7 +131,7 @@ if( !isset($_SESSION["user_id"]) ){
 						<input type="text" class="form-control" id="subject" name="subject" placeholder="หัวข้อ" required>
 					</div>
                     <div class="form-group">
-                    <textarea class="form-control" type="textarea" id="message" placeholder="ข้อความ" ></textarea>                  
+                    <textarea class="form-control" type="textarea" id="message" name="message" placeholder="ข้อความ" ></textarea>                  
                     </div>
             
         <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">ส่งข้อความ</button>
