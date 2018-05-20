@@ -109,13 +109,13 @@ if( !isset($_SESSION["user_id"]) ){
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner" role="listbox">
                                     <div class="carousel-item active">
-                                        <img src="demo/img/carousel/c-1.jpg" alt="First slide" style="width:40%; height:auto;">
+                                        <img src="demo/img/carousel/c-1.jpg" alt="First slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="demo/img/carousel/c-2.jpg" alt="Second slide" style="width:40%; height:auto;">
+                                        <img src="demo/img/carousel/c-2.jpg" alt="Second slide">
                                     </div>
                                     <div class="carousel-item">
-                                        <img src="demo/img/carousel/c-3.jpg" alt="Third slide" style="width:40%; height:auto;">
+                                        <img src="demo/img/carousel/c-3.jpg" alt="Third slide">
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -124,7 +124,7 @@ if( !isset($_SESSION["user_id"]) ){
                                 <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 </a>
-                            </div><hr>
+                            </div>
 
               <div class="card">
                 <div class="card-body">
