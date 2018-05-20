@@ -137,7 +137,7 @@ $data = mysqli_query($conn, $sql);
               echo "<img src='".$row['turtle_profile']."' alt=''>";
               echo "</a>";
               echo " <div class='contacts__info'>";
-              echo "<strong>".$row['turtle_name']"</strong>";
+              echo "<strong>".$row['turtle_name']."</strong>";
               echo "<small>รหัสไมโครชิพ:".$row['turtle_microchip_code']."</small>";
                  
               $date = new \DateTime();
