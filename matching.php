@@ -514,18 +514,22 @@ var mapProp= {
 var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
 var marker = new google.maps.Marker({
-  position: new google.maps.LatLng(13.736717, 100.523186),
+  position: new google.maps.LatLng(23.736717, 100.523186),
  map: map
 });
        
 marker.setDraggable(true);
+    
+var x = document.getElementById("latitude");
+var y = document.getElementById("longtitude");
+    
 google.maps.event.addListener( marker, 'click', function ( event ) {
-    console.log(this.getPosition().lat());
-    console.log(this.getPosition().lng());
+    x.value = this.getPosition().lat();
+    y.value = this.getPosition().lng();
 } );  
 google.maps.event.addListener( marker, 'dragend', function ( event ) {
-    console.log(this.getPosition().lat());
-    console.log(this.getPosition().lng());
+    x.value = this.getPosition().lat();
+    y.value = this.getPosition().lng();
 } );                        
                              
     }
