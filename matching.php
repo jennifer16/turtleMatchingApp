@@ -175,9 +175,9 @@ if( !isset($_SESSION["user_id"]) ){
       </div>
     </div>
   </div>
-                 <hr>
             </div>
 </div>
+               <div class="col-md-6">
               <form role="form" action = "doMatching.php" method = "POST" enctype = "multipart/form-data">
                         <input type="text" name="filename" id="filename" hidden>
                 <div class="row">
@@ -218,7 +218,7 @@ if( !isset($_SESSION["user_id"]) ){
               </form>
             
             <!-- /.card -->
-
+            </div>
         </div>
         <!-- /.row -->
     <!-- /.content -->
