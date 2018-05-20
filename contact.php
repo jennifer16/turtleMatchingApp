@@ -21,16 +21,7 @@ if( !isset($_SESSION["user_id"]) ){
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
-        <style>
-        
-        form-area
-{
-    background-color: #FAFAFA;
-	padding: 10px 40px 60px;
-	margin: 10px 0px 60px;
-	border: 1px solid GREY;
-	}
-        </style>
+
     </head>
 
     <body data-ma-theme="green">
