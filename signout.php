@@ -8,27 +8,10 @@ $fb = new \Facebook\Facebook([
   //'default_access_token' => '{access-token}', // optional
 ]);
     
-        $params = [
-
-	
-
-            'next' => $next,
-
-	
-
-            'access_token' => $_SESSION['fb_access_token']
-
-	
-
-        ];
-
-	
-
-	
-
-        $url= 'https://www.facebook.com/logout.php?' . http_build_query($params, null, $separator);
+ $fb->getLogoutUrl();
+echo $fb;
 
     session_destroy();
  
-    header('Location:'.$url);
+   // header('Location:'.$url);
 ?>
