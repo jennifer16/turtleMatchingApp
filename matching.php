@@ -517,10 +517,12 @@ var marker = new google.maps.Marker({
   position: new google.maps.LatLng(13.736717, 100.523186),
  map: map
 });
-
-markers.push(marker);                   
-
-    google.maps.event.addListener( marker, 'dragend', function ( event ) {
+        
+google.maps.event.addListener( marker, 'click', function ( event ) {
+    console.log(this.getPosition().lat());
+    console.log(this.getPosition().lng());
+} );  
+google.maps.event.addListener( marker, 'dragend', function ( event ) {
     console.log(this.getPosition().lat());
     console.log(this.getPosition().lng());
 } );                        
