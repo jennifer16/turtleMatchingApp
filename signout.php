@@ -8,8 +8,8 @@ $fb = new \Facebook\Facebook([
   //'default_access_token' => '{access-token}', // optional
 ]);
     $helper = $fb->getRedirectLoginHelper();
- $helper->getLogoutUrl();
-echo $fb;
+ $url = $helper->getLogoutUrl(array('next' => 'http://studioxpert.com/turtleMatchingApp/', 'access_token'=>$_SESSION['fb_access_token']));
+echo $url;
 
     session_destroy();
  
