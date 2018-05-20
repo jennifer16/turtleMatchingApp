@@ -315,6 +315,7 @@ if( !isset($_SESSION["user_id"]) ){
       var $modal = $('#modal');
       var cropper;
       var newFilenameLeft;
+      var fileext;
       $('[data-toggle="tooltip"]').tooltip();
 
       input.addEventListener('change', function (e) {
@@ -333,17 +334,9 @@ if( !isset($_SESSION["user_id"]) ){
         if (files && files.length > 0) {
           file = files[0];
           filename = file.name;
-          var fileext = filename.split('.').pop();
-          var text = "";
-          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+          fileext = filename.split('.').pop();
 
-          for (var i = 0; i < 10; i++)
-             text += possible.charAt(Math.floor(Math.random() * possible.length));
-
-          newFilename = text+'.'+fileext;
-          document.getElementById("filename").value = newFilename;
             
-
           if (URL) {
             done(URL.createObjectURL(file));
           } else if (FileReader) {
@@ -371,6 +364,15 @@ if( !isset($_SESSION["user_id"]) ){
    
         $modal.modal('hide');
 
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+          var text;
+          for (var i = 0; i < 10; i++)
+             text += possible.charAt(Math.floor(Math.random() * 62));
+
+          newFilename = text+'.'+fileext;
+          document.getElementById("filename").value = newFilename;
+          
+          
         if (cropper) {
           canvas = cropper.getCroppedCanvas({
           });
@@ -407,7 +409,6 @@ if( !isset($_SESSION["user_id"]) ){
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
-                    alert(percentage);
                    // $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
                   }
                 };
