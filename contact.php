@@ -115,7 +115,7 @@ if( !isset($_SESSION["user_id"]) ){
 <div class="container">
 <div class="col-md-5">
     <div class="form-area">  
-        <form role="form" action="sendEmail.php">
+        <form role="form" action="sendEmail.php" method="post">
         <br style="clear:both">
                     <h6 style="margin-bottom: 25px; text-align: center;">ส่งข้อความเพื่อติดต่อเรา</h6>
     				<div class="form-group">
