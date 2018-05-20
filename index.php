@@ -119,10 +119,10 @@ if( !isset($_SESSION["user_id"]) ){
                                     </div>
                                 </div>
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                    Prev
+                                    <i class="zmdi zmdi-arrow-left"></i>
                                 </a>
                                 <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                    Next
+                                   <i class="zmdi zmdi-arrow-right"></i>
                                 </a>
                             </div><hr>
 
