@@ -106,13 +106,29 @@ if( !isset($_SESSION["user_id"]) ){
           <section class="content">
 
 
-                           
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="carousel-item active">
+                                        <img src="demo/img/carousel/c-1.jpg" alt="First slide" style="width:100%; height:auto;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="demo/img/carousel/c-2.jpg" alt="Second slide" style="width:100%; height:auto;">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="demo/img/carousel/c-3.jpg" alt="Third slide" style="width:100%; height:auto;">
+                                    </div>
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </a>
+                            </div><hr>
+
               <div class="card">
                 <div class="card-body">
-
-
                     <h4 class="card-title">สรุปข้อมูลเต่า</h4>
-                
                     <div class="row quick-stats">
                     <div class="col-sm-6 col-md-3">
                         <div class="quick-stats__item bg-blue" >
