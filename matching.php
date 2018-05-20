@@ -372,9 +372,9 @@ if( !isset($_SESSION["user_id"]) ){
         $modal.modal('hide');
 
         if (cropper) {
-         // canvas = cropper.getCroppedCanvas({
-            console.log("ok");
-         // });
+          alert("please wait while cropping");
+          canvas = cropper.getCroppedCanvas({
+          });
 
           initialAvatarURL = avatar.src;
           avatar.src = canvas.toDataURL();
