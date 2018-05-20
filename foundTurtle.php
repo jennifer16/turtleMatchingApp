@@ -148,13 +148,14 @@ $turtleName = $_GET['turtleName'];
                 <div class="card-body">
                     <h4 class="card-title">รายงานการพบเต่าทะเล</h4>
                 </div>
+              </div>
               <!-- /.card-header -->
               <!-- form start --> 
 
                                   <!-- turtle profile image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
-      <img class="rounded" id="avatarProfile" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-Profile">
+      <img class="rounded" id="avatarProfile" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
      
@@ -753,6 +754,53 @@ $(document).ready(function(){
  setInterval(fetchdata,10000);
 });
         </script>
+    <script>
+function myMap() {
+    var x = document.getElementById("map");
+    console.log(x);
+var mapProp= {
+   
+    center:new google.maps.LatLng(13.736717, 100.523186),
+    zoom:5
+}
+var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
+var isClick=false;
+map.addListener('click', function(e) {
+    if(!isClick){
+        placeMarker(e.latLng, map);
+        isClick=true;
+    }
+});
+
+function placeMarker(position, map) {
+    var marker = new google.maps.Marker({
+        position: position,
+        map: map
+    });
+    map.panTo(position);
+    marker.setDraggable(true);
+    
+    var x = document.getElementById("latitude");
+var y = document.getElementById("longtitude");
+    
+google.maps.event.addListener( marker, 'click', function ( event ) {
+    x.value = this.getPosition().lat();
+    y.value = this.getPosition().lng();
+} );  
+google.maps.event.addListener( marker, 'dragend', function ( event ) {
+    x.value = this.getPosition().lat();
+    y.value = this.getPosition().lng();
+} );  
+}
+    
+                      
+                             
+    }
+    
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo6U_Cb7Ywu2_TLPqhv5YJDQH4sbeGcFg&callback=myMap"></script>
     </body>
 </html>
