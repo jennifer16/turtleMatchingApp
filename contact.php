@@ -117,7 +117,7 @@ if( !isset($_SESSION["user_id"]) ){
     <div class="form-area">  
         <form role="form" action="sendEmail.php">
         <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center;">ส่งข้อความเพื่อติดต่อเรา</h3>
+                    <h6 style="margin-bottom: 25px; text-align: center;">ส่งข้อความเพื่อติดต่อเรา</h6>
     				<div class="form-group">
 						<input type="text" class="form-control" id="name" name="name" placeholder="ชื่อ-นามสกุล" required>
 					</div>
@@ -131,10 +131,10 @@ if( !isset($_SESSION["user_id"]) ){
 						<input type="text" class="form-control" id="subject" name="subject" placeholder="หัวข้อ" required>
 					</div>
                     <div class="form-group">
-                    <textarea class="form-control" type="textarea" id="message" placeholder="Message" ></textarea>                  
+                    <textarea class="form-control" type="textarea" id="message" placeholder="ข้อความ" ></textarea>                  
                     </div>
             
-        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">ส่งข้อความ</button>
+        <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">ส่งข้อความ</button>
         </form>
     </div>
 </div>
