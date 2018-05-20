@@ -143,7 +143,7 @@ $data = mysqli_query($conn, $sql);
               $date = new \DateTime();
               $date->setTimestamp($row['turtle_timestamp']);
               $interval = $date->diff(new \DateTime('now'));
-              $months = $interval->format(%m);
+              $months = $interval->format("%m");
               $years = (int)$months/12;
               $mons = $months-($years*12);
               echo "<small>อายุ :".$years." ปี ".$mons." เดือน</small>";
