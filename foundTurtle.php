@@ -149,9 +149,13 @@ $turtleName = $_GET['turtleName'];
                     <h4 class="card-title">รายงานการพบเต่าทะเล</h4>
                 </div>
               </div>
+            </div>
+          </div>
+        
               <!-- /.card-header -->
               <!-- form start --> 
-
+          <div class="row">
+              <div class="col-md-6">
                                   <!-- turtle profile image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
@@ -182,66 +186,13 @@ $turtleName = $_GET['turtleName'];
       </div>
     </div>
   </div>
-<hr>
-              <form role="form" action = "doFoundTurtle.php" method = "POST" enctype = "multipart/form-data">
-                        <input type="text" name="filenameLeft" id="filenameLeft" hidden>
-                   <input type="text" name="filenameRight" id="filenameRight" hidden>
-                   <input type="text" name="filenameProfile" id="filenameProfile" hidden>
-                <div class="card-body">
-                        <h5 class="card-title">ข้อมูลการพบต่าทะเล</h5>
-                    <?php
-             
-                            echo "<input type='text' id='turtleName' name='turtleName' value='".$turtleName."' hidden>";
-                    ?>
-                    <div class="form-group">
-
-                <div class="row">
-                    <div class="col-md-4">
-                    <label for="latitude">น้ำหนัก (กก.)</label>
-                        <input type="text" class="form-control" placeholder="น้ำหนักเต่า" id="weight" name="weight"></div>
-                     <div class="col-md-4">
-                    <label for="latitude">ความกว้าง (ซม.)</label>
-                    <input type="text" class="form-control" id="width" name="width" placeholder="ความกว้างของกระดองเต่า">
-                    </div>
-                    <div class="col-md-4">
-                    <label for="latitude">ความยาว (ซม.)</label>
-                    <input type="text" class="form-control" id="length" name="length" placeholder="ความยาวของกระดองเต่า">
-                    </div>
-                    </div> <br>
-                <div class="row">
-                    <div class="col-md-6">
-                    <label for="latitude">ละติจูด</label>
-                    <input type="text" class="form-control" id="latitude" name="latitude" placeholder="0.00">
-                        </div>
-                        <div class="col-md-6">
-                    <label for="latitude">ลองจิจูด</label>
-                    <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
-                        </div>
-                </div><br>
-                 
-                <!-- /.card-body -->
-                    <div class="row" align="center">
-                    <div class="col-md-6">
-               
-                  <button type="submit" class="btn btn-primary">บันทึกข้อมูลการพบเต่า</button> 
-               
-                        </div><div class="col-md-6">
-                        <div class="fb-share-button" data-href='https://studioxpert.com/turtleMatchingApp/' data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">แชร์ไปที่ Facebook</a></div>
-                        </div>
-                </div>
-                           </div>
-                  </div>
-              </form>
-            
-            <!-- /.card -->
+              </div>
 
         </div>
         <!-- /.row -->
     <!-- /.content -->
-  </div>
-              </div>
-                <footer class="footer hidden-xs-down">
-                </footer>
+
+                <footer class="footer hidden-xs-down">  </footer>
               </div>
             </section>
         </main>
