@@ -182,7 +182,7 @@ if( !isset($_SESSION["user_id"]) ){
               <form role="form" action = "doMatching.php" method = "POST" enctype = "multipart/form-data">
                         <input type="text" name="filename" id="filename" hidden>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-check-inline">
   <label class="form-check-label">
     <input type="radio" class="form-check-input" name="side" value="LEFT" checked>หน้าด้านซ้าย
@@ -197,16 +197,31 @@ if( !isset($_SESSION["user_id"]) ){
                   </div>
                 <br>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                     <label for="latitude">ละติจูด</label>
                     <input type="text" class="form-control" id="latitude" name="latitude" placeholder="0.00">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                     <label for="latitude">ลองจิจูด</label>
                     <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
                         </div>
-                </div><br>
-                 <script type="text/javascript" src="https://form.jotform.co/jsform/81391503984866"></script>
+                </div>
+                <div class="row">
+                   <div class="col-md-6">
+                       
+                       <div class="card" style="height: 300px;">
+                            
+                            <div class="card-body" id = "map">
+                               
+                            </div>
+                        </div>
+                       
+                    </div>
+                  
+                  </div>  
+                  
+                  <br>
+                 
                 <!-- /.card-body -->
                     <div class="row" align="center">
                     <div class="col-md-12">
@@ -486,5 +501,34 @@ $(document).ready(function(){
 });
         </script>
 
+        
+    <script>
+function myMap() {
+    var x = document.getElementById("map");
+    console.log(x);
+var mapProp= {
+   
+    center:new google.maps.LatLng(13.736717, 100.523186),
+    zoom:5
+}
+var map=new google.maps.Map(document.getElementById("map"),mapProp);
+
+var marker = new google.maps.Marker({";
+  position: new google.maps.LatLng(13.736717, 100.523186),
+ map: map
+});
+
+markers.push(marker);                   
+                             
+                             
+    }
+
+?>
+    
+}
+</script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo6U_Cb7Ywu2_TLPqhv5YJDQH4sbeGcFg&callback=myMap"></script>
     </body>
 </html>
