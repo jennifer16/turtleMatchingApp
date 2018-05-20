@@ -372,7 +372,7 @@ if( !isset($_SESSION["user_id"]) ){
         $modal.modal('hide');
 
         if (cropper) {
-          canvas = cropper.getCroppedCanvas({
+         // canvas = cropper.getCroppedCanvas({
           });
 
           initialAvatarURL = avatar.src;
