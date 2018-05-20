@@ -368,7 +368,7 @@ if( !isset($_SESSION["user_id"]) ){
       document.getElementById('crop').addEventListener('click', function () {
         var initialAvatarURL;
         var canvas;
-
+        $('#modalLabel').innerHTML="โปรดรอ..กำลังอัพโหลด";
         $modal.modal('hide');
 
         if (cropper) {
@@ -455,6 +455,7 @@ function showPosition(position) {
 }
                 getLocation();
 </script>
+        
         <script>
             String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g,"");
