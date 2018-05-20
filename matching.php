@@ -513,15 +513,12 @@ var mapProp= {
 }
 var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
-var marker = new google.maps.Marker({
- // position: new google.maps.LatLng(23.736717, 100.523186),
- map: map
-});
-       
-marker.setDraggable(true);
-  
-    map.addListener('click', function(e) {
-    placeMarker(e.latLng, map);
+var isClick=false;
+map.addListener('click', function(e) {
+    if(!isClick){
+        placeMarker(e.latLng, map);
+        isClick=true;
+    }
 });
 
 function placeMarker(position, map) {
@@ -530,6 +527,7 @@ function placeMarker(position, map) {
         map: map
     });
     map.panTo(position);
+    marker.setDraggable(true);
     
     var x = document.getElementById("latitude");
 var y = document.getElementById("longtitude");
