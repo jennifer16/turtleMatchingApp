@@ -296,11 +296,12 @@ if(isset($_GET['matchId']))
                     </div>
                 </div> <br>
                 <div class="row">
-                    <div class="col-md-3">
+             
                                             <div class="col-md-3">
-                    <label for="ageMonth">อายุ ณ วันที่บันทึกข้อมูล (เดือน)</label>
-                    <input type="text" class="form-control" id="ageMonth" name="ageMonth" placeholder="อายุ ณ วันที่บันทึกข้อมูล (เดือน)">
+                    <label for="ageMonth">อายุ (เดือน)</label>
+                    <input type="text" class="form-control" id="ageMonth" name="ageMonth" placeholder="อายุ (เดือน)">
                         </div>
+                           <div class="col-md-3">
                     <label for="latitude">น้ำหนัก (กก.)</label>
                         <input type="text" class="form-control" placeholder="น้ำหนักเต่า" id="weight" name="weight"></div>
                      <div class="col-md-3">
