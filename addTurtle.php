@@ -159,7 +159,7 @@ if(isset($_GET['matchId']))
                 <!-- left side image -->
                  <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านซ้าย<br>
-      <img class="rounded" id="avatarLeft" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-left">
+      <img class="rounded" id="avatarLeft" src="img/camera1.png" style="max-width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputLeft" name="imageLeft" accept="image/*">
     </label>
 
@@ -168,7 +168,7 @@ if(isset($_GET['matchId']))
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">เลือกส่วนเกล็ดบนใบหน้าเต่า</h5>
+            <h5 class="modal-title" id="modalLabelLeft">เลือกส่วนเกล็ดบนใบหน้าเต่า</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -191,7 +191,7 @@ if(isset($_GET['matchId']))
                  <!-- right side image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านขวา<br>
-      <img class="rounded" id="avatarRight" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-left">
+      <img class="rounded" id="avatarRight" src="img/camera1.png" style="max-width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputRight" name="imageRight" accept="image/*">
     </label>
      
@@ -200,7 +200,7 @@ if(isset($_GET['matchId']))
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">เลือกส่วนเกล็ดบนใบหน้าเต่า</h5>
+            <h5 class="modal-title" id="modalLabelRight">เลือกส่วนเกล็ดบนใบหน้าเต่า</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -223,7 +223,7 @@ if(isset($_GET['matchId']))
                                   <!-- turtle profile image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
-      <img class="rounded" id="avatarProfile" src="img/camera.png" style="max-width:100%; height:auto;" alt="avatar-Profile">
+      <img class="rounded" id="avatarProfile" src="img/camera1.png" style="max-width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
      
@@ -232,7 +232,7 @@ if(isset($_GET['matchId']))
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">เลือกส่วนของภาพที่ต้องการ</h5>
+            <h5 class="modal-title" id="modalLabelProfile">เลือกส่วนของภาพที่ต้องการ</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -512,7 +512,8 @@ if(isset($_GET['matchId']))
       document.getElementById('cropLeft').addEventListener('click', function () {
         var initialAvatarURL;
         var canvas;
-
+   var labelLeft = document.getElementById("modalLabelLeft");
+        labelLeft.innerHTML = "กรุณารอสักครู่ กำลังตัดแบ่งส่วนภาพ...";
         $modal.modal('hide');
 
         if (cropper) {
@@ -642,7 +643,8 @@ if(isset($_GET['matchId']))
       document.getElementById('cropRight').addEventListener('click', function () {
         var initialAvatarURL;
         var canvas;
-
+          var labelRight = document.getElementById("modalLabelRight");
+        labelRight.innerHTML = "กรุณารอสักครู่ กำลังตัดแบ่งส่วนภาพ...";
         $modal.modal('hide');
 
         if (cropper) {
@@ -771,7 +773,8 @@ if(isset($_GET['matchId']))
       document.getElementById('cropProfile').addEventListener('click', function () {
         var initialAvatarURL;
         var canvas;
-
+   var labelProfile = document.getElementById("modalLabelProfile");
+        labelProfile.innerHTML = "กรุณารอสักครู่ กำลังตัดแบ่งส่วนภาพ...";
         $modal.modal('hide');
 
         if (cropper) {
