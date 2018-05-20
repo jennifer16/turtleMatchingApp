@@ -384,9 +384,7 @@ if( !isset($_SESSION["user_id"]) ){
 	
             formData.append('avatar', blob);
             formData.append('filename', newFilename);
-         for (var pair of formData.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]); 
-}
+
             $.ajax('./saveImage.php', {
               method: 'POST',
               data: formData,
@@ -409,6 +407,7 @@ if( !isset($_SESSION["user_id"]) ){
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
+                    alert(percentage);
                    // $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
                   }
                 };
