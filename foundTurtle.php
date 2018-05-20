@@ -190,7 +190,7 @@ if( isset($_GET['turtleName']))
   </div>
               </div>
               
-              <div class="col-md=6"> 
+              <div class="col-md-6"> 
               
          <form role="form" action = "doFoundTurtle.php" method = "POST" enctype = "multipart/form-data">
                  <input type="text" name="filenameLeft" id="filenameLeft" hidden>
@@ -198,8 +198,10 @@ if( isset($_GET['turtleName']))
                    <input type="text" name="filenameProfile" id="filenameProfile" hidden>     
            <div class="row">
                <div class="col-md-12">
+                   <div class="card">
                   <div class="card-body">
-                        <h5 class="card-title">ข้อมูลการพบต่าทะเล <i><?php echo $turtleName; ?></i></h5>
+                        <h5 class="card-title">ข้อมูลการพบเต่าทะเล <i><?php echo $turtleName; ?></i></h5>
+                   </div>
                    </div>
                </div>
              </div>
@@ -229,6 +231,22 @@ if( isset($_GET['turtleName']))
                     <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
                         </div>
                 </div><br>
+                <div class="row" >
+                    <div class="col-md-12" align="center">
+                     <label> -- หรือ คลิกและเลือกตำแหน่งในแผนที่ --</label>
+                    </div>
+                   <div class="col-md-12">
+                       
+                       <div class="card" style="height: 300px;">
+                            
+                            <div class="card-body" id = "map">
+                               
+                            </div>
+                        </div>
+                       
+                    </div>
+                  
+                  </div>  
                   <div class="row" align="center">
                     <div class="col-md-6">
                
