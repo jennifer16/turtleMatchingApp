@@ -7,7 +7,27 @@ $fb = new \Facebook\Facebook([
   'default_graph_version' => 'v2.10',
   //'default_access_token' => '{access-token}', // optional
 ]);
-    $fb->destroySession();   
+    
+        $params = [
+
+	
+
+            'next' => $next,
+
+	
+
+            'access_token' => $_SESSION['fb_access_token']
+
+	
+
+        ];
+
+	
+
+	
+
+        $url= 'https://www.facebook.com/logout.php?' . http_build_query($params, null, $separator);
+
     session_destroy();
  
     header('Location:'.$url);
