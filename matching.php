@@ -206,6 +206,7 @@ if( !isset($_SESSION["user_id"]) ){
                     <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
                         </div>
                 </div>
+                  <br>
                 <div class="row">
                    <div class="col-md-12">
                        
@@ -220,7 +221,6 @@ if( !isset($_SESSION["user_id"]) ){
                   
                   </div>  
                   
-                  <br>
                  
                 <!-- /.card-body -->
                     <div class="row" align="center">
@@ -519,7 +519,11 @@ var marker = new google.maps.Marker({
 });
 
 markers.push(marker);                   
-                             
+
+    google.maps.event.addListener( marker, 'dragend', function ( event ) {
+    console.log(this.getPosition().lat());
+    console.log(this.getPosition().lng());
+} );                        
                              
     }
     
