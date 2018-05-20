@@ -159,7 +159,7 @@ if(isset($_GET['matchId']))
                 <!-- left side image -->
                  <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านซ้าย<br>
-      <img class="rounded" id="avatarLeft" src="img/camera1.png" style="max-width:100%; height:auto;" alt="avatar-left">
+      <img class="rounded" id="avatarLeft" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputLeft" name="imageLeft" accept="image/*">
     </label>
 
@@ -191,7 +191,7 @@ if(isset($_GET['matchId']))
                  <!-- right side image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านขวา<br>
-      <img class="rounded" id="avatarRight" src="img/camera1.png" style="max-width:100%; height:auto;" alt="avatar-left">
+      <img class="rounded" id="avatarRight" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputRight" name="imageRight" accept="image/*">
     </label>
      
@@ -223,7 +223,7 @@ if(isset($_GET['matchId']))
                                   <!-- turtle profile image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
-      <img class="rounded" id="avatarProfile" src="img/camera1.png" style="max-width:100%; height:auto;" alt="avatar-Profile">
+      <img class="rounded" id="avatarProfile" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
      
@@ -855,8 +855,6 @@ function getLocation() {
 function showPosition(position) {
     x.value = position.coords.latitude;
     y.value = position.coords.longitude;
-    console.log(position.coords.latitude);
-    console.log(positio.coords.longitude);
 }
     getLocation();
 </script> 
