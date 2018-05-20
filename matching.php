@@ -207,8 +207,9 @@ if( !isset($_SESSION["user_id"]) ){
                         </div>
                 </div>
                   <br>
-                <label> -- หรือ คลิกและเลือกตำแหน่งในแผนที่ --</label>
-                <div class="row">
+               
+                <div class="row" align="center">
+                     <label> -- หรือ คลิกและเลือกตำแหน่งในแผนที่ --</label>
                    <div class="col-md-12">
                        
                        <div class="card" style="height: 300px;">
