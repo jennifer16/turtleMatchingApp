@@ -187,6 +187,11 @@ $turtleName = $_GET['turtleName'];
     </div>
   </div>
               </div>
+              
+              <div class="col-md=6"> Hello </div>
+              
+              
+              
 
         </div>
         <!-- /.row -->
