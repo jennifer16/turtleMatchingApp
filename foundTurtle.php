@@ -118,7 +118,6 @@ if( isset($_GET['turtleName']))
                             {
                                 echo "<li><a href='addTurtle.php'><i class='zmdi zmdi-collection-plus'></i> เพิ่มข้อมูลเต่า</a></li>";
                                 echo "<li><a href='editTurtle.php'><i class='zmdi zmdi-collection-text'></i> แก้ไขข้อมูลเต่า</a></li>";
-                                echo "<li><a href='deleteTurtle.php'><i class='zmdi zmdi-delete'></i> ลบข้อมูลเต่า</a></li>";
 
 
                             }
@@ -134,7 +133,6 @@ if( isset($_GET['turtleName']))
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
                         
-                        <li><a href="contact.php"><i class="zmdi zmdi-email"></i> ติดต่อเรา</a></li>
 
                     </ul>
                 </div>

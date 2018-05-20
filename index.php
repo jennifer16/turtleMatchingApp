@@ -84,7 +84,6 @@ if( !isset($_SESSION["user_id"]) ){
                             {
                                 echo "<li><a href='addTurtle.php'><i class='zmdi zmdi-collection-plus'></i> เพิ่มข้อมูลเต่า</a></li>";
                                 echo "<li><a href='editTurtle.php'><i class='zmdi zmdi-collection-text'></i> แก้ไขข้อมูลเต่า</a></li>";
-                                echo "<li><a href='deleteTurtle.php'><i class='zmdi zmdi-delete'></i> ลบข้อมูลเต่า</a></li>";
 
 
                             }
@@ -99,8 +98,6 @@ if( !isset($_SESSION["user_id"]) ){
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
-                        
-                        <li><a href="contact.php"><i class="zmdi zmdi-email"></i> ติดต่อเรา</a></li>
 
                     </ul>
                 </div>
@@ -109,7 +106,10 @@ if( !isset($_SESSION["user_id"]) ){
           <section class="content">
 
 
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                           
+              <div class="card">
+                <div class="card-body">
+                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner" role="listbox">
                                     <div class="carousel-item active">
                                         <img src="demo/img/carousel/c-1.jpg" alt="First slide">
@@ -129,9 +129,8 @@ if( !isset($_SESSION["user_id"]) ){
                                 </a>
                             </div><hr>
 
-              <div class="card">
-                <div class="card-body">
                     <h4 class="card-title">สรุปข้อมูลเต่า</h4>
+                
                     <div class="row quick-stats">
                     <div class="col-sm-6 col-md-3">
                         <div class="quick-stats__item bg-blue" >

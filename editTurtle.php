@@ -91,7 +91,6 @@ echo mysqli_num_rows($data);
                             {
                                 echo "<li><a href='addTurtle.php'><i class='zmdi zmdi-collection-plus'></i> เพิ่มข้อมูลเต่า</a></li>";
                                 echo "<li><a href='editTurtle.php'><i class='zmdi zmdi-collection-text'></i> แก้ไขข้อมูลเต่า</a></li>";
-                                echo "<li><a href='deleteTurtle.php'><i class='zmdi zmdi-delete'></i> ลบข้อมูลเต่า</a></li>";
 
 
                             }
@@ -106,8 +105,6 @@ echo mysqli_num_rows($data);
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
-                        
-                        <li><a href="contact.php"><i class="zmdi zmdi-email"></i> ติดต่อเรา</a></li>
 
                     </ul>
                 </div>
@@ -129,6 +126,7 @@ echo mysqli_num_rows($data);
                   <th style='text-align: center;'>รหัสไมโครชิพ</th>
                   <th style='text-align: center;'>TAG</th>
                   <th>&nbsp;</th>
+                    <th>&nbsp;</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -139,6 +137,7 @@ echo mysqli_num_rows($data);
                     echo "<td align='center'>".$row['turtle_microchip_code']."</td>";
                     echo "<td align='center'>".$row['turtle_tag_code']."</td>";
                    echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doEditTurtle(".$row['turtle_id'].");'>แก้ไข</button></td>";
+                     echo "<td align='center'><button type='button' class='btn btn-danger' onclick='doDelete(".$row['turtle_id'].");'>ลบ</button></td>";
                     echo "</tr>";
 }
                     
@@ -153,6 +152,7 @@ echo mysqli_num_rows($data);
                   <th style='text-align: center;'>รหัสไมโครชิพ</th>
                   <th style='text-align: center;'>TAG</th>
                   <th>&nbsp;</th>
+                <th>&nbsp;</th>
                 </tr>
                 </tfoot>
               </table>
@@ -274,6 +274,11 @@ $(document).ready(function(){
 });
         </script>
 
-        
+     <script>
+    function doDelete(id){
+        confirm("ยืนยันการลบข้อมูล");
+        window.location='doDelete.php?id='+id;
+    }
+</script>     
     </body>
 </html>
