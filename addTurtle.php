@@ -150,8 +150,12 @@ if(isset($_GET['matchId']))
                 <div class="card-body">
                     <h4 class="card-title">เพิ่มข้อมูลเต่าทะเล</h4>
                 </div>
+              </div>
+              </div>
+              </div>
               <!-- /.card-header -->
-              <!-- form start --> 
+        <div class="row">
+            <div class="col-md-3">
                 <!-- left side image -->
                  <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านซ้าย<br>
@@ -182,7 +186,8 @@ if(isset($_GET['matchId']))
       </div>
     </div>
   </div>
-                 <hr>
+            </div>
+             <div class="col-md-3">
                  <!-- right side image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านขวา<br>
@@ -213,7 +218,8 @@ if(isset($_GET['matchId']))
       </div>
     </div>
   </div>
-<hr>
+            </div>
+            <div clas="col-md-3">
                                   <!-- turtle profile image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
@@ -244,7 +250,9 @@ if(isset($_GET['matchId']))
       </div>
     </div>
   </div>
-<hr>
+            </div>
+          </div>
+             <!-- form start --> 
               <form role="form" action = "doAddTurtle.php" method = "POST" enctype = "multipart/form-data">
                         <input type="text" name="filenameLeft" id="filenameLeft" hidden>
                    <input type="text" name="filenameRight" id="filenameRight" hidden>
@@ -354,11 +362,11 @@ if(isset($_GET['matchId']))
         </div>
         <!-- /.row -->
     <!-- /.content -->
-  </div>
-              </div>
+
+ 
                 <footer class="footer hidden-xs-down">
                 </footer>
-              </div>
+        
             </section>
         </main>
 
