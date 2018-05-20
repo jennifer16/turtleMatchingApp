@@ -7,8 +7,8 @@ $fb = new \Facebook\Facebook([
   'default_graph_version' => 'v2.10',
   //'default_access_token' => '{access-token}', // optional
 ]);
-    
- $fb->getLogoutUrl();
+    $helper = $fb->getRedirectLoginHelper();
+ $helper->getLogoutUrl();
 echo $fb;
 
     session_destroy();
