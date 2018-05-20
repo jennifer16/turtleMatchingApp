@@ -315,7 +315,6 @@ if( !isset($_SESSION["user_id"]) ){
       var $modal = $('#modal');
       var cropper;
       var newFilenameLeft;
-      var fileext;
       $('[data-toggle="tooltip"]').tooltip();
 
       input.addEventListener('change', function (e) {
@@ -334,9 +333,17 @@ if( !isset($_SESSION["user_id"]) ){
         if (files && files.length > 0) {
           file = files[0];
           filename = file.name;
-          fileext = filename.split('.').pop();
+          var fileext = filename.split('.').pop();
+          var text = "";
+          var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
+          for (var i = 0; i < 10; i++)
+             text += possible.charAt(Math.floor(Math.random() * 62));
+
+          newFilename = text+'.'+fileext;
+          document.getElementById("filename").value = newFilename;
             
+
           if (URL) {
             done(URL.createObjectURL(file));
           } else if (FileReader) {
@@ -351,7 +358,7 @@ if( !isset($_SESSION["user_id"]) ){
 
       $modal.on('shown.bs.modal', function () {
         cropper = new Cropper(image, {
-          viewMode: 3,
+          viewMode: 1,
         });
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
@@ -364,15 +371,6 @@ if( !isset($_SESSION["user_id"]) ){
    
         $modal.modal('hide');
 
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-          var text;
-          for (var i = 0; i < 10; i++)
-             text += possible.charAt(Math.floor(Math.random() * 62));
-
-          newFilename = text+'.'+fileext;
-          document.getElementById("filename").value = newFilename;
-          
-          
         if (cropper) {
           canvas = cropper.getCroppedCanvas({
           });
