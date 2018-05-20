@@ -179,6 +179,7 @@ if( !isset($_SESSION["user_id"]) ){
             </div>
 
                <div class="col-md-6">
+                <label>เลือกด้านของใบหน้าและพิกัดการพบ</label>
               <form role="form" action = "doMatching.php" method = "POST" enctype = "multipart/form-data">
                         <input type="text" name="filename" id="filename" hidden>
                 <div class="row">

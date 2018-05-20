@@ -198,11 +198,7 @@ if( isset($_GET['turtleName']))
                    <input type="text" name="filenameProfile" id="filenameProfile" hidden>     
            <div class="row">
                <div class="col-md-12">
-                   <div class="card">
-                  <div class="card-body">
-                        <h5 class="card-title">ข้อมูลการพบเต่าทะเล <i><?php echo $turtleName; ?></i></h5>
-                   </div>
-                   </div>
+                  <label>กรอกข้อมูลของเต่าที่พบ</label>
                </div>
              </div>
          
