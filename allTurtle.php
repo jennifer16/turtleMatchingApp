@@ -114,6 +114,7 @@ $data = mysqli_query($conn, $sql);
 
 
  <section class="content">
+      <!-- /.row -->   
      <div class="row">
         <div class="col-12">
           <div class="card">
@@ -121,48 +122,197 @@ $data = mysqli_query($conn, $sql);
             <!-- /.card-header -->
             <div class="card-body">
             <h5>ข้อมูลเต่าทะเล</h5>
-              <table id="listTurtle" class="display" style="width:100%">
-                <thead>
-                <tr>
-                  <th style='text-align: center;'>ชื่อเต่า</th>
-                  <th style='text-align: center;'>รหัสไมโครชิพ</th>
-                  <th style='text-align: center;'>TAG</th>
-                  <th>&nbsp;</th>
-                </tr>
-                </thead>
-                <tbody>
-<?php
-                 while ($row = $data->fetch_assoc()) {
-                    echo "<tr>";
-                    echo "<td align='center'><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row['turtle_name']."</a></td>";
-                    echo "<td align='center'>".$row['turtle_microchip_code']."</td>";
-                    echo "<td align='center'>".$row['turtle_tag_code']."</td>";
-                   echo "<td align='center'><button type='button' class='btn btn-info' onclick='goToDetail(".$row['turtle_id'].");'>ดูข้อมูล</button></td>";
-                    echo "</tr>";
-}
-                    
-?>
-                
+                      <div class="contacts row">
+                        <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="contacts__item">
+                                <a href="" class="contacts__img">
+                                    <img src="demo/img/contacts/1.jpg" alt="">
+                                </a>
 
+                                <div class="contacts__info">
+                                    <strong>Cathy Shelton</strong>
+                                    <small>cathy.shelton31@example.com</small>
+                                </div>
 
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th style='text-align: center;'>ชื่อเต่า</th>
-                  <th style='text-align: center;'>รหัสไมโครชิพ</th>
-                  <th style='text-align: center;'>TAG</th>
-                  <th>&nbsp;</th>
-                </tr>
-                </tfoot>
-              </table>
+                                <button class="contacts__btn">Following</button>
+                            </div>
+                        </div>
+                          
+                              <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="contacts__item">
+                                <a href="" class="contacts__img">
+                                    <img src="demo/img/contacts/1.jpg" alt="">
+                                </a>
+
+                                <div class="contacts__info">
+                                    <strong>Cathy Shelton</strong>
+                                    <small>cathy.shelton31@example.com</small>
+                                </div>
+
+                                <button class="contacts__btn">Following</button>
+                            </div>
+                        </div>
+                          
+                              <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="contacts__item">
+                                <a href="" class="contacts__img">
+                                    <img src="demo/img/contacts/1.jpg" alt="">
+                                </a>
+
+                                <div class="contacts__info">
+                                    <strong>Cathy Shelton</strong>
+                                    <small>cathy.shelton31@example.com</small>
+                                </div>
+
+                                <button class="contacts__btn">Following</button>
+                            </div>
+                        </div>
+                          
+                              <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="contacts__item">
+                                <a href="" class="contacts__img">
+                                    <img src="demo/img/contacts/1.jpg" alt="">
+                                </a>
+
+                                <div class="contacts__info">
+                                    <strong>Cathy Shelton</strong>
+                                    <small>cathy.shelton31@example.com</small>
+                                </div>
+
+                                <button class="contacts__btn">Following</button>
+                            </div>
+                        </div>
+                          
+                              <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="contacts__item">
+                                <a href="" class="contacts__img">
+                                    <img src="demo/img/contacts/1.jpg" alt="">
+                                </a>
+
+                                <div class="contacts__info">
+                                    <strong>Cathy Shelton</strong>
+                                    <small>cathy.shelton31@example.com</small>
+                                </div>
+
+                                <button class="contacts__btn">Following</button>
+                            </div>
+                        </div>
+                          
+                              <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="contacts__item">
+                                <a href="" class="contacts__img">
+                                    <img src="demo/img/contacts/1.jpg" alt="">
+                                </a>
+
+                                <div class="contacts__info">
+                                    <strong>Cathy Shelton</strong>
+                                    <small>cathy.shelton31@example.com</small>
+                                </div>
+
+                                <button class="contacts__btn">Following</button>
+                            </div>
+                        </div>
+                          
+                          
+                              <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="contacts__item">
+                                <a href="" class="contacts__img">
+                                    <img src="demo/img/contacts/1.jpg" alt="">
+                                </a>
+
+                                <div class="contacts__info">
+                                    <strong>Cathy Shelton</strong>
+                                    <small>cathy.shelton31@example.com</small>
+                                </div>
+
+                                <button class="contacts__btn">Following</button>
+                            </div>
+                        </div>
+                          
+                          
+                              <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="contacts__item">
+                                <a href="" class="contacts__img">
+                                    <img src="demo/img/contacts/1.jpg" alt="">
+                                </a>
+
+                                <div class="contacts__info">
+                                    <strong>Cathy Shelton</strong>
+                                    <small>cathy.shelton31@example.com</small>
+                                </div>
+
+                                <button class="contacts__btn">Following</button>
+                            </div>
+                        </div>
+                          
+                          
+                              <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="contacts__item">
+                                <a href="" class="contacts__img">
+                                    <img src="demo/img/contacts/1.jpg" alt="">
+                                </a>
+
+                                <div class="contacts__info">
+                                    <strong>Cathy Shelton</strong>
+                                    <small>cathy.shelton31@example.com</small>
+                                </div>
+
+                                <button class="contacts__btn">Following</button>
+                            </div>
+                        </div>
+                          
+                          
+                              <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="contacts__item">
+                                <a href="" class="contacts__img">
+                                    <img src="demo/img/contacts/1.jpg" alt="">
+                                </a>
+
+                                <div class="contacts__info">
+                                    <strong>Cathy Shelton</strong>
+                                    <small>cathy.shelton31@example.com</small>
+                                </div>
+
+                                <button class="contacts__btn">Following</button>
+                            </div>
+                        </div>
+                          
+                          
+                              <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="contacts__item">
+                                <a href="" class="contacts__img">
+                                    <img src="demo/img/contacts/1.jpg" alt="">
+                                </a>
+
+                                <div class="contacts__info">
+                                    <strong>Cathy Shelton</strong>
+                                    <small>cathy.shelton31@example.com</small>
+                                </div>
+
+                                <button class="contacts__btn">Following</button>
+                            </div>
+                        </div>
+                          
+                          
+                              <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                            <div class="contacts__item">
+                                <a href="" class="contacts__img">
+                                    <img src="demo/img/contacts/1.jpg" alt="">
+                                </a>
+
+                                <div class="contacts__info">
+                                    <strong>Cathy Shelton</strong>
+                                    <small>cathy.shelton31@example.com</small>
+                                </div>
+
+                                <button class="contacts__btn">Following</button>
+                            </div>
+                        </div>
+     </div>
+              </div>
             </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
+         </div>
+     </div>
 
                 <footer class="footer hidden-xs-down">
                 </footer>
