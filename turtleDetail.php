@@ -159,7 +159,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                       <b>ไมโครชิพ: <i><?php echo $turtleData['turtle_microchip_code'];?> </i></b>
                   </li>
                   <li class="list-group-item">
-                      <b>TAG: <i>$turtleData['turtle_tag_code'];?></i></b>
+                      <b>TAG: <i><?php echo $turtleData['turtle_tag_code'];?></i></b>
                   </li>
                 </ul>
               </div>
@@ -219,7 +219,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<i class='fa fa-camera bg-blue'></i>";
 
                             echo "<div class='timeline-item'>";
-                                                          echo "<div class='timeline-footer'>";
+                            echo "<div class='timeline-footer'>";
                             echo "</div>";
                             echo "</div>";
                             echo "</li>";
