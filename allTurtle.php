@@ -138,6 +138,7 @@ $data = mysqli_query($conn, $sql);
               echo "</a>";
               echo " <div class='contacts__info'>";
               echo "<strong>".$row['turtle_name']."</strong>";
+                 echo "<strong>".$row['turtle_type']."</strong>";
                 
                  
             $timestamp = strtotime($row['turtle_timestamp']); $today = time();
@@ -147,10 +148,6 @@ $data = mysqli_query($conn, $sql);
              $monthBase = (int)$row['turtle_age_moth']; 
              $totalMonth = $monthDiff + $monthBase;
              
-              //$datetime1 = new DateTime($timestamp);
-              //$datetime2 = new DateTime($today);
-              //$interval = $datetime1->diff($datetime2);
-              //$months = $interval->format('%m');
               $years = floor((int)$totalMonth/12);
               $mons = $totalMonth-($years*12);
               echo "<small>อายุ :".$years." ปี ".$mons." เดือน</small>";
@@ -164,7 +161,7 @@ $data = mysqli_query($conn, $sql);
             
         }
         
-                u
+
                       
 
                      
