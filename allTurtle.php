@@ -140,12 +140,9 @@ $data = mysqli_query($conn, $sql);
               echo "<strong>".$row['turtle_name']."</strong>";
                 
                  
-            $timestamp = strtotime($row['turtle_timestamp']);
-
-
-              $today = time();
-              $datetime1 = new DateTime($timestamp);
-              $datetime2 = new DateTime($today);
+            $timestamp = strtotime($row['turtle_timestamp']); $today = time();
+              //$datetime1 = new DateTime($timestamp);
+              //$datetime2 = new DateTime($today);
               //$interval = $datetime1->diff($datetime2);
               //$months = $interval->format('%m');
               //$years = (int)$months/12;
