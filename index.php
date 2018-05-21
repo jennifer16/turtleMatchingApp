@@ -304,26 +304,28 @@ if( !isset($_SESSION["user_id"]) ){
  
         
  <script>
+
 function myMap() {
     var x = document.getElementById("map");
-    x.innerHTML = "<p>test</p>";
-    console.log(x);
-var mapProp= {
-   
-    center:new google.maps.LatLng(13.736717, 100.523186),
-    zoom:5
-}
-var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
-var locations = [[7.17294,100.623]];
-for (var i = 0; i < 1; i++) {
-    var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][0], locations[i][1]),    
-        map: map
-    });
+	var mapProp= {
+   
+    	center:new google.maps.LatLng(13.736717, 100.523186),
+    	zoom:5
+	};
+	
+	var map=new google.maps.Map(document.getElementById("map"),mapProp);
+
+	var locations = [[7.17294,100.623]];
+	
+	for (var i = 0; i < 1; i++) {
+    	var marker = new google.maps.Marker({
+        				position: new google.maps.LatLng(locations[i][0], locations[i][1]),    
+        				map: map
+    					});
     
-    markers.push(marker);    
-}
+	}
+};
 </script>
 
 
