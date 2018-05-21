@@ -284,7 +284,7 @@ $data = mysqli_query($conn, $sql);
             
         </script>
         <script>
-    function foundTurtle(name)){
+    function foundTurtle(name){
         window.location='foundTurtle.php?turtleName='+name;
     }
     
