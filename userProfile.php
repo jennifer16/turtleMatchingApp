@@ -180,61 +180,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                   <div class="active tab-pane" id="timeline">
                     <!-- The timeline -->
                     <ul class="timeline timeline-inverse">
-                    <?php
-                      $sql1 = "select * from found where user_id='".$_SESSION['user_id']."'";
-                      $result = mysqli_query($conn, $sql1);
-                      if( mysqli_num_rows($result) == 0)
-                      {
-                        echo "<li class='time-label'>";
-                        echo "<span class='bg-danger'>";
-                        echo "ยังไม่เคยพบเต่า";
-                        echo "</span>";
-                        echo "</li>";
-                          
-                      }
-                      else{
-                          
-                          while($row=$result->fetch_assoc())
-                          {
-                              
-                              $foundDate = $row['found_date'];
-                              $foundPic = $row['found_picure'];
-                              $turtle_id = $row['turtle_id'];
-                              $sql2 = "select * from turtle where turtle_id='".$turtle_id."'";
-                              $resultTurtle = mysqli_query($conn, $sql2);
-                              $turtleData = $resultTurtle->fetch_assoc();
-                              $turtle_name = $turtleData['turtle_name'];
-                              
-                              $timestamp = strtotime($turtleData);
-                              
-                              echo "<li class='time-label'>";
-                              echo "<span class='bg-success'>";
-                              echo DateThai($foundDate);
-                              echo "</span>";
-                              echo "</li>";
-                                  
-                            echo "<li>";
-                            echo "<i class='fa fa-camera bg-blue'></i>";
-
-                            echo "<div class='timeline-item'>";
-                            echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
-                            echo "<h3 class='timeline-header'>พบเต่า</h3>";
-                            echo "<div class='timeline-body'>";
-                            echo "<img src='".$foundPic."' alt='...' class='margin'>";
-                            echo "</div>";
-                            echo "<div class='timeline-footer'>";
-                            echo "<a href='turtleDetail.php?turtleId='".$turtle_id."'class='btn btn-primary btn-sm'>ดูรายละเอียด</a>";
-                            echo "</div>";
-                            echo "</div>";
-                            echo "</li>";
-                          }
-                          
-
-                          
-                          
-                      }
-
-                    ?>
+                   
                       <!-- END timeline item -->
                     </ul>
                   </div>
@@ -317,78 +263,6 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
-        
-<script>
-    
-<?php
-    $sqlMap = "select * from found where user_id='".$_SESSION['user_id']."'";
-    $mapResult = mysqli_query($conn, $sqlMap);
-?>
-function myMap() {
-    var x = document.getElementById("map");
-    x.innerHTML = "<p>test</p>";
-    console.log(x);
-var mapProp= {
-    <?php
-    if( mysqli_num_rows($mapResult) == 0)
-    {    
-        echo "center:new google.maps.LatLng(13.736717, 100.523186),";
-    }else{
-        
-        $sqlLat ="SELECT AVG(found_lat) FROM found where user_id ='".$_SESSION['user_id']."'";
-        $latResult = mysqli_query($conn, $sqlLat);
-        $row = $latResult->fetch_assoc();
-        $centerLat = $row[0];   
-        
-        $sqlLng ="SELECT AVG(found_lng) FROM found where user_id ='".$_SESSION['user_id']."'";
-        $lngResult = mysqli_query($conn, $sqlLng);
-        $row = $lngResult->fetch_assoc();
-        $centerLng = $row[0];    
-        
-        echo "center:new google.maps.LatLng(".$centerLat.",".$centerLng."),";
-    }
-    ?>
-    zoom:5,
-}
-var map=new google.maps.Map(document.getElementById("map"),mapProp);
-
-<?php 
-    
-    $numLoc = mysqli_num_rows($mapResult);
-    if($numLoc > 0)
-    {
-        
-        echo "var locations = [";
-        $numRow = 1;
-        while($row=$mapResult->fetch_assoc())
-        {
-            if($numRow < $numLoc)
-                echo "[".$row['found_lat'].",".$row['found_lng']."],";
-            else
-               echo "[".$row['found_lat'].",".$row['found_lng']."]";
-            
-        }
-        
-        echo "]";
-        
-        
-        echo "for (var i = 0; i < ".$numLoc."; i++) {";  
-        echo "var marker = new google.maps.Marker({";
-        echo "    position: new google.maps.LatLng(locations[i][1], locations[i][2]),";
-        echo "    map: map";
-        echo "});";
-
-        echo "markers.push(marker);";                    
-                             
-                             
-    }
-
-?>
-    
-}
-</script>
-
-            
  <script>
 <?php
     $sqlMap = "select * from found where user_id='".$_SESSION['user_id']."'";
