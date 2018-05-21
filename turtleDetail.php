@@ -224,6 +224,16 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<h3 class='timeline-header'>รายละเอียด</h3>";
                             echo "<div class='timeline-body'>";
                             echo "<img src='./Turtle/".$foundPic."' alt='...' class='margin' style='max-width:100%; height:auto;'>";
+                            echo "<p>";
+                            $sqlUsername = "select * from users where user_id='".$row['user_id']."'";
+                            $usernameResult = mysqli_query($conn, $sqlUsername);
+                            $usernameData = $usernameResult->fetch_assoc();
+                            echo "<label>ถูกพบโดย: ".$usernameData['user_firstname']." ".$usernameData['user_lastname']."</label>";
+                            echo "<label>น้ำหนัก: ".$row['found_weight']."</label>";
+                            echo "<label>ความกว้าง: ".$row['found_width']."</label>";
+                            echo "<label>ความยาว: ".$row['found_length']."</label>";
+                            echo "<label>พิกัด: ".$row['found_lat']." ".$row['found_lng']."</label>";
+                            echo "</p>";
                             echo "<div class='timeline-footer'>";
                             echo "</div>";
                             echo "</div>";
