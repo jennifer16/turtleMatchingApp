@@ -151,7 +151,7 @@ $data = mysqli_query($conn, $sql);
               //$datetime2 = new DateTime($today);
               //$interval = $datetime1->diff($datetime2);
               //$months = $interval->format('%m');
-              $years = (int)$totalMonth/12;
+              $years = floor((int)$totalMonth/12);
               $mons = $totalMonth-($years*12);
               echo "<small>อายุ :".$years." ปี ".$mons." เดือน</small>";
               echo "</div>";
@@ -164,8 +164,7 @@ $data = mysqli_query($conn, $sql);
             
         }
         
-                
-           
+                u
                       
 
                      
