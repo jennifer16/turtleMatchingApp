@@ -159,6 +159,11 @@ $data = mysqli_query($conn, $sql);
 				            continue;
                     $words = explode(",", $line);
                      
+                    $sqlTurtle = "select turtle_id from turtle where turtle_name='".substr($words[0],1)."'";
+                    $resultTurtle = mysqli_query($conn, $sqlTurtle);
+                    $rowTurtle = $resultTurtle->fetch_assoc();
+                    $turtleId = $rowTurtle['turtle_id'];
+                     
                     echo "<tr>\n";
                     echo "<td align='center'>".substr($words[0],1)."</td>\n";
                     echo "<td align='center'>".$words[1]."</td>\n";
@@ -167,7 +172,7 @@ $data = mysqli_query($conn, $sql);
                     else
                         echo "<td align='center'>ด้านขวา</td>\n";
                   echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n";
-                    echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(\'' ".$substr($words[0],1)." '\');'>รายงานการพบเต่าตัวนี้</button></td>\n";
+                    echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.");'>รายงานการพบเต่าตัวนี้</button></td>\n";
                     echo "</tr>\n";
 }
          
@@ -284,9 +289,9 @@ $data = mysqli_query($conn, $sql);
             
         </script>
         <script>
-    function foundTurtle(name){
+    function foundTurtle(id){
 
-        window.location='foundTurtle.php?turtleName='+name;
+        window.location='foundTurtle.php?turtleId='+id;
     }
     
     function addTurtle(id){
