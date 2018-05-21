@@ -140,11 +140,11 @@ $data = mysqli_query($conn, $sql);
               echo "<strong>".$row['turtle_name']."</strong>";
               echo "<small>รหัสไมโครชิพ:".$row['turtle_microchip_code']."</small>";
                  
-              $today = time();
-              $datetime1 = new DateTime($row['turtle_date']);
-              $datetime2 = new DateTime($today);
-              $interval = $datetime1->diff($datetime2);
-              $months = $interval->format('%m');
+              //$today = time();
+              //$datetime1 = new DateTime($row['turtle_date']);
+              //$datetime2 = new DateTime($today);
+              //$interval = $datetime1->diff($datetime2);
+              //$months = $interval->format('%m');
               //$years = (int)$months/12;
               //$mons = $months-($years*12);
              // echo "<small>อายุ :".$years." ปี ".$mons." เดือน</small>";
