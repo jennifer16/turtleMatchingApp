@@ -222,7 +222,7 @@ if( !isset($_SESSION["user_id"]) ){
                                 $userLastname = $rowUser['user_lastname'];
                                 
                                 echo "<figure style='margin-bottom: 5px'>";
-                                echo "<p><img src=".$row['found_picure'];
+                                echo "<p><img src=".$row['found_picure']."'";
                                 echo "alt='' style='width: 100%; height: auto;'>";
                                 echo "<figcaption>พบโดย:".$userName." ".$userLastname."</figcaption>";
                                 echo "</figure>";
