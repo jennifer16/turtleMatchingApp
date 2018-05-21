@@ -228,17 +228,13 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             $sqlUsername = "select * from users where user_id='".$row['user_id']."'";
                             $usernameResult = mysqli_query($conn, $sqlUsername);
                             $usernameData = $usernameResult->fetch_assoc();
-                            echo "<label>ถูกพบโดย: ".$usernameData['user_firstname']." ".$usernameData['user_lastname']."</label><br>";
-                            echo "<label>น้ำหนัก: ".$row['found_weight']."</label><br>";
-                            echo "<label>ความกว้าง: ".$row['found_width']."</label><br>";
-                            echo "<label>ความยาว: ".$row['found_length']."</label><br>";
-                            echo "<label>พิกัด: ".$row['found_lat']." ".$row['found_lng']."</label><br>";
-                    echo "<ul class='list-group list-group-unbordered mb-3'>";
-                  echo "<li class='list-group-item'>";
-                      echo "<b>ไมโครชิพ: ";
-                  echo "</li>";
-       
-               echo  "</ul>";
+                            echo "<ul>";
+                            echo "<li><label>ถูกพบโดย: ".$usernameData['user_firstname']." ".$usernameData['user_lastname']."</label></li>";
+                            echo "<li><label>น้ำหนัก: ".$row['found_weight']."</label></li>";
+                            echo "<li><label>ความกว้าง: ".$row['found_width']."</label></li>";
+                            echo "<li><label>ความยาว: ".$row['found_length']."</label></li>";
+                            echo "<li><label>พิกัด: ".$row['found_lat']." ".$row['found_lng']."</label></li>";
+                            echo "</ul>"
                             echo "<div class='timeline-footer'>";
                             echo "</div>";
                             echo "</div>";
