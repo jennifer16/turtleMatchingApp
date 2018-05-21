@@ -224,7 +224,7 @@ if( !isset($_SESSION["user_id"]) ){
                                 echo "<figure style='margin-bottom: 5px'>";
                                 echo "<p><img src='./Turtle/".$row['found_picure']."'";
                                 echo " alt='' style='width: 100%; height: auto;'>";
-                                echo "<figcaption>พบโดย:".$userName." ".$userLastname."</figcaption>";
+                                echo "<figcaption>พบโดย: ".$userName." ".$userLastname."</figcaption>";
                                 echo "</figure>";
                                 
                                 $num=$num+1;
@@ -316,7 +316,13 @@ var mapProp= {
 var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
 var locations = [[7.17294,100.623]];
-for (var i = 0; i < 1; i++) {var marker = new google.maps.Marker({    position: new google.maps.LatLng(locations[i][0], locations[i][1]),    map: map});markers.push(marker);    
+for (var i = 0; i < 1; i++) {
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][0], locations[i][1]),    
+        map: map
+    });
+    
+    markers.push(marker);    
 }
 </script>
 
