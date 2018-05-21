@@ -140,7 +140,7 @@ $data = mysqli_query($conn, $sql);
               echo "<strong>".$row['turtle_name']."</strong>";
                 
                  
-            $time = strtotime($row['turtle_date']);
+            $time = strtotime($row['turtle_timestamp']);
             $curtime = time();
 
               //$today = time();
