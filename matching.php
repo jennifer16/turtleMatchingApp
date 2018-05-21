@@ -235,7 +235,7 @@ if( !isset($_SESSION["user_id"]) ){
                     <div class="row" align="center">
                     <div class="col-md-12">
                
-                  <button id="search" type="submit" class="btn btn-primary" disabled>ค้นหาเต่า</button>
+                  <button id="search" type="submit" class="btn btn-primary" >ค้นหาเต่า</button>
                
      </div>
                 </div>
@@ -400,7 +400,7 @@ if( !isset($_SESSION["user_id"]) ){
         var label = document.getElementById("modalLabel");
         label.innerHTML = "กรุณารอสักครู่ กำลังตัดแบ่งส่วนภาพ...";
         $modal.modal('hide');
-
+        $('#search').innerHTML = "รอการอัพโหลดรูปภาพเต่า";
         if (cropper) {
           canvas = cropper.getCroppedCanvas({
           });
@@ -448,7 +448,7 @@ if( !isset($_SESSION["user_id"]) ){
               success: function () {
                // $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
-                  $('#search').removeAttr('disabled');
+                  $('#search').innerHTML = "ค้นหาเต่า";
                   
               },
 
