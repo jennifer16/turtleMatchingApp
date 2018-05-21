@@ -211,7 +211,7 @@ if( !isset($_SESSION["user_id"]) ){
                             }
                             else{
                             $num=1;
-                            while(num<=numFound && num<=3)
+                            while($num<=$numFound && $num<=3)
                             {
                                 $row = $lastResult->fetch_assoc();
                                 
@@ -222,12 +222,12 @@ if( !isset($_SESSION["user_id"]) ){
                                 $userLastname = $rowUser['user_lastname'];
                                 
                                 echo "<figure style='margin-bottom: 5px'>";
-                                echo "<p><img src=".$row['found_picure']."'";
-                                echo "alt='' style='width: 100%; height: auto;'>";
+                                echo "<p><img src='".$row['found_picure']."'";
+                                echo " alt='' style='width: 100%; height: auto;'>";
                                 echo "<figcaption>พบโดย:".$userName." ".$userLastname."</figcaption>";
                                 echo "</figure>";
                                 
-                                $num++;
+                                $num=$num+1;
                             }
                                 
                             }
