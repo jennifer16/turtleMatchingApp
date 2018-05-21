@@ -134,14 +134,17 @@ $data = mysqli_query($conn, $sql);
               echo "<div class='col-xl-2 col-lg-3 col-sm-4 col-6'>";  
               echo "<div class='contacts__item'>";
               echo "<a href='turtleDetail.php?id=".$row['turtle_id']."' class='contacts__img'>";
-              echo "<img src='./Turtle/".$row['turtle_profile']."' alt=''>";
+              echo "<img src='./Turtle/".$row['turtle_profile']."' alt='' style='max-width:100%; height:auto;'>";
               echo "</a>";
               echo " <div class='contacts__info'>";
               echo "<strong>".$row['turtle_name']."</strong>";
-              echo "<small>รหัสไมโครชิพ:".$row['turtle_microchip_code']."</small>";
+                
                  
+            $time = strtotime($timest);
+            $curtime = time();
+
               //$today = time();
-              //$datetime1 = new DateTime($row['turtle_date']);
+             /// $datetime1 = new DateTime($row['turtle_date']);
               //$datetime2 = new DateTime($today);
               //$interval = $datetime1->diff($datetime2);
               //$months = $interval->format('%m');
