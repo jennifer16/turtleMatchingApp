@@ -1,7 +1,16 @@
 <?php
+require 'connect.php';
+session_start();
+if( !isset($_SESSION["user_id"]) ){
+    header("location:login.php");
+}
 
-    session_start();
-    require 'connect.php';
+$sql =  "SELECT * FROM turtle";
+$data = mysqli_query($conn, $sql);
+
+?>
+
+<?php
     
     $id = $_GET['id'];
     $sql = "select * from matching where id='".$id."'";
@@ -13,17 +22,7 @@
 ?>
 
 <!DOCTYPE html>
-<?php
-require 'connect.php';
-session_start();
-if( !isset($_SESSION["user_id"]) ){
-    header("location:login.php");
-}
 
-$sql =  "SELECT * FROM turtle";
-$data = mysqli_query($conn, $sql);
-
-?>
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -289,7 +288,7 @@ $data = mysqli_query($conn, $sql);
         window.location='foundTurtle.php?turtleName='+name;
     }
     
-    function foundTurtle(id){
+    function addTurtle(id){
         window.location='addTurtle.php?matchId='+id;
     }
     
