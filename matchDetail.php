@@ -159,16 +159,16 @@ $data = mysqli_query($conn, $sql);
 				            continue;
                     $words = explode(",", $line);
                      
-                    echo "<tr>";
-                    echo "<td align='center'>".substr($words[0],1)."</td>";
-                    echo "<td align='center'>".$words[1]."</td>";
+                    echo "<tr>\n";
+                    echo "<td align='center'>".substr($words[0],1)."</td>\n";
+                    echo "<td align='center'>".$words[1]."</td>\n";
                     if ($words[2] == "LEFT")
-                        echo "<td align='center'>ด้านซ้าย</td>";
+                        echo "<td align='center'>ด้านซ้าย</td>\n";
                     else
-                        echo "<td align='center'>ด้านขวา</td>";
-                  echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>";
-                    echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle('');'>รายงานการพบเต่าตัวนี้</button></td>";
-                    echo "</tr>";
+                        echo "<td align='center'>ด้านขวา</td>\n";
+                  echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n";
+                    echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle('');'>รายงานการพบเต่าตัวนี้</button></td>\n";
+                    echo "</tr>\n";
 }
          
 
