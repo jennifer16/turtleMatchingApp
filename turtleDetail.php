@@ -232,7 +232,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<label>ความกว้าง: ".$row['found_width']."</label>";
                             echo "<label>ความยาว: ".$row['found_length']."</label>";
                             echo "<label>พิกัด: ".$row['found_lat']." ".$row['found_lng']."</label>";
-                            echo "</p>"
+                            echo "</p>";
                             echo "</div>";
                             echo "<div class='timeline-footer'>";
                             echo "</div>";
