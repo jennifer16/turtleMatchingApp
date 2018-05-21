@@ -142,14 +142,18 @@ $data = mysqli_query($conn, $sql);
                  
             $timestamp = strtotime($row['turtle_timestamp']); $today = time();
                  
-             echo $today-$timestamp;
+             $allSecs = (int)$today-$timestamp;
+             $monthDiff = round($allSecs/(30*60*60));
+             $monthBase = (int)$row['turtle_age_moth']; 
+             $totalMonth = $monthDiff + $monthBase;
+             
               //$datetime1 = new DateTime($timestamp);
               //$datetime2 = new DateTime($today);
               //$interval = $datetime1->diff($datetime2);
               //$months = $interval->format('%m');
-              //$years = (int)$months/12;
-              //$mons = $months-($years*12);
-             // echo "<small>อายุ :".$years." ปี ".$mons." เดือน</small>";
+              $years = (int)$months/12;
+              $mons = $months-($years*12);
+              echo "<small>อายุ :".$years." ปี ".$mons." เดือน</small>";
               echo "</div>";
               echo "</div>";
             echo "</div>";
