@@ -180,7 +180,32 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                   <div class="active tab-pane" id="timeline">
                     <!-- The timeline -->
                     <ul class="timeline timeline-inverse">
-                   
+                    <?php
+                      $sql1 = "select * from found where user_id='".$_SESSION['user_id']."'";
+                      $result = mysqli_query($conn, $sql1);
+                      if( mysqli_num_rows($result) == 0)
+                      {
+                        echo "<li class='time-label'>";
+                        echo "<span class='bg-danger'>";
+                        echo "ยังไม่เคยพบเต่า";
+                        echo "</span>";
+                        echo "</li>";
+                          
+                      }
+                      else{
+                          
+                          while($row=$result->fetch_assoc())
+                          {
+                              
+    
+                          }
+                          
+
+                          
+                          
+                      }
+
+                    ?>
                       <!-- END timeline item -->
                     </ul>
                   </div>
