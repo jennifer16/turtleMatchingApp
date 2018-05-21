@@ -166,7 +166,7 @@ $data = mysqli_query($conn, $sql);
                         echo "<td align='center'>ด้านซ้าย</td>";
                     else
                         echo "<td align='center'>ด้านขวา</td>";
-                  echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </td>";
+                  echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>";
                     echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle('".substr($words[0],1)."');'>รายงานการพบเต่าตัวนี้</button></td>";
                     echo "</tr>";
 }
