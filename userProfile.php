@@ -205,11 +205,14 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                               $turtleData = $resultTurtle->fetch_assoc();
                               $turtle_name = $turtleData['turtle_name'];
                               
+                              $dt = new DateTime($foundDate);
+                              echo $dt->format('M j Y g:i A');
+                              
                               //$timestamp = strtotime($turtleData['turtle_timestamp']);
                               
                               echo "<li class='time-label'>";
                               echo "<span class='bg-success'>";
-                              //echo DateThai($foundDate);
+                              echo DateThai($foundDate);
                               echo "</span>";
                               echo "</li>";
                                   
@@ -220,7 +223,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             //echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
                             echo "<h3 class='timeline-header'>พบเต่า</h3>";
                             echo "<div class='timeline-body'>";
-                            echo "<img src='./Turtle/".$foundPic."' alt='...' class='margin'>";
+                            echo "<img src='./Turtle/".$foundPic."' alt='...' class='margin' style='max-width:100%; height:auto;'>";
                             echo "</div>";
                             echo "<div class='timeline-footer'>";
                             echo "<a href='turtleDetail.php?turtleId='".$turtle_id."'class='btn btn-primary btn-sm'>ดูรายละเอียด</a>";
