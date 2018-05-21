@@ -197,7 +197,36 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                           while($row=$result->fetch_assoc())
                           {
                               
-    
+                              $foundDate = $row['found_date'];
+                              $foundPic = $row['found_picure'];
+                              $turtle_id = $row['turtle_id'];
+                              $sql2 = "select * from turtle where turtle_id='".$turtle_id."'";
+                              $resultTurtle = mysqli_query($conn, $sql2);
+                              $turtleData = $resultTurtle->fetch_assoc();
+                              $turtle_name = $turtleData['turtle_name'];
+                              
+                              $timestamp = strtotime($turtleData);
+                              
+                              echo "<li class='time-label'>";
+                              echo "<span class='bg-success'>";
+                              echo DateThai($foundDate);
+                              echo "</span>";
+                              echo "</li>";
+                                  
+                            echo "<li>";
+                            echo "<i class='fa fa-camera bg-blue'></i>";
+
+                            echo "<div class='timeline-item'>";
+                            echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
+                            echo "<h3 class='timeline-header'>พบเต่า</h3>";
+                            echo "<div class='timeline-body'>";
+                            echo "<img src='".$foundPic."' alt='...' class='margin'>";
+                            echo "</div>";
+                            echo "<div class='timeline-footer'>";
+                            echo "<a href='turtleDetail.php?turtleId='".$turtle_id."'class='btn btn-primary btn-sm'>ดูรายละเอียด</a>";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</li>";
                           }
                           
 
