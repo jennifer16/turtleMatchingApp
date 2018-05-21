@@ -219,8 +219,8 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<i class='fa fa-camera bg-blue'></i>";
 
                             echo "<div class='timeline-item'>";
-                            echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), $dt)."</span>";
-                            echo "<h3 class='timeline-header'>พบเต่า</h3>";
+                           // echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), $dt)."</span>";
+                            echo "<h3 class='timeline-header'>พบเต่า: ".$turtle_name."</h3>";
                             echo "<div class='timeline-body'>";
                             echo "<img src='./Turtle/".$foundPic."' alt='...' class='margin' style='max-width:100%; height:auto;'>";
                             echo "</div>";
