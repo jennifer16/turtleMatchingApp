@@ -205,7 +205,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                               $turtleData = $resultTurtle->fetch_assoc();
                               $turtle_name = $turtleData['turtle_name'];
                               
-                              $timestamp = strtotime($turtleData);
+                              $timestamp = strtotime($turtleData['turtle_timestamp']);
                               
                               echo "<li class='time-label'>";
                               echo "<span class='bg-success'>";
