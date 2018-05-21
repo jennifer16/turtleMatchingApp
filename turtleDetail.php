@@ -173,7 +173,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">ประวัติการถูกพบ</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">ตำแหน่งที่พบเต่า</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">ตำแหน่งที่ถูกพบ</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -232,8 +232,13 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<label>น้ำหนัก: ".$row['found_weight']."</label><br>";
                             echo "<label>ความกว้าง: ".$row['found_width']."</label><br>";
                             echo "<label>ความยาว: ".$row['found_length']."</label><br>";
-                            echo "<label>พิกัด: ".$row['found_lat']." ".$row['found_lng']."</label>";
-                
+                            echo "<label>พิกัด: ".$row['found_lat']." ".$row['found_lng']."</label><br>";
+                    echo "<ul class='list-group list-group-unbordered mb-3'>";
+                  echo "<li class='list-group-item'>";
+                      echo "<b>ไมโครชิพ: ";
+                  echo "</li>";
+       
+               echo  "</ul>";
                             echo "<div class='timeline-footer'>";
                             echo "</div>";
                             echo "</div>";
