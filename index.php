@@ -300,11 +300,10 @@ if( !isset($_SESSION["user_id"]) ){
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
-    <script>
-<?php
-    $sqlMap = "select * from found";
-    $mapResult = mysqli_query($conn, $sqlMap);
-?>
+
+ 
+        
+ <script>
 function myMap() {
     var x = document.getElementById("map");
     x.innerHTML = "<p>test</p>";
@@ -316,44 +315,13 @@ var mapProp= {
 }
 var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
-<?php 
-    
-    $numLoc = mysqli_num_rows($mapResult);
-    if($numLoc > 0)
-    {
-        
-        echo "var locations = [";
-        $numRow = 1;
-        while($row=$mapResult->fetch_assoc())
-        {
-            if($numRow < $numLoc)
-                echo "[".$row['found_lat'].",".$row['found_lng']."],";
-            else
-               echo "[".$row['found_lat'].",".$row['found_lng']."]";
-            
-        }
-        
-        echo "];\n";
-        
-        
-        echo "for (var i = 0; i < ".$numLoc."; i++) {";  
-        echo "var marker = new google.maps.Marker({";
-        echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
-        echo "    map: map";
-        echo "});";
-
-        echo "markers.push(marker);";                    
-                             
-                             
-    }
-
-?>
-    
+var locations = [[7.17294,100.623]];
+for (var i = 0; i < 1; i++) {var marker = new google.maps.Marker({    position: new google.maps.LatLng(locations[i][0], locations[i][1]),    map: map});markers.push(marker);    
 }
 </script>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo6U_Cb7Ywu2_TLPqhv5YJDQH4sbeGcFg&callback=myMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo6U_Cb7Ywu2_TLPqhv5YJDQH4sbeGcFg&callback=myMap"></script>        
         
                 <script>
             String.prototype.trim = function() {
