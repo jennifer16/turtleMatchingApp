@@ -142,7 +142,7 @@ $data = mysqli_query($conn, $sql);
                  
             $timestamp = strtotime($row['turtle_timestamp']); $today = time();
                  
-                $timestamp->diff($today);
+             echo $today-$timestamp;
               //$datetime1 = new DateTime($timestamp);
               //$datetime2 = new DateTime($today);
               //$interval = $datetime1->diff($datetime2);
