@@ -205,11 +205,11 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                               $turtleData = $resultTurtle->fetch_assoc();
                               $turtle_name = $turtleData['turtle_name'];
                               
-                              $timestamp = strtotime($turtleData['turtle_timestamp']);
+                              //$timestamp = strtotime($turtleData['turtle_timestamp']);
                               
                               echo "<li class='time-label'>";
                               echo "<span class='bg-success'>";
-                              echo DateThai($foundDate);
+                              //echo DateThai($foundDate);
                               echo "</span>";
                               echo "</li>";
                                   
@@ -217,7 +217,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<i class='fa fa-camera bg-blue'></i>";
 
                             echo "<div class='timeline-item'>";
-                            echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
+                            //echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
                             echo "<h3 class='timeline-header'>พบเต่า</h3>";
                             echo "<div class='timeline-body'>";
                             echo "<img src='".$foundPic."' alt='...' class='margin'>";
