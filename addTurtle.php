@@ -919,6 +919,9 @@ function placeMarker(position, map) {
     var x = document.getElementById("latitude");
 var y = document.getElementById("longtitude");
     
+        x.value = marker.getPosition().lat();
+    y.value = marker.getPosition().lng();
+    
 google.maps.event.addListener( marker, 'click', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
