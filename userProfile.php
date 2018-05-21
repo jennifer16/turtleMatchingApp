@@ -225,7 +225,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<img src='./Turtle/".$foundPic."' alt='...' class='margin' style='max-width:100%; height:auto;'>";
                             echo "</div>";
                             echo "<div class='timeline-footer'>";
-                            echo "<a href='turtleDetail.php?turtleId='".$turtle_id."'class='btn btn-primary btn-sm'>ดูรายละเอียด</a>";
+                            echo "<a href='turtleDetail.php?id='".$turtle_id."'class='btn btn-primary btn-sm'>ดูรายละเอียด</a>";
                             echo "</div>";
                             echo "</div>";
                             echo "</li>";
