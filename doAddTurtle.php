@@ -23,8 +23,8 @@ print_r($_POST);
   $userid = $_SESSION['user_id'];
   $userRole = $_SESSION['user_role'];
 
-$sql1 = "INSERT INTO turtle (turtle_name, turtle_left, turtle_right, turtle_profile, turtle_type, turtle_age_moth, turtle_age_year, turtle_microchip_code, turtle_microchip_pos, turtle_tag_code, turtle_tag_pos)
-VALUES ('".$turtleName."', '".$leftFile."', '".$rightFile."' , '".$profileFile."', '".$turtleType."', '".$ageMonth."', '".$ageYear."', '".$microchipCode."','".$microchipPos."','".$tagCode."','".$tagPos."')";
+$sql1 = "INSERT INTO turtle (turtle_name, turtle_left, turtle_right, turtle_profile, turtle_type, turtle_age_moth, turtle_microchip_code, turtle_microchip_pos, turtle_tag_code, turtle_tag_pos)
+VALUES ('".$turtleName."', '".$leftFile."', '".$rightFile."' , '".$profileFile."', '".$turtleType."', '".$ageMonth."', '".$microchipCode."','".$microchipPos."','".$tagCode."','".$tagPos."')";
 
 
 if (mysqli_query($conn, $sql1)) {
