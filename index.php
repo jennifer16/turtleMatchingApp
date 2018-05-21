@@ -222,7 +222,7 @@ if( !isset($_SESSION["user_id"]) ){
                                 $userLastname = $rowUser['user_lastname'];
                                 
                                 echo "<figure style='margin-bottom: 5px'>";
-                                echo "<p><img src='".$row['found_picure']."'";
+                                echo "<p><img src='./Turtle/".$row['found_picure']."'";
                                 echo " alt='' style='width: 100%; height: auto;'>";
                                 echo "<figcaption>พบโดย:".$userName." ".$userLastname."</figcaption>";
                                 echo "</figure>";
@@ -333,12 +333,12 @@ var map=new google.maps.Map(document.getElementById("map"),mapProp);
             
         }
         
-        echo "]";
+        echo "];\n";
         
         
         echo "for (var i = 0; i < ".$numLoc."; i++) {";  
         echo "var marker = new google.maps.Marker({";
-        echo "    position: new google.maps.LatLng(locations[i][1], locations[i][2]),";
+        echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
         echo "    map: map";
         echo "});";
 
