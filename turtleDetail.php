@@ -156,10 +156,10 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>ไมโครชิพ: </b> <a class="float-left"><?php echo $turtleData['turtle_microchip_code'];?></a>
+                      <b>ไมโครชิพ: <i><?php echo $turtleData['turtle_microchip_code'];?> </i></b>
                   </li>
                   <li class="list-group-item">
-                    <b>TAG:</b> <a class="float-left"><?php echo $turtleData['turtle_tag_code'];?></a>
+                      <b>TAG: <i>$turtleData['turtle_tag_code'];?></i></b>
                   </li>
                 </ul>
               </div>
@@ -198,7 +198,31 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                           
                           while($row=$result->fetch_assoc())
                           {
+                             $foundDate = $row['found_date'];
+                              $foundPic = $row['found_picure'];
+                              $turtle_id = $row['turtle_id'];
+                              $sql2 = "select * from turtle where turtle_id='".$turtle_id."'";
+                              $resultTurtle = mysqli_query($conn, $sql2);
+                              $turtleData = $resultTurtle->fetch_assoc();
+                              $turtle_name = $turtleData['turtle_name'];
                               
+                              $dt = new DateTime($foundDate);
+                             // $timestamp = strtotime($turtleData);
+                              
+                              echo "<li class='time-label'>";
+                              echo "<span class='bg-success'>";
+                              echo DateThai($foundDate);
+                              echo "</span>";
+                              echo "</li>";
+                                  
+                            echo "<li>";
+                            echo "<i class='fa fa-camera bg-blue'></i>";
+
+                            echo "<div class='timeline-item'>";
+                                                          echo "<div class='timeline-footer'>";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</li>";
 
                           }
                           
