@@ -388,6 +388,59 @@ var map=new google.maps.Map(document.getElementById("map"),mapProp);
 }
 </script>
 
+            
+ <script>
+<?php
+    $sqlMap = "select * from found where user_id='".$_SESSION['user_id']."'";
+    $mapResult = mysqli_query($conn, $sqlMap);
+?>
+function myMap() {
+    var x = document.getElementById("map");
+   
+    var mapProp= {
+   
+    center:new google.maps.LatLng(13.736717, 100.523186),
+    zoom:5
+    };
+
+   var map=new google.maps.Map(document.getElementById("map"),mapProp);
+
+<?php 
+    
+    $numLoc = mysqli_num_rows($mapResult);
+   
+    if($numLoc > 0)
+    {
+        
+        echo "var locations = [";
+        $numRow = 1;
+        while($row=$mapResult->fetch_assoc())
+        {
+            if($numRow < $numLoc)
+                echo "[".$row['found_lat'].",".$row['found_lng']."],";
+            else
+               echo "[".$row['found_lat'].",".$row['found_lng']."]";
+            
+        }
+        
+        echo "];\n";
+        
+        
+        echo "for (var i = 0; i < ".$numLoc."; i++) {";  
+        echo "var marker = new google.maps.Marker({";
+        echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
+        echo "    map: map";
+        echo "});";
+                   
+        
+	echo "}";                  
+                             
+    }
+
+?>
+    
+};
+</script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo6U_Cb7Ywu2_TLPqhv5YJDQH4sbeGcFg&callback=myMap"></script>
         
