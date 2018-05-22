@@ -134,7 +134,7 @@ if( !isset($_SESSION["user_id"]) ){
                         <div class="quick-stats__item bg-blue" >
                             <div class="quick-stats__info" >
                                 <?php
-                                    $sqlAllturtle = "select * from turtle ";
+                                    $sqlAllturtle = "select * from turtle";
                                     $resultAllturtle = mysqli_query($conn,$sqlAllturtle);
                                     echo "<h2>".mysqli_num_rows($resultAllturtle)."</h2>";
                                 ?>
@@ -174,9 +174,8 @@ if( !isset($_SESSION["user_id"]) ){
                     <div class="col-sm-6 col-md-3">
                         <div class="quick-stats__item bg-red">
                             <div class="quick-stats__info">
-                                 <?php      
-                                    $sqlTurtleNature = "select count(*), user_id from found  where found_status='0' group by turtle_id having count(*) > 2";
-                                    echo $sqlTurtleNature;
+                                 <?php
+                                    $sqlTurtleNature = "select DISTINCT user_id from found where found_status='0'";
                                     $resultTurtleNature = mysqli_query($conn, $sqlTurtleNature);
                                     echo "<h2>".mysqli_num_rows($resultTurtleNature)."</h2>";
                                 ?>
