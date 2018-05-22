@@ -137,7 +137,7 @@ if( !isset($_SESSION["user_id"]) ){
              <figcaption>รุปภาพที่ใช้ค้นหา</figcaption>
 </figure>            
   
-              <table id="listTurtle" style="width:100%">
+              <table id="listTurtle" style="width:100%; table-layout: fixed;">
                 <tbody>
 <?php
                 $count = 0;
