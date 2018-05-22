@@ -6,9 +6,18 @@ if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
 
-$turtleName = '';
-if( isset($_GET['turtleName']))
-    $turtleName = $_GET['turtleName'];
+$turtleId = '';
+if( isset($_GET['turtleId']))
+    $turtleId = $_GET['turtleId'];
+
+$matchId = '';
+if( isset($_GET['matchId']))
+    $matchId = $_GET['matchId'];
+
+$matchSQL="select * from matching where id='".$matchId."'";
+$matchResult = mysqli_query($conn, $matchSQL);
+$matchData = $matchResult->fetch_assoc();
+$matchPic = './Input/'.$matchData['match_input'];
 
 ?>
 <html lang="en">
@@ -159,7 +168,7 @@ if( isset($_GET['turtleName']))
                                   <!-- turtle profile image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
-      <img class="rounded" id="avatarProfile" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar-Profile">
+      <img class="rounded" id="avatarProfile" src='<?php echo $matchPic; ?>' style="width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
      

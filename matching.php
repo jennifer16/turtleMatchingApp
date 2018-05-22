@@ -148,7 +148,7 @@ if( !isset($_SESSION["user_id"]) ){
                  <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">รูปภาพเกล็ดบนใบหน้า<br>
       <img class="rounded" id="avatar" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar">
-      <input type="file" class="sr-only" id="input" name="image" accept="image/*">
+      <input type="file" class="sr-only" id="input" name="image" accept="image/*" capture='camera'>
     </label>
 
     <div class="alert" role="alert"></div>
