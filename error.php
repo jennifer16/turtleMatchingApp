@@ -6,9 +6,7 @@ if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
 ?>
-<script>
-    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('www.google.com'),'facebook-share-dialog','width=626,height=436');
-</script>
+
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -121,9 +119,6 @@ if( !isset($_SESSION["user_id"]) ){
               </div>
    
                 <footer class="footer hidden-xs-down">
-                        <div class="col-md-6">
-                        <div class="fb-share-button" data-href='https://studioxpert.com/turtleMatchingApp/' data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">แชร์ไปที่ Facebook</a></div>
-                        </div>
                 </footer>
             </section>
         </main>
