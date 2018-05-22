@@ -6,32 +6,6 @@ if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
 
-require_once __DIR__ . '/Facebook/autoload.php'; // change path as needed
-
-$fb = new \Facebook\Facebook([
-  'app_id' => '161713021336907',
-  'app_secret' => 'e4dbd79e0e6da4d75019803b487214d2',
-  'default_graph_version' => 'v2.10',
-  //'default_access_token' => '{access-token}', // optional
-]);
-
-//Post property to Facebook
-$linkData = [
- 'link' => 'https://studioxpert.com/turtleMatchingApp/',
- 'message' => 'มาร่วมกันอนุรักษ์เต่าทะเลด้วยแอพคู่มือเต่าทะเลกันเถอะ'
-];
-$pageAccessToken = $_SESSION['fb_access_token'];
-
-try {
- $response = $fb->post('/me/feed', $linkData, $pageAccessToken);
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
- echo 'Graph returned an error: '.$e->getMessage();
- exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
- echo 'Facebook SDK returned an error: '.$e->getMessage();
- exit;
-}
-$graphNode = $response->getGraphNode();
 ?>
 <html lang="en">
     <head>
