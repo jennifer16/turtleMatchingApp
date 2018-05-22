@@ -143,7 +143,6 @@ $result = mysqli_query($conn, $sql);
               <table id="listTurtle" class="display" style="width:100%">
                 <thead>
                 <tr>
-                  <th style='text-align: center;'>ครั้งที่</th>
                   <th style='text-align: center;'>วัน-เวลา</th>
                   <th style='text-align: center;'>สถานะ</th>
                   <th>&nbsp;</th>
@@ -155,7 +154,6 @@ $result = mysqli_query($conn, $sql);
                  while ($row = $result->fetch_assoc()) {
                      
                     echo "<tr>";
-                    echo "<td align='center'>".$count."</td>";
                     $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['match_time']);
                     echo "<td align='center'>".$date->format('d/m/y h:i a')."</td>";
                     
@@ -181,7 +179,6 @@ $result = mysqli_query($conn, $sql);
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th style='text-align: center;'>ครั้งที่</th>
                   <th style='text-align: center;'>วัน-เวลา</th>
                   <th style='text-align: center;'>สถานะ</th>
                   <th>&nbsp;</th>

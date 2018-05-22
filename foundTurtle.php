@@ -163,7 +163,7 @@ $matchPic = './Input/'.$matchData['match_input'];
         
               <!-- /.card-header -->
               <!-- form start --> 
-          <div class="row">
+          <div class="row" align="center">
               <div class="col-md-6">
                                   <!-- turtle profile image -->
                   <div class="container">
@@ -202,9 +202,10 @@ $matchPic = './Input/'.$matchData['match_input'];
               <div class="col-md-6"> 
               
          <form role="form" action = "doFoundTurtle.php" method = "POST" enctype = "multipart/form-data">
-                 <input type="text" name="filenameLeft" id="filenameLeft" hidden>
-                   <input type="text" name="filenameRight" id="filenameRight" hidden>
+                 <input type="text" name="turtleId" id="turtleId" value='<?php echo $turtleId; ?>' hidden>
+                   <input type="text" name="matchId" id="matchId" value='<?php echo $matchId; ?>' hidden>
                    <input type="text" name="filenameProfile" id="filenameProfile" hidden>     
+
            <div class="row">
                <div class="col-md-12">
                   <label>กรอกข้อมูลของเต่าที่พบ</label>
