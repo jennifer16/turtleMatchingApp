@@ -261,10 +261,8 @@ $matchPic = './Input/'.$matchData['match_input'];
                   <div class="row" align="center">
                     <div class="col-md-6">
                
-                  <button type="submit" class="btn btn-primary">บันทึกข้อมูลการพบเต่า</button> 
+                  <button type="submit" class="btn btn-primary full-width">บันทึกและแชร์ข้อมูลการพบเต่า</button> 
                
-                        </div><div class="col-md-6">
-                        <div class="fb-share-button" data-href='https://studioxpert.com/turtleMatchingApp/' data-layout="button" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">แชร์ไปที่ Facebook</a></div>
                         </div>
                 </div>
             </div>
