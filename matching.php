@@ -585,7 +585,8 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
         geocoder.geocode({'location': latlng}, function(results, status) {
           if (status === 'OK') {
             if (results[0]) {
-              window.alert(results[0].formatted_address);
+              var place = document.getElementById("place");
+              place.innerHTML = results[0].formatted_address
             } else {
               window.alert('No results found');
             }
