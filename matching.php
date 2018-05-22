@@ -143,12 +143,12 @@ if( !isset($_SESSION["user_id"]) ){
               <!-- /.card-header -->
               <!-- form start --> 
                 <!-- left side image -->
-    <div class="row">
+    <div class="row" align="center">
         <div class="col-md-6">
                  <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">รูปภาพเกล็ดบนใบหน้า<br>
       <img class="rounded" id="avatar" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar">
-      <input type="file" class="sr-only" id="input" name="image" accept="image/*" capture='camera'>
+      <input type="file" class="sr-only" id="input" name="image" accept="image/*" >
     </label>
 
     <div class="alert" role="alert"></div>
@@ -174,6 +174,8 @@ if( !isset($_SESSION["user_id"]) ){
       </div>
     </div>
   </div>
+            <br>
+            <label>คลิกที่รูปเพื่อเปลี่ยนรูป</label>
             </div>
 
                <div class="col-md-6">
