@@ -195,6 +195,8 @@ $matchPic = './Input/'.$matchData['match_input'];
       </div>
     </div>
   </div>
+                  <br>
+            <label>คลิกที่รูปเพื่อเปลี่ยนรูป</label>
               </div>
               
               <div class="col-md-6"> 

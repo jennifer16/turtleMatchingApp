@@ -174,8 +174,7 @@ if( !isset($_SESSION["user_id"]) ){
       </div>
     </div>
   </div>
-            <br>
-            <label>คลิกที่รูปเพื่อเปลี่ยนรูป</label>
+            
             </div>
 
                <div class="col-md-6">
