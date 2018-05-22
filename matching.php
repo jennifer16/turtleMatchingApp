@@ -573,10 +573,9 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
 <script>
 
     function displayLocation(latitude,longitude){
-        console.log(latitude+" "+longitude);
     var geocoder;
     geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(latitude, longitude);
+    var latlng = new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude));
 
     geocoder.geocode(
         {'latLng': latlng}, 
@@ -605,10 +604,10 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
     
     function latlngChange()
     {
-        console.log("in here funciton");
+
         var x = document.getElementById("latitude");
         var y = document.getElementById("longtitude")
-       console.log(x.value+","+y.value);
+        
         displayLocation(parseFloat(x.value), parseFloat(y.value));
     }
     
