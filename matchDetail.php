@@ -158,6 +158,9 @@ $data = mysqli_query($conn, $sql);
 			         if ($line[0] != "$")
 				            continue;
                     $words = explode(",", $line);
+                    
+                    if( (float)$words[1] > 50 )
+                    {
                      
                     $sqlTurtle = "select turtle_id from turtle where turtle_name='".substr($words[0],1)."'";
                     $resultTurtle = mysqli_query($conn, $sqlTurtle);
@@ -174,6 +177,7 @@ $data = mysqli_query($conn, $sql);
                   echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n";
                     echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.");'>รายงานการพบเต่าตัวนี้</button></td>\n";
                     echo "</tr>\n";
+                    }
 }
          
 
