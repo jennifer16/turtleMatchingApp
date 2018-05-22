@@ -147,7 +147,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="user__img" src='./Turtle/<?php echo $turtleData['turtle_profile'];?>'>
+                  <img class="user__img" src='./Turtle/<?php echo $turtleData['turtle_profile'];?>' style="width:12rem; height:12rem;">
                 </div>
 
                 <h3 class="profile-username text-center"><?php echo $turtleData['turtle_name'];?></h3>
