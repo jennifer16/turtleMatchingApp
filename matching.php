@@ -490,6 +490,7 @@ function getLocation() {
 function showPosition(position) {
     x.value = position.coords.latitude;
     y.value = position.coords.longitude;
+    latlngChange();
 }
                 getLocation();
 </script>
@@ -514,7 +515,6 @@ function fetchdata(){
 }
 
 $(document).ready(function(){
-latlngChange();
  setInterval(fetchdata,10000);
 });
         </script>
