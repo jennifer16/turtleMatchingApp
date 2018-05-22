@@ -16,6 +16,20 @@ $result = mysqli_query($conn, $sql);
        		exec("ps ".$PID, $ProcessState);
        		return(count($ProcessState) >= 2);
      }
+
+	function DateThai($strDate)
+	{
+		$strYear = date("Y",strtotime($strDate))+543;
+		$strMonth= date("n",strtotime($strDate));
+		$strDay= date("j",strtotime($strDate));
+		$strHour= date("H",strtotime($strDate));
+		$strMinute= date("i",strtotime($strDate));
+		$strSeconds= date("s",strtotime($strDate));
+		$strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
+		$strMonthThai=$strMonthCut[$strMonth];
+		return "$strDay $strMonthThai $strYear";
+	}
+
 ?>
 <html lang="en">
     <head>
@@ -143,7 +157,7 @@ $result = mysqli_query($conn, $sql);
                     echo "<tr>";
                     echo "<td align='center'>".$count."</td>";
                     $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['match_time']);
-                    echo "<td align='center'>".$date->format('m//y h:i a')."</td>";
+                    echo "<td align='center'>".$date->format('d/m/y h:i a')."</td>";
                     
                      if (is_process_running($row['match_pid'])){
                          echo "<td align='center'>ยังดำเนินการอยู่</td>";

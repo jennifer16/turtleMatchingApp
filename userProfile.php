@@ -186,11 +186,9 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                       if( mysqli_num_rows($result) == 0)
                       {
                         echo "<li class='time-label'>";
-                        echo "<span class='bg-danger'>";
-                        echo "ยังไม่เคยพบเต่า";
-                        echo "</span>";
+                        echo "<h4>ยังไม่เคยพบเต่า</h4>";
                         echo "</li>";
-                          
+                    
                       }
                       else{
                           
