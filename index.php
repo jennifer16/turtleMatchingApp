@@ -176,6 +176,7 @@ if( !isset($_SESSION["user_id"]) ){
                             <div class="quick-stats__info">
                                  <?php      
                                     $sqlTurtleNature = "select count(*), user_id from found  where found_status='0' group by turtle_id having count(*) > 2";
+                                    echo $sqlTurtleNature;
                                     $resultTurtleNature = mysqli_query($conn, $sqlTurtleNature);
                                     echo "<h2>".mysqli_num_rows($resultTurtleNature)."</h2>";
                                 ?>
