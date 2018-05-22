@@ -41,13 +41,43 @@ if (mysqli_query($conn, $sql1)) {
     
     if ( mysqli_query($conn, $sql2) ){
         
-        if( isset($_POST['matchId']))
+        if( !isset($_POST['matchId']))
+        {
+            
+            header('Location: success.php');
+        }
+        else
         {
             $sql3 = "UPDATE matching set turtle_id='".$last_id."' WHERE id='".$_POST['matchId']."';";
-            mysqli_query($conn, $sql3);
+            if( mysqli_query($conn, $sql3) )
+            {
+                        echo "<html>";
+        echo "<body>";
+
+        echo "<script>";
+    
+        echo "window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A//studioxpert.com/turtleMatchingApp/');";
+        
+        echo "window.open('success.php','_self');";
+    
+        echo "</script>";
+    
+
+    
+        echo "</body>";
+
+
+        echo "</html>";
+                
+            }
+            else{
+                
+                echo "Error: " . $sql3 . "<br>" . mysqli_error($conn);
+            }
         }
         
-        header('Location: success.php');
+        
+        
         
     }else{
         

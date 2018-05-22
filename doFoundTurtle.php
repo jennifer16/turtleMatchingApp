@@ -22,6 +22,24 @@ if (mysqli_query($conn, $sql1)) {
     $sql2 = "UPDATE matching set turtle_id='".$turtleId."' where id='".$matchId."'";
     if (mysqli_query($conn, $sql2)) {
         //header('Location: success.php');
+        echo "<html>";
+        echo "<body>";
+
+        echo "<script>";
+    
+        echo "window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A//studioxpert.com/turtleMatchingApp/');";
+        
+        echo "window.open('success.php','_self');";
+    
+        echo "</script>";
+    
+
+    
+        echo "</body>";
+
+
+        echo "</html>";
+    
     }
     else{
         
@@ -35,21 +53,4 @@ else {
 
 
 ?>
-<html>
-<body>
 
-    <script>
-    
-        window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A//studioxpert.com/turtleMatchingApp/');
-        
-        window.open("success.php","_self");
-    
-    </script>
-    
-
-    
-</body>
-
-
-</html>
-    
