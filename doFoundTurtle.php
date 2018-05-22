@@ -27,6 +27,7 @@ if (mysqli_query($conn, $sql1)) {
         
     echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
     }
+}
 else {
     echo "Error: " . $sql1 . "<br>" . mysqli_error($conn);
     //header('Location: error.php');
