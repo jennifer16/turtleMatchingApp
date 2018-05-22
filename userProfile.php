@@ -151,13 +151,13 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
-                    <b>ชื่อเล่น</b><i><?php echo $_SESSION['user_nickname'];?></i>
+                    <b>ชื่อเล่น: </b><i><?php echo $_SESSION['user_nickname'];?></i>
                   </li>
                   <li class="list-group-item">
-                    <b>Email</b><i><?php echo $_SESSION['user_email'];?></i>
+                    <b>Email: </b><i><?php echo $_SESSION['user_email'];?></i>
                   </li>
                   <li class="list-group-item">
-                    <b>เบอร์โทร</b><i><?php echo $_SESSION['user_phone'];?></i>
+                    <b>เบอร์โทร: </b><i><?php echo $_SESSION['user_phone'];?></i>
                   </li>
                 </ul>
               </div>
