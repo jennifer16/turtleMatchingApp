@@ -598,6 +598,7 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
 }
     
     $("#latitude").change(function(){
+        console.log("change");
     displayLocation($("#latitude").value, $('#longtitude').value);
 }); 
         $("#longtitude").change(function(){
