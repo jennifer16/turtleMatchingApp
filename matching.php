@@ -204,11 +204,11 @@ if( !isset($_SESSION["user_id"]) ){
                 <div class="row">
                     <div class="col-md-6">
                     <label for="latitude">ละติจูด</label>
-                    <input type="text" class="form-control" id="latitude" name="latitude" placeholder="0.00">
+                    <input type="text" class="form-control" id="latitude" name="latitude" placeholder="0.00" onchange="latlngChange()">
                         </div>
                         <div class="col-md-6">
                     <label for="latitude">ลองจิจูด</label>
-                    <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
+                    <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00" onchange="latlngChange()">
                         </div>
                 </div>
                   <br>
@@ -597,6 +597,11 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
     );
 }
     
+    function latlngChange()
+    {
+        console.log("change");
+        displayLocation($("#latitude").value, $('#longtitude').value);
+    }
     $("#latitude").change(function(){
         console.log("change");
     displayLocation($("#latitude").value, $('#longtitude').value);
