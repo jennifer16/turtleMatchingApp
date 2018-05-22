@@ -191,7 +191,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                               
                             //echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
                             $sqlTurtle = "select * from turtle where turtle_id='".$row['turtle_id']."'";
-                            $turtlenameResult = mysqli_query($conn, $sqlUsername);
+                            $turtlenameResult = mysqli_query($conn, $sqlTurtle);
                             $turtlenameData = $turtlenameResult->fetch_assoc();
                             echo "<h3 class='timeline-header'>พบเต่า: ".$turtlenameData['turtle_name']." </h3>";
                             echo "<div class='timeline-body'>";
