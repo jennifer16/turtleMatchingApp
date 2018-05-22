@@ -6,11 +6,6 @@ if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
 
-$turtle_id = $_GET['id'];
-$sqlTurtle = "select * from turtle where turtle_id='".$turtle_id."'";
-$turtleResult = mysqli_query($conn, $sqlTurtle);
-$turtleData = $turtleResult->fetch_assoc();
-
 	function DateThai($strDate)
 	{
 		$strYear = date("Y",strtotime($strDate))+543;
