@@ -222,8 +222,8 @@ if( !isset($_SESSION["user_id"]) ){
                                 $userLastname = $rowUser['user_lastname'];
                                 
                                 echo "<figure style='margin-bottom: 5px'>";
-                                echo "<p><a href='turtleDetail?id=".$row[turtle_id]." <img src='./Turtle/".$row['found_picure']."'";
-                                echo " alt='' style='width: 100%; height: auto;'>";
+                                echo "<p><a href='turtleDetail?id=".$row[turtle_id]."'><img src='./Turtle/".$row['found_picure']."'";
+                                echo " alt='' style='width: 100%; height: auto;'></a>";
                                 echo "<figcaption>พบโดย: ".$userName." ".$userLastname."</figcaption>";
                                 echo "</figure>";
                                 

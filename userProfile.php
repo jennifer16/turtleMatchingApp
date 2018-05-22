@@ -181,7 +181,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                     <!-- The timeline -->
                     <ul class="timeline timeline-inverse">
                     <?php
-                      $sql1 = "select * from found where user_id='".$_SESSION['user_id']."'";
+                      $sql1 = "select * from found where user_id='".$_SESSION['user_id']."' order by found_date desc";
                       $result = mysqli_query($conn, $sql1);
                       if( mysqli_num_rows($result) == 0)
                       {

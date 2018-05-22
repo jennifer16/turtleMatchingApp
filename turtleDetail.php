@@ -201,7 +201,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                              $foundDate = $row['found_date'];
                               $foundPic = $row['found_picure'];
                               $turtle_id = $row['turtle_id'];
-                              $sql2 = "select * from turtle where turtle_id='".$turtle_id."'";
+                              $sql2 = "select * from turtle where turtle_id='".$turtle_id."' order by found_date desc";
                               $resultTurtle = mysqli_query($conn, $sql2);
                               $turtleData = $resultTurtle->fetch_assoc();
                               $turtle_name = $turtleData['turtle_name'];
