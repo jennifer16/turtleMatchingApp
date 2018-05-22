@@ -573,7 +573,6 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
 <script>
 
     function displayLocation(latitude,longitude){
-        console.log("in here");
     var geocoder;
     geocoder = new google.maps.Geocoder();
     var latlng = new google.maps.LatLng(latitude, longitude);
@@ -614,6 +613,6 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
 </script>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo6U_Cb7Ywu2_TLPqhv5YJDQH4sbeGcFg&callback=myMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVlIZSpzYkePXCjcm9xRHuFyL2DbKZY0Q&callback=myMap"></script>
     </body>
 </html>
