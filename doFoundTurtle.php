@@ -1,3 +1,11 @@
+<html>
+<body>
+<script>
+    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://studioxpert.com/turtleMatchingApp/'),'facebook-share-dialog','width=626,height=436');
+</script>
+    </body>
+</html>
+
 <?php
   session_start();
   require 'connect.php';
@@ -39,6 +47,3 @@ else {
 ?>
 
     
-<script>
-    window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('https://studioxpert.com/turtleMatchingApp/'),'facebook-share-dialog','width=626,height=436');
-</script>
