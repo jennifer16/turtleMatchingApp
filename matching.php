@@ -571,13 +571,6 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
 </script>
         
 <script>
-
-    function displayLocation(latitude,longitude){
-        
-        $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=13.814965020053265,100.13866451562501&sensor=true', function(data) {
-            console.log(data);
-});   
-}
     
     function latlngChange()
     {
@@ -603,9 +596,6 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
       }
 
         
-        
-        
-    }
     
     
         
