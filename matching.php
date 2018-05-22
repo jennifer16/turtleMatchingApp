@@ -605,6 +605,7 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
     
     function latlngChange()
     {
+        console.log("in here funciton");
         var x = document.getElementById("latitude");
         var y = document.getElementById("longtitude")
        console.log(x.value+","+y.value);
