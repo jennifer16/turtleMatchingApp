@@ -322,6 +322,11 @@ if(isset($_GET['matchId']))
                     <label for="latitude">ลองจิจูด</label>
                     <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
                         </div>
+                    <br>
+                      <div class="col-md-12" align="left">
+                    
+                        <label id="place"></label>
+                    </div>
                 </div><br>
                 <div class="row">
                                 <div class="col-md-12" align="center">
@@ -335,7 +340,11 @@ if(isset($_GET['matchId']))
                                
                             </div>
                         </div>
-                    </div>      
+                    </div>  
+                      <div class="col-md-12" align="left">
+                    
+                        <label id="place1"></label>
+                    </div>
                     </div>
                  
                 <!-- /.card-body -->
@@ -862,6 +871,7 @@ function getLocation() {
 function showPosition(position) {
     x.value = position.coords.latitude;
     y.value = position.coords.longitude;
+    latlngChange();
 }
     getLocation();
 </script> 
@@ -921,14 +931,17 @@ var y = document.getElementById("longtitude");
     
         x.value = marker.getPosition().lat();
     y.value = marker.getPosition().lng();
+    latlngChange();
     
 google.maps.event.addListener( marker, 'click', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
+    latlngChange();
 } );  
 google.maps.event.addListener( marker, 'dragend', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
+    latlngChange();
 } );  
 }
     
@@ -936,6 +949,39 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
                              
     }
     
+</script>
+<script>
+    
+    function latlngChange()
+    {
+
+        var x = document.getElementById("latitude");
+        var y = document.getElementById("longtitude")
+        
+       
+        var geocoder = new google.maps.Geocoder;
+    
+        var latlng = {lat: parseFloat(x.value), lng: parseFloat(y.value)};
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          if (status === 'OK') {
+            if (results[0]) {
+              
+              place.innerHTML = results[0].formatted_address
+              place1.innerHTML = results[0].formatted_address
+            } else {
+               place.innerHTML =  "ไม่ทราบข้อมูลสถานที่";
+            place.innerHTML = "ไม่ทราบข้อมูลสถานที่";
+            }
+          } else {
+            window.alert('Geocoder failed due to: ' + status);
+          }
+        });
+      }
+
+        
+    
+    
+        
 </script>
 
 

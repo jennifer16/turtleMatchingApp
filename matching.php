@@ -210,11 +210,12 @@ if( !isset($_SESSION["user_id"]) ){
                     <label for="latitude">ลองจิจูด</label>
                     <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00" onchange="latlngChange()">
                         </div>
-                </div>
-                                  <div class="col-md-12" align="left">
+                    <br><div class="col-md-12" align="left">
                     
                         <label id="place"></label>
                     </div>
+                </div>
+                                  
                   <br>
                
                 <div class="row" >
