@@ -173,7 +173,7 @@ if( !isset($_SESSION["user_id"]) ){
                         echo "<td align='center'>ด้านซ้าย</td>\n";
                     else
                         echo "<td align='center'>ด้านขวา</td>\n";
-                <?php if ($_SESSION['user_role']==1) echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; ?>
+               if ($_SESSION['user_role']==1) echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
                 
                     echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.",".$id.");'>รายงานการพบเต่าตัวนี้</button></td>\n";
                     echo "</tr>\n";
