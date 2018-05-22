@@ -136,7 +136,7 @@ $data = mysqli_query($conn, $sql);
             <br> 
             <figure style="margin-bottom: 5px">
   <p><img src="Input/<?php echo $row['match_input'];?>"
-    alt="" style="width: 30%; height: auto;">
+    alt="" style="width: 100%; height: auto;">
              <figcaption>รุปภาพที่ใช้ค้นหา</figcaption>
 </figure>            
   
