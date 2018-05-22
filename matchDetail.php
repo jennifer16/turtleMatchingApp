@@ -137,6 +137,9 @@ if( !isset($_SESSION["user_id"]) ){
              <figcaption>รุปภาพที่ใช้ค้นหา</figcaption>
 </figure>            
   
+                <br>
+                <br>
+                <label>ผลการค้นหา</label>
               <table id="listTurtle" style="width:100%; table-layout: fixed;">
                 <tbody>
 <?php
@@ -158,7 +161,7 @@ if( !isset($_SESSION["user_id"]) ){
                     $turtleId = $rowTurtle['turtle_id'];
                     $turtleProfile = $rowTurtle['turtle_profile'];
                      
-                    echo "<tr>\n";
+                    echo "<tr style='border: solid thin;' >\n";
                     echo "<td align='center'><img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ></td>\n";
                     echo "<td align='center'>ความเหมือน: ".$words[1]." %</td>\n";
                if ($_SESSION['user_role']==1) echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
