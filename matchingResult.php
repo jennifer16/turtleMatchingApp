@@ -140,7 +140,7 @@ $result = mysqli_query($conn, $sql);
             <!-- /.card-header -->
             <div class="card-body">
             <h5>ผลการเปรียบเทียบเต่า</h5>
-              <table id="listTurtle" style="width:100%">
+              <table id="listTurtle" class="display" style="width:100%">
                 <thead>
                 <tr>
                   <th style='text-align: center;'>วัน-เวลา</th>
@@ -258,7 +258,20 @@ $result = mysqli_query($conn, $sql);
         
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
         
-
+        <script>
+            $(document).ready( function () {
+    $('#listTurtle').DataTable({
+         scrollY:        '50vh',
+        scrollCollapse: true,
+        paging:         false,
+       "columnDefs": [
+            { "orderable": false, "targets": 3 }
+        ] 
+        
+    });
+} );
+            
+        </script>
         <script>
     function goToDetail(id){
         window.location='matchDetail.php?id='+id;
