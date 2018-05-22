@@ -323,10 +323,7 @@ if(isset($_GET['matchId']))
                     <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
                         </div>
                     <br>
-                      <div class="col-md-12" align="left">
                     
-                        <label id="place"></label>
-                    </div>
                 </div><br>
                 <div class="row">
                                 <div class="col-md-12" align="center">
@@ -957,7 +954,7 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
 
         var x = document.getElementById("latitude");
         var y = document.getElementById("longtitude")
-        
+        var place1 = document.getElementById("place1");
        
         var geocoder = new google.maps.Geocoder;
     
@@ -966,11 +963,9 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
           if (status === 'OK') {
             if (results[0]) {
               
-              place.innerHTML = results[0].formatted_address
               place1.innerHTML = results[0].formatted_address
             } else {
-               place.innerHTML =  "ไม่ทราบข้อมูลสถานที่";
-            place.innerHTML = "ไม่ทราบข้อมูลสถานที่";
+            place1.innerHTML = "ไม่ทราบข้อมูลสถานที่";
             }
           } else {
             window.alert('Geocoder failed due to: ' + status);
