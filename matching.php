@@ -587,6 +587,7 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
         var geocoder = new google.maps.Geocoder;
     
         var latlng = {lat: parseFloat(x.value), lng: parseFloat(y.value)};
+        console.log(latlng);
         geocoder.geocode({'location': latlng}, function(results, status) {
           if (status === 'OK') {
             if (results[0]) {
