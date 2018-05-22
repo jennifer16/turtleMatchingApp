@@ -7,7 +7,7 @@ if( !isset($_SESSION["user_id"]) ){
 }
 
    require_once __DIR__ . '/Facebook/autoload.php'; // change path as needed
-require_once __DIR__ . '/Facebook/facebook.php'; // change path as needed
+require_once __DIR__ . '/Facebook/Facebook.php'; // change path as needed
 
 $config = array();
 $config['appId'] = '161713021336907';
