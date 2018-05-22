@@ -259,7 +259,7 @@ $matchPic = './Input/'.$matchData['match_input'];
                   
                   </div>  
                   <div class="row" align="center">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                
                   <button type="submit" class="btn btn-primary full-width">บันทึกและแชร์ข้อมูลการพบเต่า</button> 
                

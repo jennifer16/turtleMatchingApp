@@ -74,7 +74,7 @@ rightOutName = []
 for index in range(len(templateFileList)):
 	if side == 'LEFT':
 		realInputName = fileName
-		realNameTemplate = fileName1
+		realNameTemplate = templateNameList[index]
 		#	compare with left face
 		leftFaceName = templateFileList[index]
 		outputVName = "./Output/"+realInputName+"-"+realNameTemplate+"V_LEFT.PNG"
@@ -97,7 +97,7 @@ for index in range(len(templateFileList)):
 	
 	if side == 'RIGHT':
 		realInputName = fileName
-		realNameTemplate = fileName1
+		realNameTemplate = templateNameList[index]
 		#	compare with left face
 		rightFaceName = templateFileList[index]
 		outputVName = "./Output/"+realInputName+"-"+realNameTemplate+"V_RIGHT.PNG"

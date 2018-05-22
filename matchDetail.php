@@ -143,7 +143,7 @@ if( !isset($_SESSION["user_id"]) ){
                   <th style='text-align: center;'>ชื่อเต่า</th>
                   <th style='text-align: center;'>ระดับความเหมือน (%)</th>
                   <th style='text-align: center;'>ด้านใบหน้า</th>
-                    <th>&nbsp;</th>
+                  <?php if ($_SESSION['user_role']==1) echo "<th>&nbsp;</th>"; ?>
                   <th>&nbsp;</th>
                 </tr>
                 </thead>
@@ -173,7 +173,8 @@ if( !isset($_SESSION["user_id"]) ){
                         echo "<td align='center'>ด้านซ้าย</td>\n";
                     else
                         echo "<td align='center'>ด้านขวา</td>\n";
-                  echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n";
+                <?php if ($_SESSION['user_role']==1) echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; ?>
+                
                     echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.",".$id.");'>รายงานการพบเต่าตัวนี้</button></td>\n";
                     echo "</tr>\n";
                     }
@@ -192,7 +193,7 @@ if( !isset($_SESSION["user_id"]) ){
                   <th style='text-align: center;'>ชื่อเต่า</th>
                   <th style='text-align: center;'>ระดับความเหมือน (%)</th>
                   <th style='text-align: center;'>ด้านใบหน้า</th>
-                    <th>&nbsp;</th>
+                  <?php if ($_SESSION['user_role']==1) echo "<th>&nbsp;</th>"; ?>
                   <th>&nbsp;</th>
                 </tr>
                 </tfoot>
