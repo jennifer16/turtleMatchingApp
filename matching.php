@@ -227,6 +227,10 @@ if( !isset($_SESSION["user_id"]) ){
                         </div>
                        
                     </div>
+                    <div class="col-md-12" align="left">
+                    
+                        <label id="place"></label>
+                    </div>
                   
                   </div>  
                   
@@ -558,6 +562,48 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
                              
     }
     
+</script>
+        
+<script>
+
+    function displayLocation(latitude,longitude){
+    var geocoder;
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(latitude, longitude);
+
+    geocoder.geocode(
+        {'latLng': latlng}, 
+        function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    var add= results[0].formatted_address ;
+                    var  value=add.split(",");
+
+                    count=value.length;
+                    country=value[count-1];
+                    state=value[count-2];
+                    city=value[count-3];
+                    $('#place').innerHTML = city+" "+state+" "+country;
+                }
+                else  {
+                     $('#place').innerHTML  = "ไม่สามารถค้นหารายละเอียดสถานที่ได้";
+                }
+            }
+            else {
+                $('#place').innerHTML = "ไม่สามารถค้นหารายละเอียดสถานที่ได้ เนื่องจาก " + status;
+            }
+        }
+    );
+}
+    
+    $("#latitude").change(function(){
+    displayLocation($("#latitude").value, $('#longtitude').value);
+}); 
+        $("#longtitude").change(function(){
+    displayLocation($("#latitude").value, $('#longtitude').value);
+}); 
+    
+        
 </script>
 
 
