@@ -195,7 +195,10 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<div class='timeline-item'>";
                               
                             //echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
-                            echo "<h3 class='timeline-header'>รายละเอียด</h3>";
+                            $sqlTurtle = "select * from turtle where turtle_id='".$row['turtle_id']."'";
+                            $turtlenameResult = mysqli_query($conn, $sqlUsername);
+                            $turtlenameData = $turtlenameResult->fetch_assoc();
+                            echo "<h3 class='timeline-header'>พบเต่า: ".$turtlenameData['turtle_name']." </h3>";
                             echo "<div class='timeline-body'>";
                             echo "<img src='./Turtle/".$foundPic."' alt='...' class='margin' style='max-width:100%; height:auto;'>";
                             echo "<br>";
@@ -307,7 +310,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
  <script>
 <?php
-    $sqlMap = "select * from found where turtle_id='".$turtle_id."'";
+    $sqlMap = "select * from found order by found_date desc";
     $mapResult = mysqli_query($conn, $sqlMap);
 ?>
 function myMap() {
