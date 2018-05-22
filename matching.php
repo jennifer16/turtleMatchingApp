@@ -605,8 +605,10 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
     
     function latlngChange()
     {
+        var x = document.getElementById("latitude");
+        var y = document.getElementById("longtitude")
        
-        displayLocation($("#latitude").value, $('#longtitude').value);
+        displayLocation(x.value, y.value);
     }
     
     
