@@ -161,7 +161,7 @@ if( !isset($_SESSION["user_id"]) ){
                             <div class="quick-stats__info">
                                 <?php
                                 
-                                     $sqlReport = "select count(*), turtle_id from found group by turtle_id having count(*) > 1";
+                                     $sqlReport = "select count(*), turtle_id from found group by turtle_id having count(*) > 2";
                                     $resultReport = mysqli_query($conn,$sqlReport);
                                     echo "<h2>".mysqli_num_rows($resultReport)."</h2>";
         
