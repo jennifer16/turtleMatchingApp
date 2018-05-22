@@ -53,7 +53,7 @@ $data = mysqli_query($conn, $sql);
 
                 <ul class="top-nav">
                     <li class="top-nav">
-                    <a href='matching.php'><i class="zmdi zmdi-camera-add"></i> </a>
+                    <a href='matching.php'><i class="zmdi zmdi-camera"></i> </a>
                     </li>
                     <li class="top-nav">
                      <a href='matchingResult.php' id='bell'><i class="zmdi zmdi-notifications"></i></a>
@@ -84,7 +84,7 @@ $data = mysqli_query($conn, $sql);
                         
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
                         
-                        <li><a href="matching.php"><i class="zmdi zmdi-camera-add"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
+                        <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
                             {
@@ -134,11 +134,12 @@ $data = mysqli_query($conn, $sql);
               echo "<div class='col-xl-2 col-lg-3 col-sm-4 col-6'>";  
               echo "<div class='contacts__item'>";
               echo "<a href='turtleDetail.php?id=".$row['turtle_id']."' class='contacts__img'>";
-              echo "<img src='./Turtle/".$row['turtle_profile']."' alt='' style='width:100%; height:50px;'>";
+              echo "<img src='./Turtle/".$row['turtle_profile']."' alt='' style='width:auto; height:auto; max-height:95px;'>";
               echo "</a>";
               echo " <div class='contacts__info'>";
               echo "<strong>".$row['turtle_name']."</strong>";
                  echo "<strong>".$row['turtle_type']."</strong>";
+                 
                 
                  
             $timestamp = strtotime($row['turtle_timestamp']); $today = time();

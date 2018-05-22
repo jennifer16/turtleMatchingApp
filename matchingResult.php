@@ -74,7 +74,7 @@ $result = mysqli_query($conn, $sql);
 
                 <ul class="top-nav">
                     <li class="top-nav">
-                    <a href='matching.php'><i class="zmdi zmdi-camera-add"></i> </a>
+                    <a href='matching.php'><i class="zmdi zmdi-camera"></i> </a>
                     </li>
                     <li class="top-nav">
                      <a href='matchingResult.php' id='bell'><i class="zmdi zmdi-notifications"></i></a>
@@ -105,7 +105,7 @@ $result = mysqli_query($conn, $sql);
                         
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
                         
-                        <li><a href="matching.php"><i class="zmdi zmdi-camera-add"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
+                        <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
                             {

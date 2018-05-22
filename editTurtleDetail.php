@@ -75,7 +75,7 @@ $row = $data->fetch_assoc();
 
                 <ul class="top-nav">
                     <li class="top-nav">
-                    <a href='matching.php'><i class="zmdi zmdi-camera-add"></i> </a>
+                    <a href='matching.php'><i class="zmdi zmdi-camera"></i> </a>
                     </li>
                     <li class="top-nav">
                      <a href='matchingResult.php' id='bell'><i class="zmdi zmdi-notifications"></i></a>
@@ -106,7 +106,7 @@ $row = $data->fetch_assoc();
                         
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
                         
-                        <li><a href="matching.php"><i class="zmdi zmdi-camera-add"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
+                        <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                               if ($_SESSION['user_role']==1)
                             {
@@ -447,7 +447,7 @@ $row = $data->fetch_assoc();
 
       $modal.on('shown.bs.modal', function () {
         cropper = new Cropper(image, {
-          viewMode: 3,
+          viewMode: 3,camera
         });
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
