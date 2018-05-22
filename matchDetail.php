@@ -156,7 +156,7 @@ if( !isset($_SESSION["user_id"]) ){
                     $resultTurtle = mysqli_query($conn, $sqlTurtle);
                     $rowTurtle = $resultTurtle->fetch_assoc();
                     $turtleId = $rowTurtle['turtle_id'];
-                    $turtleProfile = $rowTurtle['turtleProfile'];
+                    $turtleProfile = $rowTurtle['turtle_profile'];
                      
                     echo "<tr>\n";
                     echo "<td align='center'><img src='./Turtle/".$turtleProfile."' stype='max-width:100%; height:auto'></td>\n";
