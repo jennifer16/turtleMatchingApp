@@ -217,6 +217,10 @@ if( !isset($_SESSION["user_id"]) ){
                     <div class="col-md-12" align="center">
                      <label> -- หรือ คลิกและเลือกตำแหน่งในแผนที่ --</label>
                     </div>
+                <div class="col-md-12" align="left">
+                    
+                        <label id="place"></label>
+                    </div>
                    <div class="col-md-12">
                        
                        <div class="card" style="height: 300px;">
@@ -229,7 +233,7 @@ if( !isset($_SESSION["user_id"]) ){
                     </div>
                     <div class="col-md-12" align="left">
                     
-                        <label id="place"></label>
+                        <label id="place1"></label>
                     </div>
                   
                   </div>  
@@ -239,7 +243,7 @@ if( !isset($_SESSION["user_id"]) ){
                     <div class="row" align="center">
                     <div class="col-md-12">
                
-                  <button id="search" type="submit" class="btn btn-primary" >ค้นหาเต่า</button>
+                  <br><button id="search" type="submit" class="btn btn-primary" >ค้นหาเต่า</button>
                
      </div>
                 </div>
@@ -548,19 +552,19 @@ var y = document.getElementById("longtitude");
     x.value = marker.getPosition().lat();
     y.value = marker.getPosition().lng();
     
-        displayLocation($("#latitude").value, $('#longtitude').value);
+   latlngChange();
     
 google.maps.event.addListener( marker, 'click', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
     
-        displayLocation($("#latitude").value, $('#longtitude').value);
+   latlngChange();
 } );  
 google.maps.event.addListener( marker, 'dragend', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
     
-        displayLocation($("#latitude").value, $('#longtitude').value);
+    latlngChange();
 } );  
 }
     
@@ -577,7 +581,8 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
 
         var x = document.getElementById("latitude");
         var y = document.getElementById("longtitude")
-        
+        var place = document.getElementById("place");
+        var place1 = document.getElementById("place1");
        
         var geocoder = new google.maps.Geocoder;
     
@@ -585,10 +590,12 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
         geocoder.geocode({'location': latlng}, function(results, status) {
           if (status === 'OK') {
             if (results[0]) {
-              var place = document.getElementById("place");
+              
               place.innerHTML = results[0].formatted_address
+              place1.innerHTML = results[0].formatted_address
             } else {
-              window.alert('No results found');
+                var place = document.getElementById("ไม่ทราบข้อมูลสถานที่");
+                var place1 = document.getElementById("ไม่ทราบข้อมูลสถานที่");
             }
           } else {
             window.alert('Geocoder failed due to: ' + status);
