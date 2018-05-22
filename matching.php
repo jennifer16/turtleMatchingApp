@@ -589,14 +589,14 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
                     country=value[count-1];
                     state=value[count-2];
                     city=value[count-3];
-                    $('#place').innerHTML = city+" "+state+" "+country;
+                    console.log(city+" "+state+" "+country);
                 }
                 else  {
-                     $('#place').innerHTML  = "ไม่สามารถค้นหารายละเอียดสถานที่ได้";
+                     console.log("ไม่สามารถค้นหารายละเอียดสถานที่ได้");
                 }
             }
             else {
-                $('#place').innerHTML = "ไม่สามารถค้นหารายละเอียดสถานที่ได้ เนื่องจาก " + status;
+                console.log("ไม่สามารถค้นหารายละเอียดสถานที่ได้ เนื่องจาก " + status);
             }
         }
     );
