@@ -548,13 +548,19 @@ var y = document.getElementById("longtitude");
     x.value = marker.getPosition().lat();
     y.value = marker.getPosition().lng();
     
+        displayLocation($("#latitude").value, $('#longtitude').value);
+    
 google.maps.event.addListener( marker, 'click', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
+    
+        displayLocation($("#latitude").value, $('#longtitude').value);
 } );  
 google.maps.event.addListener( marker, 'dragend', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
+    
+        displayLocation($("#latitude").value, $('#longtitude').value);
 } );  
 }
     
@@ -599,16 +605,10 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
     
     function latlngChange()
     {
-        console.log("change");
+       
         displayLocation($("#latitude").value, $('#longtitude').value);
     }
-    $("#latitude").change(function(){
-        console.log("change");
-    displayLocation($("#latitude").value, $('#longtitude').value);
-}); 
-        $("#longtitude").change(function(){
-    displayLocation($("#latitude").value, $('#longtitude').value);
-}); 
+    
     
         
 </script>
