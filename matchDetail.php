@@ -137,16 +137,7 @@ if( !isset($_SESSION["user_id"]) ){
              <figcaption>รุปภาพที่ใช้ค้นหา</figcaption>
 </figure>            
   
-              <table id="listTurtle">
-                <thead>
-                <tr>
-                  <th style='text-align: center;'>ชื่อเต่า</th>
-                  <th style='text-align: center;'>ระดับความเหมือน (%)</th>
-                  <th style='text-align: center;'>ด้านใบหน้า</th>
-                  <?php if ($_SESSION['user_role']==1) echo "<th>&nbsp;</th>"; ?>
-                  <th>&nbsp;</th>
-                </tr>
-                </thead>
+              <table id="listTurtle" style="width:100%">
                 <tbody>
 <?php
                 $count = 0;
@@ -161,13 +152,14 @@ if( !isset($_SESSION["user_id"]) ){
                     {
                         $count+=1;
                      
-                    $sqlTurtle = "select turtle_id from turtle where turtle_name='".substr($words[0],1)."'";
+                    $sqlTurtle = "select * from turtle where turtle_name='".substr($words[0],1)."'";
                     $resultTurtle = mysqli_query($conn, $sqlTurtle);
                     $rowTurtle = $resultTurtle->fetch_assoc();
                     $turtleId = $rowTurtle['turtle_id'];
+                    $turtleProfile = $rowTurtle['turtleProfile']
                      
                     echo "<tr>\n";
-                    echo "<td align='center'>".substr($words[0],1)."</td>\n";
+                    echo "<td align='center'><img src='./Turtle/".$turtleProfile."' stype='max-width:100%; height:auto'></td>\n";
                     echo "<td align='center'>".$words[1]."</td>\n";
                     if ($words[2] == "LEFT")
                         echo "<td align='center'>ด้านซ้าย</td>\n";
@@ -188,15 +180,6 @@ if( !isset($_SESSION["user_id"]) ){
 
 
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th style='text-align: center;'>ชื่อเต่า</th>
-                  <th style='text-align: center;'>ระดับความเหมือน (%)</th>
-                  <th style='text-align: center;'>ด้านใบหน้า</th>
-                  <?php if ($_SESSION['user_role']==1) echo "<th>&nbsp;</th>"; ?>
-                  <th>&nbsp;</th>
-                </tr>
-                </tfoot>
               </table>
                 <br>
             <?php 
