@@ -183,7 +183,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                     <!-- The timeline -->
                     <ul class="timeline timeline-inverse">
                     <?php
-                      $sql1 = "select * from found where turtle_id='".$turtle_id."'";
+                      $sql1 = "select * from found where turtle_id='".$turtle_id."' order by found_date desc";
                       $result = mysqli_query($conn, $sql1);
                       if( mysqli_num_rows($result) == 0)
                       {
@@ -201,7 +201,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                              $foundDate = $row['found_date'];
                               $foundPic = $row['found_picure'];
                               $turtle_id = $row['turtle_id'];
-                              $sql2 = "select * from turtle where turtle_id='".$turtle_id."' order by found_date desc";
+                              $sql2 = "select * from turtle where turtle_id='".$turtle_id."'";
                               $resultTurtle = mysqli_query($conn, $sql2);
                               $turtleData = $resultTurtle->fetch_assoc();
                               $turtle_name = $turtleData['turtle_name'];
