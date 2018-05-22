@@ -574,7 +574,7 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
 
     function displayLocation(latitude,longitude){
         
-        $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=13.814965020053265,100.13866451562501&sensor=true', function(data) {
+        $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?latlng=13.814965020053265,100.13866451562501&sensor=true', function(data) {
             console.log(data);
 });   
 }
