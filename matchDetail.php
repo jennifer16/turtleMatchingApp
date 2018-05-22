@@ -137,7 +137,7 @@ if( !isset($_SESSION["user_id"]) ){
              <figcaption>รุปภาพที่ใช้ค้นหา</figcaption>
 </figure>            
   
-              <table id="listTurtle" style="width:100%">
+              <table id="listTurtle">
                 <thead>
                 <tr>
                   <th style='text-align: center;'>ชื่อเต่า</th>
@@ -286,20 +286,7 @@ if( !isset($_SESSION["user_id"]) ){
         
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
         
-        <script>
-            $(document).ready( function () {
-    $('#listTurtle').DataTable({
-         scrollY:        '50vh',
-        scrollCollapse: true,
-        paging:         false,
-       "columnDefs": [
-            { "orderable": false, "targets": 3 }
-        ] 
-        
-    });
-} );
-            
-        </script>
+  
         <script>
     function foundTurtle(id1,id2){
 
