@@ -514,6 +514,7 @@ function fetchdata(){
 }
 
 $(document).ready(function(){
+latlngChange();
  setInterval(fetchdata,10000);
 });
         </script>
@@ -581,8 +582,7 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
 
         var x = document.getElementById("latitude");
         var y = document.getElementById("longtitude")
-        var place = document.getElementById("place");
-        var place1 = document.getElementById("place1");
+        
        
         var geocoder = new google.maps.Geocoder;
     
@@ -594,8 +594,8 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
               place.innerHTML = results[0].formatted_address
               place1.innerHTML = results[0].formatted_address
             } else {
-                var place = document.getElementById("ไม่ทราบข้อมูลสถานที่");
-                var place1 = document.getElementById("ไม่ทราบข้อมูลสถานที่");
+               place.innerHTML =  "ไม่ทราบข้อมูลสถานที่";
+            place.innerHTML = "ไม่ทราบข้อมูลสถานที่";
             }
           } else {
             window.alert('Geocoder failed due to: ' + status);
