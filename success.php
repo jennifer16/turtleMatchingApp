@@ -6,35 +6,32 @@ if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
 
-   require_once __DIR__ . '/Facebook/autoload.php'; // change path as needed
-require_once __DIR__ . '/Facebook/Facebook.php'; // change path as needed
+require_once __DIR__ . '/Facebook/autoload.php'; // change path as needed
 
-$config = array();
-$config['appId'] = '161713021336907';
-$config['secret'] = 'e4dbd79e0e6da4d75019803b487214d2';
-$config['fileUpload'] = false; // optional
- 
-$fb = new Facebook($config);
- 
-// define your POST parameters (replace with your own values)
-$params = array(
-  "access_token" => $_SESSION['fb_access_token'], // see: https://developers.facebook.com/docs/facebook-login/access-tokens/
-  "message" => "มาร่วมกันอนุรักษ์เต่าด้วยกันกับแอพคู่มือเต่าทะเล #seaturtle #android #ios",
-  "link" => "https://studioxpert.com/turtleMatchingApp/",
-  "picture" => "https://studioxpert.com/turtleMatchingApp/Turtle/".$_POST['filenameProfile'],
-  "name" => "How to Auto Post on Facebook with PHP",
-  "caption" => "www.pontikis.net",
-  "description" => "Automatically post on Facebook with PHP using Facebook PHP SDK. How to create a Facebook app. Obtain and extend Facebook access tokens. Cron automation."
-);
+$fb = new \Facebook\Facebook([
+  'app_id' => '161713021336907',
+  'app_secret' => 'e4dbd79e0e6da4d75019803b487214d2',
+  'default_graph_version' => 'v2.10',
+  //'default_access_token' => '{access-token}', // optional
+]);
+
+//Post property to Facebook
+$linkData = [
+ 'link' => 'https://studioxpert.com/turtleMatchingApp/',
+ 'message' => 'มาร่วมกันอนุรักษ์เต่าทะเลด้วยแอพคู่มือเต่าทะเลกันเถอะ'
+];
+$pageAccessToken = $_SESSION['fb_access_token'];
 
 try {
-  $ret = $fb->api('/'.$_SESSION['user_id'].'/feed', 'POST', $params);
-  echo 'Successfully posted to Facebook';
-} catch(Exception $e) {
-  echo $e->getMessage();
+ $response = $fb->post('/me/feed', $linkData, $pageAccessToken);
+} catch(Facebook\Exceptions\FacebookResponseException $e) {
+ echo 'Graph returned an error: '.$e->getMessage();
+ exit;
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
+ echo 'Facebook SDK returned an error: '.$e->getMessage();
+ exit;
 }
-
-
+$graphNode = $response->getGraphNode();
 ?>
 <html lang="en">
     <head>
