@@ -18,7 +18,7 @@
         $count = 0;
         while ($row = $result->fetch_assoc()) {
             
-            if( is_process_running($row['match_pid']) )
+            if( !is_process_running($row['match_pid']) )
                 $count++;
         }
         
