@@ -137,7 +137,7 @@ if( !isset($_SESSION["user_id"]) ){
              <figcaption>รุปภาพที่ใช้ค้นหา</figcaption>
 </figure>            
   
-              <table id="listTurtle" class="display" style="width:100%">
+              <table id="listTurtle" style="width:100%">
                 <thead>
                 <tr>
                   <th style='text-align: center;'>ชื่อเต่า</th>
