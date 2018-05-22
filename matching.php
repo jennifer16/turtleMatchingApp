@@ -211,16 +211,17 @@ if( !isset($_SESSION["user_id"]) ){
                     <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00" onchange="latlngChange()">
                         </div>
                 </div>
+                                  <div class="col-md-12" align="left">
+                    
+                        <label id="place"></label>
+                    </div>
                   <br>
                
                 <div class="row" >
                     <div class="col-md-12" align="center">
                      <label> -- หรือ คลิกและเลือกตำแหน่งในแผนที่ --</label>
                     </div>
-                <div class="col-md-12" align="left">
-                    
-                        <label id="place"></label>
-                    </div>
+
                    <div class="col-md-12">
                        
                        <div class="card" style="height: 300px;">
@@ -587,7 +588,6 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
         var geocoder = new google.maps.Geocoder;
     
         var latlng = {lat: parseFloat(x.value), lng: parseFloat(y.value)};
-        console.log(latlng);
         geocoder.geocode({'location': latlng}, function(results, status) {
           if (status === 'OK') {
             if (results[0]) {
