@@ -573,32 +573,11 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
 <script>
 
     function displayLocation(latitude,longitude){
-    var geocoder;
-    geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(parseFloat(latitude), parseFloat(longitude));
-
-    geocoder.geocode(
-        {'latLng': latlng}, 
-        function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                if (results[0]) {
-                    var add= results[0].formatted_address ;
-                    var  value=add.split(",");
-
-                    count=value.length;
-                    country=value[count-1];
-                    state=value[count-2];
-                    city=value[count-3];
-                    console.log(city+" "+state+" "+country);
-                }
-                else  {
-                     console.log("ไม่สามารถค้นหารายละเอียดสถานที่ได้");
-                }
-            }
-            else {
-                console.log("ไม่สามารถค้นหารายละเอียดสถานที่ได้ เนื่องจาก " + status);
-            }
-        }
+        
+        $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=13.814965020053265,100.13866451562501&sensor=true', function(data) {
+            console.log(data);
+});
+        
     );
 }
     
