@@ -12,7 +12,7 @@ $fb = new \Facebook\Facebook([
 ]);
 $helper = $fb->getRedirectLoginHelper();
 
-$permissions = ['email']; // Optional permissions
+$permissions = ['email','post']; // Optional permissions
 $loginUrl = $helper->getLoginUrl('https://studioxpert.com/turtleMatchingApp/fb-callback.php', $permissions);
 ?>
 
