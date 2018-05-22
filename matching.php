@@ -608,7 +608,7 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
         var x = document.getElementById("latitude");
         var y = document.getElementById("longtitude")
        
-        displayLocation(x.value, y.value);
+        displayLocation(parseFloat(x.value), parseFloat(y.value);
     }
     
     
