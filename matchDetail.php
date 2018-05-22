@@ -152,6 +152,7 @@ $data = mysqli_query($conn, $sql);
                 </thead>
                 <tbody>
 <?php
+                $count = 0;
                  while (!feof($myfile)) {
                      $line = fgets($myfile);
 
@@ -161,6 +162,7 @@ $data = mysqli_query($conn, $sql);
                     
                     if( (float)$words[1] > 50 )
                     {
+                        $count+=1;
                      
                     $sqlTurtle = "select turtle_id from turtle where turtle_name='".substr($words[0],1)."'";
                     $resultTurtle = mysqli_query($conn, $sqlTurtle);
@@ -199,12 +201,20 @@ $data = mysqli_query($conn, $sql);
                 </tfoot>
               </table>
                 <br>
-                     <div class="row" align="center">
-        <div class="col-12">
-            <h5>-- หรือ --</h5><br>
-           <?php echo "<button type='button' class='btn btn-warning' onclick='addTurtle(".$id.");'>รายงานเป็นการพบเต่าตัวใหม่</button>";?>
-         </div>
-     </div>
+            <?php 
+                if($count==0)
+                {
+                    echo "<div class='row' align='center'>";
+                    echo "<div class='col-12'>";
+            
+                    echo "<h5>-- ไม่มีเต่าที่มีระดับความเหมือนมากกว่า 50 % --</h5><br>";
+                    echo "<button type='button' class='btn btn-warning' onclick='addTurtle(".$id.");'>รายงานเป็นการพบเต่าตัวใหม่</button>";
+                    echo "</div>";
+                    echo "</div>";
+                    
+                }
+            ?>
+                     
             </div>
             <!-- /.card-body -->
           </div>
