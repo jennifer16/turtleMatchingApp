@@ -154,7 +154,7 @@ $result = mysqli_query($conn, $sql);
                  while ($row = $result->fetch_assoc()) {
                      
                     echo "<tr>";
-                    $timestamp = localtime($row['match_time'],true);
+                    $timestamp = $row['match_time'];
                     $date = DateTime::createFromFormat('Y-m-d H:i:s', $timestamp);
                     echo "<td align='center'>".$date->format('d/m/y h:i a')."</td>";
                     
