@@ -13,9 +13,9 @@
 
   $if( $pic[0]=='.'){
       
-      $fname = substr($pic[0],8);
+      $fname = substr($pic,8);
       copy($pic,"./Turtle/".$fname);
-      $pic = "./Turtle/".$fname;
+      $pic = "./Turtle/".$fname
       
   }
 
