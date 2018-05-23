@@ -155,7 +155,7 @@ $result = mysqli_query($conn, $sql);
                      
                     echo "<tr>";
                     $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['match_time']);
-                    echo "<td align='center'>".$localtime(date->format('d/m/y h:i a'),true)."</td>";
+                    echo "<td align='center'>".localtime($date->format('d/m/y h:i a'),true)."</td>";
                     
                      if (is_process_running($row['match_pid'])){
                          echo "<td align='center'>ยังดำเนินการอยู่</td>";
