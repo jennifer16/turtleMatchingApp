@@ -216,9 +216,9 @@ if( !isset($_SESSION["user_id"]) ){
                             echo "<div class='container'>";
                             echo "<img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ><br>";
                             echo "<ul>";
-                            echo "<li><small><b>ชื่อ: </b><small>".substr($words[0],1)."</small></li>";
-                            echo "<li><small><b>รหัสไมโครชิพ: </b><small>".$turtleMicro."</small></li>";
-                            echo "<li><small><b>TAG: </b><small>".$turtleMicro."</small></li>";
+                            echo "<li><label><b>ชื่อ: </b>".substr($words[0],1)."</label></li>";
+                            echo "<li><label><b>รหัสไมโครชิพ: </b>".$turtleMicro."</label></li>";
+                            echo "<li><label><b>TAG: </b>".$turtleMicro."</label></li>";
                             echo "</ul>";
                             echo "</div>";
                             echo "</div>";
