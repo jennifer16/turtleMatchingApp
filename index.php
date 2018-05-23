@@ -2,9 +2,42 @@
 <?php
 require 'connect.php';
 session_start();
-if( !isset($_SESSION["user_id"]) ){
-    header("location:login.php");
+
+
+require_once __DIR__ . '/Facebook/autoload.php'; // change path as needed
+
+use Facebook\FacebookJavaScriptLoginHelper;
+use Facebook\FacebookRedirectLoginHelper;
+use Facebook\FacebookRequest;
+use Facebook\FacebookResponse;
+use Facebook\FacebookSDKException;
+use Facebook\FacebookSession;
+use Facebook\FacebookRequestException;
+use Facebook\GraphObject; 
+use Facebook\GraphUser;
+
+FacebookSession::setDefaultApplication('161713021336907', 'e4dbd79e0e6da4d75019803b487214d2');
+
+//create object that is used to check login
+$helper = new FacebookRedirectLoginHelper();
+try {
+  $session = $helper->getSessionFromRedirect();
+} catch(FacebookRequestException $ex) {
+  // When Facebook returns an error
+} catch(\Exception $ex) {
+  // When validation fails or other local issues
 }
+
+//show if the user is logged in or not
+if ($session) {
+  // Logged in
+  echo ('User is logged in');
+} else {
+  //if( !isset($_SESSION["user_id"]) ){
+    header("location:login.php");
+ // }
+}
+
 ?>
 <html lang="en">
     <head>
