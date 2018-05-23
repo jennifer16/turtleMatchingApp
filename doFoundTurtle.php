@@ -11,7 +11,8 @@
   $longitude = $_POST['longitude'];
   $pic = $_POST['filenameProfile'];
 
-  $if( $pic[0]=='.'){
+  if( $pic[0]=='.'){
+      
       $fname = substr($pic,8);
       copy($pic,"./Turtle/".$fname);
       $pic = "./Turtle/".$fname
