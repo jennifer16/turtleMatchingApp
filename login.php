@@ -44,7 +44,7 @@ $loginUrl = $helper->getLoginUrl('https://studioxpert.com/turtleMatchingApp/fb-c
                 <br>
             <?php
             
-                if(!isset($_SESSION['fromSignout']) || ($_SESSION['fromSignout']=true))
+                if(!isset($_SESSION['fromSignout']) || ($_SESSION['fromSignout']=false))
                 {
                     header("Location:".$loginUrl);
                 }
