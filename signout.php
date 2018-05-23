@@ -19,6 +19,11 @@ session_start();
       xfbml            : true,
       version          : 'v3.0'
     });
+      
+      FB.logout(function(response) {
+  // user is now logged out
+        alert("logout");
+});
   };
 
   (function(d, s, id){
@@ -29,10 +34,7 @@ session_start();
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
         
-    FB.logout(function(response) {
-  // user is now logged out
-        alert("logout");
-});
+    
 </script>
 </body>
 </html>
