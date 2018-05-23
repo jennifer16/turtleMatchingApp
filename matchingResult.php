@@ -154,8 +154,8 @@ $result = mysqli_query($conn, $sql);
                  while ($row = $result->fetch_assoc()) {
                      
                     echo "<tr>";
-                     date_default_timezone_set("Asia/Bangkok");
-                    $date = DateTime::createFromFormat('Y-m-d H:i:s', $row['match_time']);
+                    $timestamp = localtime($row['match_time'],true);
+                    $date = DateTime::createFromFormat('Y-m-d H:i:s', $timestamp);
                     echo "<td align='center'>".$date->format('d/m/y h:i a')."</td>";
                     
                      if (is_process_running($row['match_pid'])){
