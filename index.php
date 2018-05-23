@@ -2,32 +2,9 @@
 <?php
 require 'connect.php';
 session_start();
-
-
-require_once __DIR__ . '/Facebook/autoload.php'; // change path as needed
-
-$fb = new \Facebook\Facebook([
-  'app_id' => '161713021336907',
-  'app_secret' => 'e4dbd79e0e6da4d75019803b487214d2',
-  'default_graph_version' => 'v2.10',
-  //'default_access_token' => '{access-token}', // optional
-]);
-
-try {
-  // Returns a `Facebook\FacebookResponse` object
-  $response = $fb->get('/me?fields=id,name', '{access-token}');
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
+if( !isset($_SESSION["user_id"]) ){
+    header("location:login.php");
 }
-
-$user = $response->getGraphUser();
-
-echo 'Name: ' . $user['id'];
-
 ?>
 <html lang="en">
     <head>
@@ -70,7 +47,7 @@ echo 'Name: ' . $user['id'];
 
                 <ul class="top-nav">
                     <li class="top-nav">
-                    <a href='matching.php'><i class="zmdi zmdi-camera"></i> </a>
+                    <a href='matching.php'><i class="zmdi zmdi-camera-add"></i> </a>
                     </li>
                     <li class="top-nav">
                      <a href='matchingResult.php' id='bell'><i class="zmdi zmdi-notifications"></i></a>
@@ -101,7 +78,7 @@ echo 'Name: ' . $user['id'];
                         
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
                         
-                        <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
+                        <li><a href="matching.php"><i class="zmdi zmdi-camera-add"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
                             {
@@ -184,7 +161,7 @@ echo 'Name: ' . $user['id'];
                             <div class="quick-stats__info">
                                 <?php
                                 
-                                     $sqlReport = "select count(*), turtle_id from found group by turtle_id having count(*) > 2";
+                                     $sqlReport = "select count(*), turtle_id from found group by turtle_id having count(*) > 1";
                                     $resultReport = mysqli_query($conn,$sqlReport);
                                     echo "<h2>".mysqli_num_rows($resultReport)."</h2>";
         
@@ -211,53 +188,93 @@ echo 'Name: ' . $user['id'];
               </div>
 
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">เต่าที่พบล่าสุด</h4>
+                                <div class="row">
+                                <?php
+                                    $sqlLast = "SELECT
+                                    found.found_id,
+                                    found.turtle_id,
+                                    found.user_id,
+                                    found.found_lat,
+                                    found.found_lng,
+                                    found.found_picure,
+                                    found.found_date,
+                                    turtle.turtle_name
+                                    FROM
+                                    turtle
+                                    LEFT JOIN found ON found.turtle_id = turtle.turtle_id
+                                    ORDER BY
+                                    found.found_date DESC";
+                                    $lastResult = mysqli_query($conn, $sqlLast);
+                                    $numFound  = mysqli_num_rows($lastResult);
+                                    if($numFound == 0)
+                                    {
+                                        echo "<label>ยังไม่มีการพบเต่า</label>" ;
+                                    }
+                                    else{
+                                    $num=1;
+                                    while($num<=$numFound && $num<=4)
+                                    {
+                                        $row = $lastResult->fetch_assoc();
+                                        
+                                        $sqlUser = "select * from users where user_id='".$row['user_id']."'";
+                                        $userResult = mysqli_query($conn, $sqlUser);
+                                        $rowUser = $userResult->fetch_assoc();
+                                        $userName = $rowUser['user_firstname'];
+                                        $userLastname = $rowUser['user_lastname'];
+                                        
+                                        // echo "<figure style='margin-bottom: 5px'>";
+                                        // echo "<p><a href='turtleDetail.php?id=".$row['turtle_id']."'><img src='./Turtle/".$row['found_picure']."'";
+                                        // echo " alt='' style='width: 100%; height: auto;'></a>";
+                                        // echo "<figcaption>พบโดย: ".$userName." ".$userLastname."</figcaption>";
+                                        // echo "</figure>";
+                             ?>
+                                    <div class="col-sm-6 col-md-3"> 
+                                        <div class="card widget-contacts">
+                                            <a class="widget-contacts__map" href="<?php echo "turtleDetail.php?id=".$row['turtle_id']?>">
+                                                <img src="<?php echo "./Turtle/".$row['found_picure']; ?>" alt="">
+                                            </a>                                            
+                                            <div class="card-block">
+                                                <ul class="icon-list">
+                                                    <li><?php echo $row['turtle_name']; ?></li>                                                    
+                                                    <li><i class="zmdi zmdi-facebook-box"></i> <?php echo $userName." ".$userLastname; ?></li>
+                                                    <li><i class="zmdi zmdi-calendar"></i> <?php echo $row['found_date']; ?></li>
+                                                    <li><i class="zmdi zmdi-pin"></i>
+                                                        <address>
+                                                            44-46 Morningside Road,
+                                                            Edinburgh,
+                                                            Scotland
+                                                        </address>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                             <?php
+                                        $num=$num+1;
+                                    }
+                                        
+                                    }
+                                ?>                                         
+                    </div>        
+                        </div>                      
+                                         
+                                
+                            </div>
+                            
+                        </div>
+                    </div>                
+                    <div class="col-md-12">
                         <div class="card" style="height: 600px;">
                             
                             <div class="card-body" id = "map">
                                
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">เต่าที่พบล่าสุด</h4>
-                        <?php
-                            $sqlLast = "select * from found order by found_date desc";
-                            $lastResult = mysqli_query($conn, $sqlLast);
-                            $numFound  = mysqli_num_rows($lastResult);
-                            if($numFound == 0)
-                            {
-                                echo "<label>ยังไม่มีการพบเต่า</label>" ;
-                            }
-                            else{
-                            $num=1;
-                            while($num<=$numFound && $num<=3)
-                            {
-                                $row = $lastResult->fetch_assoc();
-                                
-                                $sqlUser = "select * from users where user_id='".$row['user_id']."'";
-                                $userResult = mysqli_query($conn, $sqlUser);
-                                $rowUser = $userResult->fetch_assoc();
-                                $userName = $rowUser['user_firstname'];
-                                $userLastname = $rowUser['user_lastname'];
-                                
-                                echo "<figure style='margin-bottom: 5px'>";
-                                echo "<p><a href='turtleDetail.php?id=".$row['turtle_id']."'><img src='./Turtle/".$row['found_picure']."'";
-                                echo " alt='' style='width: 100%; height: auto;'></a>";
-                                echo "<figcaption>พบโดย: ".$userName." ".$userLastname."</figcaption>";
-                                echo "</figure>";
-                                
-                                $num=$num+1;
-                            }
-                                
-                            }
-                         ?>              
-                                
-                            </div>
-                            
                         </div>
                     </div>
 
@@ -328,7 +345,19 @@ echo 'Name: ' . $user['id'];
         
     <script>
 <?php
-    $sqlMap = "select * from found";
+    $sqlMap = "SELECT
+    found.found_id,
+    found.turtle_id,
+    found.found_lat,
+    found.found_lng,
+    found.found_picure,
+    turtle.turtle_name,
+    turtle.turtle_id
+    FROM
+    turtle
+    LEFT JOIN found ON found.turtle_id = turtle.turtle_id
+    ORDER BY
+    found.found_date DESC";
     $mapResult = mysqli_query($conn, $sqlMap);
 ?>
 function myMap() {
@@ -338,6 +367,7 @@ function myMap() {
    
     center:new google.maps.LatLng(13.736717, 100.523186),
     zoom:5
+    
     };
 
    var map=new google.maps.Map(document.getElementById("map"),mapProp);
@@ -353,11 +383,18 @@ function myMap() {
         $numRow = 1;
         while($row=$mapResult->fetch_assoc())
         {
-            if($numRow < $numLoc)
-                echo "[".$row['found_lat'].",".$row['found_lng']."],";
-            else
-               echo "[".$row['found_lat'].",".$row['found_lng']."]";
-            
+            if($numRow < $numLoc) {
+                echo "[".$row['found_lat'].",".$row['found_lng']."],";                
+                $tname = $row['turtle_name'];
+                $turl = "turtleDetail.php?id=".$row['turtle_id'];
+                //$ticon = "Turtle/"."jHNEebsc6s.JPG";
+            }            
+            else {
+                echo "[".$row['found_lat'].",".$row['found_lng']."]";
+                $tname = $row['turtle_name'];
+                $turl = "turtleDetail.php?id=".$row['turtle_id'];
+                //$ticon = "Turtle/".$row['turtle_profile'];
+            }
         }
         
         echo "];\n";
@@ -366,9 +403,14 @@ function myMap() {
         echo "for (var i = 0; i < ".$numLoc."; i++) {";  
         echo "var marker = new google.maps.Marker({";
         echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
+        //echo "    icon: '". $ticon."',";
+        echo "    url: '".$turl."',";
+        echo "    title: '".$tname."',";
         echo "    map: map";
         echo "});";
-                   
+        echo "google.maps.event.addListener(marker, 'click', function() {
+            window.location.href = this.url;
+        });";
         
 	echo "}";                  
                              
@@ -378,6 +420,7 @@ function myMap() {
     
 };
 </script>
+
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVlIZSpzYkePXCjcm9xRHuFyL2DbKZY0Q&callback=myMap"></script>     
