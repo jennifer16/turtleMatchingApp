@@ -12,25 +12,21 @@ $fb = new \Facebook\Facebook([
   'default_graph_version' => 'v2.10',
   //'default_access_token' => '{access-token}', // optional
 ]);
-$helper = $fb->getRedirectLoginHelper();
 
 try {
-  $session = $helper->getSessionFromRedirect();
-} catch(FacebookRequestException $ex) {
-  // When Facebook returns an error
-} catch(\Exception $ex) {
-  // When validation fails or other local issues
+  // Returns a `Facebook\FacebookResponse` object
+  $response = $fb->get('/me?fields=id,name', '{access-token}');
+} catch(Facebook\Exceptions\FacebookResponseException $e) {
+  echo 'Graph returned an error: ' . $e->getMessage();
+  exit;
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
+  echo 'Facebook SDK returned an error: ' . $e->getMessage();
+  exit;
 }
 
-//show if the user is logged in or not
-if ($session) {
-  // Logged in
-  echo ('User is logged in');
-} else {
-  //if( !isset($_SESSION["user_id"]) ){
-    header("location:login.php");
- // }
-}
+$user = $response->getGraphUser();
+
+echo 'Name: ' . $user['id'];
 
 ?>
 <html lang="en">
