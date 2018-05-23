@@ -164,7 +164,7 @@ if( !isset($_SESSION["user_id"]) ){
                     $turtleProfile = $rowTurtle['turtle_profile'];
                      
                     echo "<tr style='border: solid thin;' >\n";
-                    echo "<td align='center'><a href=''><div data-toggle='modal' data-target='#modal-large-".$turtleId."'><img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ></div></a></td>\n";
+                    echo "<td align='center'><a><div data-toggle='modal' data-target='#modal-large-".$turtleId."'><img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ></div></a></td>\n";
                     echo "<td align='center'>ความเหมือน: ".$words[1]." %</td>\n";
                if ($_SESSION['user_role']==1) echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
                 
