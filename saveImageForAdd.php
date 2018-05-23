@@ -38,7 +38,8 @@
     if (file_exists($originalFile)) {
             unlink($originalFile);
     }
-    $image_save_func($tmp, $originalFile);
+    
+    $image_save_func($tmp, "./Turtle/resizeImage");
 }
 
 
