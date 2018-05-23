@@ -4,7 +4,8 @@
  	$file_to_upload = $_FILES['avatarLeft']['tmp_name'];
     $filename = $_POST['filenameLeft'];
 	$file_name = './Turtle/'.$filename;
-    move_uploaded_file($file_to_upload, $file_name);
+    move_uploaded_file($file_to_upload, $file_name); 
+    shell_exec("python deImageResize.py ".$file_name);
     print_r($file_name);}
 
     if (isset($_POST['filenameRight']) && !$_POST['filenameRight']==""){
@@ -12,6 +13,7 @@
     $filename = $_POST['filenameRight'];
 	$file_name = './Turtle/'.$filename;
     move_uploaded_file($file_to_upload, $file_name);
+    shell_exec("python deImageResize.py ".$file_name);
     print_r($file_name);}
 
  if (isset($_POST['filenameProfile']) && !$_POST['filenameProfile']==""){
@@ -19,5 +21,6 @@
     $filename = $_POST['filenameProfile'];
 	$file_name = './Turtle/'.$filename;
     move_uploaded_file($file_to_upload, $file_name);
+    shell_exec("python deImageResize.py ".$file_name);
     print_r($file_name);}
 ?>
