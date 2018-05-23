@@ -1,7 +1,7 @@
 <?php
     
-    $tn = './Turtle/JcYmU56Vww.JPG'
-    $save = './Turtle/NaTest.JPG'
+    $tn = './Turtle/JcYmU56Vww.JPG';
+    $save = './Turtle/NaTest.JPG';
  
 function compress($source, $destination, $quality) {
 
