@@ -215,7 +215,7 @@ if( !isset($_SESSION["user_id"]) ){
                         $turtleTag = $rowTurtle['turtle_tag_code'];
                             echo "<div class='container'>";
                             echo "<img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ><br>";
-                            echo "<ul>";
+                            echo "<hr><ul>";
                             echo "<li><label><b>ชื่อ: </b>".substr($words[0],1)."</label></li>";
                             echo "<li><label><b>รหัสไมโครชิพ: </b>".$turtleMicro."</label></li>";
                             echo "<li><label><b>TAG: </b>".$turtleMicro."</label></li>";
