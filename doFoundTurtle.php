@@ -15,7 +15,7 @@
       
       $fname = substr($pic,8);
       copy($pic,"./Turtle/".$fname);
-      $pic = "./Turtle/".$fname;
+      $pic = fname;
       
   }
 
