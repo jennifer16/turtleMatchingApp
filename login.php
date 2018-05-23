@@ -46,9 +46,7 @@ $loginUrl = $helper->getLoginUrl('https://studioxpert.com/turtleMatchingApp/fb-c
             
                 if(!isset($_SESSION['fb_access_token']) && !isset($_SESSION['fromSignout']))
                 {
-                    echo "<script>";
-                    echo "window.location.href='<?php echo htmlspecialchars($loginUrl);?>'";
-                    echo "</script>";
+                    header("Location:".$loginUrl);
                 }
             ?>
                 <button onclick="window.location.href='<?php echo htmlspecialchars($loginUrl);?>'" id="login" type="button" class="btn btn-primary btn-block btn-lg">เข้าสู่ระบบด้วย Facebook <i class="zmdi zmdi-facebook-box"></i></button>
