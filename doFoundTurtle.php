@@ -11,6 +11,14 @@
   $longitude = $_POST['longitude'];
   $pic = $_POST['filenameProfile'];
 
+  $if( $pic[0]=='.'){
+      
+      $fname = substr($pic[0],8);
+      copy($pic,"./Turtle/".$fname);
+      $pic = "./Turtle/".$fname;
+      
+  }
+
   $userid = $_SESSION['user_id'];
 
 $sql1 = "INSERT INTO found (turtle_id, user_id, found_width, found_length, found_weight, found_lat, found_lng, found_picure, found_status)

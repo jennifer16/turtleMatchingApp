@@ -204,7 +204,7 @@ $matchPic = './Input/'.$matchData['match_input'];
          <form role="form" action = "doFoundTurtle.php" method = "POST" enctype = "multipart/form-data">
                  <input type="text" name="turtleId" id="turtleId" value='<?php echo $turtleId; ?>' hidden>
                    <input type="text" name="matchId" id="matchId" value='<?php echo $matchId; ?>' hidden>
-                   <input type="text" name="filenameProfile" id="filenameProfile" hidden>     
+                   <input type="text" name="filenameProfile" id="filenameProfile" value='<?php echo $matchPic; ?>' hidden>     
 
            <div class="row">
                <div class="col-md-12">
