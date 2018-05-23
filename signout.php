@@ -1,7 +1,8 @@
 
 <?php
 session_start();
-session_destroy();
+unset($_SESSION['fb_access_token']);
+$_SESSION['fromSignout'] = true;
 header('Location:login.php');
 ?>
 
