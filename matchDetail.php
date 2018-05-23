@@ -222,7 +222,7 @@ if( !isset($_SESSION["user_id"]) ){
                             echo "</ul>";
                             echo "</div>";
                             echo "</div>";
-                            echo "<div class=\"modal-footer\">">
+                            echo "<div class=\"modal-footer\">";
                                             
                             echo "<button type=\"button\" class=\"btn btn-link\" data-dismiss=\"modal\">ปิด</button>";
                             echo "</div>";
