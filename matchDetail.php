@@ -230,6 +230,8 @@ if( !isset($_SESSION["user_id"]) ){
                             echo "</div>";
                             echo "</div>";
                     }
+                 }
+                fclose($myfile1);
 ?>
                 <br>
             <?php 
