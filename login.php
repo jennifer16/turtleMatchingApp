@@ -44,7 +44,7 @@ $loginUrl = $helper->getLoginUrl('https://studioxpert.com/turtleMatchingApp/fb-c
                 <br>
             <?php
             
-                if(!isset($_SESSION['fb_access_token']) && !isset($_SESSION['fromSignout']))
+                if(!isset($_SESSION['fromSignout']) || ($_SESSION['fromSignout']=true))
                 {
                     header("Location:".$loginUrl);
                 }
@@ -61,7 +61,7 @@ $loginUrl = $helper->getLoginUrl('https://studioxpert.com/turtleMatchingApp/fb-c
                     <p>You are using an outdated version of Internet Explorer, please upgrade to any of the following web browsers to access this website.</p>
 
                     <div class="ie-warning__downloads">
-                        <a href="http://www.google.com/chrome">
+  ||                        <a href="http://www.google.com/chrome">
                             <img src="img/browsers/chrome.png" alt="">
                         </a>
 
