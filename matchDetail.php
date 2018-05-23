@@ -16,6 +16,8 @@ if( !isset($_SESSION["user_id"]) ){
     $outputFile = $row['match_file'];
     $myfile = fopen($outputFile, "r") or die("Unable to open file!");
 
+    $myfile1 = fopen($outputFile, "r") or die("Unable to open file!");
+
 ?>
 
 <!DOCTYPE html>
@@ -162,7 +164,7 @@ if( !isset($_SESSION["user_id"]) ){
                     $turtleProfile = $rowTurtle['turtle_profile'];
                      
                     echo "<tr style='border: solid thin;' >\n";
-                    echo "<td align='center'><div data-toggle='modal' data-target='#modal-large'><img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ></div></td>\n";
+                    echo "<td align='center'><a href=''><div data-toggle='modal' data-target='#modal-large-".$turtleId."'><img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ></div></a></td>\n";
                     echo "<td align='center'>ความเหมือน: ".$words[1]." %</td>\n";
                if ($_SESSION['user_role']==1) echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
                 
@@ -184,23 +186,51 @@ if( !isset($_SESSION["user_id"]) ){
                 </tbody>
               </table>
                 
-        <!-- Large -->
-                            <div class="modal fade" id="modal-large" tabindex="-1">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title pull-left">Large modal</h5>
-                                        </div>
-                                        <div class="modal-body">
-                                            Curabitur blandit mollis lacus. Nulla sit amet est. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Cras sagittis.
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-link">Save changes</button>
-                                            <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+<?php
+          
+                 while (!feof($myfile1)) {
+                     $line = fgets($myfile1);
+
+			         if ($line[0] != "$")
+				            continue;
+                    $words = explode(",", $line);
+                    
+                    if( (float)$words[1] > 50 )
+                    {
+              
+                            echo "<div class=\"modal fade\" id=\"modal-large-".$turtleId."\" tabindex=\"-1\">";
+                            echo "<div class=\"modal-dialog modal-lg\">";
+                            echo "<div class=\"modal-content\">";
+                            echo "<div class=\"modal-header\">";
+                            echo "<h5 class=\"modal-title pull-left\">รายละเอียดของเต่า</h5>";
+                            echo "</div>";
+                            echo "<div class=\"modal-body\">";
+                        
+                         $sqlTurtle = "select * from turtle where turtle_name='".substr($words[0],1)."'";
+                    $resultTurtle = mysqli_query($conn, $sqlTurtle);
+                    $rowTurtle = $resultTurtle->fetch_assoc();
+                    $turtleId = $rowTurtle['turtle_id'];
+                    $turtleProfile = $rowTurtle['turtle_profile'];
+                        $turtleMicro = $rowTurtle['turtle_microchip_code'];
+                        $turtleTag = $rowTurtle['turtle_tag_code'];
+                            echo "<div class='container'>";
+                            echo "<img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ><br>";
+                            echo "<ul>";
+                            echo "<li><small><b>ชื่อ: </b><small>".substr($words[0],1)."</small></li>";
+                            echo "<li><small><b>รหัสไมโครชิพ: </b><small>".$turtleMicro."</small></li>";
+                            echo "<li><small><b>TAG: </b><small>".$turtleMicro."</small></li>";
+                            echo "</ul>";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "<div class=\"modal-footer\">">
+                                            
+                            echo "<button type=\"button\" class=\"btn btn-link\" data-dismiss=\"modal\">ปิด</button>";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</div>";
+                            echo "</div>";
+                    }
+?>
                 <br>
             <?php 
                 if($count==0)
