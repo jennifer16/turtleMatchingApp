@@ -162,14 +162,17 @@ if( !isset($_SESSION["user_id"]) ){
                     $turtleProfile = $rowTurtle['turtle_profile'];
                      
                     echo "<tr style='border: solid thin;' >\n";
-                    echo "<td align='center'><img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ></td>\n";
+                    echo "<td align='center'><div data-toggle='modal' data-target='#modal-large'><img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ></div></td>\n";
                     echo "<td align='center'>ความเหมือน: ".$words[1]." %</td>\n";
                if ($_SESSION['user_role']==1) echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
                 
                     echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.",".$id.");'>รายงานการพบเต่าตัวนี้</button></td>\n";
+                        
                     echo "</tr>\n";
                     }
 }
+                    
+                    
          
 
 		fclose($myfile);
@@ -180,6 +183,24 @@ if( !isset($_SESSION["user_id"]) ){
 
                 </tbody>
               </table>
+                
+        <!-- Large -->
+                            <div class="modal fade" id="modal-large" tabindex="-1">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title pull-left">Large modal</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            Curabitur blandit mollis lacus. Nulla sit amet est. Suspendisse nisl elit, rhoncus eget, elementum ac, condimentum eget, diam. Donec mi odio, faucibus at, scelerisque quis, convallis in, nisi. Cras sagittis.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-link">Save changes</button>
+                                            <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                 <br>
             <?php 
                 if($count==0)
