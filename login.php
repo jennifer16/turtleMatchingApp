@@ -47,7 +47,7 @@ $loginUrl = $helper->getLoginUrl('https://studioxpert.com/turtleMatchingApp/fb-c
                 if(!isset($_SESSION['fb_access_token']) && !isset($_SESSION['fromSignout']))
                 {
                     echo "<script>";
-                    echo "window.open(".htmlspecialchars($loginUrl).",'_self');";
+                    echo "window.open('".htmlspecialchars($loginUrl)."','_self');";
                     echo "</script>";
                 }
             ?>
