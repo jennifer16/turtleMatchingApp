@@ -779,11 +779,12 @@ if(isset($_GET['matchId']))
           viewMode: 3,
           crop: function(e) {
           console.log(e.detail.width);
-          onsole.log(e.detail.height);
+          console.log(e.detail.height);
 
         }
         });
           
+          var contData = cropper.getContainerData();
           console.log('etst');
             
       }).on('hidden.bs.modal', function () {
