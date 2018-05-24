@@ -153,7 +153,7 @@ if( !isset($_SESSION["user_id"]) ){
 				            continue;
                     $words = explode(",", $line);
                     
-                    if( (float)$words[1] > 50 )
+                    if( (float)$words[1] > -1 )
                     {
                         $count+=1;
                      
@@ -197,6 +197,13 @@ if( !isset($_SESSION["user_id"]) ){
                     
                     if( (float)$words[1] > -1 )
                     {
+                         $sqlTurtle = "select * from turtle where turtle_name='".substr($words[0],1)."'";
+                    $resultTurtle = mysqli_query($conn, $sqlTurtle);
+                    $rowTurtle = $resultTurtle->fetch_assoc();
+                    $turtleId = $rowTurtle['turtle_id'];
+                    $turtleProfile = $rowTurtle['turtle_profile'];
+                        $turtleMicro = $rowTurtle['turtle_microchip_code'];
+                        $turtleTag = $rowTurtle['turtle_tag_code'];
               
                             echo "<div class=\"modal fade\" id=\"modal-large-".$turtleId."\" tabindex=\"-1\">";
                             echo "<div class=\"modal-dialog modal-lg\">";
@@ -206,13 +213,7 @@ if( !isset($_SESSION["user_id"]) ){
                             echo "</div>";
                             echo "<div class=\"modal-body\">";
                         
-                         $sqlTurtle = "select * from turtle where turtle_name='".substr($words[0],1)."'";
-                    $resultTurtle = mysqli_query($conn, $sqlTurtle);
-                    $rowTurtle = $resultTurtle->fetch_assoc();
-                    $turtleId = $rowTurtle['turtle_id'];
-                    $turtleProfile = $rowTurtle['turtle_profile'];
-                        $turtleMicro = $rowTurtle['turtle_microchip_code'];
-                        $turtleTag = $rowTurtle['turtle_tag_code'];
+                        
                             echo "<div class='container'>";
                             echo "<img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ><br>";
                             echo "<hr><ul>";
