@@ -777,7 +777,7 @@ if(isset($_GET['matchId']))
       $modal.on('shown.bs.modal', function (avatar) {
         cropper = new Cropper(image, {
           viewMode: 3,
-          copBoxResizable: false
+           resizable: false
         
         });
           
