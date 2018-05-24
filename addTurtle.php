@@ -742,12 +742,7 @@ if(isset($_GET['matchId']))
           image.src = url;
           $alert.hide();
           $modal.modal('show');
-          cropper = new Cropper(image, {
-                viewMode: 3,
           
-          });
-          var contData = cropper.getContainerData(); //Get container data
-          cropper.setCropBoxData({ height: contData.height, width: contData.width  })
         };
         var reader;
         var file;
@@ -782,7 +777,12 @@ if(isset($_GET['matchId']))
 
       $modal.on('shown.bs.modal', function (avatar) {
         
+          cropper = new Cropper(image, {
+                viewMode: 3,
           
+          });
+          var contData = cropper.getContainerData(); //Get container data
+          cropper.setCropBoxData({ height: avatar.height, width: avatar.width  })
             
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
