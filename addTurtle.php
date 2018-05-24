@@ -777,19 +777,22 @@ if(isset($_GET['matchId']))
       $modal.on('shown.bs.modal', function (avatar) {
         cropper = new Cropper(image, {
           viewMode: 3,
-                crop: function(e) {
-                    console.log(e.detail.width);
-    console.log(e.detail.height);
+          crop: function(e) {
+          console.log(e.detail.width);
+          onsole.log(e.detail.height);
 
-  }
+        }
         });
+          
+          var contData = cropper.getContainerData(); //Get container data
+        cropper.setCropBoxData({ height: contData.height, width: contData.width  }) /
+            
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
         cropper = null;
       });
     
-        var contData = cropper.getContainerData(); //Get container data
-        cropper.setCropBoxData({ height: contData.height, width: contData.width  }) /
+        
 
       document.getElementById('cropProfile').addEventListener('click', function () {
         var initialAvatarURL;
