@@ -777,9 +777,8 @@ if(isset($_GET['matchId']))
       $modal.on('shown.bs.modal', function (avatar) {
         cropper = new Cropper(image, {
           viewMode: 3,
-             aspectRatio: 16 / 9,
-  crop: function(e) {
-    console.log(e.detail.width);
+                crop: function(e) {
+                    console.log(e.detail.width);
     console.log(e.detail.height);
 
   }
@@ -788,6 +787,9 @@ if(isset($_GET['matchId']))
         cropper.destroy();
         cropper = null;
       });
+    
+        var contData = cropper.getContainerData(); //Get container data
+        cropper.setCropBoxData({ height: contData.height, width: contData.width  }) /
 
       document.getElementById('cropProfile').addEventListener('click', function () {
         var initialAvatarURL;
@@ -796,6 +798,7 @@ if(isset($_GET['matchId']))
         labelProfile.innerHTML = "กรุณารอสักครู่ กำลังตัดแบ่งส่วนภาพ...";
         $modal.modal('hide');
 
+/
         if (cropper) {
           canvas = cropper.getCroppedCanvas({
           });
