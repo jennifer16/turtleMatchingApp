@@ -777,9 +777,14 @@ if(isset($_GET['matchId']))
       $modal.on('shown.bs.modal', function (avatar) {
         cropper = new Cropper(image, {
           viewMode: 3,
-          width: avartar.detail.width
-        });
+          crop: function(e) {
+          console.log(e.detail.width);
+          onsole.log(e.detail.height);
 
+        }
+        });
+          
+          console.log('etst');
             
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
