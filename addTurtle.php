@@ -779,10 +779,11 @@ if(isset($_GET['matchId']))
         
           cropper = new Cropper(image, {
                 viewMode: 3,
+                strict:true,
+                resizable:false,
           
           });
-          var contData = cropper.getContainerData(); //Get container data
-          cropper.setCropBoxData({ height: avatar.height, width: avatar.width  })
+          
             
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
