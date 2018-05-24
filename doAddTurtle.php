@@ -8,7 +8,6 @@ print_r($_POST);
   $leftFile = $_POST['filenameLeft'];
   $rightFile = $_POST['filenameRight'];
   $profileFile = $_POST['filenameProfile'];
-  $ageYear = $_POST['ageYear'];
   $ageMonth = $_POST['ageMonth'];
   $microchipCode = $_POST['microchipCode'];
   $microchipPos = $_POST['microchipPos'];
