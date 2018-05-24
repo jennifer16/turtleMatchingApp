@@ -779,12 +779,10 @@ if(isset($_GET['matchId']))
         
           cropper = new Cropper(image, {
                 viewMode: 3,
-                strict:false,
-               cropBoxMovable: false,
+                strict:true,
+               cropBoxMovable: true,
             cropBoxResizable: false,
-    built: function () {
-      cropper.setCropBoxData({ width: "100", height: "50" });
-    }
+ 
           
           });
           
