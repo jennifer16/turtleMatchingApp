@@ -783,9 +783,8 @@ if(isset($_GET['matchId']))
 
         }
         });
-          
-          var contData = cropper.getContainerData(); //Get container data
-        cropper.setCropBoxData({ height: contData.height, width: contData.width  }); /
+        
+        cropper.setCropBoxData(300,300); /
             
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
