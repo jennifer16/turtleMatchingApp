@@ -443,7 +443,7 @@ if( !isset($_SESSION["user_id"]) ){
                        $('#modalLabel').innerHTML="โปรดรอ..กำลังอัพโหลด";
                   var percent = '0';
                   var percentage = '0%';
-
+                   $('#search').disabled = true;
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
@@ -458,6 +458,7 @@ if( !isset($_SESSION["user_id"]) ){
                // $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
                   $('#search').innerHTML = "ค้นหาเต่า";
+                   $('#search').disabled = false;
                   
               },
 

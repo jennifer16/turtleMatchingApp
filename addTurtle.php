@@ -349,12 +349,12 @@ if(isset($_GET['matchId']))
                 <?php
                         if ($matchID==-1){
                             echo "<div class='col-md-12''>";
-                            echo "<button type='submit' class='btn btn-primary'>บันทึกข้อมูลเต่า</button>";
+                            echo "<button type='submit' class='btn btn-primary' id='submitData'>บันทึกข้อมูลเต่า</button>";
                             echo " </div>";
                             
                         }else{
                             echo "<div class='col-md-6''>";
-                            echo "<button type='submit' class='btn btn-primary'>บันทึกข้อมูลเต่า</button>";
+                            echo "<button type='submit' class='btn btn-primary' id='submitData'>บันทึกข้อมูลเต่า</button>";
                             echo " </div>";
                              echo "<div class='col-md-6''>";
                             echo "<div class='fb-share-button' data-href='https://studioxpert.com/turtleMatchingApp/' data-layout='button' data-size='large' data-mobile-iframe='true''><a target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse' class='fb-xfbml-parse-ignore'>แชร์ไปที่ Facebook</a></div>";
@@ -562,7 +562,7 @@ if(isset($_GET['matchId']))
               xhr.upload.onprogress = function (e) {
                   var percent = '0';
                   var percentage = '0%';
-
+                  $('#submitData').disabled = true;
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
@@ -576,6 +576,7 @@ if(isset($_GET['matchId']))
               success: function () {
                // $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
+                   $('#submitData').disabled = false;
               },
 
               error: function () {
@@ -693,7 +694,7 @@ if(isset($_GET['matchId']))
               xhr.upload.onprogress = function (e) {
                   var percent = '0';
                   var percentage = '0%';
-
+ $('#submitData').disabled = true;
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
@@ -707,6 +708,7 @@ if(isset($_GET['matchId']))
               success: function () {
                // $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
+                   $('#submitData').disabled = false;
               },
 
               error: function () {
@@ -835,7 +837,7 @@ if(isset($_GET['matchId']))
               xhr.upload.onprogress = function (e) {
                   var percent = '0';
                   var percentage = '0%';
-
+ $('#submitData').disabled = true;
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
@@ -850,6 +852,7 @@ if(isset($_GET['matchId']))
                // $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
                     $('#search').removeAttr('disabled');
+                   $('#submitData').disabled = true;
               },
 
               error: function () {
