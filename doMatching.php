@@ -26,9 +26,11 @@
         
         $sql = "INSERT INTO matching (users_id, match_file, match_input, match_pid, match_lat, match_lng) VALUES ('".$_SESSION['user_id']."','".$outputFile."','".$filename."','".$PID."', '".$lat."', '".$lng."')";
         
+        echo $sql;
+        
         if (mysqli_query($conn, $sql)) {
             //echo $PID;
-            header('Location: ongoing.php');
+           // header('Location: ongoing.php');
         }else{
             
         echo "Error: " . $sql . "<br>" . $conn->error;
