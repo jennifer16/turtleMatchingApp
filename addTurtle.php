@@ -785,7 +785,7 @@ if(isset($_GET['matchId']))
         });
           
           var contData = cropper.getContainerData(); //Get container data
-        cropper.setCropBoxData({ height: contData.height, width: contData.width  }) /
+        cropper.setCropBoxData({ height: contData.height, width: contData.width  }); /
             
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
