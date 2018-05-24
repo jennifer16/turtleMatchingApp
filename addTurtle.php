@@ -798,7 +798,7 @@ if(isset($_GET['matchId']))
         labelProfile.innerHTML = "กรุณารอสักครู่ กำลังตัดแบ่งส่วนภาพ...";
         $modal.modal('hide');
 
-/
+
         if (cropper) {
           canvas = cropper.getCroppedCanvas({
           });
