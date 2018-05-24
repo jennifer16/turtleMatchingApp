@@ -24,7 +24,7 @@
         echo "Running";
         
         
-        $sql = "INSERT INTO matching (users_id, match_file, match_input, match_pid, match_lat, match_lng) VALUES ('".$_SESSION['user_id']."','".$outputFile."','".$filename."','".$PID."', '".$lat."', '".$lng."'")";
+        $sql = "INSERT INTO matching (users_id, match_file, match_input, match_pid, match_lat, match_lng) VALUES ('".$_SESSION['user_id']."','".$outputFile."','".$filename."','".$PID."', '".$lat."', '".$lng."')";
         
         if (mysqli_query($conn, $sql)) {
             //echo $PID;
