@@ -17,7 +17,7 @@
   $turtleID = $_POST['turtleID'];
 
       
-$sql = "UPDATE turtle SET turtle_name='".$turtleName."', turtle_left='".$leftFile."', turtle_right='".$rightFile."', turtle_profile='".$profileFile."', turtle_age_moth='".$ageMonth."', turtle_age_year='".$ageYear."',turtle_microchip_code='".$microchipCode."', turtle_microchip_pos='".$microchipPos."', turtle_tag_code='".$tagCode."', turtle_tag_pos='".$tagPos."' WHERE turtle_id='".$turtleID."'";
+$sql = "UPDATE turtle SET turtle_name='".$turtleName."', turtle_left='".$leftFile."', turtle_right='".$rightFile."', turtle_profile='".$profileFile."', turtle_age_moth='".$ageMonth."',turtle_microchip_code='".$microchipCode."', turtle_microchip_pos='".$microchipPos."', turtle_tag_code='".$tagCode."', turtle_tag_pos='".$tagPos."' WHERE turtle_id='".$turtleID."'";
 
 if (mysqli_query($conn, $sql)) {
 
