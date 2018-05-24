@@ -4,6 +4,8 @@
 	
 	$filename = $_POST['filename'];
 	$side = $_POST['side'];
+    $lat = $_POST['latitude'];
+    $lng = $_POST['longitude'];
 
     $path_parts = pathinfo($filename);
     $exactName = $path_parts['filename'];
@@ -22,7 +24,7 @@
         echo "Running";
         
         
-        $sql = "INSERT INTO matching (users_id, match_file, match_input, match_pid) VALUES ('".$_SESSION['user_id']."','".$outputFile."','".$filename."','".$PID."')";
+        $sql = "INSERT INTO matching (users_id, match_file, match_input, match_pid, match_lat, match_lng) VALUES ('".$_SESSION['user_id']."','".$outputFile."','".$filename."','".$PID."', '".$lat."', '".$lng."'")";
         
         if (mysqli_query($conn, $sql)) {
             //echo $PID;

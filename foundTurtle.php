@@ -18,6 +18,8 @@ $matchSQL="select * from matching where id='".$matchId."'";
 $matchResult = mysqli_query($conn, $matchSQL);
 $matchData = $matchResult->fetch_assoc();
 $matchPic = './Input/'.$matchData['match_input'];
+$matchLat = $matchData['match_lat'];
+$matchLng = $matchData['match_lng'];
 
 ?>
 <html lang="en">
@@ -230,11 +232,11 @@ $matchPic = './Input/'.$matchData['match_input'];
                 <div class="row">
                     <div class="col-md-6">
                     <label for="latitude">ละติจูด</label>
-                    <input type="text" class="form-control" id="latitude" name="latitude" placeholder="0.00">
+                    <input type="text" class="form-control" id="latitude" name="latitude" placeholder="0.00" value='<?php echo $matchLat; ?>'>
                         </div>
                         <div class="col-md-6">
                     <label for="latitude">ลองจิจูด</label>
-                    <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
+                    <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00" value='<?php echo $matchLng; ?>'>
                         </div>
                     <br>
                 </div><br>
