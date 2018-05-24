@@ -195,7 +195,7 @@ if( !isset($_SESSION["user_id"]) ){
 				            continue;
                     $words = explode(",", $line);
                     
-                    if( (float)$words[1] > 50 )
+                    if( (float)$words[1] > -1 )
                     {
               
                             echo "<div class=\"modal fade\" id=\"modal-large-".$turtleId."\" tabindex=\"-1\">";

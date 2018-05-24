@@ -151,7 +151,7 @@ if( !isset($_SESSION["user_id"]) ){
                                     $resultTurtleNature = mysqli_query($conn,$sqlTurtleNature);
                                     echo "<h2>".mysqli_num_rows($resultTurtleNature)."</h2>";
                                 ?>
-                                <small>เต่าที่พบในธรรมชาติ</small>
+                                <small>รายงานการพบเต่า</small>
                             </div>
                         </div>
                     </div>
