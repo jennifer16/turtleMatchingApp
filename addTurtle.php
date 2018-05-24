@@ -742,7 +742,7 @@ if(isset($_GET['matchId']))
           image.src = url;
           $alert.hide();
           $modal.modal('show');
-          cropper = = new Cropper(image, {
+          cropper = new Cropper(image, {
                 viewMode: 3,
           
           });
