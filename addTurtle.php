@@ -777,19 +777,8 @@ if(isset($_GET['matchId']))
       $modal.on('shown.bs.modal', function (avatar) {
         cropper = new Cropper(image, {
           viewMode: 3,
-          strict: false,
           copBoxResizable: false
-          built: function(){
-            var container = $(this).cropper('getContainerData');
-            var cropBoxWidth = 669;
-            var cropBoxHeight = 226;
-            
-            $(this).cropper('setCropBoxData', {
-            
-                width:cropBoxWidth,
-                height:cropBoxHeight
-        });
-        }
+        
         });
           
             
