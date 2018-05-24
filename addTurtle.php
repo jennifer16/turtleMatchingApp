@@ -774,9 +774,15 @@ if(isset($_GET['matchId']))
         }
       });
 
-      $modal.on('shown.bs.modal', function () {
+      $modal.on('shown.bs.modal', function (avatar) {
         cropper = new Cropper(image, {
           viewMode: 3,
+             aspectRatio: 16 / 9,
+  crop: function(e) {
+    console.log(e.detail.width);
+    console.log(e.detail.height);
+
+  }
         });
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
