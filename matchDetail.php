@@ -236,8 +236,7 @@ if( !isset($_SESSION["user_id"]) ){
 ?>
                 <br>
             <?php 
-                if($count==0)
-                {
+                
                     echo "<div class='row' align='center'>";
                     echo "<div class='col-12'>";
             
@@ -246,7 +245,7 @@ if( !isset($_SESSION["user_id"]) ){
                     echo "</div>";
                     echo "</div>";
                     
-                }
+                
             ?>
                      
             </div>
