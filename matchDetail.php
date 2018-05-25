@@ -240,8 +240,7 @@ if( !isset($_SESSION["user_id"]) ){
                 
                     echo "<div class='row' align='center'>";
                     echo "<div class='col-12'>";
-            
-                    echo "<h5>-- ไม่มีเต่าที่มีระดับความเหมือนมากกว่า 50 % --</h5><br>";
+
                     echo "<button type='button' class='btn btn-warning' onclick='addTurtle(".$id.");'>รายงานเป็นการพบเต่าตัวใหม่</button>";
                     echo "</div>";
                     echo "</div>";
