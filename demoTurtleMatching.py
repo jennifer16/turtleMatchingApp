@@ -38,9 +38,11 @@ connection = MySQLdb.connect( host="127.0.0.1", user="root", passwd="Tu2tlem@tch
 cursor = connection.cursor()
 cursor.execute("select * from turtle")
 data = cursor.fetchall()
+templateIdList = []
 templateNameList = []
 templateFileList = []
 for row in data:
+	templateIdList.append(row[0]);
 	templateNameList.append(row[1]);
 	if side == 'LEFT':
 		templateFileList.append(row[2]);
@@ -73,7 +75,7 @@ rightScore=[]
 rightOutName = []
 for index in range(len(templateFileList)):
 	if side == 'LEFT':
-		realInputName = fileName
+		realInputName = templateIdList[index]
 		realNameTemplate = templateNameList[index]
 		#	compare with left face
 		leftFaceName = templateFileList[index]
@@ -96,7 +98,7 @@ for index in range(len(templateFileList)):
 			break
 	
 	if side == 'RIGHT':
-		realInputName = fileName
+		realInputName = templateIdList[index]
 		realNameTemplate = templateNameList[index]
 		#	compare with left face
 		rightFaceName = templateFileList[index]
@@ -124,10 +126,10 @@ rightIndex = sorted(range(len(rightScore)),key=lambda x:rightScore[x])[::-1]
 if side == 'LEFT':
 	for index in leftIndex:
 		leftPercent = leftScore[index]
-		print "$"+ templateNameList[index]+","+ str(leftPercent) + ",LEFT,"+leftOutName[index]	
+		print "$"+ templateIdList[index]+","+ str(leftPercent) + ",LEFT,"+leftOutName[index]	
 
 if side == 'RIGHT':
 	for index in rightIndex:
 		rightPercent = rightScore[index]
-		print "$"+ templateNameList[index]+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]
+		print "$"+ templateIdList[index]+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]
 	

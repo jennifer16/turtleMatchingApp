@@ -157,7 +157,7 @@ if( !isset($_SESSION["user_id"]) ){
                     {
                         $count+=1;
                      
-                    $sqlTurtle = "select * from turtle where turtle_name='".substr($words[0],1)."'";
+                    $sqlTurtle = "select * from turtle where turtle_id='".substr($words[0],1)."'";
                     $resultTurtle = mysqli_query($conn, $sqlTurtle);
                     $rowTurtle = $resultTurtle->fetch_assoc();
                     $turtleId = $rowTurtle['turtle_id'];
@@ -197,10 +197,11 @@ if( !isset($_SESSION["user_id"]) ){
                     
                     if( (float)$words[1] > -1 )
                     {
-                         $sqlTurtle = "select * from turtle where turtle_name='".substr($words[0],1)."'";
+                         $sqlTurtle = "select * from turtle where turtle_id='".substr($words[0],1)."'";
                     $resultTurtle = mysqli_query($conn, $sqlTurtle);
                     $rowTurtle = $resultTurtle->fetch_assoc();
                     $turtleId = $rowTurtle['turtle_id'];
+                    $turtlename = $rowTurtle['turtle_name'];
                     $turtleProfile = $rowTurtle['turtle_profile'];
                         $turtleMicro = $rowTurtle['turtle_microchip_code'];
                         $turtleTag = $rowTurtle['turtle_tag_code'];
@@ -217,7 +218,7 @@ if( !isset($_SESSION["user_id"]) ){
                             echo "<div class='container'>";
                             echo "<img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ><br>";
                             echo "<hr><ul>";
-                            echo "<li><label><b>ชื่อ: </b>".substr($words[0],1)."</label></li>";
+                            echo "<li><label><b>ชื่อ: </b>".$turtlename."</label></li>";
                             echo "<li><label><b>รหัสไมโครชิพ: </b>".$turtleMicro."</label></li>";
                             echo "<li><label><b>TAG: </b>".$turtleMicro."</label></li>";
                             echo "</ul>";
