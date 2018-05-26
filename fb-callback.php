@@ -69,7 +69,7 @@ if (! $accessToken->isLongLived()) {
 }
 
 $_SESSION['fb_access_token'] = (string) $accessToken;
-
+echo $_SESSION['fb_access_token'];
 
 $json = file_get_contents("https://graph.facebook.com/me?fields=id,first_name,last_name,picture,email&access_token=".$accessToken->getValue());
 $obj = json_decode($json);
@@ -98,7 +98,7 @@ if($conn->connect_error){
         $_SESSION['user_role'] = $row['user_role'];
         
     
-		header('Location: index.php');
+		//header('Location: index.php');
 	}
 	else{
 		header('Location: register.php');
