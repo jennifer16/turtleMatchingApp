@@ -61,7 +61,7 @@ side = sys.argv[2]
 
 fileExt = inputName.rpartition(".")[-1]
 fileName = inputName.rpartition(".")[-3]
-useThisFileName = filename;
+useThisFileName = fileName;
 
 fileInputName = ''
 
