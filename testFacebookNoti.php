@@ -12,7 +12,7 @@ $fb = new \Facebook\Facebook([
 $helper = $fb->getCanvasHelper();
 $permissions = []; // optionnal
 
-$fb->setDefaultAccessToken($_SESSION['fb_access_token']);
+$fb->setDefaultAccessToken((string)$_SESSION['fb_access_token']);
 
 	// validating the access token
 	try {
