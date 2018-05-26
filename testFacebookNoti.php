@@ -53,9 +53,8 @@ $fb->setDefaultAccessToken((string)$_SESSION['fb_access_token']);
 	}
 
 	// sending notification to user
-	$sendNotif = $fb->post('/' . $profile['id'] . '/notifications?', array('template' => 'click here for more information!'), $fb->getApp()->getAccessToken());
+	$sendNotif = $fb->post('/' . $profile['id'] . '/notifications/', array('template' => 'click here for more information!'), $fb->getApp()->getAccessToken());
 
 
-$post = $fb->post('/' . $profile['id'] . '/notifications/',  array( 'access_token' => $fb->getApp()->getAccessToken(), 'href' => "https://studioxpert.com/turtleMatchingApp/",  'template' => 'Max 180 characters','ref' => 'Notification sent '.date("Y-m-d G:i:s") )); 
 
 ?>
