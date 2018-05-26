@@ -117,7 +117,7 @@ rightScore=[]
 rightOutName = []
 for index in range(len(templateFileList)):
 	if side == 'LEFT':
-		realInputName = str(templateIdList[index])
+		realInputName = fileInputName
 		realNameTemplate = templateFileList[index].rpartition(".")[-3].rpartition("/")[-1]
 		#	compare with left face
 		leftFaceName = templateFileList[index]
@@ -142,7 +142,7 @@ for index in range(len(templateFileList)):
 			break
 	
 	if side == 'RIGHT':
-		realInputName = str(templateIdList[index])
+		realInputName = fileInputName
 		realNameTemplate = templateFileList[index].rpartition(".")[-3].rpartition("/")[-1]
 		#	compare with left face
 		rightFaceName = templateFileList[index]
