@@ -61,6 +61,7 @@ side = sys.argv[2]
 
 fileExt = inputName.rpartition(".")[-1]
 fileName = inputName.rpartition(".")[-3]
+useThisFileName = filename;
 
 fileInputName = ''
 
@@ -117,7 +118,7 @@ rightScore=[]
 rightOutName = []
 for index in range(len(templateFileList)):
 	if side == 'LEFT':
-		realInputName = fileInputName
+		realInputName = useThisFileName
 		realNameTemplate = templateFileList[index].rpartition(".")[-3].rpartition("/")[-1]
 		#	compare with left face
 		leftFaceName = templateFileList[index]
@@ -142,7 +143,7 @@ for index in range(len(templateFileList)):
 			break
 	
 	if side == 'RIGHT':
-		realInputName = fileInputName
+		realInputName = useThisFileName
 		realNameTemplate = templateFileList[index].rpartition(".")[-3].rpartition("/")[-1]
 		#	compare with left face
 		rightFaceName = templateFileList[index]
