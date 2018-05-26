@@ -220,7 +220,7 @@ if( !isset($_SESSION["user_id"]) ){
                             echo "<hr><ul>";
                             echo "<li><label><b>ชื่อ: </b>".$turtlename."</label></li>";
                             echo "<li><label><b>รหัสไมโครชิพ: </b>".$turtleMicro."</label></li>";
-                            echo "<li><label><b>TAG: </b>".$turtleMicro."</label></li>";
+                            echo "<li><label><b>TAG: </b>".$turtleTag."</label></li>";
                             echo "</ul>";
                             echo "</div>";
                             echo "</div>";
