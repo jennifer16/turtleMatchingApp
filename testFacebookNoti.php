@@ -29,6 +29,7 @@ try {
  }
 
 if (isset($accessToken)) {
+    echo "here";
 	if (isset($_SESSION['facebook_access_token'])) {
 		$fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
 	} else {
@@ -45,6 +46,7 @@ if (isset($accessToken)) {
 		$request = $fb->get('/me');
         echo "pass validate";
 	} catch(Facebook\Exceptions\FacebookResponseException $e) {
+        echo "error found"
 		// When Graph returns an error
 		if ($e->getCode() == 190) {
 			unset($_SESSION['facebook_access_token']);
