@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/Facebook/autoload.php'; // change path as needed
+echo $_SESSION['user_id'];
 echo $_SESSION['fb_access_token'];
 $fb = new \Facebook\Facebook([
   'app_id' => '161713021336907',
