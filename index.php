@@ -6,7 +6,6 @@ if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
 
-echo $_SESSION['fb_access_token'];
 ?>
 <html lang="en">
     <head>
