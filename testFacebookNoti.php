@@ -53,7 +53,7 @@ $fb->setDefaultAccessToken($_SESSION['fb_access_token']);
 	}
 
 	// sending notification to user
-	$sendNotif = $fb->post('/' . $profile['id'] . '/notifications', array('href' => '?true=43', 'template' => 'click here for more information!'), $fb->getApp()->getAccessToken());
+	$sendNotif = $fb->post('/' . $profile['id'] . '/notifications', array('template' => 'click here for more information!'), $fb->getApp()->getAccessToken());
 
     echo $sendNotif->getMessage();
 
