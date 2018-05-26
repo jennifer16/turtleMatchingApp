@@ -77,6 +77,7 @@ if (isset($accessToken)) {
 	}
 	// sending notification to user
 	$sendNotif = $fb->post('/' . $profile['id'] . '/notifications', array('href' => '?true=43', 'template' => 'click here for more information!'), $fb->getApp()->getAccessToken());
-  	// Now you can redirect to another page and use the access token from $_SESSION['fb_access_token']
+    
+    echo "sending";  	// Now you can redirect to another page and use the access token from $_SESSION['fb_access_token']
 }
 ?>
