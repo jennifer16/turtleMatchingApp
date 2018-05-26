@@ -46,7 +46,7 @@ if (isset($accessToken)) {
 		$request = $fb->get('/me');
         echo "pass validate";
 	} catch(Facebook\Exceptions\FacebookResponseException $e) {
-        echo "error found"
+        echo "error found";
 		// When Graph returns an error
 		if ($e->getCode() == 190) {
 			unset($_SESSION['facebook_access_token']);
