@@ -28,7 +28,7 @@ try {
   	exit;
  }
 
-if (isset($accessToken)) {
+
     echo "here";
 	if (isset($_SESSION['facebook_access_token'])) {
 		$fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
@@ -61,7 +61,7 @@ if (isset($accessToken)) {
 		exit;
 	}
 	
-}
+
 
 
 
