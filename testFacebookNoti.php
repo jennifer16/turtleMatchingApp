@@ -17,6 +17,7 @@ $fb->setDefaultAccessToken($_SESSION['fb_access_token']);
 	// validating the access token
 	try {
 		$request = $fb->get('/me');
+        echo "pass validate";
 	} catch(Facebook\Exceptions\FacebookResponseException $e) {
 		// When Graph returns an error
 		if ($e->getCode() == 190) {
@@ -32,4 +33,22 @@ $fb->setDefaultAccessToken($_SESSION['fb_access_token']);
 		exit;
 	}
 
+
+// getting basic info about user
+	try {
+		$profile_request = $fb->get('/me?fields=name,first_name,last_name,email');
+		$profile = $profile_request->getGraphNode()->asArray();
+        
+        echo $profile['id'];
+	} catch(Facebook\Exceptions\FacebookResponseException $e) {
+		// When Graph returns an error
+		echo 'Graph returned an error: ' . $e->getMessage();
+		unset($_SESSION['facebook_access_token']);
+		echo "<script>window.top.location.href='https://apps.facebook.com/APP_NAMESPACE/'</script>";
+		exit;
+	} catch(Facebook\Exceptions\FacebookSDKException $e) {
+		// When validation fails or other local issues
+		echo 'Facebook SDK returned an error: ' . $e->getMessage();
+		exit;
+	}
 ?>
