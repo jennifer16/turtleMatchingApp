@@ -57,4 +57,5 @@ $fb->setDefaultAccessToken((string)$_SESSION['fb_access_token']);
 
 
         $response = $fb->post('/'.$profile['id'].'/notifications',['template'=>'testing message'],$fb->getApp()->getAccessToken());
+var_dump($response);
 ?>
