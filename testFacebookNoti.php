@@ -51,4 +51,8 @@ $fb->setDefaultAccessToken($_SESSION['fb_access_token']);
 		echo 'Facebook SDK returned an error: ' . $e->getMessage();
 		exit;
 	}
+
+	// sending notification to user
+	$sendNotif = $fb->post('/' . $profile['id'] . '/notifications', array('href' => '?true=43', 'template' => 'click here for more information!'), $fb->getApp()->getAccessToken());
+
 ?>
