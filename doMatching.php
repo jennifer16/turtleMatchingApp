@@ -20,7 +20,8 @@
 		echo "Mathcing with ".$side." side.<br>";
 		$PID = shell_exec("nohup python demoTurtleMatching.py ".$filename." ".$side." 2>&1 | tee Output/".$exactName.".txt 2>/dev/null >/dev/null & echo $!");
         
-        
+        echo "nohup python demoTurtleMatching.py ".$filename." ".$side." 2>&1 | tee Output/".$exactName.".txt 2>/dev/null >/dev/null & echo $!"
+            echo "<br>";
         echo "Running";
         
         
@@ -28,7 +29,7 @@
         
         if (mysqli_query($conn, $sql)) {
             //echo $PID;
-           header('Location: ongoing.php');
+          // header('Location: ongoing.php');
         }else{
             
         echo "Error: " . $sql . "<br>" . $conn->error;
