@@ -13,7 +13,6 @@ import cumulative_histogram as ch
 import MySQLdb
 
 def histogram_match( inputName, templateName):
-	print inputName, templateName
 	img = cv2.imread(inputName, cv2.IMREAD_GRAYSCALE)
 	img_ref = cv2.imread(templateName, cv2.IMREAD_GRAYSCALE)
 
@@ -128,6 +127,8 @@ for index in range(len(templateFileList)):
 		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 		leftOutName.append(outputVName)
+		
+		histogram_match( fileInputName, templateFileList[index])
 		command_line = "./demo_ASIFT"+" "+leftFaceName+" ./Input/hist_matched.PNG "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
         	args = shlex.split(command_line)
@@ -151,6 +152,8 @@ for index in range(len(templateFileList)):
 		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 		rightOutName.append(outputVName)
+		
+		histogram_match( fileInputName, templateFileList[index])
 		command_line = "./demo_ASIFT"+" "+rightFaceName+" ./Input/hist_matched.PNG "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
 		args = shlex.split(command_line)
