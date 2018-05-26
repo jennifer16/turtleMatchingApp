@@ -56,11 +56,6 @@ $fb->setDefaultAccessToken($_SESSION['fb_access_token']);
 	$sendNotif = $fb->post('/' . $profile['id'] . '/notifications?', array('template' => 'click here for more information!'), $fb->getApp()->getAccessToken());
 
 
-$post = $fb->api('/' . $profile['uid'] . '/notifications/', 'POST/v2.2/',  array(
-      'access_token' => 161713021336907.'|'.e4dbd79e0e6da4d75019803b487214d2,
-      'href' => "https://studioxpert.com/turtleMatchingApp/",  //this does link to the app's root, don't think this actually works, seems to link to the app's canvas page
-      'template' => 'Max 180 characters',
-      'ref' => 'Notification sent '.date("Y-m-d G:i:s") //this is for Facebook's insight
-    )); 
+$post = $fb->api('/' . $profile['uid'] . '/notifications/', 'POST/v2.2/',  array( 'access_token' => 161713021336907.'|'.e4dbd79e0e6da4d75019803b487214d2, 'href' => "https://studioxpert.com/turtleMatchingApp/",  'template' => 'Max 180 characters','ref' => 'Notification sent '.date("Y-m-d G:i:s") )); 
 
 ?>
