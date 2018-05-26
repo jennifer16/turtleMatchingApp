@@ -11,5 +11,5 @@ $fb = new \Facebook\Facebook([
 
     $fb->setDefaultAccessToken($_SESSION['fb_access_token']);
 	// sending notification to user
-	$sendNotif = $fb->post('/' . $_SESSION['user_id'] . '/notifications', array('href' => '?true=43', 'template' => 'click here for more information!'), $_SESSION['fb_access_token']);
+	$sendNotif = $fb->post('/' . $_SESSION['user_id'] . '/notifications', array('href' => '?true=43', 'template' => 'click here for more information!'), $fb->getApp()->getAccessToken());
 ?>
