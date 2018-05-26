@@ -13,6 +13,7 @@ import cumulative_histogram as ch
 import MySQLdb
 
 def histogram_match( inputName, templateName):
+	print inputName, templateName
 	img = cv2.imread(inputName, cv2.IMREAD_GRAYSCALE)
 	img_ref = cv2.imread(templateName, cv2.IMREAD_GRAYSCALE)
 
@@ -51,7 +52,7 @@ def histogram_match( inputName, templateName):
         	b = new_values[a]
         	img.itemset((i,j), b)
 
-	cv2.imwrite('./Input/hist_matched.jpg', img)
+	cv2.imwrite('./Input/hist_matched.PNG', img)
 
 
 #   input name
@@ -127,7 +128,7 @@ for index in range(len(templateFileList)):
 		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 		leftOutName.append(outputVName)
-		command_line = "./demo_ASIFT"+" "+leftFaceName+" ./Input/hist_matched.jpg "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
+		command_line = "./demo_ASIFT"+" "+leftFaceName+" ./Input/hist_matched.PNG "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
         	args = shlex.split(command_line)
 		p = subprocess.Popen(args)
@@ -150,7 +151,7 @@ for index in range(len(templateFileList)):
 		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 		rightOutName.append(outputVName)
-		command_line = "./demo_ASIFT"+" "+rightFaceName+" ./Input/hist_matched.jpg "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
+		command_line = "./demo_ASIFT"+" "+rightFaceName+" ./Input/hist_matched.PNG "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
 		args = shlex.split(command_line)
 		p = subprocess.Popen(args)
