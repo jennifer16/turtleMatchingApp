@@ -358,6 +358,7 @@ if( !isset($_SESSION["user_id"]) ){
     ORDER BY
     found.found_date DESC";
     $mapResult = mysqli_query($conn, $sqlMap);
+    $mapResult1 = mysqli_query($conn,$sqlMap);
 ?>
 function myMap() {
     var x = document.getElementById("map");
@@ -373,12 +374,19 @@ function myMap() {
 
 <?php 
     
+    $i=0;
+    while($row=$mapResult1->fetch_assoc() && $i<$numPrint)
+    {
+        echo "printAddress(".$row['found_id'].",".$row['found_lat'],",".$row['found_lng'].");\n\n";
+        $i=$i+1;
+        
+    }
+    
     $numLoc = mysqli_num_rows($mapResult);
    
     if($numLoc > 0)
     {
-        if($numLoc < $numPrint)
-            echo "printAddress(".$row['found_id'].",".$row['found_lat'],",".$row['found_lng'].");\n\n";
+        
         
         echo "var locations = [";
         $numRow = 1;
