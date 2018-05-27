@@ -216,8 +216,8 @@ if( !isset($_SESSION["user_id"]) ){
                                         echo "<label>ยังไม่มีการพบเต่า</label>" ;
                                     }
                                     else{
-                                    $num=1;
-                                    while($num<=$numFound && $num<=4)
+                                    $numPrint=1;
+                                    while($numPrint<=$numFound && $numPrint<=4)
                                     {
                                         $row = $lastResult->fetch_assoc();
                                         
@@ -255,7 +255,7 @@ if( !isset($_SESSION["user_id"]) ){
                                         </div>
                                     </div>
                              <?php
-                                        $num=$num+1;
+                                        $numPrint=$numPrint+1;
                                     }
                                         
                                     }
@@ -377,7 +377,9 @@ function myMap() {
    
     if($numLoc > 0)
     {
-        echo "printAddress(".$row['found_id'].",".$row['found_lat'],",".$row['found_lng'].")";
+        if($numLoc < $numPrint)
+            echo "printAddress(".$row['found_id'].",".$row['found_lat'],",".$row['found_lng'].");\n\n";
+        
         echo "var locations = [";
         $numRow = 1;
         while($row=$mapResult->fetch_assoc())
