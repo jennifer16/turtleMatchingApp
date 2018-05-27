@@ -144,6 +144,8 @@ $row = $data->fetch_assoc();
                 </div>
               <!-- /.card-header -->
               <!-- form start --> 
+                <div class="row">
+                    <div class="col-md-4">
                 <!-- left side image -->
                  <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านซ้าย<br>
@@ -174,7 +176,8 @@ $row = $data->fetch_assoc();
       </div>
     </div>
   </div>
-                 <hr>
+                </div>
+                    <div class="col-md-4">
                  <!-- right side image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านขวา<br>
@@ -205,7 +208,9 @@ $row = $data->fetch_assoc();
       </div>
     </div>
   </div>
-<hr>
+                        </div>
+
+                        <div class="col-md-4">
                                   <!-- turtle profile image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
@@ -236,7 +241,9 @@ $row = $data->fetch_assoc();
       </div>
     </div>
   </div>
-<hr>
+                    </div>
+                </div>
+
               <form role="form" action = "doEditTurtleDetail.php" method = "POST" enctype = "multipart/form-data">
                         <input type="text" name="filenameLeft" id="filenameLeft" value='<?php echo $row['turtle_left']; ?>' hidden>
                    <input type="text" name="filenameRight" id="filenameRight"  value='<?php echo $row['turtle_right']; ?>'  hidden>
