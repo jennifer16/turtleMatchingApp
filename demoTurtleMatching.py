@@ -146,7 +146,7 @@ for index in range(len(templateFileList)):
 				leftScore.append(score)
 				count=count+1
 			
-			elif count==2
+			elif count==2:
 				score = line.strip()
 				score = float(score)
 				leftRawScore.append(score)
