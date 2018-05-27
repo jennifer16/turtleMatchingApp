@@ -158,7 +158,7 @@ $row = $data->fetch_assoc();
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">เลือกส่วนเกล็ดบนใบหน้าเต่า</h5>
+            <h5 class="modal-title" id="modalLabelLeft">เลือกส่วนเกล็ดบนใบหน้าเต่า</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -190,7 +190,7 @@ $row = $data->fetch_assoc();
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">เลือกส่วนเกล็ดบนใบหน้าเต่า</h5>
+            <h5 class="modal-title" id="modalLabelRight">เลือกส่วนเกล็ดบนใบหน้าเต่า</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -223,7 +223,7 @@ $row = $data->fetch_assoc();
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalLabel">เลือกส่วนของภาพที่ต้องการ</h5>
+            <h5 class="modal-title" id="modalLabelProfile">เลือกส่วนของภาพที่ต้องการ</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
