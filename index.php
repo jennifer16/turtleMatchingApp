@@ -375,10 +375,14 @@ function myMap() {
 <?php 
     
     $i=0;
-    while($row=$mapResult1->fetch_assoc() && $i<$numPrint)
+    while($row=$mapResult1->fetch_assoc())
     {
+        if ($i < $numPrint){
         echo "printAddress(".$row['found_id'].",".$row['found_lat'],",".$row['found_lng'].");\n\n";
         $i=$i+1;
+        }else{
+            break;
+        }
         
     }
     
