@@ -260,13 +260,12 @@ $row = $data->fetch_assoc();
                         </div>
                     </div><br>
                                     <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                     <label for="turtleType">ชนิดเต่า</label>
                     <input type="text" class="form-control" id="turleType" name="turtleType" placeholder="ชนิดของเต่า" value='<?php echo $row['turtle_type'];?>' >
                     </div>
-                </div> <br>
-                <div class="row">
-                    <div class="col-md-12">
+               
+                    <div class="col-md-6">
                     <label for="ageMonth">อายุ ณ วันที่บันทึกข้อมูล (เดือน)</label>
                     <input type="text" class="form-control" id="ageMonth" name="ageMonth" placeholder="0" value='<?php echo $row['turtle_age_moth'];?>'>
                         </div>
@@ -283,11 +282,11 @@ $row = $data->fetch_assoc();
                     </div>
                 </div> <br>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-8">
                     <label for="latitude">รหัสแท็กสแตนเลส</label>
                     <input type="text" class="form-control" id="tagCode" name="tagCode" placeholder="รหัสอุปกรณ์แทกสแตนเลส" value='<?php echo $row['turtle_tag_pos'];?>'>
                     </div>
-                     <div class="col-md-6">
+                     <div class="col-md-4">
                     <label for="latitude">ตำแหน่งแทกสแตนเลส</label>
                     <input type="text" class="form-control" id="tagPos"  name="tagPos" placeholder="ตำแหน่งติดตั้งแทกสแตนเลส"  value='<?php echo $row['turtle_tag_pos']; ?>' >
                     </div>
