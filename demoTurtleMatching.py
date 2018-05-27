@@ -131,8 +131,8 @@ for index in range(len(templateFileList)):
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 		leftOutName.append(outputVName)
 		
-		histogram_match( fileInputName, templateFileList[index])
-		command_line = "./demo_ASIFT"+" "+leftFaceName+" ./Input/hist_matched.PNG "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
+		#histogram_match( fileInputName, templateFileList[index])
+		command_line = "./demo_ASIFT"+" "+leftFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
         	args = shlex.split(command_line)
 		p = subprocess.Popen(args)
@@ -166,8 +166,8 @@ for index in range(len(templateFileList)):
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 		rightOutName.append(outputVName)
 		
-		histogram_match( fileInputName, templateFileList[index])
-		command_line = "./demo_ASIFT"+" "+rightFaceName+" ./Input/hist_matched.PNG "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
+		#histogram_match( fileInputName, templateFileList[index])
+		command_line = "./demo_ASIFT"+" "+rightFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
 		args = shlex.split(command_line)
 		p = subprocess.Popen(args)

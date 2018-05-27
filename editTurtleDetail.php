@@ -259,14 +259,11 @@ $row = $data->fetch_assoc();
                     </div>
                 </div> <br>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                     <label for="ageMonth">อายุ ณ วันที่บันทึกข้อมูล (เดือน)</label>
                     <input type="text" class="form-control" id="ageMonth" name="ageMonth" placeholder="0" value='<?php echo $row['turtle_age_moth'];?>'>
                         </div>
-                        <div class="col-md-6">
-                    <label for="ageYear">อายุ ณ วันที่บันทึกข้อมูล (ปี)</label>
-                        <input type="text" class="form-control" id="ageYear" name="ageYear" placeholder="0" value='<?php echo $row['turtle_age_year'];?>'>
-                        </div>
+                        
                   </div> <br>
                 <div class="row">
                     <div class="col-md-8">
