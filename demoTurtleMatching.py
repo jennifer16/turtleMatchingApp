@@ -114,8 +114,10 @@ for i in range(len(templateFileList)):
 #	calculate matching score for left and right template
 leftScore=[]
 leftOutName = []
+leftRawScore=[]
 rightScore=[]
 rightOutName = []
+rightRawScore=[]
 for index in range(len(templateFileList)):
 	if side == 'LEFT':
 		realInputName = useThisFileName
@@ -136,11 +138,21 @@ for index in range(len(templateFileList)):
 		p = subprocess.Popen(args)
 		p.wait()
 		scoreFile = open(outputMatchingName)
+		count=1
 		for line in scoreFile:
-			score = line.strip()
-			score = float(score)
-			leftScore.append(score)
-			break
+			if count==1:
+				score = line.strip()
+				score = float(score)
+				leftScore.append(score)
+				count=count+1
+			
+			elif count==2
+				score = line.strip()
+				score = float(score)
+				leftRawScore.append(score)
+				count=count+1
+			else:
+				break
 	
 	if side == 'RIGHT':
 		realInputName = useThisFileName
@@ -161,22 +173,33 @@ for index in range(len(templateFileList)):
 		p = subprocess.Popen(args)
 		p.wait()
 		scoreFile = open(outputMatchingName)
+		count=1
 		for line in scoreFile:
-			score = line.strip()
-			score = float(score)
-			rightScore.append(score)
-			break
+			if count==1:
+				score = line.strip()
+				score = float(score)
+				rightScore.append(score)
+				count=count+1
+			elif count==2:
+				score = line.strip()
+				score = float(score)
+				rightRawScore.append(score)
+				count=count+1
+			else:
+				break
 
 #	list score and print
-leftIndex = sorted(range(len(leftScore)),key=lambda x:leftScore[x])[::-1]
-rightIndex = sorted(range(len(rightScore)),key=lambda x:rightScore[x])[::-1]
+leftIndex = sorted(range(len(leftRawScore)),key=lambda x:leftRawScore[x])[::-1]
+rightIndex = sorted(range(len(rightRawScore)),key=lambda x:rightRawScore[x])[::-1]
 if side == 'LEFT':
 	for index in leftIndex:
 		leftPercent = leftScore[index]
-		print "$"+ str(templateIdList[index])+","+ str(leftPercent) + ",LEFT,"+leftOutName[index]	
+		leftScore = leftRawScore[index]
+		print "$"+ str(templateIdList[index])+","+ str(leftPercent) + ",LEFT,"+leftOutName[index]+","+str(leftScore)	
 
 if side == 'RIGHT':
 	for index in rightIndex:
 		rightPercent = rightScore[index]
-		print "$"+ str(templateIdList[index])+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]
+		rightScore = rightRawScore[index]
+		print "$"+ str(templateIdList[index])+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]+","+str(rightScore)	
 	

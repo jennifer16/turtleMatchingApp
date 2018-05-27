@@ -166,6 +166,13 @@ if( !isset($_SESSION["user_id"]) ){
                     echo "<tr style='border: solid thin;' >\n";
                     echo "<td align='center'><a><div data-toggle='modal' data-target='#modal-large-".$turtleId."'><img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ></div></a></td>\n";
                     echo "<td align='center'>ความเหมือน: ".$words[1]." %</td>\n";
+                    if ( (float)$words[4] > 5.0)
+                        echo "<td align='center'>Matching Score: <font color='green'>".$words[4]."</font></td>\n";
+                    else if( (float)$words[4] > 0.0)
+                        echo "<td align='center'>Matching Score: <font color='yellow'>".$words[4]."</font></td>\n";
+                    else
+                        echo "<td align='center'>Matching Score: <font color='red'>".$words[4]."</font></td>\n";
+                        
                if ($_SESSION['user_role']==1) echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
                 
                     echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.",".$id.");'>รายงานการพบเต่าตัวนี้</button></td>\n";
