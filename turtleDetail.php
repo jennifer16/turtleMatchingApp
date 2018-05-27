@@ -201,6 +201,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                              $foundDate = $row['found_date'];
                               $foundPic = $row['found_picure'];
                               $turtle_id = $row['turtle_id'];
+                              $foundId = $row['found_id'];
                               $sql2 = "select * from turtle where turtle_id='".$turtle_id."'";
                               $resultTurtle = mysqli_query($conn, $sql2);
                               $turtleData = $resultTurtle->fetch_assoc();
@@ -229,7 +230,8 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             $usernameResult = mysqli_query($conn, $sqlUsername);
                             $usernameData = $usernameResult->fetch_assoc();
                             echo "<br><ul>";
-                            echo "<li><small>ถูกพบโดย: ".$usernameData['user_firstname']." ".$usernameData['user_lastname']." ที่พิกัด: ".$row['found_lat']." ".$row['found_lng']."</small></li>";
+                            echo "<li><small>ถูกพบโดย: ".$usernameData['user_firstname']." ".$usernameData['user_lastname']." </small></li>";
+                            echo "<li><small id='address".$foundId."'></small></li>"
                             echo "<li><small>น้ำหนัก: ".$row['found_weight']." กิโลกรัม</small></li>";
                             echo "<li><small>ความกว้าง: ".$row['found_width']." เซนติเมตร</small></li>";
                             echo "<li><small>ความยาว: ".$row['found_length']." เซนติเมตร</small></li>";
@@ -335,6 +337,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 <?php
     $sqlMap = "select * from found where turtle_id='".$turtle_id."'";
     $mapResult = mysqli_query($conn, $sqlMap);
+    $mapResult1 = mysqli_query($conn, $sqlMap);
 ?>
 function myMap() {
     var x = document.getElementById("map");
@@ -348,6 +351,14 @@ function myMap() {
    var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
 <?php 
+    
+     while($row=$mapResult1->fetch_assoc())
+    {
+       
+        echo "printAddress(".$row['found_id'].",".$row['found_lat'],",".$row['found_lng'].");\n\n";
+
+        
+    }
     
     $numLoc = mysqli_num_rows($mapResult);
    
@@ -383,6 +394,35 @@ function myMap() {
     
 };
 </script>
+            
+            <script>
+    
+    function printAddress(id,lat,lng)
+    {
+        var place1 = document.getElementById('address'+id);
+       
+        var geocoder = new google.maps.Geocoder;
+    
+        var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          if (status === 'OK') {
+            if (results[0]) {
+              
+              place1.innerHTML = results[0].formatted_address
+            } else {
+            place1.innerHTML = "ไม่ทราบข้อมูลสถานที่";
+            }
+          } else {
+            window.alert('Geocoder failed due to: ' + status);
+          }
+        });
+      }
+
+        
+    
+    
+        
+</script>    
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVlIZSpzYkePXCjcm9xRHuFyL2DbKZY0Q&callback=myMap"></script>
         
