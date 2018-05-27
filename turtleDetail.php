@@ -231,7 +231,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             $usernameData = $usernameResult->fetch_assoc();
                             echo "<br><ul>";
                             echo "<li><small>ถูกพบโดย: ".$usernameData['user_firstname']." ".$usernameData['user_lastname']." </small></li>";
-                            echo "<li><small id='address".$foundId."'></small></li>"
+                            echo "<li><small id='address".$foundId."'></small></li>";
                             echo "<li><small>น้ำหนัก: ".$row['found_weight']." กิโลกรัม</small></li>";
                             echo "<li><small>ความกว้าง: ".$row['found_width']." เซนติเมตร</small></li>";
                             echo "<li><small>ความยาว: ".$row['found_length']." เซนติเมตร</small></li>";
