@@ -148,7 +148,7 @@ for index in range(len(templateFileList)):
 			
 			elif count==2:
 				score = line.strip()
-				score = float(score)
+				score = float(score)*(-1.0)
 				leftRawScore.append(score)
 				count=count+1
 			else:
@@ -182,7 +182,7 @@ for index in range(len(templateFileList)):
 				count=count+1
 			elif count==2:
 				score = line.strip()
-				score = float(score)
+				score = float(score)*(-1.0)
 				rightRawScore.append(score)
 				count=count+1
 			else:
@@ -194,12 +194,12 @@ rightIndex = sorted(range(len(rightRawScore)),key=lambda x:rightRawScore[x])[::-
 if side == 'LEFT':
 	for index in leftIndex:
 		leftPercent = leftScore[index]
-		leftScore = leftRawScore[index]
-		print "$"+ str(templateIdList[index])+","+ str(leftPercent) + ",LEFT,"+leftOutName[index]+","+str(leftScore)	
+		leftRawScoreData = leftRawScore[index]
+		print "$"+ str(templateIdList[index])+","+ str(leftPercent) + ",LEFT,"+leftOutName[index]+","+str(leftRawScoreData)	
 
 if side == 'RIGHT':
 	for index in rightIndex:
 		rightPercent = rightScore[index]
-		rightScore = rightRawScore[index]
-		print "$"+ str(templateIdList[index])+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]+","+str(rightScore)	
+		rightRawScoreData = rightRawScore[index]
+		print "$"+ str(templateIdList[index])+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]+","+str(rightRawScoreData)	
 	
