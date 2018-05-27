@@ -444,7 +444,7 @@ $row = $data->fetch_assoc();
 
       $modal.on('shown.bs.modal', function () {
         cropper = new Cropper(image, {
-          viewMode: 3,camera
+          viewMode: 3,
         });
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
@@ -454,7 +454,8 @@ $row = $data->fetch_assoc();
       document.getElementById('cropLeft').addEventListener('click', function () {
         var initialAvatarURL;
         var canvas;
-
+   var labelLeft = document.getElementById("modalLabelLeft");
+        labelLeft.innerHTML = "กรุณารอสักครู่ กำลังตัดแบ่งส่วนภาพ...";
         $modal.modal('hide');
 
         if (cropper) {
@@ -490,7 +491,7 @@ $row = $data->fetch_assoc();
               xhr.upload.onprogress = function (e) {
                   var percent = '0';
                   var percentage = '0%';
-
+                  $('#submitData').disabled = true;
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
@@ -504,6 +505,7 @@ $row = $data->fetch_assoc();
               success: function () {
                // $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
+                   $('#submitData').disabled = false;
               },
 
               error: function () {
@@ -584,7 +586,8 @@ $row = $data->fetch_assoc();
       document.getElementById('cropRight').addEventListener('click', function () {
         var initialAvatarURL;
         var canvas;
-
+          var labelRight = document.getElementById("modalLabelRight");
+        labelRight.innerHTML = "กรุณารอสักครู่ กำลังตัดแบ่งส่วนภาพ...";
         $modal.modal('hide');
 
         if (cropper) {
@@ -620,7 +623,7 @@ $row = $data->fetch_assoc();
               xhr.upload.onprogress = function (e) {
                   var percent = '0';
                   var percentage = '0%';
-
+ $('#submitData').disabled = true;
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
@@ -634,6 +637,7 @@ $row = $data->fetch_assoc();
               success: function () {
                // $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
+                   $('#submitData').disabled = false;
               },
 
               error: function () {
@@ -669,6 +673,7 @@ $row = $data->fetch_assoc();
           image.src = url;
           $alert.hide();
           $modal.modal('show');
+          
         };
         var reader;
         var file;
@@ -701,20 +706,32 @@ $row = $data->fetch_assoc();
         }
       });
 
-      $modal.on('shown.bs.modal', function () {
-        cropper = new Cropper(image, {
-          viewMode: 3,
-        });
+      $modal.on('shown.bs.modal', function (avatar) {
+        
+          cropper = new Cropper(image, {
+                viewMode: 3,
+                strict:true,
+               cropBoxMovable: true,
+            cropBoxResizable: false,
+ 
+          
+          });
+          
+            
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
         cropper = null;
       });
+    
+        
 
       document.getElementById('cropProfile').addEventListener('click', function () {
         var initialAvatarURL;
         var canvas;
-
+   var labelProfile = document.getElementById("modalLabelProfile");
+        labelProfile.innerHTML = "กรุณารอสักครู่ กำลังตัดแบ่งส่วนภาพ...";
         $modal.modal('hide');
+
 
         if (cropper) {
           canvas = cropper.getCroppedCanvas({
@@ -749,7 +766,7 @@ $row = $data->fetch_assoc();
               xhr.upload.onprogress = function (e) {
                   var percent = '0';
                   var percentage = '0%';
-
+ $('#submitData').disabled = true;
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
@@ -763,6 +780,8 @@ $row = $data->fetch_assoc();
               success: function () {
                // $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
+                    $('#search').removeAttr('disabled');
+                   $('#submitData').disabled = true;
               },
 
               error: function () {
@@ -779,7 +798,7 @@ $row = $data->fetch_assoc();
         }
       });
     });
-  </script>         
+  </script>           
         <script>
             String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g,"");
