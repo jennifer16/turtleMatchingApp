@@ -244,10 +244,8 @@ if( !isset($_SESSION["user_id"]) ){
                                                     <li><i class="zmdi zmdi-facebook-box"></i> <?php echo $userName." ".$userLastname; ?></li>
                                                     <li><i class="zmdi zmdi-calendar"></i> <?php echo $row['found_date']; ?></li>
                                                     <li><i class="zmdi zmdi-pin"></i>
-                                                        <address>
-                                                            44-46 Morningside Road,
-                                                            Edinburgh,
-                                                            Scotland
+                                                       <address id='address<?php echo $row['found_id'];?>'>
+                                                        
                                                         </address>
                                                     </li>
                                                 </ul>
@@ -379,7 +377,7 @@ function myMap() {
    
     if($numLoc > 0)
     {
-        
+        echo "printAddress(".$row['found_id'].",".$row['found_lat'],",".$row['found_lng'].")";
         echo "var locations = [";
         $numRow = 1;
         while($row=$mapResult->fetch_assoc())
@@ -422,6 +420,37 @@ function myMap() {
 };
 </script>
 
+
+    
+<script>
+    
+    function printAddress(id,lat,lng)
+    {
+        var place1 = document.getElementById('address'+id);
+       
+        var geocoder = new google.maps.Geocoder;
+    
+        var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
+        geocoder.geocode({'location': latlng}, function(results, status) {
+          if (status === 'OK') {
+            if (results[0]) {
+              
+              place1.innerHTML = results[0].formatted_address
+            } else {
+            place1.innerHTML = "ไม่ทราบข้อมูลสถานที่";
+            }
+          } else {
+            window.alert('Geocoder failed due to: ' + status);
+          }
+        });
+      }
+
+        
+    
+    
+        
+</script>    
+    
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVlIZSpzYkePXCjcm9xRHuFyL2DbKZY0Q&callback=myMap"></script>     
