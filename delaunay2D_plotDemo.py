@@ -5,6 +5,12 @@ import sys
 import numpy as np 
 from delaunay2D import Delaunay2D
 
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import matplotlib.tri
+import matplotlib.collections
+
 if __name__ == '__main__':
 
     print ('starting....')
@@ -37,12 +43,6 @@ if __name__ == '__main__':
 
     print (len(dt.exportTriangles()), "Delaunay triangles")
 
-    import matplotlib
-    matplotlib.use('Agg')
-    import matplotlib.pyplot as plt
-    import matplotlib.tri
-    import matplotlib.collections
-
     fig, ax = plt.subplots()
     ax.margins(0.1)
     ax.set_aspect('equal')
@@ -50,6 +50,8 @@ if __name__ == '__main__':
     plt.axis([-1, radius+1, -1, radius+1])
     plt.axis('off')
     plt.autoscale(True)
+
+    print('setting axis')
 
     cx, cy = zip(*seeds)
     dt_tris = dt.exportTriangles()
