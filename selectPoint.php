@@ -224,8 +224,8 @@ $(document).ready(function(){
     $(document).ready(function(){ 
 
 <?php
-  $sizeLeft= getimagesize("./Turtle/".$leftImage);
-        echo "console.log('".$sizeLeft."');"
+ list($width, $height)= getimagesize("./Turtle/".$leftImage);
+        echo "console.log('".$width." ".$height."');"
         
 ?>
 
