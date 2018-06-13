@@ -219,11 +219,12 @@ $(document).ready(function(){
         
 <script>
 
+    
+    
     $(document).ready(function(){ 
 
-        // Create dummy image to get real width and height
-
-        $("<img>").attr("src", $("#leftImage").attr("src")).load(function(){
+        var imgLeft = $("#leftImage");
+        $("<img>").attr("src", $(imgLeft).attr("src")).load(function(){
 
             var realWidth = this.width;
 
@@ -232,6 +233,7 @@ $(document).ready(function(){
             alert("Original width=" + realWidth + ", " + "Original height=" + realHeight);
 
         });
+
 
         
         $("#leftImage").click(function (ev) {
