@@ -228,8 +228,13 @@ $(document).ready(function(){
         echo "console.log('".$width." ".$height."');"
         
 ?>
-
-
+        $currentWidth = $("#leftImage").width();
+        $currentHeight = $("leftImage").height();
+        console.log($currentWeidth);
+        console.log($currentHeight);
+        
+        console.log($width/$currentWidth);
+        console.log($height/$currentHeight);
         
         $("#leftImage").click(function (ev) {
        
