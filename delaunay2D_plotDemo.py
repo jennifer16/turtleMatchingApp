@@ -7,6 +7,8 @@ from delaunay2D import Delaunay2D
 
 if __name__ == '__main__':
 
+    print ('starting....')
+    
     fileName = sys.argv[3]
 
     listX = sys.argv[1]
