@@ -11,12 +11,13 @@
   $leftName = "".$turtle_id."_Left";
   $rightName = "".$turtle_id."_Right";
 
-  echo "before first image";
-  $result = shell_exec("python delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
+  echo "before first image<br>";
+  echo "python delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName;
+  $result = exec("python delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
   echo $result;
 
 
-  $result = shell_exec("python delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName);
-  echo "<br>";
-   echo $result;
+  //$result = exec("python delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName);
+  //echo "<br>";
+   //echo $result;
 ?>
