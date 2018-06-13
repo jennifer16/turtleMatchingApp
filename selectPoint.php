@@ -257,6 +257,9 @@ $(document).ready(function(){
             
             $("#leftX").value =  $("#leftX").value+" "+ev.pageX-5;
             $("#leftY").value = $("#leftY").value+" "+ev.pageY-5;
+            
+            console.log($("#leftX").value);
+            console.log($("#leftY").value);
         
         });
         
