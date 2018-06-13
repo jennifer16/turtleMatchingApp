@@ -13,14 +13,12 @@
 
     $leftName = "testLeft";
   
-  echo "python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName;
-  echo "<br>";
+
   $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
   echo $result;
   echo "<br>";
 
-    //echo "python delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName;
-    //echo "<br>";
- // $result = exec("python delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName);
-   //echo $result;
+
+  $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".rightX."\" \"".$rightY."\" ".$rightName);
+   echo $result;
 ?>
