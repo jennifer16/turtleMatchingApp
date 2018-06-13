@@ -132,7 +132,10 @@ $rightImage = $row['turtle_right'];
                     <input type="hidden" name="rightX" id="rightX">
                     <input type="hidden" name="leftY" id="leftY">
                     <input type="hidden" name="rightY" id="rightY">
+                    <br>
+                     <div class="row" align="center">
                     <button type="submit" class="btn btn-success">ยืนยันจุดที่เลือก</button>
+                    </div>
                 </form>
                 <footer class="footer hidden-xs-down">
                 </footer>
