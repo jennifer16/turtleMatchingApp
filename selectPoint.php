@@ -231,7 +231,7 @@ $(document).ready(function(){
         
 ?>
         $currentWidth = $("#leftImage").width();
-        $currentHeight = $("$#leftImage").height();
+        $currentHeight = $("#leftImage").height();
         console.log($currentWidth);
         console.log($currentHeight);
         
