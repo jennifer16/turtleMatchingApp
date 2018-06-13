@@ -255,11 +255,11 @@ $(document).ready(function(){
                 
             );
             
-            $("#leftX").value =  $("#leftX").value+" "+ev.pageX-5;
-            $("#leftY").value = $("#leftY").value+" "+ev.pageY-5;
+            $("#leftX").val() =  $("#leftX").val()+ev.pageX-5+" ";
+            $("#leftY").val() = $("#leftY").val()+ev.pageY-5+" ";
             
-            console.log($("#leftX").value);
-            console.log($("#leftY").value);
+            console.log($("#leftX").val());
+            console.log($("#leftY").val());
         
         });
         
