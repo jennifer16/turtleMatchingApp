@@ -111,6 +111,7 @@ if __name__ == '__main__':
     
     # Dump plot to file
     plt.savefig('./Turtle/'+turtleId+'.jpg', dpi=96)
+    print('save at '+'./Turtle/'+turtleId+'.jpg'
     # plt.savefig('output-delaunay2D_test2.svg', dpi=96)
 
     #plt.show()
