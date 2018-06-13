@@ -129,7 +129,9 @@ $rightImage = $row['turtle_right'];
                 <form method="post" action="updateSelectionPoint.php">
                 
                     <input type="hidden" name="leftX" id="leftX">
-                    <input type="hidden" name="rightX" id="leftX">
+                    <input type="hidden" name="rightX" id="rightX">
+                    <input type="hidden" name="leftY" id="leftY">
+                    <input type="hidden" name="rightY" id="rightY">
                 </form>
                 <footer class="footer hidden-xs-down">
                 </footer>
@@ -233,8 +235,10 @@ $(document).ready(function(){
         console.log($currentWidth);
         console.log($currentHeight);
         
-        console.log(<?php echo $width; ?>/$currentWidth);
-        console.log(<?php echo $height; ?>/$currentHeight);
+        $scaleLeftX = <?php echo $width; ?>/$currentWidth;
+        $scaleLeftY = <?php echo $height; ?>/$currentHeight;
+        $scaleLeft = ($scaleLeftX + $scaleLeftY)/2.0;
+        
         
         $("#leftImage").click(function (ev) {
        
@@ -246,8 +250,13 @@ $(document).ready(function(){
                     width: '10px',
                     height: '10px',
                     background: '#000000'
-                })              
+                })  
+                
+                
             );
+            
+            $("#leftX").value =  $("#leftX").value+" "+ev.pageX-5;
+            $("#leftY").value = $("#leftY").value+" "+ev.pageY-5;
         
         });
         
