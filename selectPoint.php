@@ -189,6 +189,7 @@ $rightImage = $row['turtle_right'];
         <script src="vendors/jquery.sparkline/jquery.sparkline.min.js"></script>
         <script src="vendors/bower_components/moment/min/moment.min.js"></script>
         <script src="vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
