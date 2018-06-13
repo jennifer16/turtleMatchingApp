@@ -6,6 +6,7 @@ import numpy as np
 from delaunay2D import Delaunay2D
 
 import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.tri
 import matplotlib.collections
