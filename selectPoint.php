@@ -225,11 +225,13 @@ $(document).ready(function(){
 
 <?php
  list($width, $height)= getimagesize("./Turtle/".$leftImage);
+        echo "var width=".$width;
+        echo "var height"=.$height;
         echo "console.log('".$width." ".$height."');"
         
 ?>
         $currentWidth = $("#leftImage").width();
-        $currentHeight = $("leftImage").height();
+        $currentHeight = $("$#leftImage").height();
         console.log($currentWidth);
         console.log($currentHeight);
         
