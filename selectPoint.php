@@ -189,7 +189,6 @@ $rightImage = $row['turtle_right'];
         <script src="vendors/jquery.sparkline/jquery.sparkline.min.js"></script>
         <script src="vendors/bower_components/moment/min/moment.min.js"></script>
         <script src="vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
@@ -219,11 +218,7 @@ $(document).ready(function(){
 
         
 <script>
-     $(document).ready(function(){ 
-        var imgLeft = $("#leftImage");
-         $("<img/>").attr("src", $(imgLeft).attr("src")).load(function(){ alert("yes");});
 
-     });
     
     
     $(document).ready(function(){ 
@@ -234,7 +229,13 @@ $(document).ready(function(){
         
         $("#leftImage").click(function (ev) {
        
-        		
+        		$("<img>") // Create a new <img>
+  .attr("src", $("#leftImage").attr("src")) // Copy the src attr from the target <img>
+    .load(function() {
+      // Print to console
+      console.log("Width:  " + this.width);
+      console.log("Height: " + this.height);
+  });
             $("body").append(            
                 $('<div class="marker"></div>').css({
                     position: 'absolute',
