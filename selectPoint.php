@@ -223,19 +223,16 @@ $(document).ready(function(){
     
     $(document).ready(function(){ 
 
-
+<?php
+  $sizeLeft= getimagesize($leftImage);
+        echo "console.log('".$sizeLeft."');"
+        
+?>
 
 
         
         $("#leftImage").click(function (ev) {
        
-        		$("<img>") // Create a new <img>
-  .attr("src", $("#leftImage").attr("src")) // Copy the src attr from the target <img>
-    .load(function() {
-      // Print to console
-      console.log("Width:  " + this.width);
-      console.log("Height: " + this.height);
-  });
             $("body").append(            
                 $('<div class="marker"></div>').css({
                     position: 'absolute',
