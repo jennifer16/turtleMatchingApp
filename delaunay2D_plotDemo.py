@@ -61,5 +61,5 @@ if __name__ == '__main__':
     print(cx)
     print(cy)
     print(dt_tris)
-    plt.savefig('./Turtle/'+fileName+'.jpg', dpi=96)
-    print('save at ./Turtle/'+fileName+'.jpg')
+    plt.savefig('./Turtle/'+fileName+'.png', dpi=96)
+    print('save at ./Turtle/'+fileName+'.png')
