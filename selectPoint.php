@@ -218,11 +218,7 @@ $(document).ready(function(){
 
         
 <script>
-
-    
-    
-    $(document).ready(function(){ 
-
+     $(document).ready(function(){ 
         var imgLeft = $("#leftImage");
         $("<img>").attr("src", $(imgLeft).attr("src")).load(function(){
 
@@ -233,6 +229,12 @@ $(document).ready(function(){
             alert("Original width=" + realWidth + ", " + "Original height=" + realHeight);
 
         });
+     });
+    
+    
+    $(document).ready(function(){ 
+
+
 
 
         
