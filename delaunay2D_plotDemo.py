@@ -35,6 +35,8 @@ if __name__ == '__main__':
 
     print (len(dt.exportTriangles()), "Delaunay triangles")
 
+    import matplotlib
+    matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     import matplotlib.tri
     import matplotlib.collections
