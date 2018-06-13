@@ -15,6 +15,6 @@
   echo $result;
 
   $result = shell_exec("python delaunay2D_plotDemo.py ".$rightX." ".$rightY." ".$rightName);
-  echo "<br>"
+  echo "<br>";
    echo $result;
 ?>
