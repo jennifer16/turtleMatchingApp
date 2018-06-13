@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: ascii -*-
-"""
-Simple delaunay2D demo with mathplotlib
-Written by Jose M. Espadero < http://github.com/jmespadero/pyDelaunay2D >
-"""
+import sys
 import numpy as np
 from delaunay2D import Delaunay2D
 
@@ -23,9 +20,9 @@ if __name__ == '__main__':
     
     
     #seeds = [(1.2,1),(1,2.02),(5.2,3),(1,4.1),(3.05,1.01),(3.5,2),(1,3),(3,4),(4,1),(4,2),(4,3),(4,4),(5,1),(5,2.04),(3,3),(5,4),(2,1),(2,2),(2,3),(2,4),(6,1),(6,2),(6,3),(6,4)]
-    
+    radius = 100
     seeds.sort(key=lambda x: [x[0],x[1]])
-    print("seeds:\n", seeds)
+    print("seeds:", seeds)
     print("BBox Min:", np.amin(seeds, axis=0),
           "Bbox Max: ", np.amax(seeds, axis=0))
 
@@ -56,6 +53,7 @@ if __name__ == '__main__':
     fig, ax = plt.subplots()
     ax.margins(0.1)
     ax.set_aspect('equal')
+    plt.style.use('dark_background')
     plt.axis([-1, radius+1, -1, radius+1])
     plt.axis('off')
     plt.autoscale(True)
@@ -63,7 +61,8 @@ if __name__ == '__main__':
     # Plot our Delaunay triangulation (plot in blue)
     cx, cy = zip(*seeds)
     dt_tris = dt.exportTriangles()
-    ax.triplot(matplotlib.tri.Triangulation(cx, cy, dt_tris), 'bo--')
+    
+    ax.triplot(matplotlib.tri.Triangulation(cx, cy, dt_tris), 'wo-')
 
     # Plot annotated Delaunay vertex (seeds)
     """
@@ -88,7 +87,7 @@ if __name__ == '__main__':
     """
     
     # Build Voronoi diagram as a list of coordinates and regions
-    vc, vr = dt.exportVoronoiRegions()
+    #vc, vr = dt.exportVoronoiRegions()
     
     # Plot annotated voronoi vertex
     """
@@ -111,7 +110,7 @@ if __name__ == '__main__':
     #    plt.plot(*zip(*polygon), color="red")  # Plot polygon edges in red
     
     # Dump plot to file
-    plt.savefig('output-delaunay2D_test3.png', dpi=96)
+    plt.savefig('./Turtle/'+turtleId+'.jpg', dpi=96)
     # plt.savefig('output-delaunay2D_test2.svg', dpi=96)
 
     #plt.show()
