@@ -116,14 +116,14 @@ $rightImage = $row['turtle_right'];
           <section class="content">
 
                 <div class="row" align="center">
-                    <img src='<?php echo $leftImage;?>' style="width:100%; height:auto;" id="leftImage">
+                    <img src='./Turtle/<?php echo $leftImage;?>' style="width:100%; height:auto;" id="leftImage">
                     
                 </div>
               
                 <hr>
               
                   <div class="row" align="center">
-                    <img src='<?php echo $rightImage;?>' style="width:100%; height:auto;" id="rightImage">
+                    <img src='./Turtle/<?php echo $rightImage;?>' style="width:100%; height:auto;" id="rightImage">
                     
                 </div>
                 <footer class="footer hidden-xs-down">
