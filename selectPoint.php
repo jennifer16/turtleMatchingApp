@@ -220,7 +220,20 @@ $(document).ready(function(){
 <script>
 
     $(document).ready(function(){ 
-    
+
+        // Create dummy image to get real width and height
+
+        $("<img>").attr("src", $("#leftImage").attr("src")).load(function(){
+
+            var realWidth = this.width;
+
+            var realHeight = this.height;
+
+            alert("Original width=" + realWidth + ", " + "Original height=" + realHeight);
+
+        });
+
+        
         $("#leftImage").click(function (ev) {
        
         		
@@ -238,20 +251,7 @@ $(document).ready(function(){
         });
         
         
-        var imgLeft = $("#leftImage");
-
-        // Create dummy image to get real width and height
-
-        $("<img>").attr("src", $(img).attr("src")).load(function(){
-
-            var realWidth = this.width;
-
-            var realHeight = this.height;
-
-            alert("Original width=" + realWidth + ", " + "Original height=" + realHeight);
-
-        });
-
+        
     
 });
     
