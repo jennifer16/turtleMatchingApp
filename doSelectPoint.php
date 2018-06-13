@@ -13,9 +13,9 @@
 
     $leftName = "testLeft";
   
-  echo "python3 delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName;
+  echo "python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName;
   echo "<br>";
-  $result = shell_exec("python delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
+  $result = shell_exec("python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
   echo $result;
   echo "<br>";
 
