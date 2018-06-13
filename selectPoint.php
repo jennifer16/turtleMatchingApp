@@ -126,7 +126,7 @@ $rightImage = $row['turtle_right'];
                     <img src='./Turtle/<?php echo $rightImage;?>' style="width:100%; height:auto;" id="rightImage">
                     
                 </div>
-                <form method="post" action="updateSelectionPoint.php">
+                <form method="post" action="doSelectPoint.php">
                 
                     <input type="hidden" name="leftX" id="leftX">
                     <input type="hidden" name="rightX" id="rightX">
