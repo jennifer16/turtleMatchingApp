@@ -225,9 +225,9 @@ $(document).ready(function(){
 
 <?php
  list($width, $height)= getimagesize("./Turtle/".$leftImage);
-        echo "var width=".$width;
-        echo "var height=".$height;
-        echo "console.log('".$width." ".$height."');"
+        echo "var width=".$width.";\n";
+        echo "var height=".$height.";\n";
+        echo "console.log('".$width." ".$height."');\n"
         
 ?>
         $currentWidth = $("#leftImage").width();
