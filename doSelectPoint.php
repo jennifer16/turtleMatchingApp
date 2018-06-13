@@ -15,7 +15,7 @@
   
   echo "python delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName;
   echo "<br>";
-  $result = exec("python delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
+  $result = exec("sudo python delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
   echo $result;
   echo "<br>";
 
