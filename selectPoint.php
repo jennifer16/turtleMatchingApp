@@ -220,15 +220,7 @@ $(document).ready(function(){
 <script>
      $(document).ready(function(){ 
         var imgLeft = $("#leftImage");
-        $("<img>").attr("src", $(imgLeft).attr("src")).load(function(){
-
-            var realWidth = this.width;
-
-            var realHeight = this.height;
-
-            alert("Original width=" + realWidth + ", " + "Original height=" + realHeight);
-
-        });
+       
      });
     
     
