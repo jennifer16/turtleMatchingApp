@@ -135,7 +135,7 @@ $rightImage = $row['turtle_right'];
                     <br>
                      <div class="row" align="center">
                           <div class="col-md-12">
-                    <button type="submit" class="btn btn-submit">ยืนยันจุดที่เลือก</button>
+                    <button type="submit" class="btn btn-primary">ยืนยันจุดที่เลือก</button>
                          </div>
                     </div>
                 </form>
