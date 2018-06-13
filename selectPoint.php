@@ -134,7 +134,9 @@ $rightImage = $row['turtle_right'];
                     <input type="hidden" name="rightY" id="rightY">
                     <br>
                      <div class="row" align="center">
-                    <button type="submit" class="btn btn-success">ยืนยันจุดที่เลือก</button>
+                          <div class="col-md-12">
+                    <button type="submit" class="btn btn-submit">ยืนยันจุดที่เลือก</button>
+                         </div>
                     </div>
                 </form>
                 <footer class="footer hidden-xs-down">
