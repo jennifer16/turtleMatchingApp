@@ -132,6 +132,7 @@ $rightImage = $row['turtle_right'];
                     <input type="hidden" name="rightX" id="rightX">
                     <input type="hidden" name="leftY" id="leftY">
                     <input type="hidden" name="rightY" id="rightY">
+                    <button type="submit" class="btn btn-success">ยืนยันจุดที่เลือก</button>
                 </form>
                 <footer class="footer hidden-xs-down">
                 </footer>
@@ -257,9 +258,55 @@ $(document).ready(function(){
             
             $("#leftX").val($("#leftX").val()+(ev.pageX-5).toString()+" ");
             $("#leftY").val($("#leftY").val()+(ev.pageY-5).toString()+" ");
+
+        
+        });
+        
+        
+        
+    
+});
+    
+    
+<script>
+
+    
+    
+    $(document).ready(function(){ 
+
+<?php
+ list($widthR, $heightR)= getimagesize("./Turtle/".$rightImage);
+        echo "console.log('".$widthR." ".$heightR."');\n"
+        
+?>
+        $currentWidthR = $("#rightImage").width();
+        $currentHeightR = $("#rightImage").height();
+        console.log($currentWidthR);
+        console.log($currentHeightR);
+        
+        $scaleRightX = <?php echo $widthR; ?>/$currentWidthR;
+        $scaleRightY = <?php echo $heightR; ?>/$currentHeightR;
+        $scaleRight = ($scaleRightX + $scaleRightY)/2.0;
+        
+        
+        $("#rightImage").click(function (ev) {
+       
+            $("body").append(            
+                $('<div class="marker"></div>').css({
+                    position: 'absolute',
+                    top: ev.pageY-5 + 'px',
+                    left: ev.pageX-5 + 'px',
+                    width: '10px',
+                    height: '10px',
+                    background: '#000000'
+                })  
+                
+                
+            );
             
-            console.log($("#leftX").val());
-            console.log($("#leftY").val());
+            $("#rightX").val($("#rightX").val()+(ev.pageX-5).toString()+" ");
+            $("#rightY").val($("#rightY").val()+(ev.pageY-5).toString()+" ");
+
         
         });
         
