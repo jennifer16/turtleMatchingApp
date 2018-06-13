@@ -220,7 +220,8 @@ $(document).ready(function(){
 <script>
      $(document).ready(function(){ 
         var imgLeft = $("#leftImage");
-       alert($(imgLeft).attr("src"));
+         $("<img/>").attr("src", $(imgLeft).attr("src"));
+
      });
     
     
