@@ -309,8 +309,8 @@ $(document).ready(function(){
                 
             );
             
-            $("#rightX").val($("#rightX").val()+(ev.pageX-5).toString()+" ");
-            $("#rightY").val($("#rightY").val()+(ev.pageY-5).toString()+" ");
+            $("#rightX").val($("#rightX").val()+((ev.pageX-5)*$scaleLeft).toString()+" ");
+            $("#rightY").val($("#rightY").val()+((ev.pageY-5)*$scaleRight).toString()+" ");
 
         
         });
