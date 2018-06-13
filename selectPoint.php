@@ -211,6 +211,32 @@ $(document).ready(function(){
 });
         </script>
 
+        
+<script>
+
+    $(document).ready(function(){ 
+    
+        $("#leftImage").click(function (ev) {
+       
+        		
+            $("body").append(            
+                $('<div class="marker"></div>').css({
+                    position: 'absolute',
+                    top: ev.pageY-5 + 'px',
+                    left: ev.pageX-5 + 'px',
+                    width: '10px',
+                    height: '10px',
+                    background: '#000000'
+                })              
+            );
+        
+        });
+
+    
+});
+    
+    
+</script>
 
     </body>
 </html>
