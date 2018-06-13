@@ -8,7 +8,6 @@ if __name__ == '__main__':
 
     ###########################################################
     # Generate 'numSeeds' random seeds in a square of size 'radius'
-    turtleId = sys.argv[3]
     listX = sys.argv[1]
     listX = listX.strip()
     listX = listX.split(' ')
