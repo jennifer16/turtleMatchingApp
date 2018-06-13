@@ -126,6 +126,11 @@ $rightImage = $row['turtle_right'];
                     <img src='./Turtle/<?php echo $rightImage;?>' style="width:100%; height:auto;" id="rightImage">
                     
                 </div>
+                <form method="post" action="updateSelectionPoint.php">
+                
+                    <input type="hidden" name="leftX" id="leftX">
+                    <input type="hidden" name="rightX" id="leftX">
+                </form>
                 <footer class="footer hidden-xs-down">
                 </footer>
             </section>
@@ -230,6 +235,21 @@ $(document).ready(function(){
                 })              
             );
         
+        });
+        
+        
+        var imgLeft = $("#leftImage");
+
+        // Create dummy image to get real width and height
+
+        $("<img>").attr("src", $(img).attr("src")).load(function(){
+
+            var realWidth = this.width;
+
+            var realHeight = this.height;
+
+            alert("Original width=" + realWidth + ", " + "Original height=" + realHeight);
+
         });
 
     
