@@ -56,5 +56,5 @@ if __name__ == '__main__':
 
     ax.triplot(matplotlib.tri.Triangulation(cx, cy, dt_tris), 'wo-')
 
-    plt.savefig('fileName+'.jpg', dpi=96)
-    print('save at '+fileName+'.jpg')
+    plt.savefig('./Turtle/'+fileName+'.jpg', dpi=96)
+    print('save at ./Turtle/'+fileName+'.jpg')
