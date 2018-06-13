@@ -225,8 +225,6 @@ $(document).ready(function(){
 
 <?php
  list($width, $height)= getimagesize("./Turtle/".$leftImage);
-        echo "var width=".$width.";\n";
-        echo "var height=".$height.";\n";
         echo "console.log('".$width." ".$height."');\n"
         
 ?>
@@ -235,8 +233,8 @@ $(document).ready(function(){
         console.log($currentWidth);
         console.log($currentHeight);
         
-        console.log($width/$currentWidth);
-        console.log($height/$currentHeight);
+        console.log(<?php echo $width; ?>/$currentWidth);
+        console.log(<?php echo $height; ?>/$currentHeight);
         
         $("#leftImage").click(function (ev) {
        
