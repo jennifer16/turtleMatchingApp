@@ -20,6 +20,6 @@ echo "<br>";
 
     echo "python delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName;
     echo "<br>";
-  $result = exec("python delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName);
+ // $result = exec("python delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName);
    echo $result;
 ?>
