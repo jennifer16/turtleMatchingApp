@@ -11,7 +11,7 @@
   $leftName = "".$turtle_id."_Left";
   $rightName = "".$turtle_id."_Right";
 
- 
+  echo "before first image";
   $result = shell_exec("python delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
   echo $result;
 
