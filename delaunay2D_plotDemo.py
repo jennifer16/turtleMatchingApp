@@ -8,7 +8,7 @@ from delaunay2D import Delaunay2D
 if __name__ == '__main__':
 
     print ('starting....')
-    
+
     fileName = sys.argv[3]
 
     listX = sys.argv[1]
@@ -56,5 +56,5 @@ if __name__ == '__main__':
 
     ax.triplot(matplotlib.tri.Triangulation(cx, cy, dt_tris), 'wo-')
 
-    plt.savefig('./Turtle/'+fileName+'.jpg', dpi=96)
-    print('save at '+'./Turtle/'+fileName+'.jpg')
+    plt.savefig('fileName+'.jpg', dpi=96)
+    print('save at '+fileName+'.jpg')
