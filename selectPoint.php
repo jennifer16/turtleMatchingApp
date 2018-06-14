@@ -325,7 +325,7 @@ $(document).ready(function(){
             $("#rightX").val($("#rightX").val()+((ev.pageX-5)*$scaleRight).toString()+" ");
             $("#rightY").val($("#rightY").val()+((ev.pageY-5)*$scaleRight).toString()+" ");
 
-            console.log($("rightX").val());
+            console.log($("#rightX").val());
         });
         
         
