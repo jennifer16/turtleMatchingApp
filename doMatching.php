@@ -2,7 +2,7 @@
     session_start();
     require 'connect.php';
 	
-    $matchId = $_GET['id'];
+    $matchId = $_GET['match_id'];
     $sql = "SELECT * from matching where id='".$matchId."'";
     $result = mysqli_query($conn, $sql);
     $row = $result->fetch_assoc();
@@ -13,9 +13,8 @@
 
 
     echo "Mathcing with ".$side." side.<br>";
-    $PID = shell_exec("nohup python demoTurtleMatching.py ".$filename." ".$side." 2>&1 | tee Output/".$exactName.".txt 2>/dev/null >/dev/null & echo $!");
-        
-    echo "nohup python demoTurtleMatching.py ".$filename." ".$side." 2>&1 | tee Output/".$exactName.".txt 2>/dev/null >/dev/null & echo $!";
+    $PID = shell_exec("nohup python demoTurtleMatching.py ".$filename." ".$matchSide." 2>&1 | tee ".$matchOut." 2>/dev/null >/dev/null & echo $!");
+
     echo "<br>";
     echo "Running";
         
