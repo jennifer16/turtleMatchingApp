@@ -255,7 +255,7 @@ $(document).ready(function(){
         $scaleMatch = ($scaleMatchX + $scaleMatchY)/2.0;
         
         
-        $("#leftImage").click(function (ev) {
+        $("#matchImage").click(function (ev) {
        
             $("body").append(            
                 $('<div class="marker"></div>').css({
