@@ -19,7 +19,7 @@ if( !isset($_SESSION["user_id"]) ){
   //echo $result;
   //echo "<br>";
 
-  header("Location:doMatching?match_id=".$matchId);
+  header("Location:doMatching.php?match_id=".$matchId);
 
 ?>
 
