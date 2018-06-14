@@ -127,7 +127,7 @@ $matchSide = $row['match_side'];
               </div>
               </div>
                 <div class="row" align="center">
-                    <img src='./Turtle/<?php echo $matchImage;?>' style="width:100%; height:auto;" id="matchImage">
+                    <img src='./Input/<?php echo $matchImage;?>' style="width:100%; height:auto;" id="matchImage">
                     
                 </div>
               
