@@ -25,6 +25,5 @@ if( !isset($_SESSION["user_id"]) ){
   echo $result;
 
   echo "<br>";
-echo $turtle_id;
 ?>
 

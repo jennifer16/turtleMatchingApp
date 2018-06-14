@@ -273,8 +273,8 @@ $(document).ready(function(){
             );
         
             
-            $("#leftX").val($("#leftX").val()+((ev.pageX-5)*$scaleLeft).toString()+" ");
-            $("#leftY").val($("#leftY").val()+((ev.pageY-5)*$scaleLeft).toString()+" ");
+            $("#leftX").val($("#leftX").val()+((ev.pageX-5)).toString()+" ");
+            $("#leftY").val($("#leftY").val()+((ev.pageY-5)).toString()+" ");
             
             console.log($("#leftX").val());
         
@@ -322,8 +322,8 @@ $(document).ready(function(){
                 
             );
             
-            $("#rightX").val($("#rightX").val()+((ev.pageX-5)*$scaleRight).toString()+" ");
-            $("#rightY").val($("#rightY").val()+((ev.pageY-5)*$scaleRight).toString()+" ");
+            $("#rightX").val($("#rightX").val()+((ev.pageX-5)).toString()+" ");
+            $("#rightY").val($("#rightY").val()+((ev.pageY-5)).toString()+" ");
 
             console.log($("#rightX").val());
         });
