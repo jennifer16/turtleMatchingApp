@@ -14,7 +14,7 @@
 
   $sql = "UPDATE matching set match_left='".$leftFile."' ,match_right='".$rightFile."'
         , match_profile='".$profileFile."' , match_age='".$ageMonth."', match_width='".$width."'
-        , match_length='".$length." ,match_weight='".$weight."', match_turtle_type='".$turtleType." WHERE id='".$_POST['matchId']."';";
+        , match_length='".$length."' ,match_weight='".$weight."', match_turtle_type='".$turtleType."' WHERE id='".$_POST['matchId']."';";
 
   if( mysqli_query($conn, $sql) ){
           
