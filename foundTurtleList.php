@@ -6,7 +6,7 @@ if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
 
-$sql =  "SELECT * FROM turtle INNER JOIN found ON turtle.turtle_id = found.turtle_id WHERE found.found_status='0'";
+$sql =  "SELECT * FROM `matching` WHERE match_pid IS NULL ";
 
 $data = mysqli_query($conn, $sql);
 ?>
@@ -14,7 +14,6 @@ $data = mysqli_query($conn, $sql);
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
         <!-- Vendor styles -->
         <link rel="stylesheet" href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
         <link rel="stylesheet" href="vendors/bower_components/animate.css/animate.min.css">
@@ -122,9 +121,8 @@ $data = mysqli_query($conn, $sql);
               <table id="listTurtle" class="display" style="width:100%">
                 <thead>
                 <tr>
-                  <th style='text-align: center;'>ชื่อเต่า</th>
+                  <th style='text-align: center;'>วันเวลาที่รายงาน</th>
                   <th style='text-align: center;'>ชนิดของเต่า</th>
-                  <th style='text-align: center;'>TAG</th>
                   <th>&nbsp;</th>
                 </tr>
                 </thead>
@@ -132,10 +130,9 @@ $data = mysqli_query($conn, $sql);
 <?php
                  while ($row = $data->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td align='center'><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row['turtle_name']."</a></td>";
-                    echo "<td align='center'>".$row['turtle_type']."</td>";
-                    echo "<td align='center'>".$row['turtle_tag_code']."</td>";
-                   echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doEditTurtle(".$row['turtle_id'].");'>แก้ไขข้อมูลเต่า</button></td>";
+                    echo "<td align='center'>".$row['match_time']."</td>";
+                    echo "<td align='center'>".$row['match_turtle_type']."</td>";
+                   echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['turtle_id'].");'>เปรียบเทียบภาพเต่า</button></td>";
                     echo "</tr>";
 }
                     
@@ -146,9 +143,8 @@ $data = mysqli_query($conn, $sql);
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th style='text-align: center;'>ชื่อเต่า</th>
+                  <th style='text-align: center;'>วันเวลาที่รายงาน</th>
                   <th style='text-align: center;'>ชนิดของเต่า</th>
-                  <th style='text-align: center;'>TAG</th>
                   <th>&nbsp;</th>
                 </tr>
                 </tfoot>
@@ -241,8 +237,8 @@ $data = mysqli_query($conn, $sql);
             
         </script>
         <script>
-    function doEditTurtle(id){
-        window.location='editTurtleDetail.php?id='+id;
+    function doMatchTurtle(id){
+        window.location='selectPointForMatching.php?id='+id;
     }
     
 
