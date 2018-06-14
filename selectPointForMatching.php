@@ -241,7 +241,7 @@ $(document).ready(function(){
     $(document).ready(function(){ 
 
 <?php
- list($width, $height)= getimagesize("./Turtle/".$matchImage);
+ list($width, $height)= getimagesize("./Input/".$matchImage);
         echo "console.log('".$width." ".$height."');\n"
         
 ?>
