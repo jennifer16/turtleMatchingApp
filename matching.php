@@ -184,7 +184,7 @@ if( !isset($_SESSION["user_id"]) ){
                        </div>
                    </div><br>
                    
-              <form role="form" action = "doMatching.php" method = "POST" enctype = "multipart/form-data">
+              <form role="form" action = "doSaveMatching.php" method = "POST" enctype = "multipart/form-data">
                         <input type="text" name="filename" id="filename" hidden>
                 <div class="row">
                    
