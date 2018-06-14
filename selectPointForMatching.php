@@ -10,7 +10,7 @@ $matchId = $_GET['id'];
 $sql = "select * from matching where id='".$matchId."'";
 
 $matchingData = mysqli_query($conn, $sql);
-$row = $turtleData->fetch_assoc();
+$row = $matchingData->fetch_assoc();
 
 $matchImage = $row['match_input'];
 $matchSide = $row['match_side'];
