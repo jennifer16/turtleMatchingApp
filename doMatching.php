@@ -12,13 +12,13 @@
     $filename = "./Turtle/".$matchId."_match.png";
 
 
-    echo "Mathcing with ".$side." side.<br>";
+    echo "Mathcing with ".$matchSide." side.<br>";
     $PID = shell_exec("nohup python demoTurtleMatching.py ".$filename." ".$matchSide." 2>&1 | tee ".$matchOut." 2>/dev/null >/dev/null & echo $!");
 
     echo "<br>";
     echo "Running";
         
-     $sql = "UPDATE matching set match_pid='".$PID."' WHERE id='".$_POST['matchId']."';";
+     $sql = "UPDATE matching set match_pid='".$PID."' WHERE id='".$matchId."';";
 
         if (mysqli_query($conn, $sql)) {
             //echo $PID;
