@@ -20,7 +20,7 @@ side = sys.argv[2]
 print inputName
 
 fileExt = inputName.rpartition(".")[-1]
-fileName = inputName.rpartition("/")[-3]
+fileName = inputName.rpartition("/")[-2]
 useThisFileName = fileName;
 
 print fileExt, fileName, useThisFileName
