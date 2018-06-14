@@ -16,13 +16,13 @@
         , match_profile='".$profileFile."' , match_age='".$ageMonth."', match_width='".$width."'
         , match_length='".$length." ,match_weight='".$weight."', match_turtle_type='".$turtleType." WHERE id='".$_POST['matchId']."';";
 
-  if( mysqli_query($conn, $sql3) )
+  if( mysqli_query($conn, $sql) ){
           
         header('Location: successAddMatching.php');
         
     }else{
         
-        echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         //header('Location: error.php');
     }
     

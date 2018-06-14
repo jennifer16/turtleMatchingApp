@@ -23,7 +23,7 @@
         if (mysqli_query($conn, $sql)) {
             //echo $PID;
             $last_id = mysqli_insert_id($conn);
-         header('Location: addMathcingDetail.php?id='.$last_id);
+         header('Location: addMatchingDetail.php?id='.$last_id);
         }else{
             
         echo "Error: " . $sql . "<br>" . $conn->error;
