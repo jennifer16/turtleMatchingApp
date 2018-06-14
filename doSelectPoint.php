@@ -17,12 +17,12 @@ if( !isset($_SESSION["user_id"]) ){
   $rightName = "".$turtle_id."_Right";
   
   $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
-  //echo $result;
+  echo $result;
   echo "<br>";
 
 
   $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName);
-   //echo $result;
+   echo $result;
 
 ?>
 
