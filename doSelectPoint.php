@@ -16,7 +16,7 @@
   echo "<br>";
 
 
-  $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".rightX."\" \"".$rightY."\" ".$rightName);
+  $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName);
    echo $result;
 
     
