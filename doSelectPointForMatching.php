@@ -13,11 +13,13 @@ if( !isset($_SESSION["user_id"]) ){
 
   $filename = "".$matchId."_match";
 
-echo "sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$matchX."\" \"".$matchY."\" ".$filename;
+//echo "sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$matchX."\" \"".$matchY."\" ".$filename;
 
   $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$matchX."\" \"".$matchY."\" ".$filename);
-  echo $result;
+  //echo $result;
   //echo "<br>";
+
+  header("Location:doMatching?match_id=".$matchId);
 
 ?>
 
