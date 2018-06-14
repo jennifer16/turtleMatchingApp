@@ -132,7 +132,7 @@ $data = mysqli_query($conn, $sql);
                     echo "<tr>";
                     echo "<td align='center'>".$row['match_time']."</td>";
                     echo "<td align='center'>".$row['match_turtle_type']."</td>";
-                   echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['turtle_id'].");'>เปรียบเทียบภาพเต่า</button></td>";
+                   echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['id'].");'>เปรียบเทียบภาพเต่า</button></td>";
                     echo "</tr>";
 }
                     
