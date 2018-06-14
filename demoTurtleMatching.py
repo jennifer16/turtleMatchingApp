@@ -17,9 +17,15 @@ inputName = sys.argv[1]
 #	side to matching
 side = sys.argv[2]
 
+print inputName
+
 fileExt = inputName.rpartition(".")[-1]
 fileName = inputName.rpartition(".")[-3]
 useThisFileName = fileName;
+
+print fileExt, fileName, useThisFileName
+
+
 
 fileInputName = ''
 
