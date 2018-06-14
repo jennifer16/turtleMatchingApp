@@ -136,8 +136,8 @@ $matchSide = $row['match_side'];
                   
                 <form method="post" action="doSelectPointForMatching.php">
                 
-                    <input type="hidden" name="matchX" id="leftX">
-                    <input type="hidden" name="matchY" id="leftY">
+                    <input type="hidden" name="matchX" id="matchX">
+                    <input type="hidden" name="matchY" id="matchY">
                     <input type="hidden" name="matchId" id="matchId" value='<?php echo $matchId; ?>'>
                     <input type="hidden" name="matchSide" id="matchSide" value='<?php echo $matchSide; ?>' >
                     <br>
