@@ -6,7 +6,7 @@ if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
 
-$sql =  "SELECT * FROM `matching` WHERE match_pid IS NULL ";
+$sql =  "SELECT * FROM `matching` WHERE match_pid IS NULL or match_pid='' ";
 
 $data = mysqli_query($conn, $sql);
 ?>
