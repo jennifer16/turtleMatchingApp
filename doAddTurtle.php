@@ -43,7 +43,7 @@ if (mysqli_query($conn, $sql1)) {
         if( !isset($_POST['matchId']))
         {
             
-            header('Location: success.php');
+            header('Location: doSelectPoint.php?turtle_id='.$last_id);
         }
         else
         {
