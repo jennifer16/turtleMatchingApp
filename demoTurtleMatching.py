@@ -88,6 +88,7 @@ for index in range(len(templateFileList)):
 		command_line = "./demo_ASIFT"+" "+leftFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
 		print command_line
+
         args = shlex.split(command_line)
 		p = subprocess.Popen(args)
 		p.wait()
@@ -111,6 +112,7 @@ for index in range(len(templateFileList)):
 		rightOutName.append(outputVName)
 		command_line = "./demo_ASIFT"+" "+rightFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
+		print command_line
 		args = shlex.split(command_line)
 		p = subprocess.Popen(args)
 		p.wait()
