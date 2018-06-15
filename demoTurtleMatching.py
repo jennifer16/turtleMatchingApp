@@ -45,9 +45,9 @@ for row in data:
 	templateIdList.append(row[0]);
 	templateNameList.append(row[1]);
 	if side == 'LEFT':
-		templateFileList.append("Turtle/"+str(row[0])+"_Left.png");
+		templateFileList.append(str(row[0]));
 	else:
-		templateFileList.append("Turtle/"+str(row[1])+"_Right.png");
+		templateFileList.append(str(row[1]));
 print templateFileList
 	
 #	convert template data to PNG
@@ -55,7 +55,7 @@ for i in range(len(templateFileList)):
 
 	fullname1 = templateFileList[i]
 	
-	fileName1 = fullname1[9:len(fullname1)-4]
+	fileName1 = fullname1
 
 	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
 		#convert to PNG
@@ -78,6 +78,7 @@ for index in range(len(templateFileList)):
 	if side == 'LEFT':
 		realInputName = str(templateIdList[index])
 		realNameTemplate = templateNameList[index]
+		print 'real', realNameTemplate
 		#	compare with left face
 		leftFaceName = templateFileList[index]
 		outputVName = "./Output/"+realInputName+"-"+realNameTemplate+"V_LEFT.PNG"
