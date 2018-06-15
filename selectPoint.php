@@ -272,10 +272,12 @@ $(document).ready(function(){
                 
                 
             );
-        
             
-            $("#leftX").val($("#leftX").val()+((ev.pageX-5)).toString()+" ");
-            $("#leftY").val($("#leftY").val()+((ev.pageY-5)).toString()+" ");
+            $posX = Math.round((ev.pageX-5) * $scaleLeft * 100) / 100
+            $posY = Math.round((ev.pageY-5) * $scaleLeft * 100) / 100
+            
+            $("#leftX").val($("#leftX").val()+($posX).toString()+" ");
+            $("#leftY").val($("#leftY").val()+($posY).toString()+" ");
             
             console.log($("#leftX").val());
         
@@ -323,8 +325,11 @@ $(document).ready(function(){
                 
             );
             
-            $("#rightX").val($("#rightX").val()+((ev.pageX-5)).toString()+" ");
-            $("#rightY").val($("#rightY").val()+((ev.pageY-5)).toString()+" ");
+            $posX = Math.round((ev.pageX-5) * $scaleRight * 100) / 100
+            $posY = Math.round((ev.pageY-5) * $scaleRight * 100) / 100
+            
+            $("#rightX").val($("#rightX").val()+($posX).toString()+" ");
+            $("#rightY").val($("#rightY").val()+($posY).toString()+" ");
 
             console.log($("#rightX").val());
         });
