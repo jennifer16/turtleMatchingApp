@@ -148,10 +148,10 @@ rightIndex = sorted(range(len(rightScore)),key=lambda x:rightScore[x])[::-1]
 if side == 'LEFT':
 	for index in leftIndex:
 		leftPercent = leftScore[index]
-		print "$"+ str(templateIdList[index])+","+ str(leftPercent) + ",LEFT,"+leftOutName[index] + "," +str(leftScore)	
+		print "$"+ str(templateIdList[index])+","+ str(leftPercent) + ",LEFT,"+leftOutName[index] + "," +str(leftScore[index])	
 
 if side == 'RIGHT':
 	for index in rightIndex:
 		rightPercent = rightScore[index]
-		print "$"+ str(templateIdList[index])+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]+ "," +str(rightScore)
+		print "$"+ str(templateIdList[index])+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]+ "," +str(rightScore[index])
 	
