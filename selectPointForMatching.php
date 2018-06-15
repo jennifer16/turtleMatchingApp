@@ -269,9 +269,11 @@ $(document).ready(function(){
                 
             );
         
+            $posX = Math.round((ev.pageX-5) * $scaleMatch);
+            $posY = Math.round((ev.pageY-5) * $scaleMatch);
             
-            $("#matchX").val($("#matchX").val()+((ev.pageX-5)).toString()+" ");
-            $("#matchY").val($("#matchY").val()+((ev.pageY-5)).toString()+" ");
+            $("#matchX").val($("#matchX").val()+($posX).toString()+" ");
+            $("#matchY").val($("#matchY").val()+($posY).toString()+" ");
             
             console.log($("#matchX").val());
         
