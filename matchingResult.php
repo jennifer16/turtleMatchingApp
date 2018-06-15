@@ -6,7 +6,18 @@ if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
 
-$sql = "select * from matching WHERE users_id='".$_SESSION['user_id']."' and turtle_id is NULL ORDER BY match_time DESC";
+if( $_SESSION['user_role']=='0')
+{
+    
+    $sql = "select * from matching WHERE users_id='".$_SESSION['user_id']."' ORDER BY match_time DESC";
+    
+}else{
+    
+    $sql = "select * from matching ORDER BY match_time DESC";
+    
+}
+
+
 $result = mysqli_query($conn, $sql);
 
 ?>
