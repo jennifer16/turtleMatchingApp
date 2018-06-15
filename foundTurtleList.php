@@ -140,7 +140,7 @@ $data = mysqli_query($conn, $sql);
                      }
                      else
                      {
-                           echo "<td>ดำเนินการเปรียบเทียบแล้ว".$row['match_pid'].""</td>";
+                           echo "<td>ดำเนินการเปรียบเทียบแล้ว".$row['match_pid']."</td>";
                      }
                          echo "</tr>";
 }
