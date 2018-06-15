@@ -48,14 +48,14 @@ for row in data:
 		templateFileList.append("Turtle/"+str(row[0])+"_Left.png");
 	else:
 		templateFileList.append("Turtle/"+str(row[1])+"_Right.png");
-print templateFileList
+
 	
 #	convert template data to PNG
 for i in range(len(templateFileList)):
 
 	fullname1 = templateFileList[i]
 	
-	fileName1 = fullname1[7:len(fullname1)-3]
+	fileName1 = fullname1[7:len(fullname1)-4]
 
 	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
 		#convert to PNG
@@ -68,7 +68,7 @@ for i in range(len(templateFileList)):
 	else:
 		templateFileList[i] = 'Turtle/'+fileName1+'.PNG'
 	
-print templateFileList
+
 #	calculate matching score for left and right template
 leftScore=[]
 leftOutName = []
