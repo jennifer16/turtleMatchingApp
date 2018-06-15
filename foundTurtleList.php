@@ -132,11 +132,16 @@ $data = mysqli_query($conn, $sql);
                     echo "<tr>";
                     echo "<td align='center'>".$row['match_time']."</td>";
                     echo "<td align='center'>".$row['match_turtle_type']."</td>";
-                     if ($row['match_pid']=='')
-                   echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['id'].");'>เปรียบเทียบภาพเต่า</button></td>";
-                     else
+                     if ($row['match_pid'] != '')
+                     {
                          echo "ดำเนินการเปรียบเทียบแล้ว";
-                    echo "</tr>";
+                
+                     }
+                     else
+                     {
+                            echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['id'].");'>เปรียบเทียบภาพเต่า</button></td>";
+                     }
+                         echo "</tr>";
 }
                     
 ?>
