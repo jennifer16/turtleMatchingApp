@@ -132,14 +132,15 @@ $data = mysqli_query($conn, $sql);
                     echo "<tr>";
                     echo "<td align='center'>".$row['match_time']."</td>";
                     echo "<td align='center'>".$row['match_turtle_type']."</td>";
-                     if ($row['match_pid'] == ' ' )
+                     if (is_numeric($row['match_pid']))
                      {
-                         echo "<td>ดำเนินการเปรียบเทียบแล้ว</td>";
+                           echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['id'].");'>เปรียบเทียบภาพเต่า</button></td>";
+                        
                 
                      }
                      else
                      {
-                            echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['id'].");'>เปรียบเทียบภาพเต่า</button></td>";
+                           echo "<td>ดำเนินการเปรียบเทียบแล้ว</td>";
                      }
                          echo "</tr>";
 }
