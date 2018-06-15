@@ -17,21 +17,14 @@ inputName = sys.argv[1]
 #	side to matching
 side = sys.argv[2]
 
-print inputName
 
-fileExt = inputName.rpartition(".")[-1]
-fileName = inputName.rpartition("/")[-2]
-useThisFileName = fileName;
-
-print fileExt, fileName, useThisFileName
-
-
+fileName = inputName[9:len(inputName)-4]
 
 fileInputName = ''
 
 #	if file is jpg or JPG
 if not os.path.isfile('Turtle/'+fileName+'.PNG'):
-	im = Image.open('Turtle/'+inputName)
+	im = Image.open(inputName)
 	im.save('Turtle/'+fileName+'.PNG')
 	
 if not os.path.isfile('Turtle/'+fileName+'.PNG'):
@@ -52,20 +45,20 @@ for row in data:
 	templateIdList.append(row[0]);
 	templateNameList.append(row[1]);
 	if side == 'LEFT':
-		templateFileList.append(row[0]+"_LEFT.png");
+		templateFileList.append("Turtle/"+row[0]+"_Left.png");
 	else:
-		templateFileList.append(row[3]+"_RIGHT.png");
+		templateFileList.append("Turtle/"+row[1]+"_Right.png");
 	
 #	convert template data to PNG
 for i in range(len(templateFileList)):
 
 	fullname1 = templateFileList[i]
-	fileExt1 = fullname1.rpartition(".")[-1]
-	fileName1 = fullname1.rpartition(".")[-3]
+	
+	fileName1 = fullname1[9:len(fileName1)-4]
 
 	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
 		#convert to PNG
-		im = Image.open('Turtle/'+fullname1)
+		im = Image.open(fullname1)
 		im.save('Turtle/'+fileName1+'.PNG')
 
 	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
@@ -78,14 +71,12 @@ for i in range(len(templateFileList)):
 #	calculate matching score for left and right template
 leftScore=[]
 leftOutName = []
-leftRawScore=[]
 rightScore=[]
 rightOutName = []
-rightRawScore=[]
 for index in range(len(templateFileList)):
 	if side == 'LEFT':
-		realInputName = useThisFileName
-		realNameTemplate = templateFileList[index].rpartition(".")[-3].rpartition("/")[-1]
+		realInputName = templateIdList[index]
+		realNameTemplate = templateNameList[index]
 		#	compare with left face
 		leftFaceName = templateFileList[index]
 		outputVName = "./Output/"+realInputName+"-"+realNameTemplate+"V_LEFT.PNG"
@@ -94,33 +85,21 @@ for index in range(len(templateFileList)):
 		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 		leftOutName.append(outputVName)
-		
-		#histogram_match( fileInputName, templateFileList[index])
 		command_line = "./demo_ASIFT"+" "+leftFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
         	args = shlex.split(command_line)
 		p = subprocess.Popen(args)
 		p.wait()
 		scoreFile = open(outputMatchingName)
-		count=1
 		for line in scoreFile:
-			if count==1:
-				score = line.strip()
-				score = float(score)
-				leftScore.append(score)
-				count=count+1
-			
-			elif count==2:
-				score = line.strip()
-				score = float(score)*(-1.0)
-				leftRawScore.append(score)
-				count=count+1
-			else:
-				break
+			score = line.strip()
+			score = float(score)
+			leftScore.append(score)
+			break
 	
 	if side == 'RIGHT':
-		realInputName = useThisFileName
-		realNameTemplate = templateFileList[index].rpartition(".")[-3].rpartition("/")[-1]
+		realInputName = templateIdList[index]
+		realNameTemplate = templateNameList[index]
 		#	compare with left face
 		rightFaceName = templateFileList[index]
 		outputVName = "./Output/"+realInputName+"-"+realNameTemplate+"V_RIGHT.PNG"
@@ -129,41 +108,28 @@ for index in range(len(templateFileList)):
 		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 		rightOutName.append(outputVName)
-		
-		#histogram_match( fileInputName, templateFileList[index])
 		command_line = "./demo_ASIFT"+" "+rightFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
 		args = shlex.split(command_line)
 		p = subprocess.Popen(args)
 		p.wait()
 		scoreFile = open(outputMatchingName)
-		count=1
 		for line in scoreFile:
-			if count==1:
-				score = line.strip()
-				score = float(score)
-				rightScore.append(score)
-				count=count+1
-			elif count==2:
-				score = line.strip()
-				score = float(score)*(-1.0)
-				rightRawScore.append(score)
-				count=count+1
-			else:
-				break
+			score = line.strip()
+			score = float(score)
+			rightScore.append(score)
+			break
 
 #	list score and print
-leftIndex = sorted(range(len(leftRawScore)),key=lambda x:leftRawScore[x])[::-1]
-rightIndex = sorted(range(len(rightRawScore)),key=lambda x:rightRawScore[x])[::-1]
+leftIndex = sorted(range(len(leftScore)),key=lambda x:leftScore[x])[::-1]
+rightIndex = sorted(range(len(rightScore)),key=lambda x:rightScore[x])[::-1]
 if side == 'LEFT':
 	for index in leftIndex:
 		leftPercent = leftScore[index]
-		leftRawScoreData = leftRawScore[index]
-		print "$"+ str(templateIdList[index])+","+ str(leftPercent) + ",LEFT,"+leftOutName[index]+","+str(leftRawScoreData)	
+		print "$"+ templateIdList[index]+","+ str(leftPercent) + ",LEFT,"+leftOutName[index]	
 
 if side == 'RIGHT':
 	for index in rightIndex:
 		rightPercent = rightScore[index]
-		rightRawScoreData = rightRawScore[index]
-		print "$"+ str(templateIdList[index])+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]+","+str(rightRawScoreData)	
+		print "$"+ templateIdList[index]+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]
 	
