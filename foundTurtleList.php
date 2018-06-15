@@ -134,7 +134,7 @@ $data = mysqli_query($conn, $sql);
                     echo "<td align='center'>".$row['match_turtle_type']."</td>";
                      if (!empty($row['match_pid']))
                      {
-                           echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['id'].");'>เปรียบเทียบภาพเต่า</button></td>";
+                           echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['id'].");'>".strlen($row['match_pid'])."เปรียบเทียบภาพเต่า</button></td>";
                         
                 
                      }
