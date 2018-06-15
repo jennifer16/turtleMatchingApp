@@ -89,7 +89,7 @@ for index in range(len(templateFileList)):
 
 		print command_line
 
-        args = shlex.split(command_line)
+        	args = shlex.split(command_line)
 		p = subprocess.Popen(args)
 		p.wait()
 		scoreFile = open(outputMatchingName)
