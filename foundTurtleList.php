@@ -132,10 +132,10 @@ $data = mysqli_query($conn, $sql);
                     echo "<tr>";
                     echo "<td align='center'>".$row['match_time']."</td>";
                     echo "<td align='center'>".$row['match_turtle_type']."</td>";
-                     if (!empty($row['match_pid']))
+                     if (strlen($row['match_pid'])>3)
                      {
-                           echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['id'].");'>".strlen($row['match_pid'])."เปรียบเทียบภาพเต่า</button></td>";
-                        
+                           echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['id'].");'>เปรียบเทียบภาพเต่า</button></td>";
+                    
                 
                      }
                      else
