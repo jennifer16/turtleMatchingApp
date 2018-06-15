@@ -45,9 +45,9 @@ for row in data:
 	templateIdList.append(row[0]);
 	templateNameList.append(row[1]);
 	if side == 'LEFT':
-		templateFileList.append("Turtle/"+row[0]+"_Left.png");
+		templateFileList.append("Turtle/"+str(row[0])+"_Left.png");
 	else:
-		templateFileList.append("Turtle/"+row[1]+"_Right.png");
+		templateFileList.append("Turtle/"+str(row[1])+"_Right.png");
 	
 #	convert template data to PNG
 for i in range(len(templateFileList)):
