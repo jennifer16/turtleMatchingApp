@@ -47,7 +47,7 @@ for row in data:
 	if side == 'LEFT':
 		templateFileList.append("Turtle/"+str(row[0])+"_Left.png");
 	else:
-		templateFileList.append("Turtle/"+str(row[1])+"_Right.png");
+		templateFileList.append("Turtle/"+str(row[0])+"_Right.png");
 
 	
 #	convert template data to PNG
