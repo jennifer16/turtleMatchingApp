@@ -55,6 +55,8 @@ for i in range(len(templateFileList)):
 
 	fullname1 = templateFileList[i]
 	
+	print "fullname1", fullname1
+
 	fileName1 = fullname1[7:len(fullname1)-4]
 
 	print "filename1", fileName1
