@@ -17,21 +17,21 @@ inputName = sys.argv[1]
 #	side to matching
 side = sys.argv[2]
 
-fileExt = inputName.rpartition(".")[-1]
-fileName = inputName.rpartition(".")[-3]
+
+fileName = inputName[9:len(inputName)-4]
 
 fileInputName = ''
 
 #	if file is jpg or JPG
-if not os.path.isfile('Input/'+fileName+'.PNG'):
-	im = Image.open('Input/'+inputName)
-	im.save('Input/'+fileName+'.PNG')
+if not os.path.isfile('Turtle/'+fileName+'.PNG'):
+	im = Image.open(inputName)
+	im.save('Turtle/'+fileName+'.PNG')
 	
-if not os.path.isfile('Input/'+fileName+'.PNG'):
+if not os.path.isfile('Turtle/'+fileName+'.PNG'):
 	print 'Cannot find name with '+fileName+'.PNG'
 	sys.exit()
 else:
-	fileInputName='Input/'+fileName+'.PNG'
+	fileInputName='Turtle/'+fileName+'.PNG'
 
 #	get list of turtle name
 connection = MySQLdb.connect( host="127.0.0.1", user="root", passwd="Tu2tlem@tching", db="turtle")
@@ -45,20 +45,20 @@ for row in data:
 	templateIdList.append(row[0]);
 	templateNameList.append(row[1]);
 	if side == 'LEFT':
-		templateFileList.append(row[2]);
+		templateFileList.append("Turtle/"+row[0]+"_Left.png");
 	else:
-		templateFileList.append(row[3]);
+		templateFileList.append("Turtle/"+row[1]+"_Right.png");
 	
 #	convert template data to PNG
 for i in range(len(templateFileList)):
 
 	fullname1 = templateFileList[i]
-	fileExt1 = fullname1.rpartition(".")[-1]
-	fileName1 = fullname1.rpartition(".")[-3]
+	
+	fileName1 = fullname1[9:len(fileName1)-4]
 
 	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
 		#convert to PNG
-		im = Image.open('Turtle/'+fullname1)
+		im = Image.open(fullname1)
 		im.save('Turtle/'+fileName1+'.PNG')
 
 	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
