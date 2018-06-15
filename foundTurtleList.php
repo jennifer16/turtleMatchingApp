@@ -135,7 +135,7 @@ $data = mysqli_query($conn, $sql);
                      if ($row['match_pid']=='')
                    echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['id'].");'>เปรียบเทียบภาพเต่า</button></td>";
                      else
-                         echo "ดำเนินการเปรียบเทียบแล้ว"
+                         echo "ดำเนินการเปรียบเทียบแล้ว";
                     echo "</tr>";
 }
                     
