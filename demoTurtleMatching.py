@@ -22,6 +22,8 @@ fileName = inputName[9:len(inputName)-4]
 
 fileInputName = ''
 
+
+
 #	if file is jpg or JPG
 if not os.path.isfile('Turtle/'+fileName+'.PNG'):
 	im = Image.open(inputName)
