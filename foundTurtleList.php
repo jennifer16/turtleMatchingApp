@@ -138,9 +138,13 @@ $data = mysqli_query($conn, $sql);
                     
                 
                      }
+                     else if( $row['turtle_id'] == '')
+                     {
+                         echo "<td align='center'>ดำเนินการเปรียบเทียบแล้ว แต่ยังไม่ได้พิจารณาผล</td>";
+                     }
                      else
                      {
-                           echo "<td align='center'>ดำเนินการเปรียบเทียบแล้ว</td>";
+                           echo "<td align='center'><a href='turtleDetail.php?id=".$row['turtle_id']."'>ข้อมูลเต่าที่พบ</td>";
                      }
                          echo "</tr>";
 }
