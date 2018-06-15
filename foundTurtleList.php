@@ -132,7 +132,7 @@ $data = mysqli_query($conn, $sql);
                     echo "<tr>";
                     echo "<td align='center'>".$row['match_time']."</td>";
                     echo "<td align='center'>".$row['match_turtle_type']."</td>";
-                     if (strlen($row['match_pid']) != 0 )
+                     if ($row['match_pid'] == '' )
                      {
                          echo "<td>ดำเนินการเปรียบเทียบแล้ว</td>";
                 
