@@ -45,10 +45,10 @@ for row in data:
 	templateIdList.append(row[0]);
 	templateNameList.append(row[1]);
 	if side == 'LEFT':
-		print "id",row[0]
 		templateFileList.append("Turtle/"+str(row[0])+"_Left.png");
 	else:
 		templateFileList.append("Turtle/"+str(row[1])+"_Right.png");
+print templateFileList
 	
 #	convert template data to PNG
 for i in range(len(templateFileList)):
@@ -68,7 +68,7 @@ for i in range(len(templateFileList)):
 	else:
 		templateFileList[i] = 'Turtle/'+fileName1+'.PNG'
 	
-
+print templateFileList
 #	calculate matching score for left and right template
 leftScore=[]
 leftOutName = []
