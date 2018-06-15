@@ -25,9 +25,8 @@ fileInputName = ''
 
 
 #	if file is jpg or JPG
-if not os.path.isfile('Turtle/'+fileName+'.PNG'):
-	im = Image.open(inputName)
-	im.save('Turtle/'+fileName+'.PNG')
+im = Image.open(inputName)
+im.save('Turtle/'+fileName+'.PNG')
 	
 if not os.path.isfile('Turtle/'+fileName+'.PNG'):
 	print 'Cannot find name with '+fileName+'.PNG'
@@ -63,10 +62,10 @@ for i in range(len(templateFileList)):
 
 	print "filename1", fileName1
 
-	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
-		#convert to PNG
-		im = Image.open(fullname1)
-		im.save('Turtle/'+fileName1+'.PNG')
+	
+	#convert to PNG
+	im = Image.open(fullname1)
+	im.save('Turtle/'+fileName1+'.PNG')
 
 	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
 		print 'Cannot find name with '+fileName1+'.PNG'
