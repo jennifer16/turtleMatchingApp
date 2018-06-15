@@ -173,9 +173,9 @@ if( !isset($_SESSION["user_id"]) ){
                     else
                         echo "<td align='center'>Matching Score: <font color='red'>".$words[4]."</font></td>\n";
                         
-               if ($_SESSION['user_role']==1) echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
+               if ($_SESSION['user_role']==1) {echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
                 
-                    echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.",".$id.");'>รายงานการพบเต่าตัวนี้</button></td>\n";
+                    echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.",".$id.");'>รายงานการพบเต่าตัวนี้</button></td>\n";}
                         
                     echo "</tr>\n";
                     }
@@ -248,7 +248,8 @@ if( !isset($_SESSION["user_id"]) ){
                     echo "<div class='row' align='center'>";
                     echo "<div class='col-12'>";
 
-                    echo "<button type='button' class='btn btn-warning' onclick='addTurtle(".$id.");'>รายงานเป็นการพบเต่าตัวใหม่</button>";
+            if ($_SESSION['user_role']==1){        echo "<button type='button' class='btn btn-warning' onclick='addTurtle(".$id.");'>รายงานเป็นการพบเต่าตัวใหม่</button>";
+                                          }
                     echo "</div>";
                     echo "</div>";
                     
