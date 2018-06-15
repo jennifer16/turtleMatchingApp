@@ -117,22 +117,23 @@ $rightImage = $row['turtle_right'];
   <div class="row">
           <!-- left column -->
           <div class="col-md-12">
-             <div class="card">
-                <div class="card-body">
+      
                     <h4 class="card-title">คลิกเพื่อเลือกตำแหน่งจุดบนเกล็ดหน้าเต่า</h4>
-                </div>
-              </div>
+    
               </div>
               </div>
                 <div class="row" align="center">
-                    <img src='./Turtle/<?php echo $leftImage;?>' style="width:100%; height:auto;" id="leftImage">
-                    
+                     <div class="col-md-12">
+                    <img src='./Turtle/<?php echo $leftImage;?>' style="max-width:100%; height:auto;" id="leftImage">
+                    </div>
                 </div>
               
                 <hr>
               
                   <div class="row" align="center">
-                    <img src='./Turtle/<?php echo $rightImage;?>' style="width:100%; height:auto;" id="rightImage">
+                       <div class="col-md-12">
+                    <img src='./Turtle/<?php echo $rightImage;?>' style="max-width:100%; height:auto;" id="rightImage">
+                      </div>
                     
                 </div>
                 <form method="post" action="doSelectPoint.php">

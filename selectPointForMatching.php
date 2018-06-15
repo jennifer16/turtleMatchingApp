@@ -119,16 +119,15 @@ $matchSide = $row['match_side'];
   <div class="row">
           <!-- left column -->
           <div class="col-md-12">
-             <div class="card">
-                <div class="card-body">
+          
                     <h4 class="card-title">คลิกเพื่อเลือกตำแหน่งจุดบนเกล็ดหน้าเต่า</h4>
-                </div>
-              </div>
+          
               </div>
               </div>
                 <div class="row" align="center">
-                    <img src='./Input/<?php echo $matchImage;?>' style="width:100%; height:auto;" id="matchImage">
-                    
+                    <div class="col-md-12">
+                    <img src='./Input/<?php echo $matchImage;?>' style="max-width:100%; height:auto;" id="matchImage">
+                    </div>
                 </div>
               
                 <hr>
