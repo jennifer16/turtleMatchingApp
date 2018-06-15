@@ -249,6 +249,9 @@ $(document).ready(function(){
         console.log($currentWidth);
         console.log($currentHeight);
         
+        if ( $currentHeight == 0 )  $currentHeight=1;
+        if ( $currentWidth == 0 ) $currentWidth=1;
+        
         $scaleMatchX = <?php echo $width; ?>/$currentWidth;
         $scaleMatchY = <?php echo $height; ?>/$currentHeight;
         $scaleMatch = ($scaleMatchX + $scaleMatchY)/2.0;

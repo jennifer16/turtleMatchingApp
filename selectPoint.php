@@ -256,6 +256,9 @@ $(document).ready(function(){
         console.log($currentWidth);
         console.log($currentHeight);
         
+        if ( $currentHeight == 0 )  $currentHeight=1;
+        if ( $currentWidth == 0 ) $currentWidth=1;
+        
         $scaleLeftX = <?php echo $width; ?>/$currentWidth;
         $scaleLeftY = <?php echo $height; ?>/$currentHeight;
         $scaleLeft = ($scaleLeftX + $scaleLeftY)/2.0;
@@ -307,6 +310,9 @@ $(document).ready(function(){
         $currentHeightR = $("#rightImage").height();
         console.log($currentWidthR);
         console.log($currentHeightR);
+        
+        if ( $currentHeight == 0 )  $currentHeight=1;
+        if ( $currentWidth == 0 ) $currentWidth=1;
         
         $scaleRightX = <?php echo $widthR; ?>/$currentWidthR;
         $scaleRightY = <?php echo $heightR; ?>/$currentHeightR;
