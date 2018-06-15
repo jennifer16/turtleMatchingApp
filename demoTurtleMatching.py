@@ -75,8 +75,10 @@ for i in range(len(templateFileList)):
 
 #	calculate matching score for left and right template
 leftScore=[]
+leftPercent=[]
 leftOutName = []
 rightScore=[]
+rightPercent=[]
 rightOutName = []
 for index in range(len(templateFileList)):
 	if side == 'LEFT':
@@ -98,11 +100,17 @@ for index in range(len(templateFileList)):
 		p = subprocess.Popen(args)
 		p.wait()
 		scoreFile = open(outputMatchingName)
+		count = 0
 		for line in scoreFile:
 			score = line.strip()
 			score = float(score)
-			leftScore.append(score)
-			break
+			count = count + 1
+			if count==1:
+				leftPercent.append(score)
+			elif count==2:
+				leftScore.append(-1.0*score)
+			else:
+				break
 	
 	if side == 'RIGHT':
 		realInputName = fileName+"Match-"
@@ -122,11 +130,17 @@ for index in range(len(templateFileList)):
 		p = subprocess.Popen(args)
 		p.wait()
 		scoreFile = open(outputMatchingName)
+		count = 0
 		for line in scoreFile:
 			score = line.strip()
 			score = float(score)
-			rightScore.append(score)
-			break
+			count=count+1
+			if count==1:
+				rightPercent.append(score)
+			elif count==2:
+				rightScore.append(-1.0*score)
+			else:
+				break
 
 #	list score and print
 leftIndex = sorted(range(len(leftScore)),key=lambda x:leftScore[x])[::-1]
@@ -134,10 +148,10 @@ rightIndex = sorted(range(len(rightScore)),key=lambda x:rightScore[x])[::-1]
 if side == 'LEFT':
 	for index in leftIndex:
 		leftPercent = leftScore[index]
-		print "$"+ str(templateIdList[index])+","+ str(leftPercent) + ",LEFT,"+leftOutName[index]	
+		print "$"+ str(templateIdList[index])+","+ str(leftPercent) + ",LEFT,"+leftOutName[index] + "," +str(leftScore)	
 
 if side == 'RIGHT':
 	for index in rightIndex:
 		rightPercent = rightScore[index]
-		print "$"+ str(templateIdList[index])+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]
+		print "$"+ str(templateIdList[index])+","+ str(rightPercent) + ",RIGHT,"+rightOutName[index]+ "," +str(rightScore)
 	
