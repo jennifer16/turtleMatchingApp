@@ -65,7 +65,9 @@ for i in range(len(templateFileList)):
 	
 	#convert to PNG
 	im = Image.open(fullname1)
+	print 'open', fullname1
 	im.save('Turtle/'+fileName1+'.PNG')
+	print 'save','Turtle/'+fileName1+'.PNG'
 
 	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
 		print 'Cannot find name with '+fileName1+'.PNG'
