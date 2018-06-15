@@ -76,8 +76,8 @@ rightScore=[]
 rightOutName = []
 for index in range(len(templateFileList)):
 	if side == 'LEFT':
-		realInputName = str(templateIdList[index])
-		realNameTemplate = templateNameList[index]
+		realInputName = fileName+"Match-"
+		realNameTemplate = str(templateIdList[index])+"Turtle-"
 		#	compare with left face
 		leftFaceName = templateFileList[index]
 		outputVName = "./Output/"+realInputName+"-"+realNameTemplate+"V_LEFT.PNG"
@@ -101,8 +101,8 @@ for index in range(len(templateFileList)):
 			break
 	
 	if side == 'RIGHT':
-		realInputName = str(templateIdList[index])
-		realNameTemplate = templateNameList[index]
+		realInputName = fileName+"Match-"
+		realNameTemplate = str(templateIdList[index])+"Turtle-"
 		#	compare with left face
 		rightFaceName = templateFileList[index]
 		outputVName = "./Output/"+realInputName+"-"+realNameTemplate+"V_RIGHT.PNG"
