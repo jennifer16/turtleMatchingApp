@@ -6,7 +6,7 @@ if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
 
-$sql =  "SELECT * FROM `matching` WHERE match_pid IS NULL or match_pid='' ";
+$sql =  "SELECT * FROM matching";
 
 $data = mysqli_query($conn, $sql);
 ?>
@@ -132,7 +132,10 @@ $data = mysqli_query($conn, $sql);
                     echo "<tr>";
                     echo "<td align='center'>".$row['match_time']."</td>";
                     echo "<td align='center'>".$row['match_turtle_type']."</td>";
+                     if ($row['match_pid']=='')
                    echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['id'].");'>เปรียบเทียบภาพเต่า</button></td>";
+                     else
+                         echo "ดำเนินการเปรียบเทียบแล้ว"
                     echo "</tr>";
 }
                     

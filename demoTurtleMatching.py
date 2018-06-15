@@ -57,6 +57,8 @@ for i in range(len(templateFileList)):
 	
 	fileName1 = fullname1[7:len(fullname1)-4]
 
+	print "filename1", fileName1
+
 	if not os.path.isfile('Turtle/'+fileName1+'.PNG'):
 		#convert to PNG
 		im = Image.open(fullname1)

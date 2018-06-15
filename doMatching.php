@@ -22,7 +22,7 @@
 
         if (mysqli_query($conn, $sql)) {
             //echo $PID;
-         //header('Location: ongoing.php');
+         header('Location: ongoing.php');
         }else{
             
         echo "Error: " . $sql . "<br>" . $conn->error;
