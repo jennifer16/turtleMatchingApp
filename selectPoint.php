@@ -146,8 +146,11 @@ $rightImage = $row['turtle_right'];
                     <br>
                     
                      <div class="row" align="center">
-                          <div class="col-md-12">
+                          <div class="col-md-6">
                     <button type="submit" class="btn btn-primary">ยืนยันจุดที่เลือก</button>
+                         </div>
+                         <div class="col-md-6">
+                         <button type="button" class="btn btn-secondary" onclick="window.location.reload();">ล้างจุดที่เลือก</button>
                          </div>
                     </div>
                 </form>
@@ -273,8 +276,8 @@ $(document).ready(function(){
                 
             );
             
-            $posX = Math.round((ev.pageX-5) * $scaleLeft * 100) / 100
-            $posY = Math.round((ev.pageY-5) * $scaleLeft * 100) / 100
+            $posX = Math.round(((ev.pageX-5) * $scaleLeft * 100) / 100 )
+            $posY = Math.round(((ev.pageY-5) * $scaleLeft * 100) / 100 )
             
             $("#leftX").val($("#leftX").val()+($posX).toString()+" ");
             $("#leftY").val($("#leftY").val()+($posY).toString()+" ");
@@ -325,8 +328,10 @@ $(document).ready(function(){
                 
             );
             
-            $posX = Math.round((ev.pageX-5) * $scaleRight * 100) / 100
-            $posY = Math.round((ev.pageY-5) * $scaleRight * 100) / 100
+            $posX = Math.round(((ev.pageX-5) * $scaleRight * 100) / 100);
+            $posY = Math.round(((ev.pageY-5) * $scaleRight * 100) / 100);
+            
+            console.log($posX);
             
             $("#rightX").val($("#rightX").val()+($posX).toString()+" ");
             $("#rightY").val($("#rightY").val()+($posY).toString()+" ");
