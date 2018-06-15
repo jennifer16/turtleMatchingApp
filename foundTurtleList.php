@@ -132,7 +132,7 @@ $data = mysqli_query($conn, $sql);
                     echo "<tr>";
                     echo "<td align='center'>".$row['match_time']."</td>";
                     echo "<td align='center'>".$row['match_turtle_type']."</td>";
-                     if (strlen($row['match_pid'])>3)
+                     if (strlen($row['match_pid'])<=3)
                      {
                            echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doMatchTurtle(".$row['id'].");'>เปรียบเทียบภาพเต่า</button></td>";
                     
@@ -140,7 +140,7 @@ $data = mysqli_query($conn, $sql);
                      }
                      else
                      {
-                           echo "<td>ดำเนินการเปรียบเทียบแล้ว</td>";
+                           echo "<td align='center'>ดำเนินการเปรียบเทียบแล้ว</td>";
                      }
                          echo "</tr>";
 }
