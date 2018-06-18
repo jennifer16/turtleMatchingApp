@@ -511,7 +511,7 @@ function showPosition(position) {
     y.value = position.coords.longitude;
     latlngChange();
 }
-    getLocation();
+    //getLocation();
 </script>
         <script>
             String.prototype.trim = function() {

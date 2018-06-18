@@ -893,7 +893,9 @@ function showPosition(position) {
     y.value = position.coords.longitude;
     latlngChange();
 }
-    getLocation();
+    <?php
+     if ($matchID!=-1) echo "getLocation();";
+    ?>
 </script> 
         <script>
             String.prototype.trim = function() {
