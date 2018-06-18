@@ -894,7 +894,7 @@ function showPosition(position) {
     latlngChange();
 }
     <?php
-     if ($matchID!=-1) echo "getLocation();";
+     if ($matchID==-1) echo "getLocation();";
     ?>
 </script> 
         <script>
