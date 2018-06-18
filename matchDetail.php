@@ -40,6 +40,14 @@ if( !isset($_SESSION["user_id"]) ){
     </head>
 
     <body data-ma-theme="green">
+        <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=161713021336907&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
         <main class="main">
             <div class="page-loader">
                 <div class="page-loader__spinner">
@@ -250,6 +258,12 @@ if( !isset($_SESSION["user_id"]) ){
 
             if ($_SESSION['user_role']==1){        echo "<button type='button' class='btn btn-warning' onclick='addTurtle(".$id.");'>รายงานเป็นการพบเต่าตัวใหม่</button>";
                                           }
+                else{
+                    
+                    echo "<div class='fb-share-button' data-href='https://studioxpert.com/turtleMatchingApp' data-layout='button_count' data-size='large' data-mobile-iframe='true'><a target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fstudioxpert.com%2FturtleMatchingApp&amp;src=sdkpreparse' class='fb-xfbml-parse-ignore'>Share เรื่องราวให้เพื่อนของคุณ</a></div>";
+                    
+                    
+                }
                     echo "</div>";
                     echo "</div>";
                     

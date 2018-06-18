@@ -9,6 +9,21 @@ if( !isset($_SESSION["user_id"]) ){
 $matchID = -1;
 if(isset($_GET['matchId']))
     $matchID = $_GET['matchId'];
+$matchSQL="select * from matching where id='".$matchID."'";
+$matchResult = mysqli_query($conn, $matchSQL);
+$matchData = $matchResult->fetch_assoc();
+$matchPic = './Input/'.$matchData['match_input'];
+$matchLat = $matchData['match_lat'];
+$matchLng = $matchData['match_lng'];
+$matchWeight = $matchData['match_weight'];
+$matchLength = $matchData['match_length'];
+$matchWidth = $matchData['match_width'];
+$matchRight = $matchData['match_right'];
+$matchLeft = $matchData['match_left'];
+$matchProfile = $matchData['match_profile'];
+$matchTurtleType = $matchData['match_turtle_type'];
+$matchAge = $matchData['match_age'];
+
 ?>
 <html lang="en">
     <head>
@@ -159,7 +174,7 @@ if(isset($_GET['matchId']))
                 <!-- left side image -->
                  <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านซ้าย<br>
-      <img class="rounded" id="avatarLeft" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar-left">
+      <img class="rounded" id="avatarLeft" src="<?php if ($matchID==-1) echo "img/camera1.png"; else echo "./Turtle/"$matchLeft; ?>" style="width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputLeft" name="imageLeft" accept="image/*">
     </label>
 
@@ -191,7 +206,7 @@ if(isset($_GET['matchId']))
                  <!-- right side image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านขวา<br>
-      <img class="rounded" id="avatarRight" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar-left">
+      <img class="rounded" id="avatarRight" src="<?php if ($matchID==-1) echo "img/camera1.png"; else echo "./Turtle/"$matchRight; ?>"  style="width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputRight" name="imageRight" accept="image/*">
     </label>
      
@@ -223,7 +238,7 @@ if(isset($_GET['matchId']))
                                   <!-- turtle profile image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
-      <img class="rounded" id="avatarProfile" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar-Profile">
+      <img class="rounded" id="avatarProfile" src="<?php if ($matchID==-1) echo "img/camera1.png"; else echo "./Turtle/"$matchProfile; ?>"  style="width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
      
@@ -272,7 +287,7 @@ if(isset($_GET['matchId']))
                         </div>
                                            <div class="col-md-6">
                     <label for="turtleType">ชนิดเต่า</label>
-                    <input type="text" class="form-control" id="turleType" name="turtleType" placeholder="ชนิดของเต่า">
+                    <input type="text" class="form-control" id="turleType" name="turtleType" placeholder="ชนิดของเต่า" value="<?php if ($matchID !=-1) echo $matchTurtleType; ?>" >
                     </div>
                     </div><br>
                 <div class="row">
@@ -299,28 +314,28 @@ if(isset($_GET['matchId']))
              
                                             <div class="col-md-3">
                     <label for="ageMonth">อายุ (เดือน)</label>
-                    <input type="text" class="form-control" id="ageMonth" name="ageMonth" placeholder="อายุ (เดือน)">
+                    <input type="text" class="form-control" id="ageMonth" name="ageMonth" placeholder="อายุ (เดือน)" value="<?php if ($matchID !=-1) echo $matchAge; ?>" >
                         </div>
                            <div class="col-md-3">
                     <label for="latitude">น้ำหนัก (กก.)</label>
-                        <input type="text" class="form-control" placeholder="น้ำหนักเต่า" id="weight" name="weight"></div>
+                        <input type="text" class="form-control" placeholder="น้ำหนักเต่า" id="weight" name="weight" value="<?php if ($matchID !=-1) echo $matchWeight; ?>" ></div>
                      <div class="col-md-3">
                     <label for="latitude">ความกว้าง (ซม.)</label>
-                    <input type="text" class="form-control" id="width" name="width" placeholder="ความกว้างของกระดองเต่า">
+                    <input type="text" class="form-control" id="width" name="width" placeholder="ความกว้างของกระดองเต่า" value="<?php if ($matchID !=-1) echo $matchWidth; ?>" >
                     </div>
                     <div class="col-md-3">
                     <label for="latitude">ความยาว (ซม.)</label>
-                    <input type="text" class="form-control" id="length" name="length" placeholder="ความยาวของกระดองเต่า">
+                    <input type="text" class="form-control" id="length" name="length" placeholder="ความยาวของกระดองเต่า" value="<?php if ($matchID !=-1) echo $matchLength; ?>" >
                     </div>
                     </div> <br>
                 <div class="row">
                     <div class="col-md-6">
                     <label for="latitude">ละติจูด</label>
-                    <input type="text" class="form-control" id="latitude" name="latitude" placeholder="0.00">
+                    <input type="text" class="form-control" id="latitude" name="latitude" placeholder="0.00" value="<?php if ($matchID !=-1) echo $matchLat; ?>" >
                         </div>
                         <div class="col-md-6">
                     <label for="latitude">ลองจิจูด</label>
-                    <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
+                    <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00" value="<?php if ($matchID !=-1) echo $matchLng; ?>" >
                         </div>
                     <br>
                     
@@ -347,20 +362,13 @@ if(isset($_GET['matchId']))
                 <!-- /.card-body -->
                     <div class="row" align="center">
                 <?php
-                        if ($matchID==-1){
+                      
                             echo "<div class='col-md-12''>";
                             echo "<button type='submit' class='btn btn-primary' id='submitData'>บันทึกข้อมูลเต่า</button>";
                             echo " </div>";
                             
-                        }else{
-                            echo "<div class='col-md-6''>";
-                            echo "<button type='submit' class='btn btn-primary' id='submitData'>บันทึกข้อมูลเต่า</button>";
-                            echo " </div>";
-                             echo "<div class='col-md-6''>";
-                            echo "<div class='fb-share-button' data-href='https://studioxpert.com/turtleMatchingApp/' data-layout='button' data-size='large' data-mobile-iframe='true''><a target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse' class='fb-xfbml-parse-ignore'>แชร์ไปที่ Facebook</a></div>";
-                             echo "</div>";
-
-                        }
+        
+                       
                     
                      ?>
                
