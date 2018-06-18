@@ -20,6 +20,9 @@ $matchData = $matchResult->fetch_assoc();
 $matchPic = './Input/'.$matchData['match_input'];
 $matchLat = $matchData['match_lat'];
 $matchLng = $matchData['match_lng'];
+$matchWeight = $matchData['match_weight'];
+$matchLength = $matchData['match_length'];
+$matchWidth = $matchData['match_width'];
 
 ?>
 <html lang="en">
@@ -218,14 +221,14 @@ $matchLng = $matchData['match_lng'];
                 <div class="row">
                    <div class="col-md-4">
                     <label for="latitude">น้ำหนัก (กก.)</label>
-                        <input type="text" class="form-control" placeholder="น้ำหนักเต่า" id="weight" name="weight"></div>
+                        <input type="text" class="form-control" placeholder="น้ำหนักเต่า" id="weight" name="weight" value="<?php echo $matchWeight; ?>"></div>
                      <div class="col-md-4">
                     <label for="latitude">ความกว้าง (ซม.)</label>
-                    <input type="text" class="form-control" id="width" name="width" placeholder="ความกว้างของกระดองเต่า">
+                    <input type="text" class="form-control" id="width" name="width" placeholder="ความกว้างของกระดองเต่า" <?php echo $matchWidth; ?>>
                     </div>
                     <div class="col-md-4">
                     <label for="latitude">ความยาว (ซม.)</label>
-                    <input type="text" class="form-control" id="length" name="length" placeholder="ความยาวของกระดองเต่า">
+                    <input type="text" class="form-control" id="length" name="length" placeholder="ความยาวของกระดองเต่า" <?php echo $matchLength; ?>>
                     </div>
                
                 </div><br>
