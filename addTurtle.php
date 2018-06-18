@@ -174,7 +174,7 @@ $matchAge = $matchData['match_age'];
                 <!-- left side image -->
                  <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านซ้าย<br>
-      <img class="rounded" id="avatarLeft" src="<?php if ($matchID==-1) echo "img/camera1.png"; else echo "./Turtle/"$matchLeft; ?>" style="width:100%; height:auto;" alt="avatar-left">
+      <img class="rounded" id="avatarLeft" src="<?php if ($matchID==-1){ echo "img/camera1.png"; }else{ echo "./Turtle/".$matchLeft;} ?>" style="width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputLeft" name="imageLeft" accept="image/*">
     </label>
 
@@ -206,7 +206,7 @@ $matchAge = $matchData['match_age'];
                  <!-- right side image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายเต่าด้านขวา<br>
-      <img class="rounded" id="avatarRight" src="<?php if ($matchID==-1) echo "img/camera1.png"; else echo "./Turtle/"$matchRight; ?>"  style="width:100%; height:auto;" alt="avatar-left">
+      <img class="rounded" id="avatarRight" src="<?php if ($matchID==-1) echo "img/camera1.png"; else echo "./Turtle/".$matchRight; ?>"  style="width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputRight" name="imageRight" accept="image/*">
     </label>
      
@@ -238,7 +238,7 @@ $matchAge = $matchData['match_age'];
                                   <!-- turtle profile image -->
                   <div class="container">
     <label class="label" data-toggle="tooltip" title="คลิกเพื่อเลือกรูปภาพ">ภาพถ่ายประจำตัวเต่า<br>
-      <img class="rounded" id="avatarProfile" src="<?php if ($matchID==-1) echo "img/camera1.png"; else echo "./Turtle/"$matchProfile; ?>"  style="width:100%; height:auto;" alt="avatar-Profile">
+      <img class="rounded" id="avatarProfile" src="<?php if ($matchID==-1) echo "img/camera1.png"; else echo "./Turtle/".$matchProfile; ?>"  style="width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
      
@@ -269,9 +269,9 @@ $matchAge = $matchData['match_age'];
           </div>
              <!-- form start --> 
               <form role="form" action = "doAddTurtle.php" method = "POST" enctype = "multipart/form-data">
-                        <input type="text" name="filenameLeft" id="filenameLeft" hidden>
-                   <input type="text" name="filenameRight" id="filenameRight" hidden>
-                   <input type="text" name="filenameProfile" id="filenameProfile" hidden>
+                        <input type="text" name="filenameLeft" id="filenameLeft" value="<?php if ($matchID!=-1) echo $matchLeft; ?>"  hidden>
+                   <input type="text" name="filenameRight" id="filenameRight" value="<?php if ($matchID!=-1) echo $matchRight; ?>"  hidden>
+                   <input type="text" name="filenameProfile" id="filenameProfile" value="<?php if ($matchID!=-1) echo $matchProfile; ?>"  hidden>
                 <div class="card-body">
                         <h5 class="card-title">ข้อมูลประจำตัวเต่าทะเล</h5>
                     <?php

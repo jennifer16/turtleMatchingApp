@@ -224,11 +224,11 @@ $matchWidth = $matchData['match_width'];
                         <input type="text" class="form-control" placeholder="น้ำหนักเต่า" id="weight" name="weight" value="<?php echo $matchWeight; ?>"></div>
                      <div class="col-md-4">
                     <label for="latitude">ความกว้าง (ซม.)</label>
-                    <input type="text" class="form-control" id="width" name="width" placeholder="ความกว้างของกระดองเต่า" <?php echo $matchWidth; ?>>
+                    <input type="text" class="form-control" id="width" name="width" placeholder="ความกว้างของกระดองเต่า" value="<?php echo $matchWidth; ?>" >
                     </div>
                     <div class="col-md-4">
                     <label for="latitude">ความยาว (ซม.)</label>
-                    <input type="text" class="form-control" id="length" name="length" placeholder="ความยาวของกระดองเต่า" <?php echo $matchLength; ?>>
+                    <input type="text" class="form-control" id="length" name="length" placeholder="ความยาวของกระดองเต่า" value="<?php echo $matchLength; ?>">
                     </div>
                
                 </div><br>
