@@ -279,8 +279,8 @@ $(document).ready(function(){
                 
             );
             
-            $posX = Math.round((ev.pageX-5) * $scaleLeft)
-            $posY = Math.round((ev.pageY-5) * $scaleLeft)
+            $posX = Math.round((ev.pageX-5)); //* $scaleLeft)
+            $posY = Math.round((ev.pageY-5)); // * $scaleLeft)
             
             $("#leftX").val($("#leftX").val()+($posX).toString()+" ");
             $("#leftY").val($("#leftY").val()+($posY).toString()+" ");
@@ -334,8 +334,8 @@ $(document).ready(function(){
                 
             );
             
-            $posX = Math.round((ev.pageX-5) * $scaleRight);
-            $posY = Math.round((ev.pageY-5) * $scaleRight);
+            $posX = Math.round((ev.pageX-5));// * $scaleRight);
+            $posY = Math.round((ev.pageY-5));// * $scaleRight);
             
             console.log($posX);
             

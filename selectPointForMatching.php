@@ -272,8 +272,8 @@ $(document).ready(function(){
                 
             );
         
-            $posX = Math.round((ev.pageX-5) * $scaleMatch);
-            $posY = Math.round((ev.pageY-5) * $scaleMatch);
+            $posX = Math.round((ev.pageX-5));// * $scaleMatch);
+            $posY = Math.round((ev.pageY-5));// * $scaleMatch);
             
             $("#matchX").val($("#matchX").val()+($posX).toString()+" ");
             $("#matchY").val($("#matchY").val()+($posY).toString()+" ");
