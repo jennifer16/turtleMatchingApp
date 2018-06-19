@@ -18,11 +18,12 @@ if( !isset($_SESSION["user_id"]) ){
   $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
   //echo $result;
   //echo "<br>";
-
+  
+  $leftExists = file_exists("./Turtle/".$leftName);
 
   $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName);
   //echo $result;
-
+ $rightExists = file_exists("./Turtle/".$rightName);
   //echo "<br>";
 ?>
 
@@ -128,9 +129,9 @@ if( !isset($_SESSION["user_id"]) ){
 
                 <div class="row" align="center">
                     <div class="col-md-12">
-                        <img src="img/green.jpg" style="width:30%; height:auto;"><br><br>
+                        <img src="<?php if($leftExists && $rightExists) echo "img/green.jpg"; else echo "img/red.jpg"; ?>"  style="width:30%; height:auto;"><br><br>
                         <div class="card-title">
-                        <h3>ดำเนินการเสร็จสิ้น</h3>
+                        <h3><?php if($leftExists && $rightExists) echo "ดำเนินการเสร็จสิ้น"; else echo "ไม่สามารถสร้างไฟล์ Mesh ได้ กรุณาดำเนินการอีกครั้ง"; ?></h3>
                         </div><br>
                     <form action="index.php">
                      <button type="submit" class="btn btn-success">กลับสู่หน้าหลัก</button>

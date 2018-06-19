@@ -110,7 +110,7 @@ if( !isset($_SESSION["user_id"]) ){
                     <div class="col-md-12">
                         <img src="img/red.jpg" style="width:30%; height:auto;"><br><br>
                         <div class="card-title">
-                        <h3>เกิดปัญหาขึ้น กรุณาติดต่อผู้ดูแลระบบ</h3>
+                        <h3>เกิดปัญหาขึ้น กรุณาดำเนินการอีกครั้ง หรือ ติดต่อผู้ดูแลระบบ</h3>
                         </div><br>
                     <form action="index.php">
                      <button type="submit" class="btn btn-success">กลับสู่หน้าหลัก</button>

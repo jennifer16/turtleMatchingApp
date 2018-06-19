@@ -18,8 +18,12 @@ if( !isset($_SESSION["user_id"]) ){
   $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$matchX."\" \"".$matchY."\" ".$filename);
   //echo $result;
   //echo "<br>";
+  $fileExists = file_exists("./Turtle/".$filename);
 
-  header("Location:doMatching.php?match_id=".$matchId);
-
+    if ($fileExists)
+        header("Location:doMatching.php?match_id=".$matchId);
+    else
+        
+        header("Location:error.php");
 ?>
 
