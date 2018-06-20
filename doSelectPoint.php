@@ -19,11 +19,11 @@ if( !isset($_SESSION["user_id"]) ){
   //echo $result;
   //echo "<br>";
   
-  $leftExists = file_exists("./Turtle/".$leftName);
+  $leftExists = file_exists("./Turtle/".$leftName.".png");
 
   $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName);
   //echo $result;
- $rightExists = file_exists("./Turtle/".$rightName);
+ $rightExists = file_exists("./Turtle/".$rightName.".png");
   //echo "<br>";
 ?>
 

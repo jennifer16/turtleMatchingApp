@@ -21,12 +21,12 @@ if( !isset($_SESSION["user_id"]) ){
 
   sleep(10);
   echo "checking "."./Turtle/".$filename;
-  $fileExists = file_exists("./Turtle/".$filename);
-echo $fileExists;
-    //if ($fileExists)
-        //header("Location:doMatching.php?match_id=".$matchId);
-    //else
+  $fileExists = file_exists("./Turtle/".$filename.".png");
+
+    if ($fileExists)
+        header("Location:doMatching.php?match_id=".$matchId);
+    else
         
-       // header("Location:error.php");
+        header("Location:error.php");
 ?>
 
