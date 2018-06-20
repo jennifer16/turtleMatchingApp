@@ -154,7 +154,9 @@ print "leftScore", leftScore
 print "rightScore", rightScore
 print "leftPercent", leftPercent
 print "rightPercent", rightPercent
+
 if side == 'LEFT':
+	for index in leftIndex:
 		print "$"+ str(templateIdList[index])+","+ str(leftPercent[index]) + ",LEFT,"+leftOutName[index] + "," +str(leftScore[index])	
 
 if side == 'RIGHT':
