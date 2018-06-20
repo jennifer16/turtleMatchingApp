@@ -19,7 +19,7 @@ if( !isset($_SESSION["user_id"]) ){
   //echo $result;
   //echo "<br>";
 
-  sleep(10);
+  
   echo "checking "."./Turtle/".$filename;
   $fileExists = file_exists("./Turtle/".$filename.".png");
 
