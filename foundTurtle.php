@@ -17,7 +17,7 @@ if( isset($_GET['matchId']))
 $matchSQL="select * from matching where id='".$matchId."'";
 $matchResult = mysqli_query($conn, $matchSQL);
 $matchData = $matchResult->fetch_assoc();
-$matchPic = './Input/'.$matchData['match_profile'];
+$matchPic = './Turtle/'.$matchData['match_profile'];
 $matchLat = $matchData['match_lat'];
 $matchLng = $matchData['match_lng'];
 $matchWeight = $matchData['match_weight'];
