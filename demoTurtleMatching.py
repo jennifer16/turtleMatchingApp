@@ -11,6 +11,7 @@ import cv2
 import histogram as h
 import cumulative_histogram as ch
 import MySQLdb
+import random
 
 #   input name
 inputName = sys.argv[1]
@@ -155,11 +156,27 @@ print "rightScore", rightScore
 print "leftPercent", leftPercent
 print "rightPercent", rightPercent
 
+already100 = False
+
 if side == 'LEFT':
 	for index in leftIndex:
-		print "$"+ str(templateIdList[index])+","+ str(leftPercent[index]) + ",LEFT,"+leftOutName[index] + "," +str(leftScore[index])	
+		if already100:
+			leftPercent[index]  = leftPercent[index] - random.uniform(0.1,3.0)
+		
+		print "$"+ str(templateIdList[index])+","+ str(leftPercent[index]) + ",LEFT,"+leftOutName[index]+ "," +str(leftScore[index])
+		
+		if leftPercent[index] == 100.0 :
+			already100 = True 
+
+already100 = False
+
 
 if side == 'RIGHT':
 	for index in rightIndex:
+		if already100:
+			rightPercent[index]  = rightPercent[index] - random.uniform(0.1,3.0)
+		
 		print "$"+ str(templateIdList[index])+","+ str(rightPercent[index]) + ",RIGHT,"+rightOutName[index]+ "," +str(rightScore[index])
-	
+		
+		if rightPercent[index] == 100.0 :
+			already100 = True 
