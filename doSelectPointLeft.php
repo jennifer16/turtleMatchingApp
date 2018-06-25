@@ -11,7 +11,7 @@ if( !isset($_SESSION["user_id"]) ){
   $turtle_id = $_POST['turtleId'];
   
   $leftName = "".$turtle_id."_Left";
-$rightImage = $_POST['rightImage'];
+$rightImage = $_POST['rightName'];
   
   $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
   echo $result;
