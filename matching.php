@@ -546,16 +546,7 @@ map.addListener('click', function(e) {
     }
 });
         
-
-    
-                      
-                             
-    }
-    
-</script>
-        
-<script>
-    function placeMarker(position) {
+function placeMarker(position) {
     var marker = new google.maps.Marker({
         position: position,
         map: map
@@ -585,6 +576,14 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
 } );  
 }
     
+                      
+                             
+    }
+    
+</script>
+        
+<script>
+    
     function latlngChange()
     {
 
@@ -596,7 +595,13 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
     
         var latlng = {lat: parseFloat(x.value), lng: parseFloat(y.value)};
         var pos = google.maps.LatLng(13,100);
-        placeMarker(pos);
+        var marker = new google.maps.Marker({
+        position: position,
+        map: map
+    });
+    map.panTo(position);
+    marker.setDraggable(true);
+        
         geocoder.geocode({'location': latlng}, function(results, status) {
           if (status === 'OK') {
             if (results[0]) {
