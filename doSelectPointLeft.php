@@ -19,9 +19,10 @@ $rightImage = $_POST['rightName'];
   echo "<br>";
   
   $leftExists = file_exists("./Turtle/".$leftName.".png");
-
+    $url = "selectPointRight.php?name=".$rightImage;
+        
 if($leftExists)
-    header("location:selectPointRight.php?name=".$rightImage);
+    header('Location: '.$url);
 //else
     //header("location:error.php");
       
