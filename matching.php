@@ -550,8 +550,8 @@ function myMap() {
     console.log(parseFloat(latText.value));
     console.log(parseFloat(lngText.value))
     placeMarker = (latlng, map);
-    
-}
+
+
         
 function placeMarker(position, map) {
     var marker = new google.maps.Marker({
