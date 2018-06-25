@@ -96,7 +96,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                         
                         <?php
                             if ($_SESSION['user_role']==1)
-                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a>";
+                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบ</a>";
                              if($numWaitForMatch>0)  echo "<span class='badge badge-light'>".$numWaitForMatch."</span>";
                              echo "</li>"; }
                         ?>
