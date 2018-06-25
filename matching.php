@@ -2,9 +2,9 @@
 <?php
 require 'connect.php';
 session_start();
-if( !isset($_SESSION["user_id"]) ){
-    header("location:login.php");
-}
+//if( !isset($_SESSION["user_id"]) ){
+//    header("location:login.php");
+//}
 ?>
 <html lang="en">
     <head>
@@ -150,8 +150,10 @@ if( !isset($_SESSION["user_id"]) ){
       <img class="rounded" id="avatar" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar">
       <input type="file" class="sr-only" id="input" name="image" accept="image/*" >
     </label>
-
-    <div class="alert" role="alert"></div>
+<div class="progress" id="progressMatch">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-barMatch">0%</div>
+    </div>
+    <div class="alert" role="alert" id="alertMatch"></div>
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -349,7 +351,9 @@ if( !isset($_SESSION["user_id"]) ){
       var avatar = document.getElementById('avatar');
       var image = document.getElementById('image');
       var input = document.getElementById('input');
-      var $alert = $('.alert');
+      var $alert = $('#alertMatch');
+            var $progress = $('#progressMatch');
+      var $progressBar = $('#progress-barMatch');
       var $modal = $('#modal');
       var cropper;
       var newFilenameLeft;
@@ -417,7 +421,7 @@ if( !isset($_SESSION["user_id"]) ){
           initialAvatarURL = avatar.src;
             
           avatar.src = canvas.toDataURL();
-          //$progress.show();
+          $progress.show();
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
@@ -447,7 +451,7 @@ if( !isset($_SESSION["user_id"]) ){
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
-                   // $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                    $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
                   }
                 };
 
@@ -455,7 +459,7 @@ if( !isset($_SESSION["user_id"]) ){
               },
 
               success: function () {
-               // $alert.show().addClass('alert-success').text('Upload success');
+               $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
                   $('#search').innerHTML = "ค้นหาเต่า";
                    $('#search').disabled = false;
@@ -464,12 +468,12 @@ if( !isset($_SESSION["user_id"]) ){
 
               error: function () {
                 avatar.src = initialAvatarURL;
-                //$alert.show().addClass('alert-warning').text('Upload error');
+                $alert.show().addClass('alert-warning').text('Upload error');
                   console.log('error');
               },
 
               complete: function () {
-               // $progress.hide();
+                $progress.hide();
               },
             });
           });
