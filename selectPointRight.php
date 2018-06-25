@@ -224,62 +224,7 @@ $(document).ready(function(){
 });
         </script>
 
-        
-<script>
-
-    
-    
-    $(document).ready(function(){ 
-
-<?php
- list($width, $height)= getimagesize("./Turtle/".$leftImage);
-        echo "console.log('".$width." ".$height."');\n"
-        
-?>
-        $currentWidth = $("#leftImage").width();
-        $currentHeight = $("#leftImage").height();
-        console.log($currentWidth);
-        console.log($currentHeight);
-        
-        if ( $currentHeight == 0 )  $currentHeight=1;
-        if ( $currentWidth == 0 ) $currentWidth=1;
-        
-        $scaleLeftX = <?php echo $width; ?>/$currentWidth;
-        $scaleLeftY = <?php echo $height; ?>/$currentHeight;
-        $scaleLeft = ($scaleLeftX + $scaleLeftY)/2.0;
-        
-        
-        $("#leftImage").click(function (ev) {
-       
-            $("body").append(            
-                $('<div class="marker"></div>').css({
-                    position: 'absolute',
-                    top: ev.pageY-5 + 'px',
-                    left: ev.pageX-5 + 'px',
-                    width: '10px',
-                    height: '10px',
-                    background: '#000000'
-                })  
-                
-                
-            );
-            
-            $posX = Math.round((ev.pageX-5)); //* $scaleLeft)
-            $posY = Math.round((ev.pageY-5)); // * $scaleLeft)
-            
-            $("#leftX").val($("#leftX").val()+($posX).toString()+" ");
-            $("#leftY").val($("#leftY").val()+($posY).toString()+" ");
-            
-            console.log($("#leftX").val());
-        
-        });
-        
-        
-        
-    
-});
-    
-        </script>   
+          
 <script>
 
     
