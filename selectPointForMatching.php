@@ -126,7 +126,7 @@ $matchSide = $row['match_side'];
               </div>
                 <div class="row" align="center">
                     <div class="col-md-12">
-                    <img src='./Input/<?php echo $matchImage;?>' style="max-width:100%; height:auto;" id="matchImage">
+                    <img src='./Input/<?php echo $matchImage;?>' style="width=auto; max-height: 70vh;" id="matchImage">
                     </div>
                 </div>
               
@@ -141,9 +141,12 @@ $matchSide = $row['match_side'];
                     <input type="hidden" name="matchSide" id="matchSide" value='<?php echo $matchSide; ?>' >
                     <br>
                     
-                     <div class="row" align="center">
-                          <div class="col-md-12">
+<div class="row" align="center">
+                          <div class="col-md-6">
                     <button type="submit" class="btn btn-primary">ยืนยันจุดที่เลือก</button>
+                         </div>
+                         <div class="col-md-6">
+                         <button type="button" class="btn btn-secondary" onclick="window.location.reload();">ล้างจุดที่เลือก</button>
                          </div>
                     </div>
                 </form>

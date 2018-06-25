@@ -18,6 +18,10 @@ if( !isset($_SESSION["user_id"]) ){
 
     $myfile1 = fopen($outputFile, "r") or die("Unable to open file!");
 
+    $reported = true;
+    if( $row['turtle_id'] == '')
+        $reported = false;
+
 ?>
 
 <!DOCTYPE html>
@@ -183,7 +187,10 @@ if( !isset($_SESSION["user_id"]) ){
                         
                if ($_SESSION['user_role']==1) {echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
                 
-                    echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.",".$id.");'>รายงานการพบเต่าตัวนี้</button></td>\n";}
+                    if(!$reported)
+                        echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.",".$id.");'>รายงานการพบเต่าตัวนี้</button></td>\n";
+                    else
+                        echo "<td align='center'>&nbsp;</td>"}
                         
                     echo "</tr>\n";
                     }
@@ -256,7 +263,9 @@ if( !isset($_SESSION["user_id"]) ){
                     echo "<div class='row' align='center'>";
                     echo "<div class='col-12'>";
 
-            if ($_SESSION['user_role']==1){        echo "<button type='button' class='btn btn-warning' onclick='addTurtle(".$id.");'>รายงานเป็นการพบเต่าตัวใหม่</button>";
+            if ($_SESSION['user_role']==1){    
+                if(!$reported)
+                echo "<button type='button' class='btn btn-warning' onclick='addTurtle(".$id.");'>รายงานเป็นการพบเต่าตัวใหม่</button>";
                                           }
                 else{
                     
