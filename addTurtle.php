@@ -723,17 +723,18 @@ $matchAge = $matchData['match_age'];
                 return xhr;
               },
 
-              success: function () {
-                $alert.show().addClass('alert-success').text('Upload success');
+             success: function () {
+                  $alert.show().addClass('alert-success').text('Upload รูปภาพเสร็จสิ้น');
                   console.log('success');
                    $('#submitData').disabled = false;
               },
 
               error: function () {
                 avatar.src = initialAvatarURL;
-                $alert.show().addClass('alert-warning').text('Upload error');
+                $alert.show().addClass('alert-warning').text('ไม่สามารถ Upload รูปภาพได้ กรุณาดำเนินการอีกครั้ง');
                   console.log('error');
               },
+
 
               complete: function () {
                // $progress.hide();
@@ -868,18 +869,18 @@ $matchAge = $matchData['match_age'];
                 return xhr;
               },
 
-              success: function () {
-                $alert.show().addClass('alert-success').text('Upload success');
+             success: function () {
+                  $alert.show().addClass('alert-success').text('Upload รูปภาพเสร็จสิ้น');
                   console.log('success');
-                    $('#search').removeAttr('disabled');
-                   $('#submitData').disabled = true;
+                   $('#submitData').disabled = false;
               },
 
               error: function () {
                 avatar.src = initialAvatarURL;
-                $alert.show().addClass('alert-warning').text('Upload error');
+                $alert.show().addClass('alert-warning').text('ไม่สามารถ Upload รูปภาพได้ กรุณาดำเนินการอีกครั้ง');
                   console.log('error');
               },
+
 
               complete: function () {
                 $progress.hide();
