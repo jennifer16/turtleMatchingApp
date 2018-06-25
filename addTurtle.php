@@ -177,8 +177,10 @@ $matchAge = $matchData['match_age'];
       <img class="rounded" id="avatarLeft" src="<?php if ($matchID==-1){ echo "img/camera1.png"; }else{ echo "./Turtle/".$matchLeft;} ?>" style="width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputLeft" name="imageLeft" accept="image/*">
     </label>
-
-    <div class="alertLeft" role="alert"></div>
+<div class="progress" id="progressLeft">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-barLeft">0%</div>
+    </div>
+    <div class="alert" role="alert" id="alertLeft"></div>
     <div class="modal fade" id="modalLeft" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -209,8 +211,10 @@ $matchAge = $matchData['match_age'];
       <img class="rounded" id="avatarRight" src="<?php if ($matchID==-1) echo "img/camera1.png"; else echo "./Turtle/".$matchRight; ?>"  style="width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputRight" name="imageRight" accept="image/*">
     </label>
-     
-    <div class="alertRight" role="alert"></div>
+<div class="progress" id="progressRight">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-barRight">0%</div>
+    </div>
+    <div class="alert" role="alert" id="alertRight"></div>
     <div class="modal fade" id="modalRight" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -241,8 +245,10 @@ $matchAge = $matchData['match_age'];
       <img class="rounded" id="avatarProfile" src="<?php if ($matchID==-1) echo "img/camera1.png"; else echo "./Turtle/".$matchProfile; ?>"  style="width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
-     
-    <div class="alertProfile" role="alert"></div>
+<div class="progressProfile">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-barProfile">0%</div>
+    </div>
+    <div class="alert" role="alert" id="alertProfile"></div>
     <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -476,8 +482,10 @@ $matchAge = $matchData['match_age'];
       var avatar = document.getElementById('avatarLeft');
       var image = document.getElementById('imageLeft');
       var input = document.getElementById('inputLeft');
-      var $alert = $('.alertLeft');
+      var $alert = $('#alertLeft');
       var $modal = $('#modalLeft');
+      var $progress = $('#progressLeft');
+      var $progressBar = $('#progress-barLeft');
       var cropper;
       var newFilenameLeft;
       $('[data-toggle="tooltip"]').tooltip();
@@ -543,7 +551,7 @@ $matchAge = $matchData['match_age'];
 
           initialAvatarURL = avatar.src;
           avatar.src = canvas.toDataURL();
-          //$progress.show();
+          $progress.show();
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
@@ -574,7 +582,7 @@ $matchAge = $matchData['match_age'];
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
-                   // $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                    $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
                   }
                 };
 
@@ -582,19 +590,19 @@ $matchAge = $matchData['match_age'];
               },
 
               success: function () {
-               // $alert.show().addClass('alert-success').text('Upload success');
+                  $alert.show().addClass('alert-success').text('Upload รูปภาพเสร็จสิ้น');
                   console.log('success');
                    $('#submitData').disabled = false;
               },
 
               error: function () {
                 avatar.src = initialAvatarURL;
-                //$alert.show().addClass('alert-warning').text('Upload error');
+                $alert.show().addClass('alert-warning').text('ไม่สามารถ Upload รูปภาพได้ กรุณาดำเนินการอีกครั้ง');
                   console.log('error');
               },
 
               complete: function () {
-               // $progress.hide();
+               $progress.hide();
               },
             });
           });
@@ -608,8 +616,10 @@ $matchAge = $matchData['match_age'];
       var avatar = document.getElementById('avatarRight');
       var image = document.getElementById('imageRight');
       var input = document.getElementById('inputRight');
-      var $alert = $('.alertRight');
+      var $alert = $('#alertRight');
       var $modal = $('#modalRight');
+    var $progress = $('#progressRight');
+      var $progressBar = $('#progress-barRight');
       var cropper;
       var newFilenameRight;
       $('[data-toggle="tooltip"]').tooltip();
@@ -675,7 +685,7 @@ $matchAge = $matchData['match_age'];
 
           initialAvatarURL = avatar.src;
           avatar.src = canvas.toDataURL();
-          //$progress.show();
+          $progress.show();
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
@@ -706,7 +716,7 @@ $matchAge = $matchData['match_age'];
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
-                   // $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                    $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
                   }
                 };
 
@@ -714,14 +724,14 @@ $matchAge = $matchData['match_age'];
               },
 
               success: function () {
-               // $alert.show().addClass('alert-success').text('Upload success');
+                $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
                    $('#submitData').disabled = false;
               },
 
               error: function () {
                 avatar.src = initialAvatarURL;
-                //$alert.show().addClass('alert-warning').text('Upload error');
+                $alert.show().addClass('alert-warning').text('Upload error');
                   console.log('error');
               },
 
@@ -739,8 +749,10 @@ $matchAge = $matchData['match_age'];
       var avatar = document.getElementById('avatarProfile');
       var image = document.getElementById('imageProfile');
       var input = document.getElementById('inputProfile');
-      var $alert = $('.alertProfile');
+      var $alert = $('#alertProfile');
       var $modal = $('#modalProfile');
+        var $progress = $('#progressProfile');
+      var $progressBar = $('#progress-barProfile');
       var cropper;
       var newFilenameProfile;
       $('[data-toggle="tooltip"]').tooltip();
@@ -818,7 +830,7 @@ $matchAge = $matchData['match_age'];
 
           initialAvatarURL = avatar.src;
           avatar.src = canvas.toDataURL();
-          //$progress.show();
+          $progress.show();
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
@@ -849,7 +861,7 @@ $matchAge = $matchData['match_age'];
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
-                   // $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                    $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
                   }
                 };
 
@@ -857,7 +869,7 @@ $matchAge = $matchData['match_age'];
               },
 
               success: function () {
-               // $alert.show().addClass('alert-success').text('Upload success');
+                $alert.show().addClass('alert-success').text('Upload success');
                   console.log('success');
                     $('#search').removeAttr('disabled');
                    $('#submitData').disabled = true;
@@ -865,12 +877,12 @@ $matchAge = $matchData['match_age'];
 
               error: function () {
                 avatar.src = initialAvatarURL;
-                //$alert.show().addClass('alert-warning').text('Upload error');
+                $alert.show().addClass('alert-warning').text('Upload error');
                   console.log('error');
               },
 
               complete: function () {
-               // $progress.hide();
+                $progress.hide();
               },
             });
           });
