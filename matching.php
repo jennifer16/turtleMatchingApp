@@ -547,8 +547,6 @@ function myMap() {
 //});
 
     var latlng = new google.maps.LatLng(13,100);
-    console.log(parseFloat(latText.value));
-    console.log(parseFloat(lngText.value))
     placeMarker = (latlng, map);
 
 
