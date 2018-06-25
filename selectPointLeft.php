@@ -122,9 +122,10 @@ $rightImage = $row['turtle_right'];
     
               </div>
               </div>
+              <br>
                 <div class="row" align="center">
                      <div class="col-md-12">
-                    <img src='./Turtle/<?php echo $leftImage;?>' style="width=auto; max-height: 80vh;" id="leftImage">
+                    <img src='./Turtle/<?php echo $leftImage;?>' style="width=auto; max-height: 70vh;" id="leftImage">
                     </div>
                 </div>
               
