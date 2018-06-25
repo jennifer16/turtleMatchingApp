@@ -10,10 +10,16 @@ if( !isset($_SESSION["user_id"]) ){
   $rightY = $_POST['rightY'];
   $turtle_id = $_POST['turtleId'];
   $rightName = "".$turtle_id."_Right";
-echo "sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName ;
+//echo "sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName ;
   $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$rightX."\" \"".$rightY."\" ".$rightName);
-  echo $result;
+  //echo $result;
  $rightExists = file_exists("./Turtle/".$rightName.".png");
-  echo "<br>";
+  //echo "<br>";
+
+if($rightExists)
+    header('Location:success.php');
+else
+    header("location:error.php");
+      
 ?>
 
