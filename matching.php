@@ -535,7 +535,7 @@ function myMap() {
         center:new google.maps.LatLng(13.736717, 100.523186),
         zoom:5
     }
-    var map=new google.maps.Map(document.getElementById("map"),mapProp);
+    map=new google.maps.Map(document.getElementById("map"),mapProp);
     
 
     var isClick=false;
@@ -546,7 +546,7 @@ map.addListener('click', function(e) {
     }
 });
         
-function placeMarker(position, map) {
+function placeMarker(position) {
     var marker = new google.maps.Marker({
         position: position,
         map: map
