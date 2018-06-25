@@ -245,8 +245,8 @@ $matchAge = $matchData['match_age'];
       <img class="rounded" id="avatarProfile" src="<?php if ($matchID==-1) echo "img/camera1.png"; else echo "./Turtle/".$matchProfile; ?>"  style="width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
-<div class="progressProfile">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-barProfile">0%</div>
+<div class="progress" id="progressLeft">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-barLeft">0%</div>
     </div>
     <div class="alert" role="alert" id="alertProfile"></div>
     <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
