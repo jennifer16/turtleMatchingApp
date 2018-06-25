@@ -123,7 +123,7 @@ $rightImage = $_GET['name'];
                       </div>
                     
                 </div>
-                <form method="post" action="doSelectPoint.php">
+                <form method="post" action="doSelectPointRight.php">
                 
                     <input type="hidden" name="rightX" id="rightX">
                     <input type="hidden" name="rightY" id="rightY">

@@ -129,7 +129,7 @@ $rightImage = $row['turtle_right'];
                 </div>
               
                 
-                <form method="post" action="doSelectPoint.php">
+                <form method="post" action="doSelectPointLeft.php">
                 
                     <input type="hidden" name="leftX" id="leftX">
                     <input type="hidden" name="leftY" id="leftY">

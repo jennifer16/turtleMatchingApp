@@ -14,15 +14,15 @@ if( !isset($_SESSION["user_id"]) ){
 $rightImage = $_POST['rightImage'];
   
   $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
-  //echo $result;
-  //echo "<br>";
+  echo $result;
+  echo "<br>";
   
   $leftExists = file_exists("./Turtle/".$leftName.".png");
 
 if($leftExists)
     header("location:selectPointRight.php?name=".$rightImage);
-else
-    header("location:error.php");
+//else
+    //header("location:error.php");
   
     
 ?>
