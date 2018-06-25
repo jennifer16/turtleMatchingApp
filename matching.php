@@ -530,16 +530,15 @@ $(document).ready(function(){
 function myMap() {
     var x = document.getElementById("map");
     console.log(x);
-var mapProp= {
-   
-    center:new google.maps.LatLng(13.736717, 100.523186),
-    zoom:5
-}
-var map=new google.maps.Map(document.getElementById("map"),mapProp);
+    var mapProp= {
+
+        center:new google.maps.LatLng(13.736717, 100.523186),
+        zoom:5
+    }
+    var map=new google.maps.Map(document.getElementById("map"),mapProp);
     
-var latText = document.getElementById("latitude");
-var lngText = document.getElementById("longtitude");
-var isClick=false;
+
+    var isClick=false;
 //map.addListener('click', function(e) {
 //    if(!isClick){
 //        placeMarker(e.latLng, map);
@@ -547,11 +546,13 @@ var isClick=false;
 //    }
 //});
 
-var latlng = new google.maps.LatLng(parseFloat(latText.value), parseFloat(lngText.value));
-console.log(parseFloat(latText.value));
-console.log(parseFloat(lngText.value))
-placeMarker = (latlng, map);
+    var latlng = new google.maps.LatLng(13,100);
+    console.log(parseFloat(latText.value));
+    console.log(parseFloat(lngText.value))
+    placeMarker = (latlng, map);
     
+}
+        
 function placeMarker(position, map) {
     var marker = new google.maps.Marker({
         position: position,
