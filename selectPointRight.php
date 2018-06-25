@@ -241,8 +241,8 @@ $(document).ready(function(){
         console.log($currentWidthR);
         console.log($currentHeightR);
         
-        if ( $currentHeight == 0 )  $currentHeight=1;
-        if ( $currentWidth == 0 ) $currentWidth=1;
+        if ( $currentHeightR == 0 )  $currentHeightR=1;
+        if ( $currentWidthR == 0 ) $currentWidthR=1;
         
         $scaleRightX = <?php echo $widthR; ?>/$currentWidthR;
         $scaleRightY = <?php echo $heightR; ?>/$currentHeightR;
