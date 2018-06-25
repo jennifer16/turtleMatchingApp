@@ -6,6 +6,10 @@ if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
 
+$sql = "select * from matching where match_pid is null or match_pid=''";
+$result = mysqli_query($conn, $sql);
+$numWaitForMatch = mysqli_num_rows($result);
+
 $turtle_id = $_GET['turtle_id'];
 $sql = "select * from turtle where turtle_id='".$turtle_id."'";
 
@@ -101,7 +105,9 @@ $rightImage = $row['turtle_right'];
                         
                         <?php
                             if ($_SESSION['user_role']==1)
-                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>"; }
+                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp; ";
+                             if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span></a>";
+                             echo "</li>"; }
                         ?>
                         
                         <?php
