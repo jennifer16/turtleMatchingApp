@@ -537,8 +537,8 @@ var mapProp= {
 }
 var map=new google.maps.Map(document.getElementById("map"),mapProp);
     
-var x = document.getElementById("latitude");
-var y = document.getElementById("longtitude");
+var latText = document.getElementById("latitude");
+var lngText = document.getElementById("longtitude");
 var isClick=false;
 //map.addListener('click', function(e) {
 //    if(!isClick){
@@ -546,9 +546,9 @@ var isClick=false;
 //        isClick=true;
 //    }
 //});
-getLocation();
-var latlng = {lat: parseFloat(x.value), lng: parseFloat(y.value)}
-placeMarker(latlng, map);
+
+var latlng = {lat: parseFloat(latText.value), lng: parseFloat(lngText.value)}
+placeMarker = (latlng, map);
     
 function placeMarker(position, map) {
     var marker = new google.maps.Marker({
