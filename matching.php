@@ -539,17 +539,12 @@ function myMap() {
     
 
     var isClick=false;
-//map.addListener('click', function(e) {
-//    if(!isClick){
-//        placeMarker(e.latLng, map);
-//        isClick=true;
-//    }
-//});
-
-    var latlng = new google.maps.LatLng(13,100);
-    placeMarker = (latlng, map);
-
-
+map.addListener('click', function(e) {
+    if(!isClick){
+        placeMarker(e.latLng, map);
+    isClick=true;
+    }
+});
         
 function placeMarker(position, map) {
     var marker = new google.maps.Marker({
