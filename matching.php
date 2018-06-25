@@ -459,7 +459,7 @@ session_start();
               },
 
               success: function () {
-               $alert.show().addClass('alert-success').text('Upload success');
+               $alert.show().addClass('alert-success').text('Upload รูปภาพเสร็จสิ้น');
                   console.log('success');
                   $('#search').innerHTML = "ค้นหาเต่า";
                    $('#search').disabled = false;
@@ -468,7 +468,7 @@ session_start();
 
               error: function () {
                 avatar.src = initialAvatarURL;
-                $alert.show().addClass('alert-warning').text('Upload error');
+                $alert.show().addClass('alert-warning').text('เกิดปัญหาในการ Upload กรุณาดำเนินการอีกครั้ง');
                   console.log('error');
               },
 
@@ -536,15 +536,20 @@ var mapProp= {
     zoom:5
 }
 var map=new google.maps.Map(document.getElementById("map"),mapProp);
-
+    
+var x = document.getElementById("latitude");
+var y = document.getElementById("longtitude");
 var isClick=false;
-map.addListener('click', function(e) {
-    if(!isClick){
-        placeMarker(e.latLng, map);
-        isClick=true;
-    }
-});
-
+//map.addListener('click', function(e) {
+//    if(!isClick){
+//        placeMarker(e.latLng, map);
+//        isClick=true;
+//    }
+//});
+getLocation();
+var latlng = {lat: parseFloat(x.value), lng: parseFloat(y.value)}
+placeMarker(latlng, map);
+    
 function placeMarker(position, map) {
     var marker = new google.maps.Marker({
         position: position,
