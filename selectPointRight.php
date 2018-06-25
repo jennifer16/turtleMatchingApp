@@ -120,7 +120,7 @@ $turtle_id = $_GET['id'];
               
                   <div class="row" align="center">
                        <div class="col-md-12">
-                    <img src='./Turtle/<?php echo $rightImage;?>' style="max-width:100%; height:auto;" id="rightImage">
+                    <img src='./Turtle/<?php echo $rightImage;?>' style="width=auto; max-height: 80vh;" id="rightImage">
                       </div>
                     
                 </div>
