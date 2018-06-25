@@ -547,7 +547,7 @@ var isClick=false;
 //    }
 //});
 
-var latlng = {lat: parseFloat(latText.value()), lng: parseFloat(lngText.value())}
+var latlng = new google.maps.LatLng(parseFloat(latText.value()), parseFloat(lngText.value())),";
 console.log(latlng);
 placeMarker = (latlng, map);
     
