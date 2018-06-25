@@ -24,6 +24,5 @@ if($leftExists)
     header("location:selectPointRight.php?name=".$rightImage);
 //else
     //header("location:error.php");
-  
-    
+      
 ?>
