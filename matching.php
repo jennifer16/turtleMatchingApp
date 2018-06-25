@@ -546,7 +546,16 @@ map.addListener('click', function(e) {
     }
 });
         
-function placeMarker(position) {
+
+    
+                      
+                             
+    }
+    
+</script>
+        
+<script>
+    function placeMarker(position) {
     var marker = new google.maps.Marker({
         position: position,
         map: map
@@ -575,14 +584,6 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
     latlngChange();
 } );  
 }
-    
-                      
-                             
-    }
-    
-</script>
-        
-<script>
     
     function latlngChange()
     {
