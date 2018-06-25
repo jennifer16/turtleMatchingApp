@@ -535,7 +535,7 @@ function myMap() {
         center:new google.maps.LatLng(13.736717, 100.523186),
         zoom:5
     }
-    map=new google.maps.Map(document.getElementById("map"),mapProp);
+    var map=new google.maps.Map(document.getElementById("map"),mapProp);
     
 
     var isClick=false;
@@ -546,7 +546,7 @@ map.addListener('click', function(e) {
     }
 });
         
-function placeMarker(position) {
+function placeMarker(position, map) {
     var marker = new google.maps.Marker({
         position: position,
         map: map
@@ -594,14 +594,6 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
         var geocoder = new google.maps.Geocoder;
     
         var latlng = {lat: parseFloat(x.value), lng: parseFloat(y.value)};
-        var pos = google.maps.LatLng(13,100);
-        var marker = new google.maps.Marker({
-        position: pos,
-        map: map
-    });
-    map.panTo(pos);
-    marker.setDraggable(true);
-        
         geocoder.geocode({'location': latlng}, function(results, status) {
           if (status === 'OK') {
             if (results[0]) {
