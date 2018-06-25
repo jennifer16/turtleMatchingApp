@@ -6,6 +6,10 @@ if( !isset($_SESSION["user_id"]) ){
     header("location:login.php");
 }
 
+$sql = "select * from matching where match_pid is null or match_pid=''";
+$result = mysqli_query($conn, $sql);
+$numWaitForMatch = mysqli_num_rows($result);
+
 ?>
 <html lang="en">
     <head>
@@ -92,7 +96,9 @@ if( !isset($_SESSION["user_id"]) ){
                         
                         <?php
                             if ($_SESSION['user_role']==1)
-                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a></li>"; }
+                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ</a>";
+                             if($numWaitForMatch>0)  echo "<span class='badge badge-danger right'>".$numWaitForMatch."</span>";
+                             echo "</li>"; }
                         ?>
                         
                         <?php
@@ -110,8 +116,8 @@ if( !isset($_SESSION["user_id"]) ){
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner" role="listbox">
                                     <div class="carousel-item active">
-                                        <img src="demo/img/carousel/c-1.jpg" alt="First slide">
-                                    </div>
+                                        <img src="demo/img/carousel/c-1.jpg" alt="First slide"$numWaitForMatch>0
+                                     </div>
                                     <div class="carousel-item">
                                         <img src="demo/img/carousel/c-2.jpg" alt="Second slide">
                                     </div>
