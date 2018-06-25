@@ -596,7 +596,7 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
         var latlng = {lat: parseFloat(x.value), lng: parseFloat(y.value)};
         var pos = google.maps.LatLng(13,100);
         var marker = new google.maps.Marker({
-        position: position,
+        position: pos,
         map: map
     });
     map.panTo(position);
