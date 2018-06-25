@@ -737,7 +737,7 @@ $matchAge = $matchData['match_age'];
 
 
               complete: function () {
-               // $progress.hide();
+                $progress.hide();
               },
             });
           });
