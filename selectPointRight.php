@@ -7,6 +7,7 @@ if( !isset($_SESSION["user_id"]) ){
 }
 
 $rightImage = $_GET['name'];
+$turtle_id = $_GET['id'];
 
 ?>
 <html lang="en">
