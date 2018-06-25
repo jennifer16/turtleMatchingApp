@@ -190,7 +190,7 @@ if( !isset($_SESSION["user_id"]) ){
                     if(!$reported)
                         echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.",".$id.");'>รายงานการพบเต่าตัวนี้</button></td>\n";
                     else
-                        echo "<td align='center'>&nbsp;</td>"}
+                        echo "<td align='center'>&nbsp;</td>"; }
                         
                     echo "</tr>\n";
                     }
