@@ -599,7 +599,7 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
         position: pos,
         map: map
     });
-    map.panTo(position);
+    map.panTo(pos);
     marker.setDraggable(true);
         
         geocoder.geocode({'location': latlng}, function(results, status) {
