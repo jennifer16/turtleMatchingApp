@@ -116,7 +116,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner" role="listbox">
                                     <div class="carousel-item active">
-                                        <img src="demo/img/carousel/c-1.jpg" alt="First slide"$numWaitForMatch>0
+                                        <img src="demo/img/carousel/c-1.jpg" alt="First slide"$numWaitForMatch>
                                      </div>
                                     <div class="carousel-item">
                                         <img src="demo/img/carousel/c-2.jpg" alt="Second slide">
