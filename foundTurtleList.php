@@ -138,7 +138,13 @@ $data = mysqli_query($conn, $sql);
                 </thead>
                 <tbody>
 <?php
-                 while ($row = $data->fetch_assoc()) {
+            function is_process_running($PID)
+    {
+       		exec("ps ".$PID, $ProcessState);
+       		return(count($ProcessState) >= 2);
+     }  
+                    
+                    while ($row = $data->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td align='center'>".$row['match_time']."</td>";
                     echo "<td align='center'>".$row['match_turtle_type']."</td>";
@@ -148,6 +154,9 @@ $data = mysqli_query($conn, $sql);
                     
                 
                      }
+                    else if(is_process_running($row['match_pid'])){
+                       echo "<td align='center'>กำลังดำเนินการเปรียบเทียบ</td>"; 
+                    }
                      else if( $row['turtle_id'] == '')
                      {
                          echo "<td align='center'>ดำเนินการเปรียบเทียบแล้ว แต่ยังไม่ได้พิจารณาผล</td>";
