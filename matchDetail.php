@@ -167,6 +167,15 @@ $numWaitForMatch = mysqli_num_rows($result);
 
 			         if ($line[0] != "$")
 				            continue;
+                     
+                    if ($line[1] == "@")
+                    {
+                        echo "<tr><td align='center'>ภาพ Mesh สำหรับค้นหาไม่ได้ถูกสร้างหรือสูญหาย </b> กรุณาส่งภาพเพื่อดำเนินการอีกครั้ง </td></tr>";
+                        break;
+                    }else{
+                        
+                    
+                     
                     $words = explode(",", $line);
                     
                     if( (float)$words[1] > -1 )
@@ -198,7 +207,8 @@ $numWaitForMatch = mysqli_num_rows($result);
                         
                     echo "</tr>\n";
                     }
-}
+                    }
+                 }
                     
                     
          
@@ -266,7 +276,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                 
                     echo "<div class='row' align='center'>";
                     echo "<div class='col-12'>";
-
+            if($count>0){
             if ($_SESSION['user_role']==1){    
                 if(!$reported)
                 echo "<button type='button' class='btn btn-warning' onclick='addTurtle(".$id.");'>รายงานเป็นการพบเต่าตัวใหม่</button>";
@@ -277,6 +287,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                     
                     
                 }
+            }
                     echo "</div>";
                     echo "</div>";
                     

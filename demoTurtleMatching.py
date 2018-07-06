@@ -23,10 +23,13 @@ fileName = inputName[9:len(inputName)-4]
 
 fileInputName = ''
 
-
-
 #	if file is jpg or JPG
-im = Image.open(inputName)
+try:
+	im = Image.open(inputName)
+except:
+	print "$"+"@InputMeshIsNotCreated"
+	sys.exit()
+
 im.save('Turtle/'+fileName+'.PNG')
 	
 if not os.path.isfile('Turtle/'+fileName+'.PNG'):
@@ -65,7 +68,14 @@ for i in range(len(templateFileList)):
 
 	
 	#convert to PNG
-	im = Image.open(fullname1)
+	try:
+		im = Image.open(fullname1)
+	except:
+		del templateFileList[i]
+		del templateIdList[i]
+		del templateNameList[i]
+		continue
+
 	print 'open', fullname1
 	im.save('Turtle/'+fileName1+'.PNG')
 	print 'save','Turtle/'+fileName1+'.PNG'
