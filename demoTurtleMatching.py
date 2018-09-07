@@ -7,7 +7,6 @@ import os.path
 import os
 from PIL import Image
 import numpy as np
-import cv2
 import histogram as h
 import cumulative_histogram as ch
 import MySQLdb
