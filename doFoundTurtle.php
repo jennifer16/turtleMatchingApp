@@ -35,9 +35,9 @@ if (mysqli_query($conn, $sql1)) {
 
         echo "<script>";
     
-        //echo "window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A//studioxpert.com/turtleMatchingApp/');";
+        echo "window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A//studioxpert.com/turtleMatchingApp/');";
         
-        echo "window.open('success.php','_self');";
+        //echo "window.open('success.php','_self');";
     
         echo "</script>";
     

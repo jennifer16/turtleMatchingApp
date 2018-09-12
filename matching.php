@@ -446,7 +446,8 @@ $numWaitForMatch = mysqli_num_rows($result);
                 xhr.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         console.log(this.responseText);
-                    }
+		    }
+		    console.log(this.responseText);
                 };
               xhr.upload.onprogress = function (e) {
                        $('#modalLabel').innerHTML="โปรดรอ..กำลังอัพโหลด";

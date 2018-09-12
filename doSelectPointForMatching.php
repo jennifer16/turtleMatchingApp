@@ -12,21 +12,18 @@ if( !isset($_SESSION["user_id"]) ){
   $matchId = $_POST['matchId'];
 
   $filename = "".$matchId."_match";
-
-//echo "sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$matchX."\" \"".$matchY."\" ".$filename;
-
-  $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$matchX."\" \"".$matchY."\" ".$filename);
-  //echo $result;
-  //echo "<br>";
-
   
-  echo "checking "."./Turtle/".$filename;
+  $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$matchX."\" \"".$matchY."\" ".$filename);
+  echo $result;
+ echo "<br>";
+	echo "sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$matchX."\" \"".$matchY."\" ".$filename;
+  
+  echo "<br>checking "." ./Turtle/".$filename.".png<br>";
   $fileExists = file_exists("./Turtle/".$filename.".png");
-
-    if ($fileExists)
+  echo $fileExists;
+  if ($fileExists)
         header("Location:doMatching.php?match_id=".$matchId);
-    else
-        
-        header("Location:error.php");
+  else
+      header("Location:error.php");
 ?>
 

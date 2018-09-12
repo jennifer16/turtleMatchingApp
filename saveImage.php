@@ -4,5 +4,5 @@
     $filename = $_POST['filename'];
 	$file_name = './Input/'.$filename;
     move_uploaded_file($file_to_upload, $file_name);
-    echo $file_name;
+echo $file_to_upload;
 ?>
