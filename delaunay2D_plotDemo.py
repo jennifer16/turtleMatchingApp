@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import matplotlib.tri
 import matplotlib.collections
 
-if __name__ == '__main__':
+def main():
 
     print ('starting....')
 
@@ -63,3 +63,5 @@ if __name__ == '__main__':
     print(dt_tris)
     plt.savefig('./Turtle/'+fileName+'.png', dpi=96)
     print('save at ./Turtle/'+fileName+'.png')
+
+main()

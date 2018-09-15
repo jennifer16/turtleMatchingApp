@@ -13,7 +13,7 @@
 
 
     echo "Mathcing with ".$matchSide." side.<br>";
-    $PID = shell_exec("nohup sudo python demoTurtleMatching.py ".$filename." ".$matchSide." 2>&1 | tee ".$matchOut." 2>/dev/null >/dev/null & echo $!");
+    $PID = shell_exec("nohup python demoTurtleMatching.py ".$filename." ".$matchSide." 2>&1 | tee ".$matchOut." 2>/dev/null >/dev/null & echo $!");
 
     echo "<br>";
     echo "Running";

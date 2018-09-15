@@ -14,16 +14,17 @@ if( !isset($_SESSION["user_id"]) ){
 $rightImage = $_POST['rightName'];
   //echo $rightImage;
   //echo "<br>";
-  $result = shell_exec("sudo python3 /var/www/html/turtleMatchingApp/delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
-  //echo $result;
+$retsult = exec("python delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName);
+
+ // echo $result;
  // echo "<br>";
   
   $leftExists = file_exists("./Turtle/".$leftName.".png");
     $url = "selectPointRight.php?name=".$rightImage."&id=".$turtle_id;
-        
+     
 if($leftExists)
     header('Location: '.$url);
 else
     header("location:error.php");
-      
+//  echo "sudo python3 delaunay2D_plotDemo.py \"".$leftX."\" \"".$leftY."\" ".$leftName;    
 ?>

@@ -55,9 +55,9 @@ if (mysqli_query($conn, $sql1)) {
 
         echo "<script>";
     
-       // echo "window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A//studioxpert.com/turtleMatchingApp/');";
+       	echo "window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A//studioxpert.com/turtleMatchingApp/');";
         
-        echo "window.open('selectPoint.php?turtle_id=".$last_id."','_self');";
+        echo "window.open('selectPointLeft.php?turtle_id=".$last_id."','_self');";
     
         echo "</script>";
     
