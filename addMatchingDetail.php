@@ -130,8 +130,8 @@ if(isset($_GET['id']))
                         
                         <?php
                             if ($_SESSION['user_role']==1)
-                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp; ";
-                             if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span></a>";
+                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
+                             if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span>";
                              echo "</li>"; }
                         ?>
                         
@@ -168,7 +168,9 @@ if(isset($_GET['id']))
       <img class="rounded" id="avatarLeft" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputLeft" name="imageLeft" accept="image/*">
     </label>
-
+<div class="progress" id="progressLeft">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-barProfi">0%</div>
+    </div>
     <div class="alertLeft" role="alert"></div>
     <div class="modal fade" id="modalLeft" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -200,7 +202,9 @@ if(isset($_GET['id']))
       <img class="rounded" id="avatarRight" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputRight" name="imageRight" accept="image/*">
     </label>
-     
+<div class="progress" id="progressRight">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-barRight">0%</div>
+    </div>     
     <div class="alertRight" role="alert"></div>
     <div class="modal fade" id="modalRight" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -232,7 +236,9 @@ if(isset($_GET['id']))
       <img class="rounded" id="avatarProfile" src="img/camera1.png" style="width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
-     
+<div class="progress" id="progressProfile">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-barProfile">0%</div>
+    </div>     
     <div class="alertProfile" role="alert"></div>
     <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -443,6 +449,8 @@ if(isset($_GET['id']))
       var input = document.getElementById('inputLeft');
       var $alert = $('.alertLeft');
       var $modal = $('#modalLeft');
+      var $progress = $('#progressLeft');
+      var $progressBar = $('#progress-barLeft');
       var cropper;
       var newFilenameLeft;
       $('[data-toggle="tooltip"]').tooltip();
@@ -508,7 +516,7 @@ if(isset($_GET['id']))
 
           initialAvatarURL = avatar.src;
           avatar.src = canvas.toDataURL();
-          //$progress.show();
+          $progress.show();
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
@@ -539,7 +547,7 @@ if(isset($_GET['id']))
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
-                   // $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                   $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
                   }
                 };
 
@@ -554,12 +562,12 @@ if(isset($_GET['id']))
 
               error: function () {
                 avatar.src = initialAvatarURL;
-                //$alert.show().addClass('alert-warning').text('Upload error');
+                $alert.show().addClass('alert-warning').text('Upload error');
                   console.log('error');
               },
 
               complete: function () {
-               // $progress.hide();
+                $progress.hide();
               },
             });
           });
@@ -575,6 +583,8 @@ if(isset($_GET['id']))
       var input = document.getElementById('inputRight');
       var $alert = $('.alertRight');
       var $modal = $('#modalRight');
+      var $progress = $('#progressRight');
+      var $progressBar = $('#progress-barRight');
       var cropper;
       var newFilenameRight;
       $('[data-toggle="tooltip"]').tooltip();
@@ -640,7 +650,7 @@ if(isset($_GET['id']))
 
           initialAvatarURL = avatar.src;
           avatar.src = canvas.toDataURL();
-          //$progress.show();
+          $progress.show();
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
@@ -671,7 +681,7 @@ if(isset($_GET['id']))
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
-                   // $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                   $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
                   }
                 };
 
@@ -691,7 +701,7 @@ if(isset($_GET['id']))
               },
 
               complete: function () {
-               // $progress.hide();
+                $progress.hide();
               },
             });
           });
@@ -706,6 +716,8 @@ if(isset($_GET['id']))
       var input = document.getElementById('inputProfile');
       var $alert = $('.alertProfile');
       var $modal = $('#modalProfile');
+              var $progress = $('#progressProfile');
+      var $progressBar = $('#progress-barProfile');
       var cropper;
       var newFilenameProfile;
       $('[data-toggle="tooltip"]').tooltip();
@@ -783,7 +795,7 @@ if(isset($_GET['id']))
 
           initialAvatarURL = avatar.src;
           avatar.src = canvas.toDataURL();
-          //$progress.show();
+          $progress.show();
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
@@ -814,7 +826,7 @@ if(isset($_GET['id']))
                   if (e.lengthComputable) {
                     percent = Math.round((e.loaded / e.total) * 100);
                     percentage = percent + '%';
-                   // $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
+                    $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
                   }
                 };
 
@@ -835,7 +847,7 @@ if(isset($_GET['id']))
               },
 
               complete: function () {
-               // $progress.hide();
+               $progress.hide();
               },
             });
           });

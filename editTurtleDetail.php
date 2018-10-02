@@ -123,8 +123,8 @@ $row = $data->fetch_assoc();
                         
                         <?php
                             if ($_SESSION['user_role']==1)
-                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp; ";
-                             if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span></a>";
+                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
+                             if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span>";
                              echo "</li>"; }
                         ?>
                         

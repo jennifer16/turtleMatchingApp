@@ -99,11 +99,10 @@ $data = mysqli_query($conn, $sql);
                         
                         <?php
                             if ($_SESSION['user_role']==1)
-                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp; ";
-                             if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span></a>";
+                            { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
+                             if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span>";
                              echo "</li>"; }
                         ?>
-                        
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
