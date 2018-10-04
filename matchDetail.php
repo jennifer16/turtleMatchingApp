@@ -193,7 +193,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                     //echo "<td align='center'>ความคล้าย: ".$words[1]." %</td>\n";
                     if ( (float)$words[4] > 120.0)
                         echo "<td align='center'>Matching Score: <font color='green'>".$words[4]."</font></td>\n";
-                    else if( (float)$words[4] > 50.0)
+                    else if( (float)$words[4] > 70.0)
                         echo "<td align='center'>Matching Score: <font color='yellow'>".$words[4]."</font></td>\n";
                     else
                         echo "<td align='center'>Matching Score: <font color='red'>".$words[4]."</font></td>\n";
