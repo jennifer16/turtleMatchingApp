@@ -70,20 +70,17 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
             z-index: 99999;
             display: none;
             margin:0 auto;
-            width: 100%;
-            height: 100%;
+            max-width: 100%;
         }
         .show .overlay{
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.33);
+            max-width: 100%;
+            background: rgba(0,0,0,0.66);
             position: absolute;
             top: 0;
             left: 0;
         }
         .show .img-show{
-            width: 600px;
-            height: 400px;
+            max-width: 100%;
             background: #FFF;
             position: absolute;
             top: 50%;
@@ -287,7 +284,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<div class=\"popup\">";
                             echo "<img src='./Turtle/".$foundPic."' alt='...' class='margin' style='max-width:100%; height:auto;'>";
                             echo "</div>";
-                            
+
                                 echo "<div class='show'>";
                                 echo "<div class=\"overlay\"></div>";
                                 echo "<div class=\"img-show\">";
