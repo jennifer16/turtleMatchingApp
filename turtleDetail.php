@@ -194,6 +194,16 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
           <section class="content">
       <div class="container-fluid">
+
+                            <?php
+                                echo "<div class='show'>";
+                                echo "<div class=\"overlay\"></div>";
+                                echo "<div class=\"img-show\">";
+                                echo "<span>X</span>";
+                                echo "<img src=\"\">";
+                                echo "</div>";
+                                echo "</div>";
+                              ?>
         <div class="row">
           <div class="col-md-3">
 
@@ -251,14 +261,6 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                       else{
 
 
-                        echo "<div class='show'>";
-                        echo "<div class=\"overlay\"></div>";
-                        echo "<div class=\"img-show\">";
-                        echo "<span>X</span>";
-                        echo "<img src=\"\">";
-                        echo "</div>";
-                        echo "</div>";
-                  
 
                           while($row=$result->fetch_assoc())
                           {
