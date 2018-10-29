@@ -250,6 +250,16 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                       }
                       else{
 
+                        <?php
+                        echo "<div class='show'>";
+                        echo "<div class=\"overlay\"></div>";
+                        echo "<div class=\"img-show\">";
+                        echo "<span>X</span>";
+                        echo "<img src=\"\">";
+                        echo "</div>";
+                        echo "</div>";
+                      ?>
+
                           while($row=$result->fetch_assoc())
                           {
                              $foundDate = $row['found_date'];
@@ -319,15 +329,6 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                 </div>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
-              <?php
-              echo "<div class='show'>";
-              echo "<div class=\"overlay\"></div>";
-              echo "<div class=\"img-show\">";
-              echo "<span>X</span>";
-              echo "<img src=\"\">";
-              echo "</div>";
-              echo "</div>";
-            ?>
             </div>
             <!-- /.nav-tabs-custom -->
           </div>
