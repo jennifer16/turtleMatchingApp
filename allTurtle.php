@@ -137,7 +137,7 @@ $data = mysqli_query($conn, $sql);
             echo "<div class='contacts row'>";
              while ($row = $data->fetch_assoc()) {
 
-              echo "<div class='col-xl-2 col-lg-3 col-sm-4 col-6'>";
+              echo "<div class='col-xl-1 col-lg-2 col-sm-4 col-6'>";
               echo "<div class='contacts__item'>";
               echo "<a href='turtleDetail.php?id=".$row['turtle_id']."' class='contacts__img'>";
               echo "<img class='user__img' src='./Turtle/".$row['turtle_profile']."' alt='' style='width:10rem; height:10rem;'>";
