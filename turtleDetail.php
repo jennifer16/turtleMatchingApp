@@ -71,8 +71,8 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
-    left: 50%;
-    top: 50%;
+    left: 25%;
+    top: 25%;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
