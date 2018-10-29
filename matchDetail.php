@@ -198,7 +198,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                     else
                         echo "<td align='center'>Matching Score: <font color='red'>".$words[4]."</font></td>\n";
 
-               if ($_SESSION['user_role']==1) {echo "<td align='center'><a href='".$words[3]."' target="_blank" download> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
+               if ($_SESSION['user_role']==1) {echo "<td align='center'><a href='".$words[3]."' target="_blank"> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
 
                     if(!$reported)
                         echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.",".$id.");'>รายงานการพบเต่าตัวนี้</button></td>\n";
