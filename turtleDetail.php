@@ -59,11 +59,11 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
         <link rel="stylesheet" href="css/app.min.css">
         <style type="text/css" media="screen">
 
-.myImg {
+#myImg {
     cursor: pointer;
 }
 
-.myImg:hover {opacity: 0.7;}
+#myImg:hover {opacity: 0.7;}
 
 /* The Modal (background) */
 .modal {
@@ -321,7 +321,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<h3 class='timeline-header'>รายละเอียด</h3>";
                             echo "<div class='timeline-body'>";
                             echo "<div class=\"popup\">";
-                            echo "<img src='./Turtle/".$foundPic."' alt='...' class='myImg' style='max-width:100%; height:auto;'>";
+                            echo "<img src='./Turtle/".$foundPic."' alt='...' class='margin' id='myImg' style='max-width:100%; height:auto;'>";
                             echo "</div>";
                             echo "<br>";
                             $sqlUsername = "select * from users where user_id='".$row['user_id']."'";
