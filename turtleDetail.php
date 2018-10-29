@@ -510,11 +510,12 @@ var modal = document.getElementById('myModal');
 var img = document.getElementsByClassName('myImg');
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
-img.onclick = function(){
+for(var i=0; i<img.length; i++){
+img[i].onclick = function(){
     modal.style.display = "flex";
     modalImg.src = this.src;
 }
-
+}
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
