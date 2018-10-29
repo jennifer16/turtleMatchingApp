@@ -313,6 +313,15 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                     ?>
                       <!-- END timeline item -->
                     </ul>
+                    <?php
+                        echo "<div class='show'>";
+                        echo "<div class=\"overlay\"></div>";
+                        echo "<div class=\"img-show\">";
+                        echo "<span>X</span>";
+                        echo "<img src=\"\">";
+                        echo "</div>";
+                        echo "</div>";
+                      ?>
                   </div>
                   <!-- /.tab-pane -->
 
@@ -331,16 +340,6 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
           <!-- /.col -->
         </div>
         <!-- /.row -->
-
-                                    <?php
-                                        echo "<div class='show'>";
-                                        echo "<div class=\"overlay\"></div>";
-                                        echo "<div class=\"img-show\">";
-                                        echo "<span>X</span>";
-                                        echo "<img src=\"\">";
-                                        echo "</div>";
-                                        echo "</div>";
-                                      ?>
       </div><!-- /.container-fluid -->
                 <footer class="footer hidden-xs-down">
                 </footer>
