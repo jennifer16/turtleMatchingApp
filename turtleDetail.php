@@ -67,8 +67,9 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
             cursor: pointer
         }
         .show{
-            z-index: 999;
+            z-index: 99999;
             display: none;
+            margin:0 auto;
         }
         .show .overlay{
             width: 100%;
