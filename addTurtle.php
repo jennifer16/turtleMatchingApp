@@ -651,8 +651,8 @@ $matchAge = $matchData['match_age'];
           var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
           for (var i = 0; i < 10; i++)
-             text += possible.charAt(Math.floor(Math.random() * possible.length));
 
+          text += possible.charAt(Math.floor(Math.random() * possible.length));
           newFilenameRight = text+'.'+fileext;
           document.getElementById("filenameRight").value = newFilenameRight;
 
@@ -810,9 +810,9 @@ $matchAge = $matchData['match_age'];
                 viewMode: 3,
                 strict:true,
                cropBoxMovable: true,
-               aspectRatio: 16 / 9,
+               aspectRatio: 4 / 3,
                 autoCropArea: 0,
-            cropBoxResizable: false,
+            cropBoxResizable: true,
 
 
           });

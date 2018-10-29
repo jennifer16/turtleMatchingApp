@@ -27,7 +27,7 @@ if(isset($_GET['id']))
 
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
-        
+
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/cropper.css">
   <style>
@@ -59,7 +59,7 @@ if(isset($_GET['id']))
   js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.0&appId=161713021336907&autoLogAppEvents=1';
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-        
+
         <main class="main">
             <div class="page-loader">
                 <div class="page-loader__spinner">
@@ -80,7 +80,7 @@ if(isset($_GET['id']))
 
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
-                    
+
                 </div>
 
                 <ul class="top-nav">
@@ -111,36 +111,36 @@ if(isset($_GET['id']))
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-                        
+
                         <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-                        
+
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-                        
+
                         <li><a href="matching.php"><i class="zmdi zmdi-camera-add"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                               if ($_SESSION['user_role']==1)
                             {
                                 echo "<li><a href='addTurtle.php'><i class='zmdi zmdi-collection-plus'></i> เพิ่มข้อมูลเต่า</a></li>";
                                 echo "<li><a href='editTurtle.php'><i class='zmdi zmdi-collection-text'></i> แก้ไขข้อมูลเต่า</a></li>";
-                           
+
 
 
                             }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
                              if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span>";
                              echo "</li>"; }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
-                        
-                   
+
+
 
                     </ul>
                 </div>
@@ -204,7 +204,7 @@ if(isset($_GET['id']))
     </label>
 <div class="progress" id="progressRight">
       <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-barRight">0%</div>
-    </div>     
+    </div>
     <div class="alertRight" role="alert"></div>
     <div class="modal fade" id="modalRight" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -238,7 +238,7 @@ if(isset($_GET['id']))
     </label>
 <div class="progress" id="progressProfile">
       <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="progress-barProfile">0%</div>
-    </div>     
+    </div>
     <div class="alertProfile" role="alert"></div>
     <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -264,7 +264,7 @@ if(isset($_GET['id']))
   </div>
             </div>
           </div>
-             <!-- form start --> 
+             <!-- form start -->
               <form role="form" action = "doAddMatchingDetail.php" method = "POST" enctype = "multipart/form-data">
                         <input type="text" name="filenameLeft" id="filenameLeft" hidden>
                    <input type="text" name="filenameRight" id="filenameRight" hidden>
@@ -272,7 +272,7 @@ if(isset($_GET['id']))
                 <div class="card-body">
                         <h5 class="card-title">ข้อมูลประจำตัวเต่าทะเล</h5>
                     <?php
-                    
+
                         if ($matchID!=-1)
                             echo "<input type='text' id='matchId' name='matchId' value='".$matchID."' hidden>";
                     ?>
@@ -283,9 +283,9 @@ if(isset($_GET['id']))
                     <input type="text" class="form-control" id="turleType" name="turtleType" placeholder="ชนิดของเต่า">
                     </div>
                     </div><br>
-                
+
                 <div class="row">
-             
+
                                             <div class="col-md-3">
                     <label for="ageMonth">อายุ (เดือน)</label>
                     <input type="text" class="form-control" id="ageMonth" name="ageMonth" placeholder="อายุ (เดือน)">
@@ -312,53 +312,53 @@ if(isset($_GET['id']))
                     <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00">
                         </div>
                     <br>
-                    
+
                 </div><br>
                 <div class="row">
                                 <div class="col-md-12" align="center">
                      <label> -- หรือ คลิกและเลือกตำแหน่งในแผนที่ --</label>
                     </div>
                             <div class="col-md-12">
-                       
+
                        <div class="card" style="height: 300px;">
-                            
+
                             <div class="card-body" id = "map">
-                               
+
                             </div>
                         </div>
-                    </div>  
+                    </div>
                       <div class="col-md-12" align="left">
-                    
+
                         <label id="place1"></label>
                     </div>
                     </div>
-                 
+
                 <!-- /.card-body -->
                     <div class="row" align="center">
                     <?php
                             echo "<div class='col-md-12''>";
                             echo "<button type='submit' class='btn btn-primary' id='submitData'>บันทึกข้อมูลเต่า</button>";
                             echo " </div>";
-                            
-       
+
+
                      ?>
-               
- 
+
+
                 </div>
                            </div>
                   </div>
               </form>
-            
+
             <!-- /.card -->
 
         </div>
         <!-- /.row -->
     <!-- /.content -->
 
- 
+
                 <footer class="footer hidden-xs-down">
                 </footer>
-        
+
             </section>
         </main>
 
@@ -418,7 +418,7 @@ if(isset($_GET['id']))
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
-        
+
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
 
@@ -439,8 +439,8 @@ if(isset($_GET['id']))
         <script src="vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 
         <!-- App functions and actions -->
-        <script src="js/app.min.js"></script>   
- 
+        <script src="js/app.min.js"></script>
+
   <script src="js/cropper.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', function () {
@@ -480,7 +480,7 @@ if(isset($_GET['id']))
 
           newFilenameLeft = text+'.'+fileext;
           document.getElementById("filenameLeft").value = newFilenameLeft;
-            
+
 
           if (URL) {
             done(URL.createObjectURL(file));
@@ -520,11 +520,11 @@ if(isset($_GET['id']))
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
-	
+
             formData.append('avatarLeft', blob);
             formData.append('filenameLeft', newFilenameLeft);
          for (var pair of formData.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]); 
+    console.log(pair[0]+ ', ' + pair[1]);
 }
             $.ajax('./saveImageForAdd.php', {
               method: 'POST',
@@ -574,7 +574,7 @@ if(isset($_GET['id']))
         }
       });
     });
-  </script>       
+  </script>
 
   <script>
     window.addEventListener('DOMContentLoaded', function () {
@@ -614,7 +614,7 @@ if(isset($_GET['id']))
 
           newFilenameRight = text+'.'+fileext;
           document.getElementById("filenameRight").value = newFilenameRight;
-            
+
 
           if (URL) {
             done(URL.createObjectURL(file));
@@ -654,11 +654,11 @@ if(isset($_GET['id']))
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
-	
+
             formData.append('avatarRight', blob);
             formData.append('filenameRight', newFilenameRight);
          for (var pair of formData.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]); 
+    console.log(pair[0]+ ', ' + pair[1]);
 }
             $.ajax('./saveImageForAdd.php', {
               method: 'POST',
@@ -708,7 +708,7 @@ if(isset($_GET['id']))
         }
       });
     });
-  </script>         
+  </script>
          <script>
     window.addEventListener('DOMContentLoaded', function () {
       var avatar = document.getElementById('avatarProfile');
@@ -729,7 +729,7 @@ if(isset($_GET['id']))
           image.src = url;
           $alert.hide();
           $modal.modal('show');
-          
+
         };
         var reader;
         var file;
@@ -763,23 +763,25 @@ if(isset($_GET['id']))
       });
 
       $modal.on('shown.bs.modal', function (avatar) {
-        
+
           cropper = new Cropper(image, {
                 viewMode: 3,
                 strict:true,
                cropBoxMovable: true,
-            cropBoxResizable: false,
- 
-          
+               aspectRatio: 4 / 3,
+                autoCropArea: 0,
+            cropBoxResizable: true,
+
+
           });
-          
-            
+
+
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
         cropper = null;
       });
-    
-        
+
+
 
       document.getElementById('cropProfile').addEventListener('click', function () {
         var initialAvatarURL;
@@ -799,11 +801,11 @@ if(isset($_GET['id']))
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
-	
+
             formData.append('avatarProfile', blob);
             formData.append('filenameProfile', newFilenameProfile);
          for (var pair of formData.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]); 
+    console.log(pair[0]+ ', ' + pair[1]);
 }
             $.ajax('./saveImageForAdd.php', {
               method: 'POST',
@@ -854,7 +856,7 @@ if(isset($_GET['id']))
         }
       });
     });
-  </script>         
+  </script>
 <script>
 var x = document.getElementById("latitude");
 var y = document.getElementById("longtitude");
@@ -871,7 +873,7 @@ function showPosition(position) {
     latlngChange();
 }
     getLocation();
-</script> 
+</script>
         <script>
             String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g,"");
@@ -901,7 +903,7 @@ function myMap() {
     var x = document.getElementById("map");
     console.log(x);
 var mapProp= {
-   
+
     center:new google.maps.LatLng(13.736717, 100.523186),
     zoom:5
 }
@@ -922,47 +924,47 @@ function placeMarker(position, map) {
     });
     map.panTo(position);
     marker.setDraggable(true);
-    
+
     var x = document.getElementById("latitude");
 var y = document.getElementById("longtitude");
-    
+
         x.value = marker.getPosition().lat();
     y.value = marker.getPosition().lng();
     latlngChange();
-    
+
 google.maps.event.addListener( marker, 'click', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
     latlngChange();
-} );  
+} );
 google.maps.event.addListener( marker, 'dragend', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
     latlngChange();
-} );  
+} );
 }
-    
-                      
-                             
+
+
+
     }
-    
+
 </script>
 <script>
-    
+
     function latlngChange()
     {
 
         var x = document.getElementById("latitude");
         var y = document.getElementById("longtitude")
         var place1 = document.getElementById("place1");
-       
+
         var geocoder = new google.maps.Geocoder;
-    
+
         var latlng = {lat: parseFloat(x.value), lng: parseFloat(y.value)};
         geocoder.geocode({'location': latlng}, function(results, status) {
           if (status === 'OK') {
             if (results[0]) {
-              
+
               place1.innerHTML = results[0].formatted_address
             } else {
             place1.innerHTML = "ไม่ทราบข้อมูลสถานที่";
@@ -973,10 +975,10 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
         });
       }
 
-        
-    
-    
-        
+
+
+
+
 </script>
 
 
