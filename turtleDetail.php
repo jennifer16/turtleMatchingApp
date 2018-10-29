@@ -250,7 +250,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                       }
                       else{
 
-                        <?php
+
                         echo "<div class='show'>";
                         echo "<div class=\"overlay\"></div>";
                         echo "<div class=\"img-show\">";
@@ -258,7 +258,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                         echo "<img src=\"\">";
                         echo "</div>";
                         echo "</div>";
-                      ?>
+                  
 
                           while($row=$result->fetch_assoc())
                           {
