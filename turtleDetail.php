@@ -59,50 +59,89 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
         <link rel="stylesheet" href="css/app.min.css">
         <style type="text/css" media="screen">
 
-        .popup{
-            margin: auto;
-            text-align: center
-        }
-        .popup img{
-            cursor: pointer
-        }
-        .show{
-            z-index: 99999;
-            display: none;
-            margin:0 auto;
-            max-width: 100%;
-        }
-        .show .overlay{
-            max-width: 100%;
-            background: rgba(0,0,0,0.66);
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .show .img-show{
-            max-width: 100%;
-            background: #FFF;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            overflow: hidden
-        }
-        .img-show span{
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 99;
-            cursor: pointer;
-        }
-        .img-show img{
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        /*End style*/
+.myImg {
+    cursor: pointer;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
 
         </style>
     </head>
@@ -282,17 +321,8 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<h3 class='timeline-header'>รายละเอียด</h3>";
                             echo "<div class='timeline-body'>";
                             echo "<div class=\"popup\">";
-                            echo "<img src='./Turtle/".$foundPic."' alt='...' class='margin' style='max-width:100%; height:auto;'>";
+                            echo "<img src='./Turtle/".$foundPic."' alt='...' class='myImg' style='max-width:100%; height:auto;'>";
                             echo "</div>";
-
-                                echo "<div class='show'>";
-                                echo "<div class=\"overlay\"></div>";
-                                echo "<div class=\"img-show\">";
-                                echo "<span>X</span>";
-                                echo "<img src=\"\">";
-                                echo "</div>";
-                                echo "</div>";
-
                             echo "<br>";
                             $sqlUsername = "select * from users where user_id='".$row['user_id']."'";
                             $usernameResult = mysqli_query($conn, $sqlUsername);
