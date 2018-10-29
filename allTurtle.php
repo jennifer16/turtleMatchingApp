@@ -28,7 +28,7 @@ $data = mysqli_query($conn, $sql);
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
-  
+
     </head>
 
     <body data-ma-theme="green">
@@ -52,7 +52,7 @@ $data = mysqli_query($conn, $sql);
 
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
-                    
+
                 </div>
 
                 <ul class="top-nav">
@@ -83,35 +83,35 @@ $data = mysqli_query($conn, $sql);
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-                        
+
                         <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-                        
+
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-                        
+
                         <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
                             {
                                 echo "<li><a href='addTurtle.php'><i class='zmdi zmdi-collection-plus'></i> เพิ่มข้อมูลเต่า</a></li>";
                                 echo "<li><a href='editTurtle.php'><i class='zmdi zmdi-collection-text'></i> แก้ไขข้อมูลเต่า</a></li>";
-                               
+
 
 
                             }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
                              if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span>";
                              echo "</li>"; }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
-                        
+
 
 
                     </ul>
@@ -120,11 +120,11 @@ $data = mysqli_query($conn, $sql);
 
 
  <section class="content">
-      <!-- /.row -->   
+      <!-- /.row -->
      <div class="row">
         <div class="col-12">
           <div class="card">
-             
+
             <!-- /.card-header -->
             <div class="card-body">
 <?php
@@ -136,43 +136,43 @@ $data = mysqli_query($conn, $sql);
             echo "<h5>ข้อมูลเต่าทะเล</h5>";
             echo "<div class='contacts row'>";
              while ($row = $data->fetch_assoc()) {
-                 
-              echo "<div class='col-xl-2 col-lg-3 col-sm-4 col-6'>";  
+
+              echo "<div class='col-xl-2 col-lg-3 col-sm-4 col-6'>";
               echo "<div class='contacts__item'>";
               echo "<a href='turtleDetail.php?id=".$row['turtle_id']."' class='contacts__img'>";
-              echo "<img class='user__img' src='./Turtle/".$row['turtle_profile']."' alt='' style='width:5rem; height:5rem;'>";
+              echo "<img class='user__img' src='./Turtle/".$row['turtle_profile']."' alt='' style='width:10rem; height:10rem;'>";
               echo "</a>";
               echo " <div class='contacts__info'>";
               echo "<strong>".$row['turtle_name']."</strong>";
                  echo "<strong>".$row['turtle_type']."</strong>";
-                 
-                
-                 
+
+
+
             $timestamp = strtotime($row['turtle_timestamp']); $today = time();
-                 
+
              $allSecs = (int)$today-$timestamp;
              $monthDiff = round($allSecs/(30*60*60));
-             $monthBase = (int)$row['turtle_age_moth']; 
+             $monthBase = (int)$row['turtle_age_moth'];
              $totalMonth = $monthDiff + $monthBase;
-             
+
               $years = floor((int)$totalMonth/12);
               $mons = $totalMonth-($years*12);
               echo "<small>อายุ :".$years." ปี ".$mons." เดือน</small>";
               echo "</div>";
               echo "</div>";
             echo "</div>";
-                 
+
              }
-      
+
             echo "</div>";
-            
+
         }
-        
 
-                      
 
-                     
-                
+
+
+
+
 ?>
               </div>
             </div>
@@ -240,9 +240,9 @@ $data = mysqli_query($conn, $sql);
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
-        
+
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-        
+
         <script>
             $(document).ready( function () {
     $('#listTurtle').DataTable({
@@ -251,20 +251,20 @@ $data = mysqli_query($conn, $sql);
         paging:         false,
        "columnDefs": [
             { "orderable": false, "targets": 3 }
-        ] 
-        
+        ]
+
     });
 } );
-            
+
         </script>
         <script>
     function goToDetail(id){
         window.location='turtleDetail.php?id='+id;
     }
-    
+
 
 </script>
-        
+
                 <script>
             String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g,"");
