@@ -71,8 +71,8 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
-    left: 25%;
-    top: 25%;
+    left: 0;
+    top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -83,7 +83,8 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 /* Modal Content (image) */
 .modal-content {
     margin: auto;
-    vertical-align: top;
+    left: 5%;
+    top: 5%;
     display: block;
     width: 80%;
     max-width: 700px;
