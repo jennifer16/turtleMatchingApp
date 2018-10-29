@@ -147,6 +147,14 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
     </head>
 
     <body data-ma-theme="green">
+      <?php
+
+      echo "<div id=\"myModal\" class=\"modal\">";
+      echo "<span class=\"close\">&times;</span>";
+      echo "<img class=\"modal-content\" id=\"img01\">";
+      echo "<div id=\"caption\"></div>";
+      echo "</div>";
+      ?>
         <main class="main">
             <div class="page-loader">
                 <div class="page-loader__spinner">
@@ -271,14 +279,6 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <?php
-
-                echo "<div id=\"myModal\" class=\"modal\">";
-                echo "<span class=\"close\">&times;</span>";
-                echo "<img class=\"modal-content\" id=\"img01\">";
-                echo "<div id=\"caption\"></div>";
-                echo "</div>";
-                ?>
                 <div class="tab-content">
                   <!-- /.tab-pane -->
                   <div class="active tab-pane" id="timeline">
