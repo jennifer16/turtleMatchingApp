@@ -287,6 +287,15 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<div class=\"popup\">";
                             echo "<img src='./Turtle/".$foundPic."' alt='...' class='margin' style='max-width:100%; height:auto;'>";
                             echo "</div>";
+                            
+                                echo "<div class='show'>";
+                                echo "<div class=\"overlay\"></div>";
+                                echo "<div class=\"img-show\">";
+                                echo "<span>X</span>";
+                                echo "<img src=\"\">";
+                                echo "</div>";
+                                echo "</div>";
+
                             echo "<br>";
                             $sqlUsername = "select * from users where user_id='".$row['user_id']."'";
                             $usernameResult = mysqli_query($conn, $sqlUsername);
@@ -313,15 +322,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                     ?>
                       <!-- END timeline item -->
                     </ul>
-                    <?php
-                        echo "<div class='show'>";
-                        echo "<div class=\"overlay\"></div>";
-                        echo "<div class=\"img-show\">";
-                        echo "<span>X</span>";
-                        echo "<img src=\"\">";
-                        echo "</div>";
-                        echo "</div>";
-                      ?>
+
                   </div>
                   <!-- /.tab-pane -->
 
