@@ -60,7 +60,6 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
         <style type="text/css" media="screen">
 
         .popup{
-            width: 900px;
             margin: auto;
             text-align: center
         }
@@ -234,15 +233,6 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <?php
-                echo "<div class='show'>";
-                echo "<div class=\"overlay\"></div>";
-                echo "<div class=\"img-show\">";
-                echo "<span>X</span>";
-                echo "<img src=\"\">";
-                echo "</div>";
-                echo "</div>";
-              ?>
                 <div class="tab-content">
                   <!-- /.tab-pane -->
                   <div class="active tab-pane" id="timeline">
@@ -331,6 +321,15 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                 </div>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
+              <?php
+              echo "<div class='show'>";
+              echo "<div class=\"overlay\"></div>";
+              echo "<div class=\"img-show\">";
+              echo "<span>X</span>";
+              echo "<img src=\"\">";
+              echo "</div>";
+              echo "</div>";
+            ?>
             </div>
             <!-- /.nav-tabs-custom -->
           </div>
