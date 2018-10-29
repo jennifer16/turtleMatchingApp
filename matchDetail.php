@@ -10,7 +10,7 @@ $numWaitForMatch = mysqli_num_rows($result);
 ?>
 
 <?php
-    
+
     $id = $_GET['id'];
     $sql = "select * from matching where id='".$id."'";
     $result = mysqli_query($conn,$sql);
@@ -42,7 +42,7 @@ $numWaitForMatch = mysqli_num_rows($result);
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
-  
+
     </head>
 
     <body data-ma-theme="green">
@@ -74,7 +74,7 @@ $numWaitForMatch = mysqli_num_rows($result);
 
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
-                    
+
                 </div>
 
                 <ul class="top-nav">
@@ -105,11 +105,11 @@ $numWaitForMatch = mysqli_num_rows($result);
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-                        
+
                         <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-                        
+
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-                        
+
                         <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
@@ -120,19 +120,19 @@ $numWaitForMatch = mysqli_num_rows($result);
 
                             }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
                              if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span>";
                              echo "</li>"; }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
-                        
+
 
                     </ul>
                 </div>
@@ -143,18 +143,18 @@ $numWaitForMatch = mysqli_num_rows($result);
      <div class="row">
         <div class="col-12">
           <div class="card">
-             
+
             <!-- /.card-header -->
             <div class="card-body">
             <h5>ผลการเปรียบเทียบ</h5>
 
-            <br> 
+            <br>
             <figure style="margin-bottom: 5px">
   <p><img src="Input/<?php echo $row['match_input'];?>"
     alt="" style="width: 100%; height: auto;">
              <figcaption>รุปภาพที่ใช้ค้นหา</figcaption>
-</figure>            
-  
+</figure>
+
                 <br>
                 <br>
                 <label>ผลการค้นหา</label>
@@ -167,27 +167,27 @@ $numWaitForMatch = mysqli_num_rows($result);
 
 			         if ($line[0] != "$")
 				            continue;
-                     
+
                     if ($line[1] == "@")
                     {
                         echo "<tr><td align='center'>ภาพ Mesh สำหรับค้นหาไม่ได้ถูกสร้างหรือสูญหาย </b> กรุณาส่งภาพเพื่อดำเนินการอีกครั้ง </td></tr>";
                         break;
                     }else{
-                        
-                    
-                     
+
+
+
                     $words = explode(",", $line);
-                    
+
                     if( (float)$words[1] > -1 )
                     {
                         $count+=1;
-                     
+
                     $sqlTurtle = "select * from turtle where turtle_id='".substr($words[0],1)."'";
                     $resultTurtle = mysqli_query($conn, $sqlTurtle);
                     $rowTurtle = $resultTurtle->fetch_assoc();
                     $turtleId = $rowTurtle['turtle_id'];
                     $turtleProfile = $rowTurtle['turtle_profile'];
-                     
+
                     echo "<tr style='border: solid thin;' >\n";
                     echo "<td align='center'><a><div data-toggle='modal' data-target='#modal-large-".$turtleId."'><img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ></div></a></td>\n";
                     //echo "<td align='center'>ความคล้าย: ".$words[1]." %</td>\n";
@@ -197,40 +197,40 @@ $numWaitForMatch = mysqli_num_rows($result);
                         echo "<td align='center'>Matching Score: <font color='yellow'>".$words[4]."</font></td>\n";
                     else
                         echo "<td align='center'>Matching Score: <font color='red'>".$words[4]."</font></td>\n";
-                        
-               if ($_SESSION['user_role']==1) {echo "<td align='center'><a href='".$words[3]."'> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
-                
+
+               if ($_SESSION['user_role']==1) {echo "<td align='center'><a href='".$words[3]."' target="_blank" download> ดาวน์โหลดรูปการจับคู่ </a></td>\n"; 
+
                     if(!$reported)
                         echo "<td align='center'><button type='button' class='btn btn-info' onclick='foundTurtle(".$turtleId.",".$id.");'>รายงานการพบเต่าตัวนี้</button></td>\n";
                     else
                         echo "<td align='center'>&nbsp;</td>"; }
-                        
+
                     echo "</tr>\n";
                     }
                     }
                  }
-                    
-                    
-         
+
+
+
 
 		fclose($myfile);
-                    
+
 ?>
-                
+
 
 
                 </tbody>
               </table>
-                
+
 <?php
-          
+
                  while (!feof($myfile1)) {
                      $line = fgets($myfile1);
 
 			         if ($line[0] != "$")
 				            continue;
                     $words = explode(",", $line);
-                    
+
                     if( (float)$words[1] > -1 )
                     {
                          $sqlTurtle = "select * from turtle where turtle_id='".substr($words[0],1)."'";
@@ -241,7 +241,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                     $turtleProfile = $rowTurtle['turtle_profile'];
                         $turtleMicro = $rowTurtle['turtle_microchip_code'];
                         $turtleTag = $rowTurtle['turtle_tag_code'];
-              
+
                             echo "<div class=\"modal fade\" id=\"modal-large-".$turtleId."\" tabindex=\"-1\">";
                             echo "<div class=\"modal-dialog modal-lg\">";
                             echo "<div class=\"modal-content\">";
@@ -249,8 +249,8 @@ $numWaitForMatch = mysqli_num_rows($result);
                             echo "<h5 class=\"modal-title pull-left\">รายละเอียดของเต่า</h5>";
                             echo "</div>";
                             echo "<div class=\"modal-body\">";
-                        
-                        
+
+
                             echo "<div class='container'>";
                             echo "<img src='./Turtle/".$turtleProfile."' stype='display:block;'  width='100%' height='100%' ><br>";
                             echo "<hr><ul>";
@@ -261,7 +261,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                             echo "</div>";
                             echo "</div>";
                             echo "<div class=\"modal-footer\">";
-                                            
+
                             echo "<button type=\"button\" class=\"btn btn-link\" data-dismiss=\"modal\">ปิด</button>";
                             echo "</div>";
                             echo "</div>";
@@ -272,28 +272,28 @@ $numWaitForMatch = mysqli_num_rows($result);
                 fclose($myfile1);
 ?>
                 <br>
-            <?php 
-                
+            <?php
+
                     echo "<div class='row' align='center'>";
                     echo "<div class='col-12'>";
             if($count>0){
-            if ($_SESSION['user_role']==1){    
+            if ($_SESSION['user_role']==1){
                 if(!$reported)
                 echo "<button type='button' class='btn btn-warning' onclick='addTurtle(".$id.");'>รายงานเป็นการพบเต่าตัวใหม่</button>";
                                           }
                 else{
-                    
+
                     echo "<div class='fb-share-button' data-href='https://studioxpert.com/turtleMatchingApp' data-layout='button_count' data-size='large' data-mobile-iframe='true'><a target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fstudioxpert.com%2FturtleMatchingApp&amp;src=sdkpreparse' class='fb-xfbml-parse-ignore'>Share เรื่องราวให้เพื่อนของคุณ</a></div>";
-                    
-                    
+
+
                 }
             }
                     echo "</div>";
                     echo "</div>";
-                    
-                
+
+
             ?>
-                     
+
             </div>
             <!-- /.card-body -->
           </div>
@@ -364,23 +364,23 @@ $numWaitForMatch = mysqli_num_rows($result);
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
-        
+
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-        
-  
+
+
         <script>
     function foundTurtle(id1,id2){
 
         window.location='foundTurtle.php?turtleId='+id1+'&matchId='+id2;
     }
-    
+
     function addTurtle(id){
         window.location='addTurtle.php?matchId='+id;
     }
-    
+
 
 </script>
-        
+
                 <script>
             String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g,"");

@@ -47,7 +47,7 @@ $numWaitForMatch = mysqli_num_rows($result);
 
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
-                    
+
                 </div>
 
                 <ul class="top-nav">
@@ -78,11 +78,11 @@ $numWaitForMatch = mysqli_num_rows($result);
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-                        
+
                         <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-                        
+
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-                        
+
                         <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
@@ -93,14 +93,14 @@ $numWaitForMatch = mysqli_num_rows($result);
 
                             }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
                              if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span>";
                              echo "</li>"; }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
@@ -150,7 +150,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                         </div>
                     </div>
 
-                    <div class="col-sm-6 col-md-3"> 
+                    <div class="col-sm-6 col-md-3">
                         <div class="quick-stats__item bg-amber">
                             <div class="quick-stats__info">
                                 <?php
@@ -167,11 +167,11 @@ $numWaitForMatch = mysqli_num_rows($result);
                         <div class="quick-stats__item bg-purple">
                             <div class="quick-stats__info">
                                 <?php
-                                
+
                                      $sqlReport = "select count(*), turtle_id from found group by turtle_id having count(*) > 1";
                                     $resultReport = mysqli_query($conn,$sqlReport);
                                     echo "<h2>".mysqli_num_rows($resultReport)."</h2>";
-        
+
                                 ?>
                                 <small>เต่าที่มีการพบมากกว่า 1 ครั้ง</small>
                             </div>
@@ -226,33 +226,33 @@ $numWaitForMatch = mysqli_num_rows($result);
                                     while($numPrint<=$numFound && $numPrint<=4)
                                     {
                                         $row = $lastResult->fetch_assoc();
-                                        
+
                                         $sqlUser = "select * from users where user_id='".$row['user_id']."'";
                                         $userResult = mysqli_query($conn, $sqlUser);
                                         $rowUser = $userResult->fetch_assoc();
                                         $userName = $rowUser['user_firstname'];
                                         $userLastname = $rowUser['user_lastname'];
-                                        
+
                                         // echo "<figure style='margin-bottom: 5px'>";
                                         // echo "<p><a href='turtleDetail.php?id=".$row['turtle_id']."'><img src='./Turtle/".$row['found_picure']."'";
                                         // echo " alt='' style='width: 100%; height: auto;'></a>";
                                         // echo "<figcaption>พบโดย: ".$userName." ".$userLastname."</figcaption>";
                                         // echo "</figure>";
                              ?>
-                                    <div class="col-sm-6 col-md-3"> 
+                                    <div class="col-sm-6 col-md-3">
                                         <div class="card widget-contacts">
                                             <a class="widget-contacts__map" href="<?php echo "turtleDetail.php?id=".$row['turtle_id']?>">
                                                 <img src="<?php echo "./Turtle/".$row['found_picure']; ?>" alt="">
-                                            </a>                                            
+                                            </a>
                                             <div class="card-block">
                                                 <ul class="icon-list">
-                                                    <li><?php echo $row['turtle_name']; ?></li>                                                    
+                                                    <li><?php echo $row['turtle_name']; ?></li>
                                                     <li><i class="zmdi zmdi-facebook-box"></i> <?php echo $userName." ".$userLastname; ?></li>
                                                     <li><i class="zmdi zmdi-calendar"></i> <?php echo $row['found_date']; ?></li>
                                                     <li><i class="zmdi zmdi-pin"></i>
-                                                       <address id='address<?php echo $row['found_id'];?>'>
-                                                        
-                                                        </address>
+                                                       <span id='address<?php echo $row['found_id'];?>'>
+
+                                                       </span>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -263,22 +263,22 @@ $numWaitForMatch = mysqli_num_rows($result);
                              <?php
                                         $numPrint=$numPrint+1;
                                     }
-                                        
+
                                     }
-                                ?>                                         
-                    </div>        
-                        </div>                      
-                                         
-                                
-                            </div>
-                            
+                                ?>
+                    </div>
                         </div>
-                    </div>                
+
+
+                            </div>
+
+                        </div>
+                    </div>
                     <div class="col-md-12">
                         <div class="card" style="height: 600px;">
-                            
+
                             <div class="card-body" id = "map">
-                               
+
                             </div>
                         </div>
                     </div>
@@ -346,8 +346,8 @@ $numWaitForMatch = mysqli_num_rows($result);
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
 
- 
-        
+
+
     <script>
 <?php
     $sqlMap = "SELECT
@@ -368,18 +368,18 @@ $numWaitForMatch = mysqli_num_rows($result);
 ?>
 function myMap() {
     var x = document.getElementById("map");
-   
+
     var mapProp= {
-   
+
     center:new google.maps.LatLng(13.736717, 100.523186),
     zoom:5
-    
+
     };
 
    var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
-<?php 
-    
+<?php
+
     $i=0;
     while($row=$mapResult1->fetch_assoc())
     {
@@ -389,25 +389,25 @@ function myMap() {
         }else{
             break;
         }
-        
+
     }
-    
+
     $numLoc = mysqli_num_rows($mapResult);
-   
+
     if($numLoc > 0)
     {
-        
-        
+
+
         echo "var locations = [";
         $numRow = 1;
         while($row=$mapResult->fetch_assoc())
         {
             if($numRow < $numLoc) {
-                echo "[".$row['found_lat'].",".$row['found_lng']."],";                
+                echo "[".$row['found_lat'].",".$row['found_lng']."],";
                 $tname = $row['turtle_name'];
                 $turl = "turtleDetail.php?id=".$row['turtle_id'];
                 //$ticon = "Turtle/"."jHNEebsc6s.JPG";
-            }            
+            }
             else {
                 echo "[".$row['found_lat'].",".$row['found_lng']."]";
                 $tname = $row['turtle_name'];
@@ -415,11 +415,11 @@ function myMap() {
                 //$ticon = "Turtle/".$row['turtle_profile'];
             }
         }
-        
+
         echo "];\n";
-        
-        
-        echo "for (var i = 0; i < ".$numLoc."; i++) {";  
+
+
+        echo "for (var i = 0; i < ".$numLoc."; i++) {";
         echo "var marker = new google.maps.Marker({";
         echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
         //echo "    icon: '". $ticon."',";
@@ -430,31 +430,31 @@ function myMap() {
         echo "google.maps.event.addListener(marker, 'click', function() {
             window.location.href = this.url;
         });";
-        
-	echo "}";                  
-                             
+
+	echo "}";
+
     }
 
 ?>
-    
+
 };
 </script>
 
 
-    
+
 <script>
-    
+
     function printAddress(id,lat,lng)
     {
         var place1 = document.getElementById('address'+id);
-       
+
         var geocoder = new google.maps.Geocoder;
-    
+
         var latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
         geocoder.geocode({'location': latlng}, function(results, status) {
           if (status === 'OK') {
             if (results[0]) {
-              
+
               place1.innerHTML = results[0].formatted_address
             } else {
             place1.innerHTML = "ไม่ทราบข้อมูลสถานที่";
@@ -465,16 +465,16 @@ function myMap() {
         });
       }
 
-        
-    
-    
-        
-</script>    
-    
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVlIZSpzYkePXCjcm9xRHuFyL2DbKZY0Q&callback=myMap"></script>     
-        
+
+
+</script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVlIZSpzYkePXCjcm9xRHuFyL2DbKZY0Q&callback=myMap"></script>
+
                 <script>
             String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g,"");
