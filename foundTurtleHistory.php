@@ -26,11 +26,11 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 {
     $datetime1 = date_create($date_1);
     $datetime2 = date_create($date_2);
-   
+
     $interval = date_diff($datetime1, $datetime2);
-   
+
     $dateaDiff= $interval->format($differenceFormat);
-   
+
     return str_replace("Days","วันที่แล้ว",$dateDiff);
 }
 
@@ -51,9 +51,104 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 <link rel="stylesheet" href="./css/adminlte.min.css">
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
+        <style type="text/css" media="screen">
+
+#myImg {
+    cursor: pointer;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    left: 25%;
+    display: block;
+    width: 100%;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+        </style>
     </head>
 
     <body data-ma-theme="green">
+      <?php
+
+      echo "<div id=\"myModal\" class=\"modal\">";
+      echo "<span class=\"close\">&times;</span>";
+      echo "<img class=\"modal-content\" id=\"img01\">";
+      echo "<div id=\"caption\"></div>";
+      echo "</div>";
+      ?>
         <main class="main">
             <div class="page-loader">
                 <div class="page-loader__spinner">
@@ -74,7 +169,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
-                    
+
                 </div>
 
                 <ul class="top-nav">
@@ -105,11 +200,11 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-                        
+
                         <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-                        
+
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-                        
+
                         <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
@@ -120,7 +215,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
                             }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
@@ -131,7 +226,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
-                        
+
 
                     </ul>
                 </div>
@@ -165,10 +260,10 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                         echo "ยังไม่เคยถูกพบ";
                         echo "</span>";
                         echo "</li>";
-                          
+
                       }
                       else{
-                          
+
                           while($row=$result->fetch_assoc())
                           {
                              $foundDate = $row['found_date'];
@@ -178,28 +273,28 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                               $resultTurtle = mysqli_query($conn, $sql2);
                               $turtleData = $resultTurtle->fetch_assoc();
                               $turtle_name = $turtleData['turtle_name'];
-                              
+
                               $dt = new DateTime($foundDate);
                              // $timestamp = strtotime($turtleData);
-                              
+
                               echo "<li class='time-label'>";
                               echo "<span class='bg-success'>";
                               echo DateThai($foundDate);
                               echo "</span>";
                               echo "</li>";
-                                  
+
                             echo "<li>";
                             echo "<i class='fa fa-camera bg-blue'></i>";
-    
+
                             echo "<div class='timeline-item'>";
-                              
+
                             //echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
                             $sqlTurtle = "select * from turtle where turtle_id='".$row['turtle_id']."'";
                             $turtlenameResult = mysqli_query($conn, $sqlTurtle);
                             $turtlenameData = $turtlenameResult->fetch_assoc();
                             echo "<h3 class='timeline-header'>พบเต่า: ".$turtlenameData['turtle_name']." </h3>";
                             echo "<div class='timeline-body'>";
-                            echo "<img src='./Turtle/".$foundPic."' alt='...' class='margin' style='max-width:100%; height:auto;'>";
+                            echo "<img src='./Turtle/".$foundPic."' alt='...' class='myImg' id='myImg' style='max-width:100%; height:auto;'>";
                             echo "<br>";
                             $sqlUsername = "select * from users where user_id='".$row['user_id']."'";
                             $usernameResult = mysqli_query($conn, $sqlUsername);
@@ -216,10 +311,10 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "</li>";
 
                           }
-                          
 
-                          
-                          
+
+
+
                       }
 
                     ?>
@@ -305,7 +400,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
-        
+
 
  <script>
 <?php
@@ -314,22 +409,22 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 ?>
 function myMap() {
     var x = document.getElementById("map");
-   
+
     var mapProp= {
-   
+
     center:new google.maps.LatLng(13.736717, 100.523186),
     zoom:5
     };
 
    var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
-<?php 
-    
+<?php
+
     $numLoc = mysqli_num_rows($mapResult);
-   
+
     if($numLoc > 0)
     {
-        
+
         echo "var locations = [";
         $numRow = 1;
         while($row=$mapResult->fetch_assoc())
@@ -338,30 +433,30 @@ function myMap() {
                 echo "[".$row['found_lat'].",".$row['found_lng']."],";
             else
                echo "[".$row['found_lat'].",".$row['found_lng']."]";
-            
+
         }
-        
+
         echo "];\n";
-        
-        
-        echo "for (var i = 0; i < ".$numLoc."; i++) {";  
+
+
+        echo "for (var i = 0; i < ".$numLoc."; i++) {";
         echo "var marker = new google.maps.Marker({";
         echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
         echo "    map: map";
         echo "});";
-                   
-        
-	echo "}";                  
-                             
+
+
+	echo "}";
+
     }
 
 ?>
-    
+
 };
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo6U_Cb7Ywu2_TLPqhv5YJDQH4sbeGcFg&callback=myMap"></script>
-        
+
                 <script>
             String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g,"");
@@ -384,6 +479,29 @@ function fetchdata(){
 $(document).ready(function(){
  setInterval(fetchdata,10000);
 });
+        </script>
+
+        <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementsByClassName('myImg');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        for(var i=0; i<img.length; i++){
+        img[i].onclick = function(){
+            modal.style.display = "flex";
+            modalImg.src = this.src;
+        }
+        }
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        modal.onclick = function() {
+            modal.style.display = "none";
+        }
         </script>
 
     </body>
