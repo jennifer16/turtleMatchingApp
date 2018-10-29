@@ -83,8 +83,6 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 /* Modal Content (image) */
 .modal-content {
     margin: auto;
-    left: 5%;
-    top: 5%;
     display: block;
     width: 100%;
 }
