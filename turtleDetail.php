@@ -84,7 +84,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 .modal-content {
     margin: auto;
     vertical-align: top;
-    display: flex;
+    display: block;
     width: 80%;
     max-width: 700px;
 }
@@ -512,9 +512,8 @@ var img = document.getElementById('myImg');
 var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 img.onclick = function(){
-    modal.style.display = "block";
+    modal.style.display = "flex";
     modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
 }
 
 // Get the <span> element that closes the modal
