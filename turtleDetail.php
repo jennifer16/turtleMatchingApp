@@ -64,8 +64,6 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
             text-align: center
         }
         .popup img{
-            width: 200px;
-            height: 200px;
             cursor: pointer
         }
         .show{
@@ -75,7 +73,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
         .show .overlay{
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,.66);
+            background: rgba(0,0,0,1);
             position: absolute;
             top: 0;
             left: 0;
