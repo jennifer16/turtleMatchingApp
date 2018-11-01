@@ -27,11 +27,11 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 {
     $datetime1 = date_create($date_1);
     $datetime2 = date_create($date_2);
-   
+
     $interval = date_diff($datetime1, $datetime2);
-   
+
     $dateaDiff= $interval->format($differenceFormat);
-   
+
     return str_replace("Days","วันที่แล้ว",$dateDiff);
 }
 
@@ -75,7 +75,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
-                    
+
                 </div>
 
                 <ul class="top-nav">
@@ -106,11 +106,11 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-                        
+
                         <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-                        
+
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-                        
+
                         <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
@@ -121,7 +121,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
                             }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
@@ -192,13 +192,13 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                         echo "<li class='time-label'>";
                         echo "<h4>ยังไม่เคยพบเต่า</h4>";
                         echo "</li>";
-                    
+
                       }
                       else{
-                          
+
                           while($row=$result->fetch_assoc())
                           {
-                              
+
                               $foundDate = $row['found_date'];
                               $foundPic = $row['found_picure'];
                               $turtle_id = $row['turtle_id'];
@@ -206,17 +206,17 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                               $resultTurtle = mysqli_query($conn, $sql2);
                               $turtleData = $resultTurtle->fetch_assoc();
                               $turtle_name = $turtleData['turtle_name'];
-                              
+
                               $dt = new DateTime($foundDate);
-                                      
+
                               //$timestamp = strtotime($turtleData['turtle_timestamp']);
-                              
+
                               echo "<li class='time-label'>";
                               echo "<span class='bg-success'>";
                               echo DateThai($foundDate);
                               echo "</span>";
                               echo "</li>";
-                                  
+
                             echo "<li>";
                             echo "<i class='fa fa-camera bg-blue'></i>";
 
@@ -232,10 +232,10 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "</div>";
                             echo "</li>";
                           }
-                          
 
-                          
-                          
+
+
+
                       }
 
                     ?>
@@ -328,22 +328,22 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 ?>
 function myMap() {
     var x = document.getElementById("map");
-   
+
     var mapProp= {
-   
+
     center:new google.maps.LatLng(13.736717, 100.523186),
     zoom:5
     };
 
    var map=new google.maps.Map(document.getElementById("map"),mapProp);
 
-<?php 
-    
+<?php
+
     $numLoc = mysqli_num_rows($mapResult);
-   
+
     if($numLoc > 0)
     {
-        
+
         echo "var locations = [";
         $numRow = 1;
         while($row=$mapResult->fetch_assoc())
@@ -352,30 +352,30 @@ function myMap() {
                 echo "[".$row['found_lat'].",".$row['found_lng']."],";
             else
                echo "[".$row['found_lat'].",".$row['found_lng']."]";
-            
+
         }
-        
+
         echo "];\n";
-        
-        
-        echo "for (var i = 0; i < ".$numLoc."; i++) {";  
+
+
+        echo "for (var i = 0; i < ".$numLoc."; i++) {";
         echo "var marker = new google.maps.Marker({";
         echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
         echo "    map: map";
         echo "});";
-                   
-        
-	echo "}";                  
-                             
+
+
+	echo "}";
+
     }
 
 ?>
-    
+
 };
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz_xpHI6k_CmeGhzcalZOgk1SDf_E4N1Y&callback=myMap"></script>
-        
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLh_-wXq0IcxaGcq0VDGATKSbpC6A79B4&callback=myMap"></script>
+
                 <script>
             String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g,"");

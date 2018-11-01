@@ -42,7 +42,7 @@ $matchWidth = $matchData['match_width'];
 
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
-        
+
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/cropper.css">
   <style>
@@ -94,7 +94,7 @@ $matchWidth = $matchData['match_width'];
 
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
-                    
+
                 </div>
 
                 <ul class="top-nav">
@@ -125,11 +125,11 @@ $matchWidth = $matchData['match_width'];
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-                        
+
                         <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-                        
+
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-                        
+
                         <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                               if ($_SESSION['user_role']==1)
@@ -140,19 +140,19 @@ $matchWidth = $matchData['match_width'];
 
                             }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
                              if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span>";
                              echo "</li>"; }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
-                        
+
 
                     </ul>
                 </div>
@@ -171,9 +171,9 @@ $matchWidth = $matchData['match_width'];
               </div>
             </div>
           </div>
-        
+
               <!-- /.card-header -->
-              <!-- form start --> 
+              <!-- form start -->
           <div class="row" align="center">
               <div class="col-md-6">
                                   <!-- turtle profile image -->
@@ -182,7 +182,7 @@ $matchWidth = $matchData['match_width'];
       <img class="rounded" id="avatarProfile" src='<?php echo $matchPic; ?>' style="width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
-     
+
     <div class="alertProfile" role="alert"></div>
     <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -209,13 +209,13 @@ $matchWidth = $matchData['match_width'];
                   <br>
             <label>คลิกที่รูปเพื่อเปลี่ยนรูป</label>
               </div>
-              
-              <div class="col-md-6"> 
-              
+
+              <div class="col-md-6">
+
          <form role="form" action = "doFoundTurtle.php" method = "POST" enctype = "multipart/form-data">
                  <input type="text" name="turtleId" id="turtleId" value='<?php echo $turtleId; ?>' hidden>
                    <input type="text" name="matchId" id="matchId" value='<?php echo $matchId; ?>' hidden>
-                   <input type="text" name="filenameProfile" id="filenameProfile" value='<?php echo $matchPic; ?>' hidden>     
+                   <input type="text" name="filenameProfile" id="filenameProfile" value='<?php echo $matchPic; ?>' hidden>
 
            <div class="row">
                <div class="col-md-12">
@@ -236,7 +236,7 @@ $matchWidth = $matchData['match_width'];
                     <label for="latitude">ความยาว (ซม.)</label>
                     <input type="text" class="form-control" id="length" name="length" placeholder="ความยาวของกระดองเต่า" value="<?php echo $matchLength; ?>">
                     </div>
-               
+
                 </div><br>
                 <div class="row">
                     <div class="col-md-6">
@@ -254,35 +254,35 @@ $matchWidth = $matchData['match_width'];
                      <label> -- หรือ คลิกและเลือกตำแหน่งในแผนที่ --</label>
                     </div>
                    <div class="col-md-12">
-                       
+
                        <div class="card" style="height: 300px;">
-                            
+
                             <div class="card-body" id = "map">
-                               
+
                             </div>
                         </div>
-                       
+
                     </div>
                     <div class="col-md-12" align="left">
-                    
+
                         <label id="place1"></label>
                     </div>
-                  
-                  </div>  
+
+                  </div>
                   <div class="row" align="center">
                     <div class="col-md-12">
-               
-                  <button type="submit" class="btn btn-primary full-width">บันทึกและแชร์ข้อมูลการพบเต่า</button> 
-               
+
+                  <button type="submit" class="btn btn-primary full-width">บันทึกและแชร์ข้อมูลการพบเต่า</button>
+
                         </div>
                 </div>
             </div>
                   </form>
               </div>
-              
-          </div>    
 
-            
+          </div>
+
+
         <!-- /.row -->
     <!-- /.content -->
 
@@ -347,7 +347,7 @@ $matchWidth = $matchData['match_width'];
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
-        
+
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
 
@@ -368,10 +368,10 @@ $matchWidth = $matchData['match_width'];
         <script src="vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 
         <!-- App functions and actions -->
-        <script src="js/app.min.js"></script>   
- 
+        <script src="js/app.min.js"></script>
+
   <script src="js/cropper.js"></script>
-      
+
          <script>
     window.addEventListener('DOMContentLoaded', function () {
       var avatar = document.getElementById('avatarProfile');
@@ -447,11 +447,11 @@ $matchWidth = $matchData['match_width'];
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
-	
+
             formData.append('avatarProfile', blob);
             formData.append('filenameProfile', newFilenameProfile);
          for (var pair of formData.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]); 
+    console.log(pair[0]+ ', ' + pair[1]);
 }
             $.ajax('./saveImageForAdd.php', {
               method: 'POST',
@@ -501,7 +501,7 @@ $matchWidth = $matchData['match_width'];
         }
       });
     });
-  </script>         
+  </script>
 <script>
 var x = document.getElementById("latitude");
 var y = document.getElementById("longtitude");
@@ -547,7 +547,7 @@ function myMap() {
     var x = document.getElementById("map");
     console.log(x);
 var mapProp= {
-   
+
     center:new google.maps.LatLng(13.736717, 100.523186),
     zoom:5
 }
@@ -568,7 +568,7 @@ function placeMarker(position, map) {
     });
     map.panTo(position);
     marker.setDraggable(true);
-    
+
     var x = document.getElementById("latitude");
 var y = document.getElementById("longtitude");
         x.value = marker.getPosition().lat();
@@ -578,30 +578,30 @@ google.maps.event.addListener( marker, 'click', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
     latlngChange();
-} );  
+} );
 google.maps.event.addListener( marker, 'dragend', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
     latlngChange();
-} );  
+} );
 }
-    
-                      
-                             
+
+
+
     }
-    
+
 </script>
 <script>
-    
+
     function latlngChange()
     {
 
         var x = document.getElementById("latitude");
         var y = document.getElementById("longtitude");
         var place1 = document.getElementById("place1");
-       
+
         var geocoder = new google.maps.Geocoder;
-    
+
         var latlng = {lat: parseFloat(x.value), lng: parseFloat(y.value)};
         geocoder.geocode({'location': latlng}, function(results, status) {
           if (status === 'OK') {
@@ -616,12 +616,12 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
         });
       }
 
-        
-    
-    
-        
+
+
+
+
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz_xpHI6k_CmeGhzcalZOgk1SDf_E4N1Y&callback=myMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLh_-wXq0IcxaGcq0VDGATKSbpC6A79B4&callback=myMap"></script>
     </body>
 </html>

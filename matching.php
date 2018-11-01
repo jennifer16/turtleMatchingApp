@@ -22,7 +22,7 @@ $numWaitForMatch = mysqli_num_rows($result);
 
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
-        
+
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/cropper.css">
   <style>
@@ -66,7 +66,7 @@ $numWaitForMatch = mysqli_num_rows($result);
 
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
-                    
+
                 </div>
 
                 <ul class="top-nav">
@@ -97,11 +97,11 @@ $numWaitForMatch = mysqli_num_rows($result);
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-                        
+
                         <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-                        
+
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-                        
+
                         <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                               if ($_SESSION['user_role']==1)
@@ -112,7 +112,7 @@ $numWaitForMatch = mysqli_num_rows($result);
 
                             }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
@@ -123,7 +123,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
-                        
+
 
                     </ul>
                 </div>
@@ -143,9 +143,9 @@ $numWaitForMatch = mysqli_num_rows($result);
               </div>
             </div>
         </div>
-          
+
               <!-- /.card-header -->
-              <!-- form start --> 
+              <!-- form start -->
                 <!-- left side image -->
     <div class="row" align="center">
         <div class="col-md-6">
@@ -180,7 +180,7 @@ $numWaitForMatch = mysqli_num_rows($result);
       </div>
     </div>
   </div>
-            
+
             </div>
 
                <div class="col-md-6">
@@ -189,11 +189,11 @@ $numWaitForMatch = mysqli_num_rows($result);
                         <label>เลือกด้านของใบหน้าและพิกัดการพบ</label>
                        </div>
                    </div><br>
-                   
+
               <form role="form" action = "doSaveMatching.php" method = "POST" enctype = "multipart/form-data">
                         <input type="text" name="filename" id="filename" hidden>
                 <div class="row">
-                   
+
                    <br> <div class="col-md-12">
                         <div class="form-check-inline">
   <label class="form-check-label">
@@ -219,47 +219,47 @@ $numWaitForMatch = mysqli_num_rows($result);
                         </div>
                     <br>
                 </div>
-                                  
+
                   <br>
-               
+
                 <div class="row" >
                     <div class="col-md-12" align="center">
                      <label> -- หรือ คลิกและเลือกตำแหน่งในแผนที่ --</label>
                     </div>
 
                    <div class="col-md-12">
-                       
+
                        <div class="card" style="height: 300px;">
-                            
+
                             <div class="card-body" id = "map">
-                               
+
                             </div>
                         </div>
-                       
+
                     </div>
                     <div class="col-md-12" align="left">
-                    
+
                         <label id="place1"></label>
                     </div>
-                  
-                  </div>  
-                  
-                 
+
+                  </div>
+
+
                 <!-- /.card-body -->
                     <div class="row" align="center">
                     <div class="col-md-12">
-               
+
                   <br><button id="search" type="submit" class="btn btn-primary full-width" >ค้นหาเต่า</button>
-               
+
      </div>
                 </div>
 
               </form>
-            
+
             <!-- /.card -->
             </div>
         </div>
-    
+
         <!-- /.row -->
     <!-- /.content -->
 
@@ -325,7 +325,7 @@ $numWaitForMatch = mysqli_num_rows($result);
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
-        
+
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
 
@@ -346,9 +346,9 @@ $numWaitForMatch = mysqli_num_rows($result);
         <script src="vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 
         <!-- App functions and actions -->
-        <script src="js/app.min.js"></script>   
-        
- 
+        <script src="js/app.min.js"></script>
+
+
   <script src="js/cropper.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', function () {
@@ -388,7 +388,7 @@ $numWaitForMatch = mysqli_num_rows($result);
 
           newFilename = text+'.'+fileext;
           document.getElementById("filename").value = newFilename;
-            
+
 
           if (URL) {
             done(URL.createObjectURL(file));
@@ -423,13 +423,13 @@ $numWaitForMatch = mysqli_num_rows($result);
           });
 
           initialAvatarURL = avatar.src;
-            
+
           avatar.src = canvas.toDataURL();
           $progress.show();
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
-	
+
             formData.append('avatar', blob);
             formData.append('filename', newFilename);
 
@@ -468,7 +468,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                   console.log('success');
                   $('#search').innerHTML = "ค้นหาเต่า";
                    $('#search').disabled = false;
-                  
+
               },
 
               error: function () {
@@ -485,9 +485,9 @@ $numWaitForMatch = mysqli_num_rows($result);
         }
       });
     });
-  </script>       
+  </script>
 
-  
+
             <script>
 var x = document.getElementById("latitude");
 var y = document.getElementById("longtitude");
@@ -505,7 +505,7 @@ function showPosition(position) {
 }
                 getLocation();
 </script>
-        
+
         <script>
             String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g,"");
@@ -530,7 +530,7 @@ $(document).ready(function(){
 });
         </script>
 
-        
+
     <script>
 function myMap() {
     var x = document.getElementById("map");
@@ -541,7 +541,7 @@ function myMap() {
         zoom:5
     }
     var map=new google.maps.Map(document.getElementById("map"),mapProp);
-    
+
 
     var isClick=false;
 map.addListener('click', function(e) {
@@ -550,7 +550,7 @@ map.addListener('click', function(e) {
     isClick=true;
     }
 });
-        
+
 function placeMarker(position, map) {
     var marker = new google.maps.Marker({
         position: position,
@@ -558,51 +558,51 @@ function placeMarker(position, map) {
     });
     map.panTo(position);
     marker.setDraggable(true);
-    
+
     var x = document.getElementById("latitude");
 var y = document.getElementById("longtitude");
-    
+
     x.value = marker.getPosition().lat();
     y.value = marker.getPosition().lng();
-    
+
    latlngChange();
-    
+
 google.maps.event.addListener( marker, 'click', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
-    
+
    latlngChange();
-} );  
+} );
 google.maps.event.addListener( marker, 'dragend', function ( event ) {
     x.value = this.getPosition().lat();
     y.value = this.getPosition().lng();
-    
+
     latlngChange();
-} );  
+} );
 }
-    
-                      
-                             
+
+
+
     }
-    
+
 </script>
-        
+
 <script>
-    
+
     function latlngChange()
     {
 
         var x = document.getElementById("latitude");
         var y = document.getElementById("longtitude");
         var place1 = document.getElementById("place1");
-       
+
         var geocoder = new google.maps.Geocoder;
-    
+
         var latlng = {lat: parseFloat(x.value), lng: parseFloat(y.value)};
         geocoder.geocode({'location': latlng}, function(results, status) {
           if (status === 'OK') {
             if (results[0]) {
-              
+
               place1.innerHTML = results[0].formatted_address
             } else {
             place1.innerHTML = "ไม่ทราบข้อมูลสถานที่";
@@ -613,13 +613,13 @@ google.maps.event.addListener( marker, 'dragend', function ( event ) {
         });
       }
 
-        
-    
-    
-        
+
+
+
+
 </script>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVlIZSpzYkePXCjcm9xRHuFyL2DbKZY0Q&callback=myMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLh_-wXq0IcxaGcq0VDGATKSbpC6A79B4&callback=myMap"></script>
     </body>
 </html>
