@@ -45,7 +45,7 @@ $numWaitForMatch = mysqli_num_rows($result);
 
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
-                    
+
                 </div>
 
                 <ul class="top-nav">
@@ -76,11 +76,11 @@ $numWaitForMatch = mysqli_num_rows($result);
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-                        
+
                         <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-                        
+
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-                        
+
                         <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
@@ -91,19 +91,19 @@ $numWaitForMatch = mysqli_num_rows($result);
 
                             }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
                              if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span>";
                              echo "</li>"; }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
-                        
+
                     </ul>
                 </div>
             </aside>
@@ -121,7 +121,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                     </form>
                     </div>
               </div>
-   
+
                 <footer class="footer hidden-xs-down">
                 </footer>
             </section>
