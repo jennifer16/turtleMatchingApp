@@ -30,7 +30,7 @@ except:
 	sys.exit()
 
 im.save('Turtle/'+fileName+'.PNG')
-	
+
 if not os.path.isfile('Turtle/'+fileName+'.PNG'):
 	print 'Cannot find name with '+fileName+'.PNG'
 	sys.exit()
@@ -53,19 +53,19 @@ for row in data:
 	else:
 		templateFileList.append("Turtle/"+str(row[0])+"_Right.png");
 
-	
+
 #	convert template data to PNG
 for i in range(len(templateFileList)):
 
 	fullname1 = templateFileList[i]
-	
+
 	print "fullname1", fullname1
 
 	fileName1 = fullname1[7:len(fullname1)-4]
 
 	print "filename1", fileName1
 
-	
+
 	#convert to PNG
 	try:
 		im = Image.open(fullname1)
@@ -84,7 +84,7 @@ for i in range(len(templateFileList)):
 		sys.exit()
 	else:
 		templateFileList[i] = 'Turtle/'+fileName1+'.PNG'
-	
+
 
 #	calculate matching score for left and right template
 leftScore=[]
@@ -124,7 +124,7 @@ for index in range(len(templateFileList)):
 				leftScore.append(-1.0*score)
 			else:
 				break
-	
+
 	if side == 'RIGHT':
 		realInputName = fileName+"Match-"
 		realNameTemplate = str(templateIdList[index])+"Turtle-"
@@ -171,11 +171,11 @@ if side == 'LEFT':
 	for index in leftIndex:
 		if already100:
 			leftPercent[index]  = leftPercent[index] - random.uniform(0.1,3.0)
-		
+
 		print "$"+ str(templateIdList[index])+","+ str(leftPercent[index]) + ",LEFT,"+leftOutName[index]+ "," +str(leftScore[index])
-		
+
 		if leftPercent[index] == 100.0 :
-			already100 = True 
+			already100 = True
 
 already100 = False
 
@@ -184,8 +184,12 @@ if side == 'RIGHT':
 	for index in rightIndex:
 		if already100:
 			rightPercent[index]  = rightPercent[index] - random.uniform(0.1,3.0)
-		
+
 		print "$"+ str(templateIdList[index])+","+ str(rightPercent[index]) + ",RIGHT,"+rightOutName[index]+ "," +str(rightScore[index])
-		
+
 		if rightPercent[index] == 100.0 :
-			already100 = True 
+			already100 = True
+try:
+	os.system("python pushTurtleFound.py")
+except:
+	print("cannot push")
