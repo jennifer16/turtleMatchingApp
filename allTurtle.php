@@ -10,7 +10,7 @@ $sql = "select * from matching where match_pid is null or match_pid=''";
 $result = mysqli_query($conn, $sql);
 $numWaitForMatch = mysqli_num_rows($result);
 
-$sql =  "SELECT * FROM turtle";
+$sql =  "SELECT * FROM turtle order by turtle_id asc";
 $data = mysqli_query($conn, $sql);
 
 ?>
