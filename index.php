@@ -443,7 +443,7 @@ function myMap() {
             else {
               $tname = $row['turtle_name'];
               $turl = "turtleDetail.php?id=".$row['turtle_id'];
-                echo "[".$row['found_lat'].",".$row['found_lng'].",".$tname.",".$turl."],";
+                echo "[".$row['found_lat'].",".$row['found_lng'].",".$tname.",".$turl."]";
 
                 //$ticon = "Turtle/".$row['turtle_profile'];
             }
