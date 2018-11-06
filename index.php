@@ -459,7 +459,7 @@ function myMap() {
         echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
         //echo "    icon: '". $ticon."',";
         echo "    url:locations[i][3],";
-        echo "    label:{ color: '#FFF', fontWeight: 'bold', fontSize: '14px', text: i.toString() },";
+        echo "    label:{ color: '#FFF', fontWeight: 'bold', fontSize: '14px', text: i },";
         echo "    title:locations[i][2],";
         echo "    map: map";
         echo "});";
