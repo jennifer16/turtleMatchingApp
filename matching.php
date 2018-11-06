@@ -253,6 +253,10 @@ $numWaitForMatch = mysqli_num_rows($result);
 
      </div>
                 </div>
+                <div class="row" align="center">
+                <div class="col-md-12">
+                </div>
+              </div>
 
               </form>
 
