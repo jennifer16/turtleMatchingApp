@@ -477,6 +477,7 @@ function myMap() {
 
     function printAddress(id,lat,lng)
     {
+        console.log("printAddress", id, lat, lng);
         var place1 = document.getElementById('address'+id);
 
         var geocoder = new google.maps.Geocoder;
