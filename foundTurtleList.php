@@ -258,7 +258,12 @@ $data = mysqli_query($conn, $sql);
 
         <script>
             $(document).ready( function () {
-    $('#listTurtle').DataTable();
+    $('#listTurtle').DataTable({
+         scrollY:        '50vh',
+         scrollCollapse: true,
+         
+
+    });
 } );
 
         </script>
