@@ -105,6 +105,8 @@ for index in range(len(templateFileList)):
 		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 		leftOutName.append(outputVName)
+		if( not(os.path.isfile(leftFaceName) and os.path.isfile(fileInputName)):
+			continue
 		command_line = "./demo_ASIFT"+" "+leftFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
 		print command_line
@@ -112,6 +114,8 @@ for index in range(len(templateFileList)):
         	args = shlex.split(command_line)
 		p = subprocess.Popen(args)
 		p.wait()
+		if (not os.path.isfile(outputMatchingName) )
+			continue
 		scoreFile = open(outputMatchingName)
 		count = 0
 		for line in scoreFile:
@@ -136,12 +140,16 @@ for index in range(len(templateFileList)):
 		outputKeys1Name = "./RawFile/"+realNameTemplate+"Keys_LEFT.txt"
 		outputKeys2Name = "./RawFile/"+realInputName+"Keys.txt"
 		rightOutName.append(outputVName)
+		if( not(os.path.isfile(rightFaceName) and os.path.isfile(fileInputName)):
+			continue
 		command_line = "./demo_ASIFT"+" "+rightFaceName+" "+fileInputName+" "+outputVName+" "+outputHName+" "+outputMatchingName+" "+outputKeys1Name+" "+outputKeys2Name
 
 		print command_line
 		args = shlex.split(command_line)
 		p = subprocess.Popen(args)
 		p.wait()
+		if (not os.path.isfile(outputMatchingName) )
+			continue
 		scoreFile = open(outputMatchingName)
 		count = 0
 		for line in scoreFile:
