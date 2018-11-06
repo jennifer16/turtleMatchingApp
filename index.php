@@ -447,6 +447,7 @@ function myMap() {
 
                 //$ticon = "Turtle/".$row['turtle_profile'];
             }
+            $numRow+=1;
         }
 
         echo "];\n";
