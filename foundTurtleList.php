@@ -128,7 +128,7 @@ $data = mysqli_query($conn, $sql);
             <!-- /.card-header -->
             <div class="card-body">
             <h5>เต่าที่พบในธรรมชาติ</h5>
-              <table id="listTurtle" class="display responsive nowrap" style="width:100%">
+              <table id="listTurtle"  class="display responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
                   <th style='text-align: center;'>วันเวลาที่รายงาน</th>
@@ -258,14 +258,7 @@ $data = mysqli_query($conn, $sql);
 
         <script>
             $(document).ready( function () {
-    $('#listTurtle').DataTable({
-         scrollY:        '50vh',
-         scrollCollapse: true,
-         "pageLength": 10,
-         "pagingType": "simple",
-        ]
-
-    });
+    $('#listTurtle').DataTable();
 } );
 
         </script>
