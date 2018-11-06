@@ -449,7 +449,7 @@ function myMap() {
 
         echo "];\n";
 
-        echo "console.log(\"marker\", locations)";
+        echo "console.log(\"marker\", locations);";
 
         echo "for (var i = 0; i < ".$numLoc."; i++) {";
         echo "var marker = new google.maps.Marker({";
