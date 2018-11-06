@@ -2,9 +2,9 @@
 <?php
 require 'connect.php';
 session_start();
-if( !isset($_SESSION["user_id"]) ){
-    header("location:login.php");
-}
+//if( !isset($_SESSION["user_id"]) ){
+//    header("location:login.php");
+//}
 
 $sql = "select * from matching where match_pid is null or match_pid=''";
 $result = mysqli_query($conn, $sql);
@@ -59,43 +59,64 @@ $numWaitForMatch = mysqli_num_rows($result);
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
 
                 </div>
+                <?php
+                    if( isset($_SESSION["user_id"]) )
+                    {
+                        echo "<ul class=\"top-nav\">";
+                        echo "<li class=\"top-nav\">";
+                        echo "<a href='matching.php'><i class='zmdi zmdi-camera'></i> </a>";
+                        echo "</li>";
+                        echo "<li class=\"top-nav\">";
+                        echo "<a href='matchingResult.php' id='bell'><i class=\"zmdi zmdi-notifications\"></i></a></li>
+                      </ul>";
 
-                <ul class="top-nav">
-                    <li class="top-nav">
-                    <a href='matching.php'><i class="zmdi zmdi-camera"></i> </a>
-                    </li>
-                    <li class="top-nav">
-                     <a href='matchingResult.php' id='bell'><i class="zmdi zmdi-notifications"></i></a>
-                    </li>
-                </ul>
+                    }
+
+                ?>
             </header>
             <!-- Left Menu -->
             <aside class="sidebar">
                 <div class="scrollbar-inner">
-                    <div class="user">
-                        <div class="user__info" data-toggle="dropdown">
-                            <img class="user__img" src="https://graph.facebook.com/<?php echo $_SESSION['user_id']; ?>/picture?type=normal">
+                  <?php
+                  if( isset($_SESSION["user_id"]) )
+                  {
+                    echo "<div class=\"user\">
+                        <div class=\"user__info\" data-toggle=\"dropdown\">
+                            <img class=\"user__img\" src=\"https://graph.facebook.com/";?><?php echo $_SESSION['user_id']; ?><?php echo "/picture?type=normal\">
                             <div>
-                                <div class="user__name"><?php echo $_SESSION['user_firstname']." ".$_SESSION['user_lastname'];?></div>
+                                <div class=\"user__name\">";?><?php echo $_SESSION['user_firstname']." ".$_SESSION['user_lastname'];?><?php echo "</div>
                             </div>
                         </div>
 
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="userProfile.php">ดูรายละเอียด</a>
-                            <a class="dropdown-item" href="signout.php">ออกจากระบบ</a>
+                        <div class=\"dropdown-menu\">
+                            <a class=\"dropdown-item\" href=\"userProfile.php\">ดูรายละเอียด</a>
+                            <a class=\"dropdown-item\" href=\"signout.php\">ออกจากระบบ</a>
                         </div>
-                    </div>
+                    </div>";
+                  }
+                  ?>
 
                     <ul class="navigation">
+
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-
-                        <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-
-                        <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-
-                        <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
-                            if ($_SESSION['user_role']==1)
+                            if( !isset($_SESSION["user_id"]) )
+                            {
+                              echo "<li><a href=\"login.php\"><i class=\"zmdi-account\"></i> เข้าสู่ระบบ</a></li>";
+                            }
+                         ?>
+                        <?php
+                          if( isset($_SESSION["user_id"]) )
+                          {
+                              echo "<li><a href=\"allTurtle.php\"><i class=\"zmdi zmdi-view-week\"></i> ข้อมูลเต่าทั้งหมด</a></li>";
+
+                              echo "<li><a href=\"foundTurtleHistory.php\"><i class=\"zmdi zmdi-replay\"></i> ประวัติการพบเต่า</a></li>";
+
+                              echo "<li><a href=\"matching.php\"><i class=\"zmdi zmdi-camera\"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>";
+                          }
+                          ?>
+                        <?php
+                            if ( isset($_SESSION["user_id"]) && $_SESSION['user_role']==1)
                             {
                                 echo "<li><a href='addTurtle.php'><i class='zmdi zmdi-collection-plus'></i> เพิ่มข้อมูลเต่า</a></li>";
                                 echo "<li><a href='editTurtle.php'><i class='zmdi zmdi-collection-text'></i> แก้ไขข้อมูลเต่า</a></li>";
@@ -105,14 +126,14 @@ $numWaitForMatch = mysqli_num_rows($result);
                         ?>
 
                         <?php
-                            if ($_SESSION['user_role']==1)
+                            if ( isset($_SESSION["user_id"]) &&  $_SESSION['user_role']==1)
                             { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
                              if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span>";
                              echo "</li>"; }
                         ?>
 
                         <?php
-                            if ($_SESSION['user_role']==1)
+                            if ( isset($_SESSION["user_id"]) &&  $_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
 
