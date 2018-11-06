@@ -434,15 +434,17 @@ function myMap() {
         while($row=$mapResult->fetch_assoc())
         {
             if($numRow < $numLoc) {
-                echo "[".$row['found_lat'].",".$row['found_lng']."],";
                 $tname = $row['turtle_name'];
                 $turl = "turtleDetail.php?id=".$row['turtle_id'];
+                echo "[".$row['found_lat'].",".$row['found_lng'].",".$tname.",".$turl."],";
+
                 //$ticon = "Turtle/"."jHNEebsc6s.JPG";
             }
             else {
-                echo "[".$row['found_lat'].",".$row['found_lng']."]";
-                $tname = $row['turtle_name'];
-                $turl = "turtleDetail.php?id=".$row['turtle_id'];
+              $tname = $row['turtle_name'];
+              $turl = "turtleDetail.php?id=".$row['turtle_id'];
+                echo "[".$row['found_lat'].",".$row['found_lng'].",".$tname.",".$turl."],";
+
                 //$ticon = "Turtle/".$row['turtle_profile'];
             }
         }
@@ -455,8 +457,9 @@ function myMap() {
         echo "var marker = new google.maps.Marker({";
         echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
         //echo "    icon: '". $ticon."',";
-        echo "    url: '".$turl."',";
-        echo "    title: '".$tname."',";
+        echo "    url:locations[i][3],";
+        echo "    label:i,";
+        echo "    title:locations[i][2],";
         echo "    map: map";
         echo "});";
         echo "google.maps.event.addListener(marker, 'click', function() {
