@@ -487,6 +487,7 @@ function myMap() {
         echo "for (var i = 0; i < ".$numLoc."; i++) {";
         echo "var marker = new google.maps.Marker({";
         echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
+        echo "    label:{ color: '#FFF', text: i.toString() },";
         echo "    map: map";
         echo "});";
 
