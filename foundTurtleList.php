@@ -262,7 +262,7 @@ $data = mysqli_query($conn, $sql);
          scrollY:        '50vh',
          scrollCollapse: true,
          "pageLength": 10,
-         "pagingType": "numbers",
+         "pagingType": "simple",
 
 
     });
