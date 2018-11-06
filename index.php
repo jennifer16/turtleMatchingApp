@@ -436,14 +436,14 @@ function myMap() {
             if($numRow < $numLoc) {
                 $tname = $row['turtle_name'];
                 $turl = "turtleDetail.php?id=".$row['turtle_id'];
-                echo "[".$row['found_lat'].",".$row['found_lng'].",'".$tname."','".$turl."'],";
+                echo "[".$row['found_lat'].",".$row['found_lng'].",'".$tname."','".$turl."','Turtle/".".$row['turtle_profile']."'],";
 
                 //$ticon = "Turtle/"."jHNEebsc6s.JPG";
             }
             else {
               $tname = $row['turtle_name'];
               $turl = "turtleDetail.php?id=".$row['turtle_id'];
-                echo "[".$row['found_lat'].",".$row['found_lng'].",'".$tname."','".$turl."']";
+                echo "[".$row['found_lat'].",".$row['found_lng'].",'".$tname."','".$turl."','Turtle/".".$row['turtle_profile']."']";
 
                 //$ticon = "Turtle/".$row['turtle_profile'];
             }
@@ -456,7 +456,7 @@ function myMap() {
           echo "var contentString = '<div id=\"content\">'+
               '<div id=\"siteNotice\">'+
               '</div>'+
-              '<h1 id=\"firstHeading\" class=\"firstHeading\">'+location[i][2]+'</h1>'+
+              '<h1 id=\"firstHeading\" class=\"firstHeading\">'+locations[i][2]+'</h1>'+
               '<div id=\"bodyContent\">'+
               '<p></p>'+
               '</div>'+
