@@ -265,7 +265,9 @@ $data = mysqli_query($conn, $sql);
          "pagingType": "full_numbers",
          "paging": true,
          "lengthMenu": [10, 25, 50, 75, 100],
-        
+         "columnDefs": [
+              { "orderable": false, "targets": 3 }
+        ]
 
     });
 } );
