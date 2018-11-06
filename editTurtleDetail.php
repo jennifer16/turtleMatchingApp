@@ -30,7 +30,7 @@ $row = $data->fetch_assoc();
 
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
-        
+
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/cropper.css">
   <style>
@@ -74,7 +74,7 @@ $row = $data->fetch_assoc();
 
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
-                    
+
                 </div>
 
                 <ul class="top-nav">
@@ -105,11 +105,11 @@ $row = $data->fetch_assoc();
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-                        
+
                         <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-                        
+
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-                        
+
                         <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                               if ($_SESSION['user_role']==1)
@@ -120,19 +120,19 @@ $row = $data->fetch_assoc();
 
                             }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
                              if($numWaitForMatch>0)  echo "<span class='badge badge-danger'>".$numWaitForMatch."</span>";
                              echo "</li>"; }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
-                        
+
 
                     </ul>
                 </div>
@@ -149,7 +149,7 @@ $row = $data->fetch_assoc();
                     <h4 class="card-title">แก้ไขข้อมูลประจำตัวเต่าทะเล</h4>
                 </div>
               <!-- /.card-header -->
-              <!-- form start --> 
+              <!-- form start -->
                 <div class="row">
                     <div class="col-md-4">
                 <!-- left side image -->
@@ -190,7 +190,7 @@ $row = $data->fetch_assoc();
       <img class="rounded" id="avatarRight" src='Turtle/<?php if ($row['turtle_right']==''){echo 'img/camera.png';}else{ echo $row['turtle_right'];}?>' style="max-width:100%; height:auto;" alt="avatar-left">
       <input type="file" class="sr-only" id="inputRight" name="imageRight" accept="image/*">
     </label>
-     
+
     <div class="alertRight" role="alert"></div>
     <div class="modal fade" id="modalRight" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -223,7 +223,7 @@ $row = $data->fetch_assoc();
       <img class="rounded" id="avatarProfile" src='Turtle/<?php if ($row['turtle_profile']==''){echo 'img/camera.png';}else{ echo $row['turtle_profile'];}?>' style="max-width:100%; height:auto;" alt="avatar-Profile">
       <input type="file" class="sr-only" id="inputProfile" name="imageProfile" accept="image/*">
     </label>
-     
+
     <div class="alertProfile" role="alert"></div>
     <div class="modal fade" id="modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -257,7 +257,7 @@ $row = $data->fetch_assoc();
                     <input type="text" name="turtleID" id="turtleID"  value='<?php echo $turtleID; ?>'  hidden>
                 <div class="card-body">
                         <h5 class="card-title">ข้อมูลประจำตัวเต่าทะเล</h5>
-                           
+
                     <div class="form-group">
                     <div class="row">
                         <div class="col-md-12">
@@ -270,12 +270,12 @@ $row = $data->fetch_assoc();
                     <label for="turtleType">ชนิดเต่า</label>
                     <input type="text" class="form-control" id="turleType" name="turtleType" placeholder="ชนิดของเต่า" value='<?php echo $row['turtle_type'];?>' >
                     </div>
-               
+
                     <div class="col-md-6">
                     <label for="ageMonth">อายุ ณ วันที่บันทึกข้อมูล (เดือน)</label>
                     <input type="text" class="form-control" id="ageMonth" name="ageMonth" placeholder="0" value='<?php echo $row['turtle_age_moth'];?>'>
                         </div>
-                        
+
                   </div> <br>
                 <div class="row">
                     <div class="col-md-8">
@@ -297,20 +297,20 @@ $row = $data->fetch_assoc();
                     <input type="text" class="form-control" id="tagPos"  name="tagPos" placeholder="ตำแหน่งติดตั้งแทกสแตนเลส"  value='<?php echo $row['turtle_tag_pos']; ?>' >
                     </div>
                 </div> <br>
-            
-                 
+
+
                 <!-- /.card-body -->
                     <div class="row" align="center">
                     <div class="col-md-12">
-               
-                  <button type="submit" class="btn btn-primary">แก้ไขข้อมูลเต่า</button>
-               
+
+                  <button type="submit" class="btn btn-primary full-width">แก้ไขข้อมูลเต่า</button>
+
      </div>
                 </div>
                            </div>
                   </div>
               </form>
-            
+
             <!-- /.card -->
 
         </div>
@@ -380,7 +380,7 @@ $row = $data->fetch_assoc();
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
-        
+
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
 
@@ -401,8 +401,8 @@ $row = $data->fetch_assoc();
         <script src="vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 
         <!-- App functions and actions -->
-        <script src="js/app.min.js"></script>   
- 
+        <script src="js/app.min.js"></script>
+
   <script src="js/cropper.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', function () {
@@ -440,7 +440,7 @@ $row = $data->fetch_assoc();
 
           newFilenameLeft = text+'.'+fileext;
           document.getElementById("filenameLeft").value = newFilenameLeft;
-            
+
 
           if (URL) {
             done(URL.createObjectURL(file));
@@ -480,11 +480,11 @@ $row = $data->fetch_assoc();
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
-	
+
             formData.append('avatarLeft', blob);
             formData.append('filenameLeft', newFilenameLeft);
          for (var pair of formData.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]); 
+    console.log(pair[0]+ ', ' + pair[1]);
 }
             $.ajax('./saveImageForAdd.php', {
               method: 'POST',
@@ -534,7 +534,7 @@ $row = $data->fetch_assoc();
         }
       });
     });
-  </script>       
+  </script>
 
   <script>
     window.addEventListener('DOMContentLoaded', function () {
@@ -572,7 +572,7 @@ $row = $data->fetch_assoc();
 
           newFilenameRight = text+'.'+fileext;
           document.getElementById("filenameRight").value = newFilenameRight;
-            
+
 
           if (URL) {
             done(URL.createObjectURL(file));
@@ -612,11 +612,11 @@ $row = $data->fetch_assoc();
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
-	
+
             formData.append('avatarRight', blob);
             formData.append('filenameRight', newFilenameRight);
          for (var pair of formData.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]); 
+    console.log(pair[0]+ ', ' + pair[1]);
 }
             $.ajax('./saveImageForAdd.php', {
               method: 'POST',
@@ -666,7 +666,7 @@ $row = $data->fetch_assoc();
         }
       });
     });
-  </script>         
+  </script>
          <script>
     window.addEventListener('DOMContentLoaded', function () {
       var avatar = document.getElementById('avatarProfile');
@@ -685,7 +685,7 @@ $row = $data->fetch_assoc();
           image.src = url;
           $alert.hide();
           $modal.modal('show');
-          
+
         };
         var reader;
         var file;
@@ -719,23 +719,23 @@ $row = $data->fetch_assoc();
       });
 
       $modal.on('shown.bs.modal', function (avatar) {
-        
+
           cropper = new Cropper(image, {
                 viewMode: 3,
                 strict:true,
                cropBoxMovable: true,
             cropBoxResizable: false,
- 
-          
+
+
           });
-          
-            
+
+
       }).on('hidden.bs.modal', function () {
         cropper.destroy();
         cropper = null;
       });
-    
-        
+
+
 
       document.getElementById('cropProfile').addEventListener('click', function () {
         var initialAvatarURL;
@@ -755,11 +755,11 @@ $row = $data->fetch_assoc();
           $alert.removeClass('alert-success alert-warning');
           canvas.toBlob(function (blob) {
             var formData = new FormData();
-	
+
             formData.append('avatarProfile', blob);
             formData.append('filenameProfile', newFilenameProfile);
          for (var pair of formData.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]); 
+    console.log(pair[0]+ ', ' + pair[1]);
 }
             $.ajax('./saveImageForAdd.php', {
               method: 'POST',
@@ -810,7 +810,7 @@ $row = $data->fetch_assoc();
         }
       });
     });
-  </script>           
+  </script>
         <script>
             String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g,"");

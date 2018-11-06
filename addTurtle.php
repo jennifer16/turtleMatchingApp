@@ -376,7 +376,7 @@ $matchAge = $matchData['match_age'];
                 <?php
 
                             echo "<div class='col-md-12''>";
-                            echo "<button type='submit' class='btn btn-primary' id='submitData'>บันทึกข้อมูลเต่า</button>";
+                            echo "<button type='submit' class='btn btn-primary full-width' id='submitData'>บันทึกข้อมูลเต่า</button>";
                             echo " </div>";
 
 

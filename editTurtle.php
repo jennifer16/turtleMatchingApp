@@ -28,7 +28,7 @@ $data = mysqli_query($conn, $sql);
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
-  
+
     </head>
 
     <body data-ma-theme="green">
@@ -52,7 +52,7 @@ $data = mysqli_query($conn, $sql);
 
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
-                    
+
                 </div>
 
                 <ul class="top-nav">
@@ -83,11 +83,11 @@ $data = mysqli_query($conn, $sql);
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-                        
+
                         <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-                        
+
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-                        
+
                         <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
@@ -98,7 +98,7 @@ $data = mysqli_query($conn, $sql);
 
                             }
                         ?>
-                        
+
                         <?php
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='foundTurtleList.php'><i class='zmdi zmdi-layers'></i> เต่าที่พบในธรรมชาติ &nbsp;</a>";
@@ -119,7 +119,7 @@ $data = mysqli_query($conn, $sql);
      <div class="row">
         <div class="col-12">
           <div class="card">
-             
+
             <!-- /.card-header -->
             <div class="card-body">
             <h5>แก้ไขข้อมูลเต่า</h5>
@@ -139,12 +139,12 @@ $data = mysqli_query($conn, $sql);
                     echo "<td align='center'><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row['turtle_name']."</a></td>";
                     echo "<td align='center'>".$row['turtle_microchip_code']."</td>";
                     echo "<td align='center'>".$row['turtle_tag_code']."</td>";
-                   echo "<td align='center'><button type='button' class='btn btn-primary' onclick='doEditTurtle(".$row['turtle_id'].");'>แก้ไข</button> &nbsp; <button type='button' class='btn btn-danger' onclick='doDelete(".$row['turtle_id'].");'>ลบ</button></td>";
+                   echo "<td align='center'><button type='button' class='btn btn-primary ' onclick='doEditTurtle(".$row['turtle_id'].");'>แก้ไข</button> &nbsp; <button type='button' class='btn btn-danger' onclick='doDelete(".$row['turtle_id'].");'>ลบ</button></td>";
                     echo "</tr>";
 }
-                    
+
 ?>
-                
+
 
 
                 </tbody>
@@ -227,9 +227,9 @@ $data = mysqli_query($conn, $sql);
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
-        
+
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-        
+
         <script>
             $(document).ready( function () {
     $('#listTurtle').DataTable({
@@ -238,17 +238,17 @@ $data = mysqli_query($conn, $sql);
         paging:         false,
        "columnDefs": [
             { "orderable": false, "targets": 3 }
-        ] 
-        
+        ]
+
     });
 } );
-            
+
         </script>
         <script>
     function doEditTurtle(id){
         window.location='editTurtleDetail.php?id='+id;
     }
-    
+
 
 </script>
                 <script>
@@ -280,6 +280,6 @@ $(document).ready(function(){
         confirm("ยืนยันการลบข้อมูล");
         window.location='doDelete.php?id='+id;
     }
-</script>     
+</script>
     </body>
 </html>
