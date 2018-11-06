@@ -424,7 +424,7 @@ function myMap() {
     }
 
     $numLoc = mysqli_num_rows($mapResult);
-    echo "console.log('num of loc',".$numLoc.")";
+
     if($numLoc > 0)
     {
 
