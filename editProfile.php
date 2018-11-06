@@ -53,7 +53,7 @@ $fb = new \Facebook\Facebook([
                         <i class="form-group__bar"></i>
                 </div>
                 <div class="form-group form-group--float form-group--centered">
-                        <input type="text" name="nickname" class="form-control">
+                        <input type="text" name="nickname" class="form-control" value="<?php echo $_SESSION['user_nickname'];?>">
                         <label>ชื่อเล่น</label>
                         <i class="form-group__bar"></i>
                 </div>
@@ -63,7 +63,7 @@ $fb = new \Facebook\Facebook([
                         <i class="form-group__bar"></i>
                 </div>
                 <div class="form-group form-group--float form-group--centered">
-                        <input type="text" name="phone" class="form-control">
+                        <input type="text" name="phone" class="form-control" value="<?php echo $_SESSION['user_phone'];?>">
                         <label>หมายเลขโทรศัพท์</label>
                         <i class="form-group__bar"></i>
                 </div>
