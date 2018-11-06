@@ -262,12 +262,8 @@ $data = mysqli_query($conn, $sql);
          scrollY:        '50vh',
          scrollCollapse: true,
          "pageLength": 10,
-         "pagingType": "full_numbers",
-         "paging": true,
-         "lengthMenu": [10, 25, 50, 75, 100],
-         "columnDefs": [
-              { "orderable": false, "targets": 3 }
-        ]
+         "pagingType": "numbers",
+
 
     });
 } );
