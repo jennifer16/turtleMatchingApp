@@ -5,7 +5,7 @@ require 'connect.php';
 
 $fb = new Facebook\Facebook([
   'app_id' => '161713021336907',
-  'app_secret' => 'e4dbd79e0e6da4d75019803b487214d2', 
+  'app_secret' => 'e4dbd79e0e6da4d75019803b487214d2',
   'default_graph_version' => 'v2.10',
   ]);
 
@@ -96,7 +96,7 @@ if($conn->connect_error){
         $_SESSION['user_email'] = $row['user_email'];
         $_SESSION['user_phone'] =$row['user_phone'];
         $_SESSION['user_role'] = $row['user_role'];
-        
+
         //header('Location: testFacebookNoti.php');
 		header('Location: index.php');
 	}
