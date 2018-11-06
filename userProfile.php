@@ -164,7 +164,8 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                     <b>เบอร์โทร: </b><i><?php echo $_SESSION['user_phone'];?></i>
                   </li>
                 </ul>
-                <button class="btn btn-primary btn-outline btn-lg" onclick="window.location='editProfile.php';"> แก้ไขข้อมูล </button>
+
+                <center><button class="btn btn-primary btn-outline btn-sm" onclick="window.location='editProfile.php';"> แก้ไขข้อมูล </button></center>
               </div>
               <!-- /.card-body -->
             </div>
