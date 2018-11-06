@@ -10,7 +10,7 @@ $sql = "select * from matching where match_pid is null or match_pid=''";
 $result = mysqli_query($conn, $sql);
 $numWaitForMatch = mysqli_num_rows($result);
 
-$sql =  "SELECT * FROM turtle order by turtle_id asc";
+$sql =  "SELECT * FROM turtle order by turtle_id desc";
 $data = mysqli_query($conn, $sql);
 
 ?>
@@ -136,11 +136,14 @@ $data = mysqli_query($conn, $sql);
             echo "<h5>ข้อมูลเต่าทะเล</h5>";
             echo "<div class='contacts row'>";
              while ($row = $data->fetch_assoc()) {
+              $filename = "./Turtle/".$row['turtle_profile'];
+              if (!file_exists($filename))
+                  $filename = "./img/turtleAnno.jpg";
 
               echo "<div class='col-xl-2 col-lg-3 col-sm-4 col-12'>";
               echo "<div class='contacts__item'>";
               echo "<a href='turtleDetail.php?id=".$row['turtle_id']."' class='contacts__img'>";
-              echo "<img class='user__img' src='./Turtle/".$row['turtle_profile']."' alt='' style='width:10rem; height:10rem;'>";
+              echo "<img class='user__img' src='.$filename."' alt='' style='width:10rem; height:10rem;'>";
               echo "</a>";
               echo " <div class='contacts__info'>";
               echo "<strong>".$row['turtle_name']."</strong>";
