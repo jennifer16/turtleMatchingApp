@@ -249,7 +249,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                     <div class="row" align="center">
                     <div class="col-md-12">
 
-                  <br><button id="search" type="submit" class="btn btn-primary full-width" >ค้นหาเต่า</button>
+                  <button id="search" type="submit" class="btn btn-primary full-width" >ค้นหาเต่า</button>
 
      </div>
                 </div>
