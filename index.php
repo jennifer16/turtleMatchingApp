@@ -452,9 +452,20 @@ function myMap() {
 
         echo "];\n";
 
-        echo "console.log(\"marker\", locations);";
-
         echo "for (var i = 0; i < ".$numLoc."; i++) {";
+          echo "var contentString = '<div id=\"content\">'+
+              '<div id=\"siteNotice\">'+
+              '</div>'+
+              '<h1 id=\"firstHeading\" class=\"firstHeading\">+locations[i][3]+</h1>'+
+              '<div id=\"bodyContent\">'+
+              '<p></p>'+
+              '</div>'+
+              '</div>';";
+
+              echo "var infowindow = new google.maps.InfoWindow({
+                content: contentString
+              });";
+
         echo "var marker = new google.maps.Marker({";
         echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
         //echo "    icon: '". $ticon."',";
@@ -464,7 +475,7 @@ function myMap() {
         echo "    map: map";
         echo "});";
         echo "google.maps.event.addListener(marker, 'click', function() {
-            window.location.href = this.url;
+                  infowindow.open(map, marker);
         });";
 
 	echo "}";
