@@ -454,20 +454,7 @@ function myMap() {
 
         echo "console.log(\"marker\", locations);";
 
-        echo "for (var i = 0; i < ".$numLoc."; i++) {";
-        echo "var marker = new google.maps.Marker({";
-        echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
-        //echo "    icon: '". $ticon."',";
-        echo "    url:locations[i][3],";
-        echo "    label:i,";
-        echo "    title:locations[i][2],";
-        echo "    map: map";
-        echo "});";
-        echo "google.maps.event.addListener(marker, 'click', function() {
-            window.location.href = this.url;
-        });";
 
-	echo "}";
 
     }
 
