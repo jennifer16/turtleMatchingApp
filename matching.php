@@ -255,6 +255,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                 </div>
                 <div class="row" align="center">
                 <div class="col-md-12">
+                  <p>&nbsp;</p>
                 </div>
               </div>
 
