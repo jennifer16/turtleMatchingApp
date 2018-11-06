@@ -123,7 +123,7 @@ $data = mysqli_query($conn, $sql);
             <!-- /.card-header -->
             <div class="card-body">
             <h5>แก้ไขข้อมูลเต่า</h5>
-              <table id="listTurtle" class="display" style="width:100%">
+              <table id="listTurtle" class="display responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
                   <th style='text-align: center;'>ชื่อเต่า</th>
@@ -233,12 +233,8 @@ $data = mysqli_query($conn, $sql);
         <script>
             $(document).ready( function () {
     $('#listTurtle').DataTable({
-         scrollY:        '50vh',
-        scrollCollapse: true,
-        paging:         false,
-       "columnDefs": [
-            { "orderable": false, "targets": 3 }
-        ]
+         "pageLength": 10,
+         "pagingType": "simple"
 
     });
 } );

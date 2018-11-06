@@ -12,13 +12,13 @@ $numWaitForMatch = mysqli_num_rows($result);
 
 if( $_SESSION['user_role']=='0')
 {
-    
+
     $sql = "select * from matching WHERE users_id='".$_SESSION['user_id']."' ORDER BY match_time DESC";
-    
+
 }else{
-    
+
     $sql = "select * from matching ORDER BY match_time DESC";
-    
+
 }
 
 
@@ -60,7 +60,7 @@ $result = mysqli_query($conn, $sql);
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
-  
+
     </head>
 
     <body data-ma-theme="green">
@@ -84,7 +84,7 @@ $result = mysqli_query($conn, $sql);
 
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="index.php"><img src="img/noun_1546379_cc.png"><b>คู่มือเต่าทะเล</b></a></h1>
-                    
+
                 </div>
 
                 <ul class="top-nav">
@@ -115,11 +115,11 @@ $result = mysqli_query($conn, $sql);
 
                     <ul class="navigation">
                         <li class="navigation__active"><a href="index.php"><i class="zmdi zmdi-home"></i> หน้าหลัก</a></li>
-                        
+
                         <li><a href="allTurtle.php"><i class="zmdi zmdi-view-week"></i> ข้อมูลเต่าทั้งหมด</a></li>
-                        
+
                         <li><a href="foundTurtleHistory.php"><i class="zmdi zmdi-replay"></i> ประวัติการพบเต่า</a></li>
-                        
+
                         <li><a href="matching.php"><i class="zmdi zmdi-camera"></i> ค้นหาเต่าด้วยรูปภาพ</a></li>
                         <?php
                             if ($_SESSION['user_role']==1)
@@ -140,7 +140,7 @@ $result = mysqli_query($conn, $sql);
                             if ($_SESSION['user_role']==1)
                             { echo "<li><a href='#'><i class='zmdi zmdi-repeat'></i> ข้อมูลแม่เต่าที่ขึ้นมาวางไข่</a></li>"; }
                         ?>
-                        
+
 
                     </ul>
                 </div>
@@ -151,11 +151,11 @@ $result = mysqli_query($conn, $sql);
      <div class="row">
         <div class="col-12">
           <div class="card">
-             
+
             <!-- /.card-header -->
             <div class="card-body">
             <h5>ผลการเปรียบเทียบเต่า</h5>
-              <table id="listTurtle" class="display" style="width:100%">
+              <table id="listTurtle" class="display responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
                   <th style='text-align: center;'>วัน-เวลา</th>
@@ -167,12 +167,12 @@ $result = mysqli_query($conn, $sql);
 <?php
                     $count = 1;
                  while ($row = $result->fetch_assoc()) {
-                     
+
                     echo "<tr>";
                     $timestamp = $row['match_time'];
                     $date = DateTime::createFromFormat('Y-m-d H:i:s', $timestamp);
                     echo "<td align='center'>".$date->format('d/m/y h:i a')."</td>";
-                    
+
                      if (is_process_running($row['match_pid'])){
                          echo "<td align='center'>ยังดำเนินการอยู่</td>";
                          echo "<td>&nbsp;</td>";
@@ -184,16 +184,16 @@ $result = mysqli_query($conn, $sql);
                          echo "<td align='center'>ดำเนินการเสร็จสิ้น</td>";
                         echo "<td align='center'><button type='button' class='btn btn-info' onclick='goToDetail(".$row['id'].");'>ดูผล</button></td>";
                      }
-                     
-                   
+
+
 
                     echo "</tr>";
-                     
+
                      $count++;
 }
-                    
+
 ?>
-                
+
 
 
                 </tbody>
@@ -275,31 +275,27 @@ $result = mysqli_query($conn, $sql);
 
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
-        
+
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-        
+
         <script>
             $(document).ready( function () {
     $('#listTurtle').DataTable({
-         scrollY:        '50vh',
-        scrollCollapse: true,
-        paging:         false,
-       "columnDefs": [
-            { "orderable": false, "targets": 3 }
-        ] 
-        
+         "pageLength": 10,
+         "pagingType": "simple"
+
     });
 } );
-            
+
         </script>
         <script>
     function goToDetail(id){
         window.location='matchDetail.php?id='+id;
     }
-    
+
 
 </script>
-        
+
                 <script>
             String.prototype.trim = function() {
 return this.replace(/^\s+|\s+$/g,"");
