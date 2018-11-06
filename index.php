@@ -102,7 +102,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                         <?php
                             if( !isset($_SESSION["user_id"]) )
                             {
-                              echo "<li><a href=\"login.php\"><i class=\"zmdi-account\"></i> เข้าสู่ระบบ</a></li>";
+                              echo "<li><a href=\"login.php\"><i class=\"zmdi zmdi-account\"></i> เข้าสู่ระบบ</a></li>";
                             }
                          ?>
                         <?php
