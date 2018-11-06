@@ -414,7 +414,7 @@ function myMap() {
     $i=0;
     while($row=$mapResult1->fetch_assoc())
     {
-        if ($i < $numPrint){
+        if ($i < $numPrint-1){
         echo "printAddress(".$row['found_id'].",".$row['found_lat'],",".$row['found_lng'].");\n\n";
         $i=$i+1;
         }else{
@@ -449,6 +449,7 @@ function myMap() {
 
         echo "];\n";
 
+        echo "console.log(\"marker\", locations)";
 
         echo "for (var i = 0; i < ".$numLoc."; i++) {";
         echo "var marker = new google.maps.Marker({";
