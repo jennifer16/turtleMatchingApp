@@ -458,7 +458,6 @@ function myMap() {
               '</div>'+
               '<h1 id=\"firstHeading\" class=\"firstHeading\">'+locations[i][2]+'</h1>'+
               '<div id=\"bodyContent\">'+
-              '<img src=\"./Turtle/'+location[i][4]+'\">'+
               '</div>'+
               '</div>';";
 
