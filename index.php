@@ -456,9 +456,7 @@ function myMap() {
           echo "var contentString = '<div id=\"content\">'+
               '<div id=\"siteNotice\">'+
               '</div>'+
-              '<h1 id=\"firstHeading\" class=\"firstHeading\">";
-          echo "contentString = contentString+locations[i][3]";
-          echo "contentString = contentString+</h1>'+
+              '<h1 id=\"firstHeading\" class=\"firstHeading\">'+location[i][2]+'</h1>'+
               '<div id=\"bodyContent\">'+
               '<p></p>'+
               '</div>'+
