@@ -258,7 +258,11 @@ $data = mysqli_query($conn, $sql);
 
         <script>
             $(document).ready( function () {
-    $('#listTurtle').DataTable();
+    $('#listTurtle').DataTable({
+         "pageLength": 10,
+         "pagingType": "simple"
+
+    });
 } );
 
         </script>
