@@ -458,7 +458,6 @@ function myMap() {
               '</div>'+
               '<h1 id=\"firstHeading\" class=\"firstHeading\">'+locations[i][2]+'</h1>'+
               '<div id=\"bodyContent\">'+
-              '<img src=\'Turtle/'+location[i][4]+'\'>'+
               '</div>'+
               '</div>';";
 
@@ -468,7 +467,7 @@ function myMap() {
 
         echo "var marker = new google.maps.Marker({";
         echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
-        //echo "    icon: '". $ticon."',";
+        echo "    icon: './Turtle/'+location[i][4],";
         echo "    url:locations[i][3],";
         echo "    label:{ color: '#FFF', text: i.toString() },";
         echo "    title:locations[i][2],";
