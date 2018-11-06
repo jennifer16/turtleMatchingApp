@@ -468,7 +468,7 @@ function myMap() {
         echo "    position: new google.maps.LatLng(locations[i][0], locations[i][1]),";
         //echo "    icon: 'Turtle/'+location[i][4],";
         echo "    url:locations[i][3],";
-        echo "    label:{ color: '#FFF', text: i.toString() },";
+        echo "    label:{ color: '#FFF', text: (i+1).toString() },";
         echo "    title:locations[i][2],";
         echo "    map: map";
         echo "});";
