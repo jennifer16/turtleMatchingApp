@@ -258,9 +258,10 @@ $data = mysqli_query($conn, $sql);
 
         <script>
             $(document).ready( function () {
-    $('.listTurtle').DataTable({
+    $('#listTurtle').DataTable({
          scrollY:        '50vh',
         scrollCollapse: true,
+        "pageLength": 10,
         "pagingType": "full_numbers",
    "paging": true,
    "lengthMenu": [10, 25, 50, 75, 100],
