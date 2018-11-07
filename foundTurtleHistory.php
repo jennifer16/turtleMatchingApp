@@ -305,18 +305,24 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             $sqlTurtle = "select * from turtle where turtle_id='".$row['turtle_id']."'";
                             $turtlenameResult = mysqli_query($conn, $sqlTurtle);
                             $turtlenameData = $turtlenameResult->fetch_assoc();
-                            $dir = "./Gallery".$found_id."/";
-                            $files1 = scandir($dir);
-                            array_push($files1,"./Turtle/".$foundPic);
-                            $numFiles = count($file1);
+                            $files1 = array("./Turtle/".$foundPic);
+                            $dir = "./Gallery/".$found_id."/";
+                            if (file_exists($dir){
+                              $files2 = scandir($dir);
+                              $numFiles = count($file2);
+                              for($i=2;i$<$numFiles;$i++)
+                              {
+                                array_push($files1, "./Gallery/".$files2[$i]);
+                              }
+                            }
+                            $numFiles = count($files1);
                             echo "<h3 class='timeline-header'>พบเต่า: ".$turtlenameData['turtle_name']." </h3>";
                             echo "<div class='timeline-body'>";
                             echo "<div class=\"row\">";
-                            for( $i=0; $i<10; $i++){
+                            for( $i=0; $i<$numFiles; $i++){
                               echo "<div class=\"col-lg-3 col-md-4 col-xs-6\">";
                               echo "<img class='myImg' id='myImg' style='max-width:100%; height:auto;'
-                                    src='./Turtle/".$foundPic."'
-                                    alt=\"Another alt text\">";
+                                    src=".$files1[$i]." alt=\"Another alt text\">";
                               echo  "</div>";
                             }
                             echo  "</div>";
