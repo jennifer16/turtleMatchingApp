@@ -349,6 +349,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                                 echo "<div class=\"col-lg-4 col-md-4 col-xs-6\">";
                               else
                                 echo "<div class=\"col-lg-3 col-md-4 col-xs-6\">";
+                                
                               echo "<img class='myImg' id='myImg' style='max-width:100%; height:auto;'
                                     src=".$files1[$i]." alt=\"Another alt text\">";
                               echo  "</div>";
