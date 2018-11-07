@@ -307,7 +307,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             $turtlenameData = $turtlenameResult->fetch_assoc();
                             $files1 = array("./Turtle/".$foundPic);
                             $dir = "./Gallery/".$found_id."/";
-                            if (file_exists($dir){
+                            if (file_exists($dir)){
                               $files2 = scandir($dir);
                               $numFiles = count($file2);
                               for($i=2;i$<$numFiles;$i++)
