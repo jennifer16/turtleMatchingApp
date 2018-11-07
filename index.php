@@ -190,7 +190,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                                     $a = mysqli_num_rows($resultTurtleNature);
                                     $b = mysqli_num_rows($resultAllturtle);
                                     $c = $a-$b;
-                                    echo "<h2>".$c."</h2>";
+                                    echo "<h2>".$a."</h2>";
                                 ?>
                                 <small>รายงานการพบเต่า</small>
                             </div>
