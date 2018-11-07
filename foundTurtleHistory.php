@@ -320,7 +320,14 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<div class='timeline-body'>";
                             echo "<div class=\"row\">";
                             for( $i=0; $i<$numFiles; $i++){
-                              echo "<div class=\"col-lg-3 col-md-4 col-xs-6\">";
+                              if($numFiles==1)
+                                echo "<div class=\"col-lg-12 col-md-12 col-xs-6\">";
+                              else if($numFiles==2)
+                                echo "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+                              else if ($numFiles==3)
+                                echo "<div class=\"col-lg-4 col-md-4 col-xs-6\">";
+                              else
+                                echo "<div class=\"col-lg-3 col-md-4 col-xs-6\">";
                               echo "<img class='myImg' id='myImg' style='max-width:100%; height:auto;'
                                     src=".$files1[$i]." alt=\"Another alt text\">";
                               echo  "</div>";
