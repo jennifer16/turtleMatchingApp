@@ -354,7 +354,8 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                               echo  "</div>";
                             }
                             echo  "</div>";
-                            echo "<br>";= "select * from users where user_id='".$row['user_id']."'";
+                            echo "<br>";
+                            $sqlUsername = "select * from users where user_id='".$row['user_id']."'";
                             $usernameResult = mysqli_query($conn, $sqlUsername);
                             $usernameData = $usernameResult->fetch_assoc();
                             echo "<br><ul>";
