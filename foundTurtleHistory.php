@@ -308,13 +308,9 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<div class='timeline-body'>";
                             echo "<div class=\"row\">";
                             echo "<div class=\"col-lg-3 col-md-4 col-xs-6 thumb\">";
-                            echo "<a class=\"thumbnail\" href=\"#\" data-image-id=\"\" data-toggle=\"modal\" data-title=\"\"
-                                  data-image=\"https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\"
-                                  data-target=\"#image-gallery\">";
-                            echo "<img class=\"img-thumbnail\"
+                            echo "<img class='myImg' id='myImg' style='max-width:100%; height:auto;'
                                   src=\"https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\"
                                   alt=\"Another alt text\">";
-                            echo "</a>";
                             echo  "</div>";
                             echo  "</div>";
                             echo "<img src='./Turtle/".$foundPic."' alt='...' class='myImg' id='myImg' style='max-width:100%; height:auto;'>";
