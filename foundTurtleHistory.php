@@ -278,6 +278,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
                           while($row=$result->fetch_assoc())
                           {
+                            $found_id = $row['found_id'];
                              $foundDate = $row['found_date'];
                               $foundPic = $row['found_picure'];
                               $turtle_id = $row['turtle_id'];
@@ -304,16 +305,21 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             $sqlTurtle = "select * from turtle where turtle_id='".$row['turtle_id']."'";
                             $turtlenameResult = mysqli_query($conn, $sqlTurtle);
                             $turtlenameData = $turtlenameResult->fetch_assoc();
+                            $dir = "./Gallery".$found_id."/";
+                            $files1 = scandir($dir);
+                            array_push($files1,"./Turtle/".$foundPic);
+                            $numFiles = count($file1);
                             echo "<h3 class='timeline-header'>พบเต่า: ".$turtlenameData['turtle_name']." </h3>";
                             echo "<div class='timeline-body'>";
                             echo "<div class=\"row\">";
-                            echo "<div class=\"col-lg-3 col-md-4 col-xs-6 thumb\">";
-                            echo "<img class='myImg' id='myImg' style='max-width:100%; height:auto;'
-                                  src=\"https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260\"
-                                  alt=\"Another alt text\">";
+                            for( $i=0; $i<10; i++){
+                              echo "<div class=\"col-lg-3 col-md-4 col-xs-6\">";
+                              echo "<img class='myImg' id='myImg' style='max-width:100%; height:auto;'
+                                    src='./Turtle/".$foundPic."'
+                                    alt=\"Another alt text\">";
+                              echo  "</div>";
+                            }
                             echo  "</div>";
-                            echo  "</div>";
-                            echo "<img src='./Turtle/".$foundPic."' alt='...' class='myImg' id='myImg' style='max-width:100%; height:auto;'>";
                             echo "<br>";
                             $sqlUsername = "select * from users where user_id='".$row['user_id']."'";
                             $usernameResult = mysqli_query($conn, $sqlUsername);
