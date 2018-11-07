@@ -312,7 +312,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             echo "<h3 class='timeline-header'>พบเต่า: ".$turtlenameData['turtle_name']." </h3>";
                             echo "<div class='timeline-body'>";
                             echo "<div class=\"row\">";
-                            for( $i=0; $i<10; i++){
+                            for( $i=0; $i<10; $i++){
                               echo "<div class=\"col-lg-3 col-md-4 col-xs-6\">";
                               echo "<img class='myImg' id='myImg' style='max-width:100%; height:auto;'
                                     src='./Turtle/".$foundPic."'
