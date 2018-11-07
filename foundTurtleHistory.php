@@ -310,7 +310,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             if (file_exists($dir)){
                               $files2 = scandir($dir);
                               $numFiles = count($file2);
-                              for($i=2;i$<$numFiles;$i++)
+                              for($i=2;$i<$numFiles;$i++)
                               {
                                 array_push($files1, "./Gallery/".$files2[$i]);
                               }
