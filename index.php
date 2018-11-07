@@ -185,9 +185,9 @@ $numWaitForMatch = mysqli_num_rows($result);
                         <div class="quick-stats__item bg-amber">
                             <div class="quick-stats__info">
                                 <?php
-                                    $sqlTurtleNature = "select DISTINCT turtle_id from found where found_status='0'";
+                                    $sqlTurtleNature = "select * from found";
                                     $resultTurtleNature = mysqli_query($conn,$sqlTurtleNature);
-                                    echo "<h2>".mysqli_num_rows($resultTurtleNature)."</h2>";
+                                    echo "<h2>".mysqli_num_rows($resultTurtleNature)-mysqli_num_rows($resultAllturtle)."</h2>";
                                 ?>
                                 <small>รายงานการพบเต่า</small>
                             </div>
@@ -213,7 +213,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                         <div class="quick-stats__item bg-red">
                             <div class="quick-stats__info">
                                  <?php
-                                    $sqlTurtleNature = "select DISTINCT user_id from found where found_status='0'";
+                                    $sqlTurtleNature = "select DISTINCT user_id from found";
                                     $resultTurtleNature = mysqli_query($conn, $sqlTurtleNature);
                                     echo "<h2>".mysqli_num_rows($resultTurtleNature)."</h2>";
                                 ?>
