@@ -187,7 +187,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                                 <?php
                                     $sqlTurtleNature = "select * from found";
                                     $resultTurtleNature = mysqli_query($conn,$sqlTurtleNature);
-                                    echo "<h2>".mysqli_num_rows($resultTurtleNature)-mysqli_num_rows($resultAllturtle)."</h2>";
+                                    echo "<h2>".mysqli_num_rows($resultAllturtle)."</h2>";
                                 ?>
                                 <small>รายงานการพบเต่า</small>
                             </div>
