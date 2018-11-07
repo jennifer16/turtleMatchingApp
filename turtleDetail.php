@@ -302,6 +302,7 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
 
                           while($row=$result->fetch_assoc())
                           {
+                                $found_id = $row['found_id'];
                              $foundDate = $row['found_date'];
                               $foundPic = $row['found_picure'];
                               $turtle_id = $row['turtle_id'];
@@ -310,7 +311,17 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                               $resultTurtle = mysqli_query($conn, $sql2);
                               $turtleData = $resultTurtle->fetch_assoc();
                               $turtle_name = $turtleData['turtle_name'];
-
+                              $files1 = array("./Turtle/".$foundPic);
+                              $dir = "./Gallery/".$found_id."/";
+                              if (file_exists($dir)){
+                                $files2 = scandir($dir);
+                                $numFiles = count($file2);
+                                for($i=2;$i<$numFiles;$i++)
+                                {
+                                  array_push($files1, "./Gallery/".$files2[$i]);
+                                }
+                              }
+                              $numFiles = count($files1);
                               $dt = new DateTime($foundDate);
                              // $timestamp = strtotime($turtleData);
 
@@ -328,9 +339,22 @@ function dateDifference($date_1 , $date_2 , $differenceFormat = '%a' )
                             //echo "<span class='time'><i class='fa fa-clock-o'></i>".dateDiference(date("Y-m-d"), date("Y-m-d", $timestamp))."</span>";
                             echo "<h3 class='timeline-header'>รายละเอียด</h3>";
                             echo "<div class='timeline-body'>";
-                            echo "<img src='./Turtle/".$foundPic."' alt='...' class='myImg' id='myImg' style='max-width:100%; height:auto;'>";
-                            echo "<br>";
-                            $sqlUsername = "select * from users where user_id='".$row['user_id']."'";
+                            echo "<div class=\"row\">";
+                            for( $i=0; $i<$numFiles; $i++){
+                              if($numFiles==1)
+                                echo "<div class=\"col-lg-12 col-md-12 col-xs-6\">";
+                              else if($numFiles==2)
+                                echo "<div class=\"col-lg-6 col-md-6 col-xs-6\">";
+                              else if ($numFiles==3)
+                                echo "<div class=\"col-lg-4 col-md-4 col-xs-6\">";
+                              else
+                                echo "<div class=\"col-lg-3 col-md-4 col-xs-6\">";
+                              echo "<img class='myImg' id='myImg' style='max-width:100%; height:auto;'
+                                    src=".$files1[$i]." alt=\"Another alt text\">";
+                              echo  "</div>";
+                            }
+                            echo  "</div>";
+                            echo "<br>";= "select * from users where user_id='".$row['user_id']."'";
                             $usernameResult = mysqli_query($conn, $sqlUsername);
                             $usernameData = $usernameResult->fetch_assoc();
                             echo "<br><ul>";
