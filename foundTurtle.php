@@ -248,6 +248,14 @@ $matchWidth = $matchData['match_width'];
                     <input type="text" class="form-control" id="longtitude" name="longitude" placeholder="0.00" value='<?php echo $matchLng; ?>'>
                         </div>
                     <br>
+                </div><br><input name='uploads[]' type="file" multiple>
+
+                <div class="row">
+                    <div class="col-md-6">
+                    <label for="latitude">ภาพการพบเต่า</label>
+                    <input name='photos[]' type="file" multiple>
+                        </div>
+
                 </div><br>
                 <div class="row" >
                     <div class="col-md-12" align="center">
