@@ -25,15 +25,6 @@ $numWaitForMatch = mysqli_num_rows($result);
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
         <link rel="manifest" href="../manifest.json" />
-        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-<script>
-  var OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "a6ac6e35-98b7-469f-a4d6-5494aa309268",
-    });
-  });
-</script>
     </head>
 
     <body data-ma-theme="green">
@@ -380,6 +371,15 @@ $numWaitForMatch = mysqli_num_rows($result);
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
 
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "a6ac6e35-98b7-469f-a4d6-5494aa309268",
+    });
+  });
+</script>
 
 
     <script>
