@@ -310,7 +310,12 @@ $(document).ready(function(){
  setInterval(fetchdata,10000);
  $('#listTurtle').DataTable({
       "pageLength": 10,
-      "pagingType": "simple"
+      "pagingType": "simple",
+      "responsive": true,
+    "columnDefs": [
+        { responsivePriority: 1, targets: 0 },
+        { responsivePriority: 2, targets: -1 }
+    ]
 
  });
 });
