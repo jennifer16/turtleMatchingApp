@@ -123,7 +123,7 @@ $data = mysqli_query($conn, $sql);
             <!-- /.card-header -->
             <div class="card-body">
             <h5>แก้ไขข้อมูลเต่า</h5>
-              <table id="listTurtle" class="display responsive" style="width:100%">
+              <table id="listTurtle" class="display responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
                   <th style='text-align: center;'>ชื่อเต่า</th>
@@ -232,16 +232,7 @@ $data = mysqli_query($conn, $sql);
 
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 
-        <script>
-            $(document).ready( function () {
-    $('#listTurtle').DataTable({
-         "pageLength": 10,
-         "pagingType": "simple"
 
-    });
-} );
-
-        </script>
         <script>
     function doEditTurtle(id){
         window.location='editTurtleDetail.php?id='+id;
@@ -279,5 +270,17 @@ $(document).ready(function(){
         window.location='doDelete.php?id='+id;
     }
 </script>
+
+<script>
+    $(document).ready( function () {
+$('#listTurtle').DataTable({
+ "pageLength": 10,
+ "pagingType": "simple"
+
+});
+} );
+
+</script>
+
     </body>
 </html>
