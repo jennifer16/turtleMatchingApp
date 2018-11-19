@@ -158,9 +158,9 @@ $result = mysqli_query($conn, $sql);
               <table id="listTurtle"  class="display responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
-                  <th style='text-align: center;'>วัน-เวลา</th>
-                  <th style='text-align: center;'>สถานะ</th>
-                  <th>&nbsp;</th>
+                  <th data-priority="1" style='text-align: center;'>วัน-เวลา</th>
+                  <th data-priority="3" style='text-align: center;'>สถานะ</th>
+                  <th data-priority="2">&nbsp;</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -310,12 +310,7 @@ $(document).ready(function(){
  setInterval(fetchdata,10000);
  $('#listTurtle').DataTable({
       "pageLength": 10,
-      "pagingType": "simple",
-      "responsive": true,
-    "columnDefs": [
-        { responsivePriority: 1, targets: 0 },
-        { responsivePriority: 2, targets: -1 }
-    ]
+      "pagingType": "simple"
 
  });
 });
