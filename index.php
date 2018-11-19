@@ -23,7 +23,7 @@ $numWaitForMatch = mysqli_num_rows($result);
         <link rel="stylesheet" href="vendors/bower_components/fullcalendar/dist/fullcalendar.min.css">
 
         <!-- App styles -->
-        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="css/app.min.css">
         <link rel="manifest" href="../manifest.json" />
     </head>
 
@@ -369,7 +369,7 @@ $numWaitForMatch = mysqli_num_rows($result);
         <script src="vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 
         <!-- App functions and actions -->
-        <script src="js/app.js"></script>
+        <script src="js/app.min.js"></script>
 
         <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 <script>
