@@ -182,7 +182,7 @@ $result = mysqli_query($conn, $sql);
                      }
                      else{
                          echo "<td align='center'>ดำเนินการเสร็จสิ้น</td>";
-                        echo "<td align='center'><button type='button' class='btn btn-info' onclick='goToDetail(".$row['id'].");'>ดูผล</button></td>";
+                        echo "<td align='center'>ดูผล</td>";
                      }
 
 
