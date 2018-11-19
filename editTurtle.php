@@ -130,6 +130,7 @@ $data = mysqli_query($conn, $sql);
                   <th style='text-align: center;'>รหัสไมโครชิพ</th>
                   <th style='text-align: center;'>TAG</th>
                   <th>&nbsp;</th>
+                  <th>&nbsp;</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -139,7 +140,8 @@ $data = mysqli_query($conn, $sql);
                     echo "<td align='center'><a href='turtleDetail.php?id=".$row['turtle_id']."'>".$row['turtle_name']."</a></td>";
                     echo "<td align='center'>".$row['turtle_microchip_code']."</td>";
                     echo "<td align='center'>".$row['turtle_tag_code']."</td>";
-                   echo "<td align='center'><button type='button' class='btn btn-primary ' onclick='doEditTurtle(".$row['turtle_id'].");'>แก้ไข</button> &nbsp; <button type='button' class='btn btn-danger' onclick='doDelete(".$row['turtle_id'].");'>ลบ</button></td>";
+                   echo "<td align='center'><button type='button' class='btn btn-primary ' onclick='doEditTurtle(".$row['turtle_id'].");'>แก้ไข</button> </td>";
+                   echo "<td align='center'><button type='button' class='btn btn-danger' onclick='doDelete(".$row['turtle_id'].");'>ลบ</button></td>";
                     echo "</tr>";
 }
 
