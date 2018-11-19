@@ -155,7 +155,7 @@ $result = mysqli_query($conn, $sql);
             <!-- /.card-header -->
             <div class="card-body">
             <h5>ผลการเปรียบเทียบเต่า</h5>
-              <table id="listTurtle" class="display responsive nowrap" style="width:100%">
+              <table id="listTurtle"  class="display responsive nowrap" style="width:100%">
                 <thead>
                 <tr>
                   <th style='text-align: center;'>วัน-เวลา</th>
@@ -182,7 +182,7 @@ $result = mysqli_query($conn, $sql);
                      }
                      else{
                          echo "<td align='center'>ดำเนินการเสร็จสิ้น</td>";
-                        echo "<td align='center'>ดูผล</td>";
+                        echo "<td align='center'><button type='button' class='btn btn-info' onclick='goToDetail(".$row['id'].");'>ดูผล</button></td>";
                      }
 
 
