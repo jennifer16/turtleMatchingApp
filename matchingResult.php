@@ -155,7 +155,7 @@ $result = mysqli_query($conn, $sql);
             <!-- /.card-header -->
             <div class="card-body">
             <h5>ผลการเปรียบเทียบเต่า</h5>
-              <table id="listTurtle"  class="display responsive nowrap" style="width:100%">
+              <table id="listTurtle"  class="display responsive" style="width:100%">
                 <thead>
                 <tr>
                   <th data-priority="1" style='text-align: center;'>วัน-เวลา</th>
