@@ -156,6 +156,7 @@ $data = mysqli_query($conn, $sql);
                   <!--<th style='text-align: center;'>รหัสไมโครชิพ</th>-->
                   <th style='text-align: center;'>TAG</th>
                   <th>&nbsp;</th>
+                    <th>&nbsp;</th>
                 </tr>
                 </tfoot>
               </table>
