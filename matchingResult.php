@@ -59,7 +59,7 @@ $result = mysqli_query($conn, $sql);
 
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
     </head>
 
@@ -276,7 +276,7 @@ $result = mysqli_query($conn, $sql);
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
 
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
 
         <script>
