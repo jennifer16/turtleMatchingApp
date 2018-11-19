@@ -140,7 +140,7 @@ $data = mysqli_query($conn, $sql);
               if (!file_exists($filename))
                   $filename = "./img/turtleAnno.jpg";
 
-              echo "<div class='col-xl-2 col-lg-4 col-sm-6 col-12'>";
+              echo "<div class='col-xl-2 col-md-4 col-sm-6 col-12'>";
               echo "<div class='contacts__item'>";
               echo "<a href='turtleDetail.php?id=".$row['turtle_id']."' class='contacts__img'>";
               echo "<img class='user__img' src='".$filename."' alt='' style='width:10rem; height:10rem;'>";
