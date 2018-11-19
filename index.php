@@ -264,7 +264,7 @@ $numWaitForMatch = mysqli_num_rows($result);
                                         // echo "<figcaption>พบโดย: ".$userName." ".$userLastname."</figcaption>";
                                         // echo "</figure>";
                              ?>
-                                    <div class="col-sm-6 col-md-3">
+                                    <div class="col-sm-6 col-md-4">
                                         <div class="card widget-contacts">
                                             <a class="widget-contacts__map" href="<?php echo "turtleDetail.php?id=".$row['turtle_id']?>">
                                                 <img src="<?php echo "./Turtle/".$row['found_picure']; ?>" alt="">

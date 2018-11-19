@@ -278,16 +278,7 @@ $result = mysqli_query($conn, $sql);
 
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 
-        <script>
-            $(document).ready( function () {
-    $('#listTurtle').DataTable({
-         "pageLength": 10,
-         "pagingType": "simple"
 
-    });
-} );
-
-        </script>
         <script>
     function goToDetail(id){
         window.location='matchDetail.php?id='+id;
@@ -317,6 +308,11 @@ function fetchdata(){
 
 $(document).ready(function(){
  setInterval(fetchdata,10000);
+ $('#listTurtle').DataTable({
+      "pageLength": 10,
+      "pagingType": "simple"
+
+ });
 });
         </script>
 
